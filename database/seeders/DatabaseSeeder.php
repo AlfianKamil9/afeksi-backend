@@ -21,6 +21,9 @@ class DatabaseSeeder extends Seeder
        $this->call(EventCategorySeeder::class);
        $this->call(EventSeeder::class);
        $this->call(EventTransactionSeeder::class);
+       $this->call(MentoringSeeder::class);
+       $this->call(ConselingSeeder::class);
         
+
     }
 }
