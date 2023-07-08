@@ -17,7 +17,7 @@ class EventSeeder extends Seeder
         $data = [
         [
             '2',
-            'Title Campaign Psikologi',
+            'Title Campaign Psikologi 1',
             'OFFLINE',
             'PAID',
             '2023-07-10',
@@ -33,7 +33,7 @@ class EventSeeder extends Seeder
         ],
         [
                 '1',
-                'Title Webinar Psikologi',
+                'Title Webinar Psikologi 1',
                 'ONLINE',
                 'FREE',
                 '2023-07-06',
