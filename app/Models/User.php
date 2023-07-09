@@ -19,9 +19,13 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'nama',
         'email',
+        'jenisKelamin',
         'password',
+        'umur',
+        'google_id',
+        'no_whatsapp',
     ];
 
     /**
@@ -46,5 +50,15 @@ class User extends Authenticatable
 
     public function event_transaction () {
         return $this->hasMany(EventTransaction::class);
+    }
+
+    public function volunteers()
+    {
+        return $this->hasMany(Volunteer::class);
+    }
+
+    public function konselors()
+    {
+        return $this->hasMany(Konselor::class);
     }
 }
