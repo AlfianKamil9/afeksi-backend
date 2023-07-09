@@ -16,8 +16,8 @@ return new class extends Migration
             $table->unsignedBigInteger('category_event_id');
             $table->string('title_event');
             $table->string('slug_event');
-            $table->string('time_category_event')->default('ONLINE', 'OFFLINE');
-            $table->string('pay_category_event')->default('FREE', 'PAID');
+            $table->enum('time_category_event', ['ONLINE', 'OFFLINE']);
+            $table->enum('pay_category_event', ['FREE', 'PAID']);
             $table->date('registration_start');
             $table->date('registration_end');
             $table->date('date_event');
@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('cover_event');
             $table->string('price_event')->nullable();
             $table->string('description_event');
-            $table->string('status_event')->default('LIVE','DRAFT','EXPIRE');
+            $table->enum('status_event', ['LIVE','DRAFT','EXPIRE']);
             $table->timestamps();
 
             $table->foreign('category_event_id')->references('id')->on('event_categories')->onDelete('cascade');
