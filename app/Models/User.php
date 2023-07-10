@@ -48,7 +48,8 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function event_transaction () {
+    public function event_transaction()
+    {
         return $this->hasMany(EventTransaction::class);
     }
 
@@ -60,5 +61,10 @@ class User extends Authenticatable
     public function konselors()
     {
         return $this->hasMany(Konselor::class);
+    }
+
+    public function pembayaran_layanan()
+    {
+        return $this->hasMany(PembayaranLayanan::class);
     }
 }

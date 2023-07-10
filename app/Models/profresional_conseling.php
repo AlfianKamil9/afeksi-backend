@@ -9,7 +9,11 @@ class profresional_conseling extends Model
 {
     use HasFactory;
 
-    protected $table = "profresional_conseling";
+    protected $table = "profresional_conselings";
     protected $fillable = ["namaPengalaman"];
-}
 
+    public function pembayaran_layanan()
+    {
+        return $this->hasMany(PembayaranLayanan::class);
+    }
+}
