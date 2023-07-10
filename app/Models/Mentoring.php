@@ -9,7 +9,11 @@ class Mentoring extends Model
 {
     use HasFactory;
 
-    protected $table = "mentoring";
+    protected $table = "mentorings";
     protected $fillable = ["namaMentoring"];
-}
 
+    public function pembayaran_layanan()
+    {
+        return $this->hasMany(PembayaranLayanan::class);
+    }
+}
