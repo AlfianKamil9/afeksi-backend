@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('paket_profesional_conselings', function (Blueprint $table) {
             $table->id();
-            $table->varchar('nama_paket');
+            $table->string('nama_paket');
             $table->enum('status', ['Junior', 'Senior']);
-            $table->varchar('harga');
+            $table->string('harga');
             $table->timestamps();
         });
     }
