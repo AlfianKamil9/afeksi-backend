@@ -30,7 +30,7 @@ return new class extends Migration
             $table->foreign('mentoring_id')->references('id_Mentoring')->on('mentorings')->onDelete('cascade');
             $table->foreign('conseling_id')->references('id_conseling')->on('conselings')->onDelete('cascade');
             $table->foreign('profesional_conseling_id')->references('id_profConseling')->on('profresional_conselings')->onDelete('cascade');
-            // $table->foreign('psikolog_id')->references('id')->on('psikologs')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('psikolog_id')->references('id')->on('psikologs')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
