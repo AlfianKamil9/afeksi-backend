@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\AuthResource;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Resources\AuthResource;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
@@ -23,10 +24,13 @@ class LoginController extends Controller
                     ->response()
                     ->setStatusCode(401);
             }
+
+            // Revoke any existing tokens for the user
+            $user->tokens()->delete();
         
             $token = $user->createToken('ApiToken')->plainTextToken;
         
-            return new AuthResource(false, 'Sukses login', $token);
+            return new AuthResource(true, 'Sukses login', $token);
     }
     
     /**
@@ -34,9 +38,11 @@ class LoginController extends Controller
      *
      * @return void
      */
-    public function logout()
+    public function logout(Request $request)
     {
-        auth()->logout();
+        $request->user()->currentAccessToken()->delete();
+        Auth::guard('web')->logout();
+
         return new AuthResource(true, 'Berhasil logout', null);
     }
 
