@@ -18,20 +18,27 @@
         </div>
         <div class="col-md-5 d-flex flex-column">
         <img src="assets/img/logo.png" alt="Logo" class="img-fluid align-self-center" style="max-width: 130px" />
-          <form>
+        <!-- Session Status -->
+        <x-auth-session-status class="mb-4" :status="session('status')" />
+          <form method="POST" action="{{ route('login') }}"> 
+            @csrf
             <div class="mb-4">
               <input
                 type="email"
+                name="email"
                 class="form-control border-dark rounded-0 px-2 py-3"
                 id="email"
                 placeholder="Email" />
+                <x-input-error :messages="$errors->get('email')" class="mt-2" />
             </div>
             <div class="mb-4">
               <input
                 type="password"
+                name="password"
                 class="form-control border-dark rounded-0 px-2 py-3"
                 id="password"
                 placeholder="Password" />
+                <x-input-error :messages="$errors->get('password')" class="mt-2" />
             </div>
             <div class="mb-3 text-end">
               <a href="#" class="link-secondary text-decoration-none"

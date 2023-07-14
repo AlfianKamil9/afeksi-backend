@@ -19,21 +19,22 @@
         </div>
 
         <div class="p-5 col-sm-6">
-          <form action="">
+          <form method="POST" action="{{ route('register') }}">
+            @csrf
             <div class="text-center mb-4">
               <img src="assets/img/logo.png" alt="Logo" class="img-fluid" style="max-width: 130px" />
             </div>
             <div class="mb-4">
-              <input type="text" class="form-control border-dark rounded-0 py-3" placeholder="Nama Lengkap" required />
+              <input type="text" name="name" class="form-control border-dark rounded-0 py-3" placeholder="Nama Lengkap" required />
             </div>
             <div class="mb-3">
-              <input type="email" class="form-control border-dark rounded-0 py-3" placeholder="Email" required />
+              <input type="email" name="email" class="form-control border-dark rounded-0 py-3" placeholder="Email" required />
             </div>
             <div class="mb-3">
-              <input type="password" class="form-control border-dark rounded-0 py-3" placeholder="Password" required />
+              <input type="password" name="password" class="form-control border-dark rounded-0 py-3" placeholder="Password" required />
             </div>
             <div class="mb-5">
-              <input type="password" class="form-control border-dark rounded-0 py-3" placeholder="Konfirmasi Password" required />
+              <input type="password" name="password_confirmation" class="form-control border-dark rounded-0 py-3" placeholder="Konfirmasi Password" required />
             </div>
             <div class="d-grid gap-2 col-8 col-sm-10 mx-auto custom-button">
               <button type="submit" class="btn rounded-4 fw-semibold">Signup Now</button>
