@@ -41,7 +41,7 @@
                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
             </div>
             <div class="mb-3 text-end">
-              <a href="{{ route("sendForgotPassword") }}" class="link-secondary text-decoration-none"
+              <a href="#" class="link-secondary text-decoration-none"
                 >Forgot password?</a
               >
             </div>
