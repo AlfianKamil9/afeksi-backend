@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\PembayaranController;
+use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\forgotPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,9 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('pages.register');
 });
+
+Route::get('/forgot-password', [forgotPasswordController::class, 'showForgotPassword']);
+Route::post('/forgot-password', [forgotPasswordController::class, 'sendForgotPassword'])->name('sendForgotPassword');
+Route::get('/reset-password/{token}', [forgotPasswordController::class, 'showResetPassword']);
+Route::post('/reset-password/{token}', [forgotPasswordController::class, 'submitResetPassword'])->name('submitResetPassword');
+

@@ -1,6 +1,6 @@
 @extends('../layout')
 
-@section('title', 'Login')
+@section('title', 'Forgot Password')
 
 <!-- @include('partials/navbar') -->
 
@@ -18,32 +18,28 @@
         </div>
         <div class="col-md-5 d-flex flex-column">
         <img src="assets/img/logo.png" alt="Logo" class="img-fluid align-self-center" style="max-width: 130px" />
-          <form>
+          <form action="{{ route("sendForgotPassword") }}" method="POST">
+            @if (session()->has('success'))  
+              <span class="text-success" style="font-style:italic; font-size:12px;"><i class="bi bi-check-circle-fill"></i> {{ session('success') }}</span>
+            @endif
+            @csrf
             <div class="mb-4">
               <input
+                name="email"
                 type="email"
                 class="form-control border-dark rounded-0 px-2 py-3"
                 id="email"
                 placeholder="Email" />
-            </div>
-            <div class="mb-4">
-              <input
-                type="password"
-                class="form-control border-dark rounded-0 px-2 py-3"
-                id="password"
-                placeholder="Password" />
-            </div>
-            <div class="mb-3 text-end">
-              <a href="{{ route("sendForgotPassword") }}" class="link-secondary text-decoration-none"
-                >Forgot password?</a
-              >
+             @if (session()->has('error'))
+                  <span class="text-danger" style="font-style:italic; font-size:12px;"><i class="bi bi-exclamation-circle"></i> {{ session('error') }}</span>
+             @endif
             </div>
             <div class="d-flex flex-column mt-auto">
               <button
                 style="background: #d2e122"
                 type="submit"
                 class="btn btn-success fw-semibold mb-2 py-3 rounded-4 w-75 align-self-center border-0 text-dark">
-                Login
+                Send Email Verifikasi
               </button>
               <button type="submit" class="btn fw-semibold mb-2">
                 <img src="assets/img/google.png" alt="" /> Sign in with Google
