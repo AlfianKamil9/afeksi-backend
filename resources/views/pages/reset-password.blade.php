@@ -18,26 +18,37 @@
         </div>
         <div class="col-md-5 d-flex flex-column">
         <img src="/assets/img/logo.png" alt="Logo" class="img-fluid align-self-center" style="max-width: 130px" />
-          <form  method="POST" action="/reset-password/{{ $token }}">
+          <form  method="POST" action="{{  route('password.store') }}">
             @csrf
-            @if (session()->has('error'))
-                  <span class="text-danger" style="font-style:italic; font-size:12px;"><i class="bi bi-exclamation-circle"></i> {{ session('error') }}</span>
-             @endif
+            <x-input-error :messages="$errors->get('password')" class="mt-2 text-danger fst-italic" style="font-size:14px;" />
+            <input type="hidden" name="token" value="{{ $request->route('token') }} " required>
+            <div class="mb-4">
+                <input
+                name="email"
+                type="text"
+                class="form-control border-dark rounded-0 px-2 py-3 fw-bold"
+                id="email"
+                value="{{ old('email', $request->email) }}"
+                placeholder="Email" 
+                required />
+            </div>
             <div class="mb-4">
                 <input
                 name="password"
                 type="password"
                 class="form-control border-dark rounded-0 px-2 py-3"
                 id="email"
-                placeholder="Password" />
+                placeholder="Password" 
+                required />
             </div>
             <div class="mb-4">
               <input
-                name="c_password"
+                name="password_confirmation"
                 type="password"
                 class="form-control border-dark rounded-0 px-2 py-3"
                 id="email"
-                placeholder="Confirm Password" />
+                placeholder="Confirm Password"
+                required />
             </div>
             <div class="d-flex flex-column mt-auto">
               <button
@@ -46,10 +57,10 @@
                 class="btn btn-success fw-semibold mb-2 py-3 rounded-4 w-75 align-self-center border-0 text-dark">
                 Confirmation
               </button>
-              <button type="submit" class="btn fw-semibold mb-2">
+              {{-- <button type="submit" class="btn fw-semibold mb-2">
                 <img src="assets/img/google.png" alt="" /> Sign in with Google
               </button>
-              <a type="button" href="/register" class="btn fw-semibold">Signup Now</a>
+              <a type="button" href="/register" class="btn fw-semibold">Signup Now</a> --}}
             </div>
           </form>
         </div>

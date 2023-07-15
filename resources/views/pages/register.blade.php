@@ -24,11 +24,16 @@
             <div class="text-center mb-4">
               <img src="assets/img/logo.png" alt="Logo" class="img-fluid" style="max-width: 130px" />
             </div>
+            @if ($errors->get('email'))
+                <x-input-error :messages="$errors->get('email')" class="mt-2 text-danger fst-italic" style="font-size:14px;" />
+            @else
+                <x-input-error :messages="$errors->get('password')" class="mt-2 text-danger fst-italic" style="font-size:14px;" />
+            @endif
             <div class="mb-4">
-              <input type="text" name="name" class="form-control border-dark rounded-0 py-3" placeholder="Nama Lengkap" required />
+              <input type="text" name="name" class="form-control border-dark rounded-0 py-3" placeholder="Nama Lengkap" value="{{ old('name') }}" required />
             </div>
             <div class="mb-3">
-              <input type="email" name="email" class="form-control border-dark rounded-0 py-3" placeholder="Email" required />
+              <input type="email" name="email" class="form-control border-dark rounded-0 py-3" placeholder="Email" value="{{ old('email') }}" required />
             </div>
             <div class="mb-3">
               <input type="password" name="password" class="form-control border-dark rounded-0 py-3" placeholder="Password" required />

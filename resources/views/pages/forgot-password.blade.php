@@ -18,9 +18,11 @@
         </div>
         <div class="col-md-5 d-flex flex-column">
         <img src="assets/img/logo.png" alt="Logo" class="img-fluid align-self-center" style="max-width: 130px" />
-          <form action="{{ route("sendForgotPassword") }}" method="POST">
+          <form action="{{ route('password.email') }}" method="POST">
             @if (session()->has('success'))  
-              <span class="text-success" style="font-style:italic; font-size:12px;"><i class="bi bi-check-circle-fill"></i> {{ session('success') }}</span>
+              <span class="text-success" style="font-style:italic; font-size:14px;"><i class="bi bi-check-circle-fill"></i> {{ session('success') }}</span>
+            @elseif (session()->has('error'))
+                 <span class="text-danger" style="font-style:italic; font-size:14px;"><i class="bi bi-exclamation-circle"></i> {{ session('error') }}</span>
             @endif
             @csrf
             <div class="mb-4">
@@ -29,10 +31,9 @@
                 type="email"
                 class="form-control border-dark rounded-0 px-2 py-3"
                 id="email"
-                placeholder="Email" />
-             @if (session()->has('error'))
-                  <span class="text-danger" style="font-style:italic; font-size:12px;"><i class="bi bi-exclamation-circle"></i> {{ session('error') }}</span>
-             @endif
+                placeholder="Email"
+                value="{{ old('email') }}"
+                required />
             </div>
             <div class="d-flex flex-column mt-auto">
               <button
@@ -44,7 +45,7 @@
               <button type="submit" class="btn fw-semibold mb-2">
                 <img src="assets/img/google.png" alt="" /> Sign in with Google
               </button>
-              <a type="button" href="/register" class="btn fw-semibold">Signup Now</a>
+              <a type="button" href="{{ route('register') }}" class="btn fw-semibold">Signup Now</a>
             </div>
           </form>
         </div>

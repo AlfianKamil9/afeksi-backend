@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('google_id')->nullable();
             $table->string('nama');
-            $table->enum('jenisKelamin', ['Laki-laki', 'Perempuan']);
+            $table->enum('jenisKelamin', ['Laki-laki', 'Perempuan'])->nullable();
             $table->string('password');
             $table->string('email');
-            $table->integer('umur');
-            $table->string('no_whatsapp');
+            $table->integer('umur')->nullable();
+            $table->string('no_whatsapp')->nullable();
             $table->timestamps();
         });
     }
