@@ -16,8 +16,15 @@ class EmailVerificationTest extends TestCase
 
     public function test_email_verification_screen_can_be_rendered(): void
     {
-        $user = User::factory()->create([
+        // $user = User::factory()->create([
+        //     'email_verified_at' => null,
+        // ]);
+         $user = User::create([
+            'nama' => 'Alana R',
+            'email' => 'alana@gmail.com',
             'email_verified_at' => null,
+            'password' => 'Password123',
+            'password_confirmation' => 'Password123',
         ]);
 
         $response = $this->actingAs($user)->get('/verify-email');
@@ -27,8 +34,12 @@ class EmailVerificationTest extends TestCase
 
     public function test_email_can_be_verified(): void
     {
-        $user = User::factory()->create([
+       $user = User::create([
+            'nama' => 'Alana R',
+            'email' => 'alana@gmail.com',
             'email_verified_at' => null,
+            'password' => 'Password123',
+            'password_confirmation' => 'Password123',
         ]);
 
         Event::fake();
@@ -48,10 +59,13 @@ class EmailVerificationTest extends TestCase
 
     public function test_email_is_not_verified_with_invalid_hash(): void
     {
-        $user = User::factory()->create([
+       $user = User::create([
+            'nama' => 'Alana R',
+            'email' => 'alana@gmail.com',
             'email_verified_at' => null,
+            'password' => 'Password123',
+            'password_confirmation' => 'Password123',
         ]);
-
         $verificationUrl = URL::temporarySignedRoute(
             'verification.verify',
             now()->addMinutes(60),

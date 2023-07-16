@@ -21,6 +21,7 @@
         <!-- Session Status -->
         <x-auth-session-status class="mb-4 fst-italic text-success" :status="session('status')" />
         <x-input-error :messages="$errors->get('email')" class="mt-2 fst-italic text-danger" style="font-size: 14px" />
+        {{-- <x-input-error :messages="$errors->get('password')" class="mt-2 fst-italic text-danger" style="font-size: 14px" /> --}}
           <form method="POST" action="{{ route('login') }}"> 
             @csrf
             <div class="mb-4">
@@ -29,7 +30,7 @@
                 name="email"
                 class="form-control border-dark rounded-0 px-2 py-3"
                 id="email"
-                placeholder="Email" />
+                placeholder="Email" required />
             </div>
             <div class="mb-4">
               <input
@@ -37,8 +38,7 @@
                 name="password"
                 class="form-control border-dark rounded-0 px-2 py-3"
                 id="password"
-                placeholder="Password" />
-                <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                placeholder="Password" required/>
             </div>
             <div class="mb-3 text-end">
               <a href="{{ route('password.request') }}" class="link-secondary text-decoration-none"
@@ -55,7 +55,7 @@
               <button type="submit" class="btn fw-semibold mb-2">
                 <img src="assets/img/google.png" alt="" /> Sign in with Google
               </button>
-              <a type="" href="{{ route('register') }}" class="btn fw-semibold text-decoration-none">Signup Now</a>
+              <a href="{{ route('register') }}" class="btn fw-semibold text-decoration-none">Signup Now</a>
             </div>
           </form>
         </div>

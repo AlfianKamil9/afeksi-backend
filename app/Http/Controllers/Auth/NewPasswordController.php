@@ -32,7 +32,7 @@ class NewPasswordController extends Controller
     {
          $request->validate([
             'token' => ['required'],
-            'email' => ['required', 'email'],
+            'email' => ['required', 'email:dns'],
             'password' => ['required','min:8', 'max:32', 'password_no_number_first' ,'confirmed', Rules\Password::defaults()],
         ]);
 

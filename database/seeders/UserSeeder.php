@@ -21,9 +21,8 @@ class UserSeeder extends Seeder
             'umur' => 20,
             'no_whatsapp' => '081234335459'
 
-        ]);
-
-        User::create([
+        ],
+        [
             'nama' => 'Alana Liora Gantari',
             'jenisKelamin' => 'Perempuan',
             'password' => 'password456',
@@ -31,5 +30,6 @@ class UserSeeder extends Seeder
             'umur' => 19,
             'no_whatsapp' => '081234335457'
         ]);
+
     }
 }

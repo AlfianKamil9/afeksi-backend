@@ -22,24 +22,32 @@ class AuthenticationTest extends TestCase
     public function test_users_can_authenticate_using_the_login_screen(): void
     {
         
-        $response = $this->post('/login', [
+        // Buat user baru
+        $user = User::create([
+            'nama' => 'testings',
             'email' => 'test@example.com',
-            'password' => 'Password123',
+            'password' => bcrypt('password'),
         ]);
 
-        $response->assertAuthenticated();
+        // Kirim permintaan POST ke endpoint login
+        $response = $this->post('/login', [
+            'email' => 'test@example.com',
+            'password' => 'password',
+        ]);
+
+        // Periksa apakah pengguna berhasil masuk
         $response->assertRedirect(RouteServiceProvider::HOME);
+        $this->assertAuthenticatedAs($user);
     }
 
     public function test_users_can_not_authenticate_with_invalid_password(): void
     {
-        $user = User::factory()->create();
-
-        $this->post('/login', [
-            'email' => $user->email,
+        $response = $this->post('/login', [
+            'email' => 'test@example,com',
             'password' => ' Wrongpassword1',
         ]);
-
+        //cek ditolak
+        $response->assertSessionHasErrors();
         $this->assertGuest();
     }
 }

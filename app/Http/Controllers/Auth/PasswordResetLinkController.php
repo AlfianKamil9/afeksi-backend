@@ -28,7 +28,7 @@ class PasswordResetLinkController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $validate = Validator::make($request->all(), [
-            'email' => 'required|email'
+            'email' => 'required|email:dns'
         ]);
 
         $user = User::where('email', $request->email)->pluck('email')->first();

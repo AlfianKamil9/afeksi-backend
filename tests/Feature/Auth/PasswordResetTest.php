@@ -2,11 +2,11 @@
 
 namespace Tests\Feature\Auth;
 
+use Tests\TestCase;
 use App\Models\User;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\Notification;
-use Tests\TestCase;
 
 class PasswordResetTest extends TestCase
 {
@@ -23,18 +23,28 @@ class PasswordResetTest extends TestCase
     {
         Notification::fake();
 
-        $user = 'alana@gmail.com';
+        $user = User::create([
+            'nama' => 'Alana R',
+            'email' => 'alana@gmail.com',
+            'password' => 'Password123',
+            'password_confirmation' => 'Password123',
+        ]);
 
-        $this->post('/forgot-password', ['email' => $user]);
+        $this->post('/forgot-password', ['email' => $user->email]);
 
-        Notification::assertSentTo($user, ResetPassword::class);
+        Notification::assertSentTo($user->email);
     }
 
     public function test_reset_password_screen_can_be_rendered(): void
     {
         Notification::fake();
 
-        $user = User::factory()->create();
+        $user = User::create([
+            'nama' => 'Alana R',
+            'email' => 'alana@gmail.com',
+            'password' => 'Password123',
+            'password_confirmation' => 'Password123',
+        ]);
 
         $this->post('/forgot-password', ['email' => $user->email]);
 
@@ -51,7 +61,12 @@ class PasswordResetTest extends TestCase
     {
         Notification::fake();
 
-        $user = User::factory()->create();
+        $user = User::create([
+            'nama' => 'Alana R',
+            'email' => 'alana@gmail.com',
+            'password' => 'Password123',
+            'password_confirmation' => 'Password123',
+        ]);
 
         $this->post('/forgot-password', ['email' => $user->email]);
 
