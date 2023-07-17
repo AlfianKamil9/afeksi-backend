@@ -48,7 +48,7 @@
               <button type="submit" class="btn fw-semibold mb-2">
                 <img src="assets/img/google.png" alt="" /> Sign in with Google
               </button>
-              <button type="submit" class="btn fw-semibold">Signup Now</button>
+              <a type="button" href="/register" class="btn fw-semibold">Signup Now</a>
             </div>
           </form>
         </div>
