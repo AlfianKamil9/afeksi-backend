@@ -30,6 +30,7 @@
                 name="email"
                 class="form-control border-dark rounded-0 px-2 py-3"
                 id="email"
+                value="{{ old('email') }}"
                 placeholder="Email" required />
             </div>
             <div class="mb-4">
