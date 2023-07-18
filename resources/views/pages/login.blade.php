@@ -56,7 +56,11 @@
               <button type="submit" class="btn fw-semibold mb-2">
                 <img src="assets/img/google.png" alt="" /> Sign in with Google
               </button>
+<<<<<<< HEAD
               <a href="{{ route('register') }}" class="btn fw-semibold text-decoration-none">Signup Now</a>
+=======
+              <a type="button" href="/register" class="btn fw-semibold">Signup Now</a>
+>>>>>>> e7b435009de0cab0631e2a75cea38257980f8e74
             </div>
           </form>
         </div>
