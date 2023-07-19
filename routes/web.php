@@ -31,17 +31,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-<<<<<<< HEAD
 
-
-
-require __DIR__.'/auth.php';
-
-=======
 Route::controller(GoogleController::class)->group(function () {
     Route::get('auth/google', 'redirectToGoogle')->name('auth.google');
     Route::get('auth/google/callback', 'handleGoogleCallback');
 });
 
 require __DIR__ . '/auth.php';
->>>>>>> 878a03cc67cc434e3b0a380edd42cd7087f4d75a
+

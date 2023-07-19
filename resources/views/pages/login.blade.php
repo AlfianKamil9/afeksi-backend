@@ -53,9 +53,9 @@
                 class="btn btn-success fw-semibold mb-2 py-3 rounded-4 w-75 align-self-center border-0 text-dark">
                 Login
               </button>
-              <button type="submit" class="btn fw-semibold mb-2">
+              <a href="{{ route('auth.google') }}" type="btn" class="btn fw-semibold mb-2">
                 <img src="assets/img/google.png" alt="" /> Sign in with Google
-              </button>
+              </a>
 
               <a href="{{ route('register') }}" class="btn fw-semibold text-decoration-none">Signup Now</a>
 
