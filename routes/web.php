@@ -32,10 +32,9 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::controller(GoogleController::class)->group(function () {
-    Route::get('auth/google', 'redirectToGoogle')->name('auth.google');
-    Route::get('auth/google/callback', 'handleGoogleCallback');
-});
+// LOGIN WITH GOOGLE
+Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('auth.google');
+Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
 require __DIR__ . '/auth.php';
 
