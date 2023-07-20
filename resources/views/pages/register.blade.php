@@ -4,7 +4,7 @@
 
 <!-- path style disesuaikan dengan folder css masing-masing page -->
 @section('styles')
-    <link rel="stylesheet" href="{{ asset('storage/assets/css/register.css') }}">
+    <link rel="stylesheet" href="assets/css/register.css">
 @endsection
 
 @section('content')
