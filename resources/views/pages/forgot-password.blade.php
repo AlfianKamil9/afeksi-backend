@@ -12,12 +12,12 @@
       <div class="row align-items-center justify-content-around">
         <div class="col-md-5">
           <img
-            src="assets/img/Download Mental Health Due To Psychology, Depression, Loneliness, Illness, Brain Development, or Hopelessness_ Psychotherapy And Mentality Healthcare (1) 2 (1).svg"
+            src="/assets/img/loginregis.svg"
             class="img-fluid"
             alt="Image" />
         </div>
         <div class="col-md-5 d-flex flex-column">
-        <img src="assets/img/logo.png" alt="Logo" class="img-fluid align-self-center" style="max-width: 130px" />
+        <img src="/assets/img/logo.png" alt="Logo" class="img-fluid align-self-center" style="max-width: 130px" />
           <form action="{{ route('password.email') }}" method="POST">
             @if (session()->has('success'))  
               <span class="text-success" style="font-style:italic; font-size:14px;"><i class="bi bi-check-circle-fill"></i> {{ session('success') }}</span>
@@ -43,7 +43,7 @@
                 Send Email Verifikasi
               </button>
               <button type="submit" class="btn fw-semibold mb-2">
-                <img src="assets/img/google.png" alt="" /> Sign in with Google
+                <img src="/assets/img/google.png" alt="" /> Sign in with Google
               </button>
               <a type="button" href="{{ route('register') }}" class="btn fw-semibold">Signup Now</a>
             </div>

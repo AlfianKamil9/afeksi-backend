@@ -12,7 +12,7 @@
       <div class="row align-items-center justify-content-around">
         <div class="col-md-5">
           <img
-            src="{{ asset('storage/assets/img/loginregis.svg') }}"
+            src="/assets/img/loginregis.svg"
             class="img-fluid"
             alt="Image" />
         </div>

@@ -15,14 +15,14 @@
       </div>
       <div class="row">
         <div class="p-5 col-sm-6 text-center d-none d-sm-block">
-          <img src="{{ asset('storage/assets/img/loginregis.svg') }}" alt="Image" class="img-fluid" />
+          <img src="/assets/img/loginregis.svg" alt="Image" class="img-fluid" />
         </div>
 
         <div class="p-5 col-sm-6">
           <form method="POST" action="{{ route('register') }}">
             @csrf
             <div class="text-center mb-4">
-              <img src="{{ asset('storage/assets/img/logo.png') }}" alt="Logo" class="img-fluid" style="max-width: 130px" />
+              <img src="/assets/img/logo.png" alt="Logo" class="img-fluid" style="max-width: 130px" />
             </div>
             @if ($errors->get('email'))
                 <x-input-error :messages="$errors->get('email')" class="mt-2 text-danger fst-italic" style="font-size:14px;" />
@@ -41,9 +41,14 @@
             <div class="mb-5">
               <input type="password" name="password_confirmation" class="form-control border-dark rounded-0 py-3" placeholder="Konfirmasi Password" required />
             </div>
-            <div class="d-grid gap-2 col-8 col-sm-10 mx-auto custom-button">
-              <button type="submit" class="btn rounded-4 fw-semibold">Signup Now</button>
-            </div>
+             <div class="d-flex flex-column mt-auto">
+              <button
+                style="background: #d2e122"
+                type="submit"
+                class="btn btn-success fw-semibold mb-2 py-3 rounded-4 w-75 align-self-center border-0 text-dark">
+                Sign Up
+              </button>
+             </div>
           </form>
         </div>
       </div>

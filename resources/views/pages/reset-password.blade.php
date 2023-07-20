@@ -12,7 +12,7 @@
       <div class="row align-items-center justify-content-around">
         <div class="col-md-5">
           <img
-            src="/assets/img/Download Mental Health Due To Psychology, Depression, Loneliness, Illness, Brain Development, or Hopelessness_ Psychotherapy And Mentality Healthcare (1) 2 (1).svg"
+            src="/assets/img/loginregis.svg"
             class="img-fluid"
             alt="Image" />
         </div>
