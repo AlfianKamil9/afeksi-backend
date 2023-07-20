@@ -4,7 +4,7 @@
 
 <!-- path style disesuaikan dengan folder css masing-masing page -->
 @section('styles')
-    <link rel="stylesheet" href="assets/css/register.css">
+    <link rel="stylesheet" href="{{ asset('storage/assets/css/register.css') }}">
 @endsection
 
 @section('content')
@@ -15,14 +15,14 @@
       </div>
       <div class="row">
         <div class="p-5 col-sm-6 text-center d-none d-sm-block">
-          <img src="assets/img/Download Mental Health Due To Psychology, Depression, Loneliness, Illness, Brain Development, or Hopelessness_ Psychotherapy And Mentality Healthcare (1) 2 (1).svg" alt="Image" class="img-fluid" />
+          <img src="{{ asset('storage/assets/img/loginregis.svg') }}" alt="Image" class="img-fluid" />
         </div>
 
         <div class="p-5 col-sm-6">
           <form method="POST" action="{{ route('register') }}">
             @csrf
             <div class="text-center mb-4">
-              <img src="assets/img/logo.png" alt="Logo" class="img-fluid" style="max-width: 130px" />
+              <img src="{{ asset('storage/assets/img/logo.png') }}" alt="Logo" class="img-fluid" style="max-width: 130px" />
             </div>
             @if ($errors->get('email'))
                 <x-input-error :messages="$errors->get('email')" class="mt-2 text-danger fst-italic" style="font-size:14px;" />
