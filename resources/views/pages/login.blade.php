@@ -12,12 +12,12 @@
       <div class="row align-items-center justify-content-around">
         <div class="col-md-5">
           <img
-            src="{{ asset('storage/assets/img/loginregis.svg') }}"
+            src="assets/img/Download Mental Health Due To Psychology, Depression, Loneliness, Illness, Brain Development, or Hopelessness_ Psychotherapy And Mentality Healthcare (1) 2 (1).svg"
             class="img-fluid"
             alt="Image" />
         </div>
         <div class="col-md-5 d-flex flex-column">
-        <img src="{{ asset('storage/assets/img/logo.png') }}" alt="Logo" class="img-fluid align-self-center" style="max-width: 130px" />
+        <img src="assets/img/logo.png" alt="Logo" class="img-fluid align-self-center" style="max-width: 130px" />
           <form>
             <div class="mb-4">
               <input
