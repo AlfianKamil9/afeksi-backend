@@ -17,7 +17,6 @@
             alt="Image" />
         </div>
         <div class="col-md-5 d-flex flex-column">
-<<<<<<< HEAD
         <img src="assets/img/logo.png" alt="Logo" class="img-fluid align-self-center" style="max-width: 130px" />
         <!-- Session Status -->
         <x-auth-session-status class="mb-4 fst-italic text-success" :status="session('status')" />
@@ -25,10 +24,7 @@
         {{-- <x-input-error :messages="$errors->get('password')" class="mt-2 fst-italic text-danger" style="font-size: 14px" /> --}}
           <form method="POST" action="{{ route('login') }}"> 
             @csrf
-=======
-        <img src="{{ asset('storage/assets/img/logo.png') }}" alt="Logo" class="img-fluid align-self-center" style="max-width: 130px" />
           <form>
->>>>>>> 8e13fad30fe36a6cd6e2cb42adc5476b72b77fe4
             <div class="mb-4">
               <input
                 type="email"
