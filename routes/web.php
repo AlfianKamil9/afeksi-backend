@@ -25,3 +25,6 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('pages.register');
 });
+Route::get('/home', function () {
+    return view('pages.landing_page');
+});
