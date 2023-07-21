@@ -24,11 +24,4 @@ Route::get('/beranda', function () {
     return view('pages.landing_page');
 })->middleware(['auth', 'verified'])->name('beranda');
 
-
-
-// LOGIN WITH GOOGLE
-Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('auth.google');
-
-
-
 require __DIR__ . '/auth.php';
