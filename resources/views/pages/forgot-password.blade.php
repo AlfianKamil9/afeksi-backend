@@ -2,7 +2,6 @@
 
 @section('title', 'Forgot Password')
 
-<!-- @include('partials/navbar') -->
 
 @section('content')
 <div class="container p-5">
@@ -17,7 +16,7 @@
             alt="Image" />
         </div>
         <div class="col-md-5 d-flex flex-column">
-        <img src="/assets/img/logo.png" alt="Logo" class="img-fluid align-self-center" style="max-width: 130px" />
+        <img src="/assets/img/logo-copy.png" alt="Logo" class="img-fluid align-self-center" style="max-width: 130px" />
           <form action="{{ route('password.email') }}" method="POST">
             @if (session()->has('success'))  
               <span class="text-success" style="font-style:italic; font-size:14px;"><i class="bi bi-check-circle-fill"></i> {{ session('success') }}</span>

@@ -16,7 +16,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-  @include('partials/navbar')
+    @if (Route::currentRouteName() != 'password.request' &&  Route::currentRouteName() != 'password.reset' )     
+      @include('partials/navbar')
+    @endif
     <div>
         @yield('content')
     </div> 

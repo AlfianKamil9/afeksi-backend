@@ -12,12 +12,12 @@
     
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 fs-5 fw-semibold mx-auto">
-            <li><a href="#beranda" class="nav-link px-2 link-dark">Beranda</a></li>
-            <li><a href="#layanan" class="nav-link px-2 link-secondary">Layanan</a></li>
-            <li><a href="#kegiatan" class="nav-link px-2 link-secondary">Kegiatan</a></li>
-            <li><a href="#tentang" class="nav-link px-2 link-secondary">Tentang Kami</a></li>
-            <li><a href="#faq" class="nav-link px-2 link-secondary">FAQ</a></li>
-            <li><a href="#karir" class="nav-link px-2 link-secondary">Karir</a></li>
+            <li><a href="/#beranda" class="nav-link px-2 link-dark">Beranda</a></li>
+            <li><a href="/#layanan" class="nav-link px-2 link-secondary">Layanan</a></li>
+            <li><a href="/#kegiatan" class="nav-link px-2 link-secondary">Kegiatan</a></li>
+            <li><a href="/#tentang" class="nav-link px-2 link-secondary">Tentang Kami</a></li>
+            <li><a href="/#faq" class="nav-link px-2 link-secondary">FAQ</a></li>
+            <li><a href="/#karir" class="nav-link px-2 link-secondary">Karir</a></li>
           </ul>
             <div class="col-md-3 ms-auto d-flex m-1">
             @auth
