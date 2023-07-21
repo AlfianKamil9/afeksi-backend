@@ -10,25 +10,12 @@
 
 
 @section('content')
-<<<<<<< HEAD
+
 <div class="container p-5">
-      <div class="mt-4">
-        <a href="/">Kembali ke halaman homepage</a>
-      </div>
       <div class="row align-items-center justify-content-around">
-        <div class="col-md-5">
-          <img
-            src="/assets/img/loginregis.svg"
-            class="img-fluid"
-            alt="Image" />
-        </div>
-        <div class="col-md-5 d-flex flex-column">
-        <img src="assets/img/logo.png" alt="Logo" class="img-fluid align-self-center" style="max-width: 130px" />
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4 fst-italic text-success" :status="session('status')" />
-        <x-input-error :messages="$errors->get('email')" class="mt-2 fst-italic text-danger" style="font-size: 14px" />
+        
         {{-- <x-input-error :messages="$errors->get('password')" class="mt-2 fst-italic text-danger" style="font-size: 14px" /> --}}
-          <form method="POST" action="{{ route('login') }}"> 
+          {{-- <form > 
             @csrf
           <form>
             <div class="mb-4">
@@ -64,12 +51,11 @@
                 <img src="assets/img/google.png" alt="" /> Sign in with Google
               </a>
 
-              <a href="{{ route('register') }}" class="btn fw-semibold text-decoration-none">Signup Now</a>
+              <a href="" class="btn fw-semibold text-decoration-none">Signup Now</a>
 
             </div>
-          </form>
-        </div>
-=======
+          </form> --}}
+        </div> 
 <div class="container-md pt-5 mt-5 px-4">
     <div class="row align-items-center justify-content-center gap-2">
       <!-- Left Column -->
@@ -86,20 +72,23 @@
           <h3 class="fw-semibold">Masuk ke Akun</h3>
           <p class="text-secondary">Silahkan masukkan informasi akun anda.</p>
         </div>
-        <form>
+        <x-auth-session-status class="mb-4 fst-italic text-success" :status="session('status')" />
+        <x-input-error :messages="$errors->get('email')" class="mt-2 fst-italic text-danger" style="font-size: 14px" />
+        <form method="POST" action="{{ route('login') }}">
+          @csrf
           <div class="mb-2">
             <label for="email" class="form-label fw-semibold">Email</label>
-            <input type="email" class="form-control py-2 px-3" id="email" placeholder="Masukkan Email">
+            <input type="email" class="form-control py-2 px-3" id="email"  value="{{ old('email') }}"  name="email" placeholder="Masukkan Email" required />
           </div>
           <div class="mb-2">
             <label for="passwordInput" class="form-label fw-semibold">Password</label>
             <div class="password-container">
-              <input type="password" class="form-control" id="passwordInput" placeholder="Masukkan Password">
+              <input type="password" class="form-control" id="passwordInput" placeholder="Masukkan Password"   name="password" required />
               <i class="password-icon fas fa-eye"></i>
             </div>
           </div>
           <div class="mb-2 text-end">
-            <a href="#" class="text-decoration-none forgetPassBtn fw-semibold">Forgot password?</a>
+            <a href="{{ route('password.request') }}" class="text-decoration-none forgetPassBtn fw-semibold">Forgot password?</a>
           </div>
           <div class="d-flex flex-column mt-auto">
             <button type="submit" class="btn mb-2 fw-semibold">Masuk</button>
@@ -108,15 +97,14 @@
               <span class="mx-3 text-muted">Atau Masuk Dengan</span>
               <div class="horizontal-line"></div>
             </div>
-            <button type="submit" class="btn btn-transparent mb-2 fw-semibold d-flex align-items-center justify-content-center">
+            <a type="button" href="{{ route('auth.google') }}" class="btn btn-transparent mb-2 fw-semibold d-flex align-items-center justify-content-center">
               <img src="assets/img/Google.png" alt=""><span class="mx-3">Masuk dengan Google</span>
-            </button>
+            </a>
             <div class="formSmText">
-              <p class="text-muted">Belum punya akun? <a href="">Daftar sekarang</a></p>
+              <p class="text-muted">Belum punya akun? <a href="{{ route('register') }}">Daftar sekarang</a></p>
             </div>
           </div>
         </form>
->>>>>>> 073a489258bbd306b1e804c62c29490562f3fca4
       </div>
     </div>
   </div>
