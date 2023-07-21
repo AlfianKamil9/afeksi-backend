@@ -24,9 +24,7 @@ class GoogleController extends Controller
             $user = User::where('email', $googleUser->email)->first();
 
             if($user){
-                Auth::login($user, true);
-                session()->regenerate();
-                return redirect(RouteServiceProvider::HOME);
+               return 'test';
             }else{
                 User::create([
                     'nama' => $googleUser->name,
