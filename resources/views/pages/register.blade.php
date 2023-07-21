@@ -11,7 +11,7 @@
 
     <div class="container p-5">
     <div class="mt-4">
-        <a href="#">Kembali ke halaman homepage</a>
+        <a href="/">Kembali ke halaman homepage</a>
       </div>
       <div class="row">
         <div class="p-5 col-sm-6 text-center d-none d-sm-block">

@@ -47,7 +47,7 @@ class PasswordResetLinkController extends Controller
         );
 
         return $status == Password::RESET_LINK_SENT
-                    ? redirect('/success-send-email')->with('success', 'Check your email to Reset Password')
+                    ? redirect('/forgot-password')->with('success', 'Check your email to Reset Password')
                     : back()->with('error', 'Error, Server cant send email now, try back later');
     }
 }

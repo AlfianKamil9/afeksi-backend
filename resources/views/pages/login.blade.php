@@ -7,7 +7,7 @@
 @section('content')
 <div class="container p-5">
       <div class="mt-4">
-        <a href="#">Kembali ke halaman homepage</a>
+        <a href="/">Kembali ke halaman homepage</a>
       </div>
       <div class="row align-items-center justify-content-around">
         <div class="col-md-5">
