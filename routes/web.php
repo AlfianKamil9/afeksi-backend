@@ -28,7 +28,7 @@ Route::get('/beranda', function () {
 
 // LOGIN WITH GOOGLE
 Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('auth.google');
-Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+
 
 
 require __DIR__ . '/auth.php';
