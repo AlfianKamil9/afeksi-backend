@@ -31,6 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+<<<<<<< HEAD
 
 // LOGIN WITH GOOGLE
 Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('auth.google');
@@ -38,3 +39,11 @@ Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallb
 
 require __DIR__ . '/auth.php';
 
+=======
+Route::get('/register', function () {
+    return view('pages.register');
+});
+Route::get('/home', function () {
+    return view('pages.landing_page');
+});
+>>>>>>> e390a5a8542f64fd158e32f8e6190d2039863666
