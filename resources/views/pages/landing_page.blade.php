@@ -1,18 +1,24 @@
 
-@extends('../layout')
-@section('title', 'landing_page')
+@extends('layout')
+
+@auth
+    @section('title', 'Beranda')
+@else
+    @section('title', 'Welcome Afeksi')
+@endauth
+
 @section('styles')
-    <link rel="stylesheet" href="{{ asset('assets/css/style-landing-page.css') }}">
+    <link rel="stylesheet" href='/assets/css/style-landing-page.css'>
 @endsection
    
-    <!-- NAVBAR
-    ============================================================================ -->
-     @include('../partials/navbar') 
+    {{-- <!-- NAVBAR
+    ============================================================================ --> --}}
+     {{-- @include('../partials/navbar')  --}}
 
 
-    @section('content')
-    <!-- HERO
-    ==================================================================== -->
+  @section('content')
+    {{-- <!-- HERO
+    ==================================================================== --> --}}
     <section id="hero">
       <div class="bg-hero">
         <div class="banner-headline">
@@ -38,8 +44,8 @@
     </section>
 
 
-    <!-- ACTIVITY
-    ================================================================ -->
+    {{-- <!-- ACTIVITY
+    ================================================================ --> --}}
     <section id="kegiatan">
       <div class="container p-5 mb-5">
       <div class="container-fluid mb-5 pb-2">
@@ -75,8 +81,8 @@
     </section>
 
 
-    <!-- CONSULTATION
-    ========================================================== -->
+    {{-- <!-- CONSULTATION
+    ========================================================== --> --}}
     <section id="konsultasi">
       <div class="container-fluid konsultasi pt-5 pb-5">
         <div class="container text-center">
@@ -113,9 +119,9 @@
       </div>
     </section>
     
-
+{{-- 
     <!-- PROFILE Psikolog
-    ======================================================= -->
+    ======================================================= --> --}}
     <section id="profil">
       <h1 class="text-center pb-5 mb-5 mt-5">Profile Psikolog</h1>
       <div class="wrapper ">
@@ -135,8 +141,8 @@
     </section>
     
 
-    <!-- SERVICE
-    ============================================================ -->
+    {{-- <!-- SERVICE
+    ============================================================ --> --}}
     <section id="layanan">
       <div class="p-5 mb-5" style=" background-color: #5260DB; margin-top: 10%;"> 
         <div class="rounded-3">
@@ -169,8 +175,8 @@
     </section>
 
     
-    <!-- TESTIMONIES
-    ============================================================= -->
+    {{-- <!-- TESTIMONIES
+    ============================================================= --> --}}
     <section id="testimoni">
       <div class="wrapper pt-5">
         <h1 class="mb-3 text-center fw-bold">Testimoni mereka yang telah <br>menggunakan afeksi</h1>
@@ -212,12 +218,12 @@
             </p>
           </li>
         </ul>
-      </div>
+      </div>
     </section>
 
 
-    <!-- PARTNERSHIP
-    ================================================== -->
+    {{-- <!-- PARTNERSHIP
+    ================================================== --> --}}
     <section id="client">
       <div class="card m-auto mb-5 mt-5 text-center">
         <div class="card-body" style="background: rgb(225,227,248) ;">
@@ -242,12 +248,12 @@
 
 
    
-@include('../partials.footer') 
-@section('script')
-   <script src="{{ asset('assets/js/landing-page.js') }}"></script>
+@include('partials.footer') 
 @endsection
-@endsection
- <!-- FOOTER
-    ============================================================================ -->
- 
 
+@section('script')
+   <script src="/assets/js/landing-page.js'"></script>
+@endsection
+{{-- <!-- FOOTER
+    ============================================================================ --> --}}
+ 

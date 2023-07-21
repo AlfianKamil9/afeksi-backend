@@ -2,10 +2,9 @@
 
 @section('title', 'Login')
 
-<!-- @include('partials/navbar') -->
 
 @section('styles')
-    <link rel="stylesheet" href="assets/css/loginregis.css">
+<link rel="stylesheet" href="/assets/css/loginregis.css">
 @endsection
 
 

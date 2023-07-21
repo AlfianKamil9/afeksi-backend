@@ -4,7 +4,6 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GoogleController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\forgotPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,32 +17,18 @@ use App\Http\Controllers\Auth\forgotPasswordController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.landing_page');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/beranda', function () {
+    return view('pages.landing_page');
+})->middleware(['auth', 'verified'])->name('beranda');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
 
-<<<<<<< HEAD
 
 // LOGIN WITH GOOGLE
 Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('auth.google');
 Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
-require __DIR__ . '/auth.php';
 
-=======
-Route::get('/register', function () {
-    return view('pages.register');
-});
-Route::get('/home', function () {
-    return view('pages.landing_page');
-});
->>>>>>> e390a5a8542f64fd158e32f8e6190d2039863666
+require __DIR__ . '/auth.php';

@@ -4,47 +4,11 @@
 
 <!-- path style disesuaikan dengan folder css masing-masing page -->
 @section('styles')
-    <link rel="stylesheet" href="assets/css/loginregis.css">
+    <link rel="stylesheet" href="/assets/css/loginregis.css">
 @endsection
 
 @section('content')
-
-
     <div class="container p-5">
-
-        {{-- <div class="p-5 col-sm-6">
-          <form method="POST" action="{{ route('register') }}">
-            @csrf
-            <div class="text-center mb-4">
-              <img src="/assets/img/logo.png" alt="Logo" class="img-fluid" style="max-width: 130px" />
-            </div>
-            @if ($errors->get('email'))
-                <x-input-error :messages="$errors->get('email')" class="mt-2 text-danger fst-italic" style="font-size:14px;" />
-            @else
-                <x-input-error :messages="$errors->get('password')" class="mt-2 text-danger fst-italic" style="font-size:14px;" />
-            @endif
-            <div class="mb-4">
-              <input type="text" name="name" class="form-control border-dark rounded-0 py-3 fw-medium" placeholder="Nama Lengkap" value="{{ old('name') }}" required />
-            </div>
-            <div class="mb-3">
-              <input type="email" name="email" class="form-control border-dark rounded-0 py-3 fw-medium" placeholder="Email" value="{{ old('email') }}" required />
-            </div>
-            <div class="mb-3">
-              <input type="password" name="password" class="form-control border-dark rounded-0 py-3" placeholder="Password" required />
-            </div>
-            <div class="mb-5">
-              <input type="password" name="password_confirmation" class="form-control border-dark rounded-0 py-3" placeholder="Konfirmasi Password" required />
-            </div>
-             <div class="d-flex flex-column mt-auto">
-              <button
-                style="background: #d2e122"
-                type="submit"
-                class="btn btn-success fw-semibold mb-2 py-3 rounded-4 w-75 align-self-center border-0 text-dark">
-                Sign Up
-              </button>
-             </div>
-          </form>
-        </div> --}}
 
 <div class="container-md pt-5 mt-5 px-4">
     <div class="row align-items-center justify-content-center gap-2">
