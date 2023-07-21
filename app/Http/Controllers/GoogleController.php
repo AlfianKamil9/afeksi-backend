@@ -30,8 +30,8 @@ class GoogleController extends Controller
             ], 
             [
                 'nama' => 'required',
-                'email'=>"required|email",
-                "google_id"=> "required",
+                'email'=>"required|email|unique:users,email",
+                "google_id"=> "required|unique:users,google_id",
             ]);
 
             $user = User::where('google_id', $googleUser->id)->first();
