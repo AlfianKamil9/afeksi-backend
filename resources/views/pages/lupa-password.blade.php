@@ -20,7 +20,7 @@
         <div class="input-container">
             <label class="mb-1" for="email">Email</label>
             <input type="email" placeholder="Masukkan Email">
-            <button class="btn btn-primary mt-4 mb-3">Reset Password</button>
+            <button class="btn mt-4 mb-3">Reset Password</button>
             <a href="#" class="text-center">Kembali</a>
         </div>
     </div>

@@ -12,7 +12,7 @@
     <div class="row align-items-center justify-content-center gap-2">
       <!-- Left Column -->
       <div class="col-md-5 d-none d-md-inline">
-        <img src="assets/img/registerImg.svg" class="img-fluid align-self-center" alt="Image">
+        <img src="assets/img/login-register/registerImg.svg" class="img-fluid align-self-center" alt="Image">
         <div class="heading text-center mt-5">
           <h3 class="fw-semibold">Selamat Datang, Heroes!</h3>
           <p class="text-secondary">Bercerita & berbagi rasa. Tenangkan hati & tenangkan diri.</p>
@@ -58,7 +58,7 @@
               <div class="horizontal-line"></div>
             </div>
             <button type="submit" class="btn btn-transparent mb-2 fw-semibold d-flex align-items-center justify-content-center">
-              <img src="assets/img/Google.png" alt=""><span class="mx-3">Daftar dengan Google</span>
+              <img src="assets/img/login-register/Google.png" alt=""><span class="mx-3">Daftar dengan Google</span>
             </button>
             <div class="formSmText">
               <p class="text-muted">Sudah punya akun? <a href="">Masuk sekarang</a></p>
