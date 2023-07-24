@@ -4,7 +4,7 @@
         <div class="col-md-5 bg-white rounded-4 p-4">
           <div class="d-flex text-muted mb-5">
             <div>
-              <img src="assets/img/logo.png" alt="Logo" width="100">
+              <img src="assets/img/logoafeksi.svg" alt="Logo" width="100">
             </div>
             <div>
               <p class="mb-0">Jl. Gubeng Jaya IX no.1 Surabaya, Indonesia</p>

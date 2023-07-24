@@ -2,15 +2,13 @@
 
 @section('title', 'Login')
 
-<!-- @include('partials/navbar') -->
-
 @section('styles')
     <link rel="stylesheet" href="assets/css/loginregis.css">
 @endsection
 
 
 @section('content')
-<div class="container-md pt-5 mt-5 px-4">
+<div class="container-lg pt-5 mt-5 px-4">
     <div class="row align-items-center justify-content-center gap-2">
       <!-- Left Column -->
       <div class="col-md-5 d-none d-md-inline">
@@ -59,16 +57,7 @@
       </div>
     </div>
   </div>
-
-  <script>
-    const passwordInput = document.getElementById("passwordInput");
-    const passwordIcon = document.querySelector(".password-icon");
-
-    passwordIcon.addEventListener("click", () => {
-      const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
-      passwordInput.setAttribute("type", type);
-      passwordIcon.classList.toggle("fa-eye");
-      passwordIcon.classList.toggle("fa-eye-slash");
-    });
-  </script>
+  @section('script')
+   <script src="assets/js/login-regis.js"></script>
+  @endsection
 @endsection

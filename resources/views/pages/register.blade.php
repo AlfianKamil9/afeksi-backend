@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-<div class="container-md pt-5 mt-5 px-4">
+<div class="container-lg pt-5 mt-5 px-4">
     <div class="row align-items-center justify-content-center gap-2">
       <!-- Left Column -->
       <div class="col-md-5 d-none d-md-inline">
@@ -68,4 +68,8 @@
       </div>
     </div>
   </div>
+
+  @section('script')
+   <script src="assets/js/login-regis.js"></script>
+  @endsection
 @endsection
