@@ -2,15 +2,15 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    width: 100%;
+    width: 500px
 }
-.input-group{
-    width: auto;
-}
+
 input.form-masalah{
     border-right: none;
     display: block;
-    min-width: 425px !important;
+    width: 100%;
+    margin-left: 4rem;
+    padding: 8px 16px;
 }
 
 .input-group-text{
@@ -22,6 +22,7 @@ input.form-masalah{
 .card-container{
     border: 1px solid gray;
     padding: 1rem;
+    border-radius: 30px;
 }
 
 .psikolog-image{
@@ -38,21 +39,23 @@ input.form-masalah{
     padding: 2rem;
     border: 1px solid gray;
     margin-bottom: 2rem;
+    border-radius: 30px;
 }
 .keahlian{
     padding: 2rem;
     border: 1px solid gray;
+    border-radius: 30px;
 }
 .keahlian-items{
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    justify-content: space-between;
+    justify-content: center;
     align-items:center ;
 }
 .keahlian-items p{
     border: 1px solid black;
-    padding: 4px 32px;
+    padding: 4px 24px;
     border-radius: 20px;
 }
 
