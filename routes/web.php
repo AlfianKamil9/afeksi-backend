@@ -28,3 +28,6 @@ Route::get('/register', function () {
 Route::get('/home', function () {
     return view('pages.landing_page');
 });
+Route::get('/lupa-password', function () {
+    return view('pages.lupa-password');
+});
