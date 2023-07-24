@@ -8,10 +8,10 @@
 
 
 @section('content')
-<section id="lupa-password">
+<section id="lupa-password" style="background-image: url('{{ asset('assets/img/lupapassword.png') }}');">
     <nav class="navbar w-100">
-        <a class="navbar-brand ms-5 p-5" href="#">
-            <img src="assets/img/logoafeksi.svg" alt="Logo" class="d-block w-50 ">
+        <a class="navbar-brand ms-5" href="#">
+            <img src="assets/img/logoafeksi.svg" alt="Logo" class="d-block " height="100" width="100">
         </a>
     </nav>
     <div class="wrapper p-4 m-auto d-flex flex-column justify-content-center text-center">
