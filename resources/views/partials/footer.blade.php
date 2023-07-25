@@ -97,11 +97,11 @@
           <div class="text-white mb-4 flex-fill">
             <h5 class="link-title mb-4">Ikuti Kami</h5>
             <ul class="list-unstyled d-flex flex-wrap">
-              <img src="{{ asset('assets/img/footer/Vector (1).png') }}" alt="" class="contact-img me-2 mb-3" />
-              <img src="{{ asset('assets/img/footer/Vector (2).png') }}" alt="" class="contact-img me-2 mb-3" />
-              <img src="{{ asset('assets/img/footer/Vector (3).png') }}" alt="" class="contact-img me-2 mb-3" />
-              <img src="{{ asset('assets/img/footer/Vector (4).png') }}" alt="" class="contact-img me-2 mb-3" />
-              <img src="{{ asset('assets/img/footer/Vector (5).png') }}" alt="" class="contact-img me-2 mb-3" />
+                <a href="https://www.instagram.com/afeksidn/" target="_blank"><img src="{{ asset('assets/img/footer/Vector (1).png') }}" alt="" class="contact-img me-2 mb-3" /></a>
+              <a href="https://twitter.com/afeksidn"><img src="{{ asset('assets/img/footer/Vector (2).png') }}" alt="" class="contact-img me-2 mb-3" /></a>
+              <a href=""><img src="{{ asset('assets/img/footer/Vector (3).png') }}" alt="" class="contact-img me-2 mb-3" /></a>
+              <a href="https://www.tiktok.com/@afeksidn" target="_blank"><img src="{{ asset('assets/img/footer/Vector (4).png') }}" alt="" class="contact-img me-2 mb-3" /></a>
+              <a href="https://www.linkedin.com/company/afeksi/mycompany/"  target="_blank"><img src="{{ asset('assets/img/footer/Vector (5).png') }}" alt="" class="contact-img me-2 mb-3" /></a>
             </ul>
           </div>
         </div>

@@ -1,6 +1,6 @@
 @extends('../layout')
 
-@section('title', 'Register')
+@section('title', ' Daftar | AFEKSI')
 
 <!-- path style disesuaikan dengan folder css masing-masing page -->
 @section('styles')
@@ -9,9 +9,7 @@
 
 @section('content')
 
-
-<div class="container p-5">
-<div class="container-lg pt-5 mt-5 px-4">
+<div class="container-lg pt-5 mt-2 px-4">
     <div class="row align-items-center justify-content-center gap-2">
       <!-- Left Column -->
       <div class="col-md-5 d-none d-md-inline">
@@ -67,9 +65,9 @@
               <div class="horizontal-line"></div>
             </div>
             <a type="button" href="{{ route('auth.google') }}" class="btn btn-transparent mb-2 fw-semibold d-flex align-items-center justify-content-center">
-              <img src="assets/img/Google.png" alt=""><span class="mx-3">Daftar dengan Google</span>
+              <img src="assets/img/login-register/Google.png" alt=""><span class="mx-3">Daftar dengan Google</span>
             </a>
-            <div class="formSmText">
+            <div class="formSmText mb-3">
               <p class="text-muted">Sudah punya akun? <a href="{{ route('login') }}">Masuk sekarang</a></p>
             </div>
           </div>

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ asset('/assets/css/style-landing-page.css') }}">
   
 @endsection
-@section('content')
+  @section('content')
     {{-- <!-- HERO
     ==================================================================== --> --}}
     <section id="hero">

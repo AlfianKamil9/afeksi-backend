@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-<section id="lupa-password">
+<section id="lupa-password"  style="background-image: url('{{ asset('/assets/img/lupapassword.png') }}');">
     <nav class="navbar w-100">
         <a class="navbar-brand ms-5  mt-3" href="/">
             <img src="/assets/img/logoafeksi.svg" alt="Logo" class="d-block" style="width: 100px">
@@ -25,7 +25,7 @@
         </div>
 
     @else
-        <div class="wrapper p-4 m-auto d-flex flex-column justify-content-center text-center">
+        <div class="wrapper p-4 m-auto d-flex flex-column justify-content-center mt-5 text-center">
         <h3 class="mb-3 fw-bolder">Lupa Password</h3>
         <p class="text-center">Masukkan alamat email yang kamu daftarkan dan kami akan mengirimkan link untuk membuat password baru.</p>
         <div class="form-input input-container">

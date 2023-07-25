@@ -1,10 +1,11 @@
  <!-- NAVBAR
     ============================================================================ -->
-    <section>
-      <div class="mx-5 mt-2">
+<nav class="shadow-sm " style="background-color: white;">
+      <section>
+      <div class="mx-5 ">
         <header class="navbar navbar-expand-lg d-flex flex-wrap align-items-center justify-content-center justify-content-md-between">
           <a href="#" class="col-md-3 mb-2 mb-md-0">
-            <img src="assets/img/logoafeksi.svg" alt="" class="nav-logo">
+            <img src="assets/img/logoafeksi.svg" alt="" class="nav-logo" style="width: 90px">
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -32,3 +33,4 @@
         </header>
       </div>
     </section>
+</nav>

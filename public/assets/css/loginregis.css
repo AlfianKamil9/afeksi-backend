@@ -1,12 +1,15 @@
-<<<<<<< HEAD
 * {
     font-family: "Rubik", sans-serif;
 }
+body {
+    height: 100vh;
+    background-image: url("../img/lupapassword.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
 .btn {
-=======
-  .btn {
->>>>>>> 381becf30c4267c9e1c10d4f84e09fd44d8d76b4
     padding: 10px 25px !important;
     background-color: #233dff !important;
     color: white !important;
