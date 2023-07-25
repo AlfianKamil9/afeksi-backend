@@ -27,6 +27,10 @@ Route::get('/beranda', function () {
 
 require __DIR__ . '/auth.php';
 
+
+
+
+// frontend
 Route::get('/psikolog', function () {
     return view('pages.psikolog');
 });
