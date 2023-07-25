@@ -1,5 +1,8 @@
 <?php
 
+
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\GoogleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +17,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.landing_page');
 });
+
+Route::get('/beranda', function () {
+    return view('pages.landing_page');
+})->middleware(['auth', 'verified'])->name('beranda');
+
+require __DIR__ . '/auth.php';

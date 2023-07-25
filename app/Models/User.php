@@ -3,14 +3,16 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\EventTransaction;
+use Illuminate\Auth\Passwords\CanResetPassword;
+//use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasFactory, Notifiable, CanResetPassword;
 
     /**
      * The attributes that are mass assignable.
@@ -18,9 +20,13 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'nama',
         'email',
+        'jenisKelamin',
         'password',
+        'umur',
+        'google_id',
+        'no_whatsapp',
     ];
 
     /**
@@ -42,4 +48,24 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function event_transaction()
+    {
+        return $this->hasMany(EventTransaction::class);
+    }
+
+    public function volunteers()
+    {
+        return $this->hasMany(Volunteer::class);
+    }
+
+    public function konselors()
+    {
+        return $this->hasMany(Konselor::class);
+    }
+
+    public function pembayaran_layanan()
+    {
+        return $this->hasMany(PembayaranLayanan::class);
+    }
 }
