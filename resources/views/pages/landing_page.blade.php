@@ -3,6 +3,7 @@
 @section('title', 'landing_page')
 @section('styles')
     <link rel="stylesheet" href="{{ asset('assets/css/style-landing-page.css') }}">
+  
 @endsection
    
     <!-- NAVBAR
@@ -241,13 +242,12 @@
     </section>
 
 
-   
+   <!-- Footer
+    ================================================== -->
 @include('../partials.footer') 
+
 @section('script')
    <script src="{{ asset('assets/js/landing-page.js') }}"></script>
 @endsection
 @endsection
- <!-- FOOTER
-    ============================================================================ -->
- 
 

@@ -57,6 +57,7 @@
       </div>
     </div>
   </div>
+
   @section('script')
    <script src="assets/js/login-regis.js"></script>
   @endsection
