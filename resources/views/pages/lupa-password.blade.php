@@ -8,7 +8,7 @@
 
 
 @section('content')
-<section id="lupa-password" style="background-image: url('{{ asset('assets/img/lupapassword.png') }}');">
+<section id="lupa-password" style="background-image: url('{{ asset('/assets/img/lupapassword.png') }}');">
     <nav class="navbar w-100">
         <a class="navbar-brand ms-5" href="#">
             <img src="assets/img/logoafeksi.svg" alt="Logo" class="d-block " height="100" width="100">
