@@ -2,13 +2,17 @@
 
 @section('title', 'Login')
 
+<<<<<<< HEAD:resources/views/pages/auth/login.blade.php
 
+=======
+>>>>>>> 381becf30c4267c9e1c10d4f84e09fd44d8d76b4:resources/views/pages/login.blade.php
 @section('styles')
 <link rel="stylesheet" href="/assets/css/loginregis.css">
 @endsection
 
 
 @section('content')
+<<<<<<< HEAD:resources/views/pages/auth/login.blade.php
 
  
 @if (session('success'))
@@ -26,16 +30,19 @@
 <div class="container p-5">
 
 <div class="container-md pt-5 mt-5 px-4">
+=======
+<div class="container-lg pt-5 mt-5 px-4">
+>>>>>>> 381becf30c4267c9e1c10d4f84e09fd44d8d76b4:resources/views/pages/login.blade.php
     <div class="row align-items-center justify-content-center gap-2">
-      <!-- Left Column -->
+     
       <div class="col-md-5 d-none d-md-inline">
-        <img src="assets/img/loginImg.svg" class="img-fluid align-self-center" alt="Image">
+        <img src="assets/img/login-register/loginImg.svg" class="img-fluid align-self-center" alt="Image">
         <div class="heading text-center mt-5">
           <h3 class="fw-semibold">Selamat Datang, Heroes!</h3>
           <p class="text-secondary">Bercerita & berbagi rasa. Tenangkan hati & tenangkan diri.</p>
         </div>
       </div>
-      <!-- Right Column -->
+     
       <div class="col-md-5 d-flex flex-column">
         <div class="heading text-center">
           <h3 class="fw-semibold">Masuk ke Akun</h3>
@@ -66,9 +73,15 @@
               <span class="mx-3 text-muted">Atau Masuk Dengan</span>
               <div class="horizontal-line"></div>
             </div>
+<<<<<<< HEAD:resources/views/pages/auth/login.blade.php
             <a type="button" href="{{ route('auth.google') }}" class="btn btn-transparent mb-2 fw-semibold d-flex align-items-center justify-content-center">
               <img src="assets/img/Google.png" alt=""><span class="mx-3">Masuk dengan Google</span>
             </a>
+=======
+            <button type="submit" class="btn btn-transparent mb-2 fw-semibold d-flex align-items-center justify-content-center">
+              <img src="assets/img/login-register/Google.png" alt=""><span class="mx-3">Masuk dengan Google</span>
+            </button>
+>>>>>>> 381becf30c4267c9e1c10d4f84e09fd44d8d76b4:resources/views/pages/login.blade.php
             <div class="formSmText">
               <p class="text-muted">Belum punya akun? <a href="{{ route('register') }}">Daftar sekarang</a></p>
             </div>
@@ -78,15 +91,7 @@
     </div>
   </div>
 
-  <script>
-    const passwordInput = document.getElementById("passwordInput");
-    const passwordIcon = document.querySelector(".password-icon");
-
-    passwordIcon.addEventListener("click", () => {
-      const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
-      passwordInput.setAttribute("type", type);
-      passwordIcon.classList.toggle("fa-eye");
-      passwordIcon.classList.toggle("fa-eye-slash");
-    });
-  </script>
+  @section('script')
+   <script src="assets/js/login-regis.js"></script>
+  @endsection
 @endsection
