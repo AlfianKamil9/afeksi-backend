@@ -10,7 +10,7 @@
 @section('content')
 <div class="container-lg pt-5 mt-5 px-4">
     <div class="row align-items-center justify-content-center gap-2">
-      <!-- Left Column -->
+     ]
       <div class="col-md-5 d-none d-md-inline">
         <img src="assets/img/login-register/loginImg.svg" class="img-fluid align-self-center" alt="Image">
         <div class="heading text-center mt-5">
@@ -18,7 +18,7 @@
           <p class="text-secondary">Bercerita & berbagi rasa. Tenangkan hati & tenangkan diri.</p>
         </div>
       </div>
-      <!-- Right Column -->
+     
       <div class="col-md-5 d-flex flex-column">
         <div class="heading text-center">
           <h3 class="fw-semibold">Masuk ke Akun</h3>
