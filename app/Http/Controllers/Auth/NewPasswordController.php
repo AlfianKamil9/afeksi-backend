@@ -30,13 +30,12 @@ class NewPasswordController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-         $request->validate([
+        $request->validate([
             'token' => ['required'],
             'email' => ['required', 'email:dns'],
             'password' => ['required','min:8', 'max:32', 'password_no_number_first' ,'confirmed', Rules\Password::defaults()],
         ]);
-
-       
+        // dd($url);
         // Here we will attempt to reset the user's password. If it is successful we
         // will update the password on an actual user model and persist it to the
         // database. Otherwise we will parse the error and return the response.
@@ -56,8 +55,9 @@ class NewPasswordController extends Controller
         // the application's home authenticated view. If there is an error we can
         // redirect them back to where they came from with their error message.
         return $status == Password::PASSWORD_RESET
-                    ? redirect()->route('login')->with('status', __($status))
+                    ? back()->with('status', 'Password anda telah diperbarui, Anda dapat mencoba masuk sekarang')
                     : back()->withInput($request->only('email'))
-                            ->withErrors(['email' => __($status)]);
+                            ->withErrors(
+                        ['email' => __($status)]);
     }
 }

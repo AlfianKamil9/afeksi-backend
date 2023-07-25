@@ -19,15 +19,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('pages.landing_page');
 });
-<<<<<<< HEAD
+
 
 Route::get('/beranda', function () {
     return view('pages.landing_page');
 })->middleware(['auth', 'verified'])->name('beranda');
 
 require __DIR__ . '/auth.php';
-=======
+
 Route::get('/lupa-password', function () {
     return view('pages.lupa-password');
 });
->>>>>>> 381becf30c4267c9e1c10d4f84e09fd44d8d76b4
+

@@ -27,10 +27,11 @@ class PasswordResetLinkController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $validate = Validator::make($request->all(), [
+         $validate = Validator::make($request->all(), [
             'email' => 'required|email:dns'
         ]);
 
+      
         $user = User::where('email', $request->email)->pluck('email')->first();
         
         if ($validate->fails()) {
@@ -47,7 +48,7 @@ class PasswordResetLinkController extends Controller
         );
 
         return $status == Password::RESET_LINK_SENT
-                    ? redirect('/forgot-password')->with('success', 'Check your email to Reset Password')
+                    ? redirect()->route('password.request')->with('success', $request->email)
                     : back()->with('error', 'Error, Server cant send email now, try back later');
     }
 }

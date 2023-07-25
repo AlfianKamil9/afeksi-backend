@@ -8,20 +8,10 @@
 @endauth
 
 @section('styles')
-<<<<<<< HEAD
-    <link rel="stylesheet" href='/assets/css/style-landing-page.css'>
-=======
     <link rel="stylesheet" href="{{ asset('assets/css/style-landing-page.css') }}">
   
->>>>>>> 381becf30c4267c9e1c10d4f84e09fd44d8d76b4
 @endsection
-   
-    {{-- <!-- NAVBAR
-    ============================================================================ --> --}}
-     {{-- @include('../partials/navbar')  --}}
-
-
-  @section('content')
+@section('content')
     {{-- <!-- HERO
     ==================================================================== --> --}}
     <section id="hero">
@@ -252,24 +242,12 @@
     </section>
 
 
-<<<<<<< HEAD
-   
-@include('partials.footer') 
-@endsection
-=======
-   <!-- Footer
-    ================================================== -->
+
 @include('../partials.footer') 
 
 @section('script')
-   <script src="{{ asset('assets/js/landing-page.js') }}"></script>
+   <script src="{{ asset('/assets/js/landing-page.js') }}"></script>
 @endsection
 @endsection
->>>>>>> 381becf30c4267c9e1c10d4f84e09fd44d8d76b4
 
-@section('script')
-   <script src="/assets/js/landing-page.js'"></script>
-@endsection
-{{-- <!-- FOOTER
-    ============================================================================ --> --}}
  

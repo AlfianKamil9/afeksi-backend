@@ -14,7 +14,7 @@ use Laravel\Socialite\Facades\Socialite;
 
 class GoogleController extends Controller
 {
-    public function redirectToGoogle()
+     public function redirectToGoogle()
     {
         return Socialite::driver('google')->redirect();
     }
@@ -26,43 +26,42 @@ class GoogleController extends Controller
             $validator = Validator::make([
                 'nama' => $googleUser->name,
                 'email' => $googleUser->email,
-                'google_id' => $googleUser->id,
             ], 
             [
-                'nama' => 'required',
-                'email'=>"required|email|unique:users,email",
-                "google_id"=> "required|unique:users,google_id",
+                'nama' => ['required', 'string'], 
+                'email'=> ["required", "email", 'unique:'.User::class],
             ]);
 
             $user = User::where('google_id', $googleUser->id)->first();
 
             
             if($user){
-               Auth::login($user);
-               return redirect("/");
+                Auth::login($user);
+                return redirect(RouteServiceProvider::HOME);
             }else{
 
-                $users = User::where('email', $googleUser->email);
+                //$users = User::where('email', $googleUser->email);
                 if ($validator -> fails()){
-                    return redirect("register")-> withErrors($validator)->withInput();
-                }else if($users ){
-                    Session::flash('error', 'Email ini sudah terdaftar, silahkan login dengan metode lain ');
-                    return redirect("login");
+                    return redirect()->route('register')-> withErrors($validator)->withInput();
                 }
+                // if($users){
+                //     Session::flash('error', 'Email ini sudah terdaftar, silahkan login dengan metode lain ');
+                //     return redirect("login");
+                // }
 
-                    $newUser= User::create([
-                     'nama' => $googleUser->name,
-                     'email' => $googleUser->email,
-                     'password' => Hash::make('afeksiusergoogle'),
-                     'google_id' => $googleUser->id,
-                     'email_verified_at' => now()
-                 ]);
+                $newUser= User::create([
+                    'nama' => $googleUser->name,
+                    'email' => $googleUser->email,
+                    'password' => Hash::make('afeksiUserGoogle123'),
+                    'google_id' => $googleUser->id,
+                    // 'email_verified_at' => now()
+                ]);
 
                 }
 
              Auth::login($newUser, true);
              session()->regenerate();
-             return redirect("/");
+             return redirect(RouteServiceProvider::HOME);
 
             
         }catch (\Exception $e) {
