@@ -6,7 +6,7 @@
    
 <!-- NAVBAR
 ============================================================================ -->
-@include('../partials/navbar') 
+{{-- @include('../partials/navbar')  --}}
 
 
 @section('content')

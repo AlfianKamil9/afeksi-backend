@@ -27,7 +27,10 @@ Route::get('/beranda', function () {
 
 require __DIR__ . '/auth.php';
 
-Route::get('/lupa-password', function () {
-    return view('pages.lupa-password');
+Route::get('/psikolog', function () {
+    return view('pages.psikolog');
+});
+Route::get('/profesional-konseling', function () {
+    return view('pages.profesional-konseling-online-senior');
 });
 

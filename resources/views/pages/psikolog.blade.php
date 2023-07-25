@@ -8,7 +8,7 @@
 @endsection
 
 {{-- Nav --}}
-@include('../partials/navbar') 
+{{-- @include('../partials/navbar')  --}}
 
 @section('content')
     <section id="psikologi" class="py-5">
