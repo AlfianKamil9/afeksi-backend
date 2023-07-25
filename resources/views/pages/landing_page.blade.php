@@ -8,7 +8,7 @@
 @endauth
 
 @section('styles')
-    <link rel="stylesheet" href="{{ asset('assets/css/style-landing-page.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/css/style-landing-page.css') }}">
   
 @endsection
 @section('content')
