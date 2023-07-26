@@ -6,13 +6,14 @@ class TransferBankService
 {
 
     public function bank($method, $data) {      // PAYMENT MENGGUNAKAN BNI, BRI, BCA 
-        $serverkey = base64_encode(config('midtrans.server_key').':');
-        $url = config('midtrans.url');
-        $reference = "DEV-";
-        $total_amount = 4000 ;
+        $serverkey = config('midtrans.midtrans.server_key');
+        $serverBase64 = base64_encode($serverkey.':');
+        $url = config('midtrans.midtrans.url');
+        $reference = $data['reference'];
+        $total_amount = 4000 + $data['total_bayar'];
         $body = [
-            "payment_type" => "transfer_bank",
-            "transaction_details"=> [
+            "payment_type" => "bank_transfer",
+            "transaction_details" => [
                 "order_id" => $reference,
                 "gross_amount" => $total_amount
                 ],
@@ -33,17 +34,17 @@ class TransferBankService
                 CURLOPT_POSTFIELDS => json_encode($body),
                 CURLOPT_HTTPHEADER => [
                     // Set here requred headers
-                    "Accept: application/json",
-                    "Authorization: Basic ".$serverkey ,
-                    "Content-Type: application/json",
+                    "accept: application/json",
+                    "authorization: Basic ".$serverBase64 ,
+                    "content-type: application/json",
                 ],
             ));
 
             $response = curl_exec($curl);
+            //dd($response);
             $err = curl_error($curl);
             curl_close($curl);
             $response =json_decode($response, true);
-            
             return $response ?: $err;
 
     }

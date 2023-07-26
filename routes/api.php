@@ -16,3 +16,8 @@
 //     });
 //     Route::post('/logout', [LoginController::class, 'logout']);
 // });
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Transaksi\Event\WebinarTransaksiController;
+
+Route::post('/checkout', [WebinarTransaksiController::class, 'checkout']);
