@@ -1,4 +1,4 @@
-  .btn {
+  .form-btn {
     padding: 10px 25px !important;
     background-color: #233dff !important;
     color: white !important;
@@ -15,8 +15,8 @@
     text-decoration: none;
   }
   
-  .btn:focus,
-  .btn:active {
+  .form-btn:focus,
+  .form-btn:active {
     border: none;
   }
   

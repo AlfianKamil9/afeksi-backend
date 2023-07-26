@@ -25,9 +25,15 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('pages.register');
 });
+
 Route::get('/home', function () {
     return view('pages.landing_page');
 });
+
 Route::get('/lupa-password', function () {
     return view('pages.lupa-password');
+});
+
+Route::get('/tentang-kami', function () {
+    return view('pages.tentang-kami');
 });

@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="assets/css/loginregis.css">
 @endsection
 
+@include('../partials/navbar') 
+
 @section('content')
-<div class="container-lg pt-5 mt-5 px-4">
+<div class="container-lg pt-5 mt-2 px-4">
     <div class="row align-items-center justify-content-center gap-2">
       <!-- Left Column -->
       <div class="col-md-5 d-none d-md-inline">
@@ -51,13 +53,13 @@
             <a href="#" class="text-decoration-none forgetPassBtn fw-semibold">Forgot password?</a>
           </div>
           <div class="d-flex flex-column mt-auto">
-            <button type="submit" class="btn mb-2 fw-semibold">Daftar</button>
+            <button type="submit" class="btn form-btn mb-2 fw-semibold">Daftar</button>
             <div class="formSmText mb-2">
               <div class="horizontal-line"></div>
               <span class="mx-3 text-muted">Atau Daftar Dengan</span>
               <div class="horizontal-line"></div>
             </div>
-            <button type="submit" class="btn btn-transparent mb-2 fw-semibold d-flex align-items-center justify-content-center">
+            <button type="submit" class="btn form-btn btn-transparent mb-2 fw-semibold d-flex align-items-center justify-content-center">
               <img src="assets/img/login-register/Google.png" alt=""><span class="mx-3">Daftar dengan Google</span>
             </button>
             <div class="formSmText">
