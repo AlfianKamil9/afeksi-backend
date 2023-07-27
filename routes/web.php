@@ -37,3 +37,7 @@ Route::get('/lupa-password', function () {
 Route::get('/tentang-kami', function () {
     return view('pages.tentang-kami');
 });
+
+Route::get('/kebijakan-privasi', function () {
+    return view('pages.kebijakan-privasi');
+});
