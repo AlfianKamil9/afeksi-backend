@@ -39,14 +39,14 @@
             <label for="passwordInput" class="form-label fw-semibold">Password</label>
             <div class="password-container">
               <input type="password" class="form-control" id="passwordInput" placeholder="Masukkan Password">
-              <i class="password-icon fas fa-eye"></i>
+              <img style="width:23px;" src="assets/img/login-register/mdi_eye.png" alt="" class="password-icon">
             </div>
           </div>
           <div class="mb-2">
             <label for="confirmPasswordInput" class="form-label fw-semibold">Konfirmasi Password</label>
             <div class="password-container">
               <input type="password" class="form-control" id="confirmPasswordInput" placeholder="Konfirmasi Password">
-              <i class="password-icon fas fa-eye"></i>
+              <img style="width:23px;" src="assets/img/login-register/mdi_eye.png" alt="" class="password-icon">
             </div>
           </div>
           <div class="mb-2 text-end">
