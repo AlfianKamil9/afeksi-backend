@@ -2,9 +2,9 @@
 @extends('layout')
 
 @auth
-    @section('title', 'Beranda')
+    @section('title', 'Beranda | AFEKSI')
 @else
-    @section('title', 'Welcome Afeksi')
+    @section('title', 'Welcome Afeksi | AFEKSI')
 @endauth
 
 @section('styles')

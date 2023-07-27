@@ -27,7 +27,7 @@
     @else
     <div class="wrapper p-4 m-auto d-flex flex-column justify-content-center text-center mt-5">
         <h3 class="mb-3 fw-bolder">Lupa Password</h3>
-        <p class="text-center">Masukkan alamat email yang kamu daftarkan dan kami akan mengirimkan link untuk membuat password baru.</p>
+        <p class="text-center">Buat Password baru untuk akun anda.</p>
         <div class="form-input input-container">
         <form method="POST" action="{{  route('password.store') }}" >
             <x-input-error :messages="$errors->get('password')" class="mt-2 text-danger text-start fst-italic" style="font-size:14px;"  />

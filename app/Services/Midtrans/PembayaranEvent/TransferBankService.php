@@ -49,11 +49,11 @@ class TransferBankService
 
     }
 
-    public function mandiri($data) {
+    public function mandiri($method, $data) {
         //
     }
 
-    public function permata($data) {
+    public function permata($method, $data) {
         //
     }
 }

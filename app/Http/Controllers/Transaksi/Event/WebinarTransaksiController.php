@@ -36,6 +36,30 @@ class WebinarTransaksiController extends Controller
                 //dd($data);
                 $result = new TransferBankService();
                 $res = $result->bank($request->payment_method, $data);
+                // UPDATE PEMBAYARAN DAN GET VA NUMBER
+                return response()->json([$res]);
+            }
+
+        else if ($request->payment_method == 'permata') 
+            {
+                $data = [
+                    "reference" => $request->reference,
+                    "total_bayar" => $request->total_bayar
+                ];
+                $result = new TransferBankService();
+                $res = $result->permata($request->payment_method, $data);
+                return response()->json([$res]);
+            }
+
+        else if ($request->payment_method == 'mandiri') 
+            {
+                $data = [
+                    "reference" => $request->reference,
+                    "total_bayar" => $request->total_bayar
+                ];
+                //dd($data);
+                $result = new TransferBankService();
+                $res = $result->mandiri($request->payment_method, $data);
                 return response()->json([$res]);
             }
 
