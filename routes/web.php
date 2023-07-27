@@ -34,6 +34,9 @@ require __DIR__ . '/auth.php';
 Route::get('/tentang-kami', function () {
     return view('pages.tentang-kami');
 })->name("tentang-kami");
+Route::get('/kebijakan-privasi', function () {
+    return view('pages.kebijakan-privasi');
+})->name("kebijakan-privasi");
 
 
 
