@@ -7,8 +7,13 @@
     <link rel="stylesheet" href="/assets/css/loginregis.css">
 @endsection
 
-@section('content')
+@include('../partials/navbar') 
 
+@section('content')
+<<<<<<< HEAD:resources/views/pages/auth/register.blade.php
+
+=======
+>>>>>>> 091ea7903627df7a979d03ee98c1915980341eb1:resources/views/pages/register.blade.php
 <div class="container-lg pt-5 mt-2 px-4">
     <div class="row align-items-center justify-content-center gap-2">
       <!-- Left Column -->
@@ -58,13 +63,17 @@
             {{-- <a href="#" class="text-decoration-none forgetPassBtn fw-semibold">Forgot password?</a> --}}
           </div>
           <div class="d-flex flex-column mt-auto">
-            <button type="submit" class="btn mb-2 fw-semibold">Daftar</button>
+            <button type="submit" class="btn form-btn mb-2 fw-semibold">Daftar</button>
             <div class="formSmText mb-2">
               <div class="horizontal-line"></div>
               <span class="mx-3 text-muted">Atau Daftar Dengan</span>
               <div class="horizontal-line"></div>
             </div>
+<<<<<<< HEAD:resources/views/pages/auth/register.blade.php
             <a type="button" href="{{ route('auth.google') }}" class="btn btn-transparent mb-2 fw-semibold d-flex align-items-center justify-content-center">
+=======
+            <button type="submit" class="btn form-btn btn-transparent mb-2 fw-semibold d-flex align-items-center justify-content-center">
+>>>>>>> 091ea7903627df7a979d03ee98c1915980341eb1:resources/views/pages/register.blade.php
               <img src="assets/img/login-register/Google.png" alt=""><span class="mx-3">Daftar dengan Google</span>
             </a>
             <div class="formSmText mb-3">

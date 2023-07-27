@@ -6,8 +6,10 @@
 <link rel="stylesheet" href="/assets/css/loginregis.css">
 @endsection
 
+@include('../partials/navbar') 
 
 @section('content')
+<<<<<<< HEAD:resources/views/pages/auth/login.blade.php
 
 {{--  
 @if (session('success'))
@@ -23,6 +25,9 @@
 @endif --}}
 
 <div class="container-lg pt-5 mt-5 px-4">
+=======
+<div class="container-lg pt-5 mt-2 px-4">
+>>>>>>> 091ea7903627df7a979d03ee98c1915980341eb1:resources/views/pages/login.blade.php
     <div class="row align-items-center justify-content-center gap-2">
       <div class="col-md-5 d-none d-md-inline">
         <img src="assets/img/login-register/loginImg.svg" class="img-fluid align-self-center" alt="Image">
@@ -56,13 +61,17 @@
             <a href="{{ route('password.request') }}" class="text-decoration-none forgetPassBtn fw-semibold">Forgot password?</a>
           </div>
           <div class="d-flex flex-column mt-auto">
-            <button type="submit" class="btn mb-2 fw-semibold">Masuk</button>
+            <button type="submit" class="btn form-btn mb-2 fw-semibold">Masuk</button>
             <div class="formSmText mb-2">
               <div class="horizontal-line"></div>
               <span class="mx-3 text-muted">Atau Masuk Dengan</span>
               <div class="horizontal-line"></div>
             </div>
+<<<<<<< HEAD:resources/views/pages/auth/login.blade.php
             <a type="button" href="{{ route('auth.google') }}" class="btn btn-transparent mb-2 fw-semibold d-flex align-items-center justify-content-center">
+=======
+            <button type="submit" class="btn form-btn btn-transparent mb-2 fw-semibold d-flex align-items-center justify-content-center">
+>>>>>>> 091ea7903627df7a979d03ee98c1915980341eb1:resources/views/pages/login.blade.php
               <img src="assets/img/login-register/Google.png" alt=""><span class="mx-3">Masuk dengan Google</span>
             </a>
             <div class="formSmText">

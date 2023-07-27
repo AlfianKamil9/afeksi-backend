@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+<<<<<<< HEAD
     return view('pages.landing_page');
 });
 
@@ -38,3 +39,27 @@ Route::get('/profesional-konseling', function () {
     return view('pages.profesional-konseling-online-senior');
 });
 
+=======
+    return view('welcome');
+});
+
+Route::get('/login', function () {
+    return view('pages.login');
+});
+
+Route::get('/register', function () {
+    return view('pages.register');
+});
+
+Route::get('/home', function () {
+    return view('pages.landing_page');
+});
+
+Route::get('/lupa-password', function () {
+    return view('pages.lupa-password');
+});
+
+Route::get('/tentang-kami', function () {
+    return view('pages.tentang-kami');
+});
+>>>>>>> 091ea7903627df7a979d03ee98c1915980341eb1

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 * {
     font-family: "Rubik", sans-serif;
 }
@@ -10,6 +11,9 @@ body {
 }
 
 .btn {
+=======
+  .form-btn {
+>>>>>>> 091ea7903627df7a979d03ee98c1915980341eb1
     padding: 10px 25px !important;
     background-color: #233dff !important;
     color: white !important;
@@ -24,10 +28,17 @@ input {
 a {
     color: #233dff;
     text-decoration: none;
+<<<<<<< HEAD
 }
 
 .btn:focus,
 .btn:active {
+=======
+  }
+  
+  .form-btn:focus,
+  .form-btn:active {
+>>>>>>> 091ea7903627df7a979d03ee98c1915980341eb1
     border: none;
 }
 
