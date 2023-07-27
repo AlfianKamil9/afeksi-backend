@@ -13,7 +13,7 @@ class EventCategorySeeder extends Seeder
      */
     public function run(): void
     {
-        $categoryEvent = ['Webinar' , 'Campaign'];
+        $categoryEvent = ['Relationship' , 'Self Love','Parenting', 'Pre-Marriage', 'Emotional Management', 'Family Issue'];
 
         foreach ($categoryEvent as $value) {
             EventCategory::create([

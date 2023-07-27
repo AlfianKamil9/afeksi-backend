@@ -26,16 +26,34 @@ class EventSeeder extends Seeder
             '16:00',
             '19:00',
             'TEST.PNG',
-            '150000',
+            150000,
             'TEST DESKRIPSI',
             'DRAFT',
-            'title-campaign-psikologi'
+            'title-campaign-psikologi',
+            'CAMPAIGN'
         ],
         [
                 '1',
-                'Title Webinar Psikologi 1',
+                'Title Webinar Relationship 1',
                 'ONLINE',
                 'FREE',
+                '2023-07-06',
+                '2023-07-10',
+                '2023-07-21',
+                '16:00',
+                '19:00',
+                'TEST.PNG',
+                50000,
+                'TEST DESKRIPSI',
+                'DRAFT',
+                'title-webinar-relationship-1',
+                'WEBINAR'
+        ],
+        [
+                '2',
+                'Love Your Self Bro',
+                'ONLINE',
+                'PAID',
                 '2023-07-06',
                 '2023-07-10',
                 '2023-07-21',
@@ -45,12 +63,13 @@ class EventSeeder extends Seeder
                 NULL,
                 'TEST DESKRIPSI',
                 'DRAFT',
-                'title-campaign-psikologi'
+                'love-your-self-bro',
+                'WEBINAR'
         ]
     ];
 
 
-        for ($i=0; $i < 2 ; $i++) { 
+        for ($i=0; $i < 3 ; $i++) { 
              Event::create([
             'category_event_id' => $data[$i][0],
             'title_event' => $data[$i][1],
@@ -65,7 +84,8 @@ class EventSeeder extends Seeder
             'cover_event' => $data[$i][9],
             'price_event'=> $data[$i][10],
             'description_event' => $data[$i][11],
-            'status_event' => $data[$i][12]
+            'status_event' => $data[$i][12],
+            'activity_category_event' => $data[$i][14]
         ]);
         }
 

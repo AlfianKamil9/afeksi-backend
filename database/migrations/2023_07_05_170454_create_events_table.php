@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('category_event_id');
+            $table->enum('activity_category_event', ['WEBINAR', 'CAMPAIGN']);
             $table->string('title_event');
             $table->string('slug_event');
             $table->enum('time_category_event', ['ONLINE', 'OFFLINE']);
