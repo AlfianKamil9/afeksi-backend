@@ -35,16 +35,13 @@ a {
 input,
 input::placeholder {
     color: #9aa2b1 !important;
-<<<<<<< HEAD
 }
 
 input::placeholder {
-=======
     height: 39px;
-  }
-  
-  input::placeholder {
->>>>>>> c7fe89509ccf90b2be377d2e5d6564cafe26b53c
+}
+
+input::placeholder {
     font-size: 14px;
 }
 

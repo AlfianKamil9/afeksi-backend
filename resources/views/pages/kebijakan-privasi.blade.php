@@ -1,12 +1,12 @@
 @extends('../layout')
 
-@section('title', 'kebijakan-privasi')
+@section('title', 'Kebijakan Privasi | AFEKSI')
 
 @section('styles')
     <link rel="stylesheet" href="assets/css/kebijakanprivasi.css">
 @endsection
 
-@include('../partials/navbar') 
+{{-- @include('../partials/navbar')  --}}
 
 @section('content')
 

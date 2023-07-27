@@ -50,13 +50,8 @@
           <div class="mb-2">
             <label for="passwordInput" class="form-label fw-semibold">Password</label>
             <div class="password-container">
-<<<<<<< HEAD:resources/views/pages/auth/login.blade.php
-              <input type="password" class="form-control" id="passwordInput" placeholder="Masukkan Password"   name="password" required />
-              <i class="password-icon fas fa-eye"></i>
-=======
-              <input type="password" class="form-control" id="passwordInput" placeholder="Masukkan Password">
-              <img style="width:23px;" src="assets/img/login-register/mdi_eye.png" alt="" class="password-icon">
->>>>>>> c7fe89509ccf90b2be377d2e5d6564cafe26b53c:resources/views/pages/login.blade.php
+              <input type="password" class="form-control" id="passwordInput" placeholder="Masukkan Password" name="password" required />
+              <img style="width:23px;" src="assets/img/login-register/mdi_eye.png" alt="" class="password-icon" />
             </div>
           </div>
           <div class="mb-2 text-end">
