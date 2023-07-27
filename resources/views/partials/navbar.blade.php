@@ -50,16 +50,17 @@
   /* End Navbar */
 </style>
 
-<nav class="navbar navbar-expand-md navbar-light fixed-top">
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">
-          <img src="/assets/img/logo.png" alt="Logo" class="d-inline-block align-text-top w-50" />
+          <img src="/assets/img/logo-copy.png" alt="Logo" class="d-inline-block align-text-top ms-5" style="width:60px;"/>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvas" aria-controls="navbarOffcanvas">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="offcanvas offcanvas-end" id="navbarOffcanvas" tabindex="-1" aria-labelledby="navbarOffcanvasLabel">
           <div class="offcanvas-header">
+            <img src="/assets/img/logo-copy.png" alt="Logo" class="d-inline-block align-text-top" style="width:60px;"/>
             <h5 class="offcanvas-title fw-semibold text-uppercase" id="navbarOffcanvasLabel">Afeksi</h5>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
