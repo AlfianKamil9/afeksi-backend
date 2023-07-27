@@ -72,5 +72,17 @@ class WebinarTransaksiController extends Controller
             {
                 # code...
             }
+        else if ($request->payment_method == 'qris') 
+            {
+                # code...
+            }
+        else if ($request->payment_method == 'gopay') 
+            {
+                # code...
+            }
+        else if ($request->payment_method == 'shoppePay') 
+            {
+                # code...
+            }
     }
 }

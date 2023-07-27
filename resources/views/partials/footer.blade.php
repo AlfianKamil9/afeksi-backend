@@ -78,7 +78,7 @@
           <div class="text-white mb-4 me-3 flex-fill">
             <h5 class="link-title mb-4">Tentang kami</h5>
             <ul class="list-unstyled">
-              <li class="mb-3"><a href="#" class="text-white">Tentang kami</a></li>
+              <li class="mb-3"><a href="{{ route('tentang-kami') }}" class="text-white">Tentang kami</a></li>
               <li class="mb-3"><a href="#" class="text-white">Karir</a></li>
               <li class="mb-3"><a href="#" class="text-white">Campaign</a></li>
               <li class="mb-3"><a href="#" class="text-white">Webinar</a></li>

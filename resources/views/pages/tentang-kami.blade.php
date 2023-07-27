@@ -1,13 +1,13 @@
 @extends('../layout')
 
-@section('title', 'Tentang kami')
+@section('title', 'Tentang kami | AFEKSI')
 
 <!-- path style disesuaikan dengan folder css masing-masing page -->
 @section('styles')
     <link rel="stylesheet" href="assets/css/tentang-kami.css">
 @endsection
 
-@include('../partials/navbar') 
+{{-- @include('../partials/navbar')  --}}
 
 @section('content')
 <!-- HEADER -->
@@ -207,7 +207,7 @@
       </div>
       <div class="d-grid justify-content-center mb-5 mt-4">
         <div class="align-content-center text-center">
-          <a href="#" type="button" class="btn btn-primary button-wa fw-medium" style="background-color: #233dff; width: 13rem">
+          <a href="https://wa.me/6282142625552" target="_blank" type="button" class="btn btn-primary button-wa fw-medium" style="background-color: #233dff; width: 13rem">
             <i class="fa-brands fa-whatsapp mx-2"></i>
             <span> WhatsApp Kami</span>
           </a>

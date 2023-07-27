@@ -26,7 +26,7 @@
             </div>
     @else
     <div class="wrapper p-4 m-auto d-flex flex-column justify-content-center text-center mt-5">
-        <h3 class="mb-3 fw-bolder">Lupa Password</h3>
+        <h3 class="mb-3 fw-bolder">Reset Password</h3>
         <p class="text-center">Buat Password baru untuk akun anda.</p>
         <div class="form-input input-container">
         <form method="POST" action="{{  route('password.store') }}" >
