@@ -88,7 +88,7 @@
               </li>
 
               <li class="nav-item">
-                <a class="nav-link active" href="#" style="color: #233dff">Tentang Kami</a>
+                <a class="nav-link" href="#">Tentang Kami</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">FAQ</a>

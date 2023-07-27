@@ -24,6 +24,7 @@
   input,
   input::placeholder {
     color: #9aa2b1 !important;
+    height: 39px;
   }
   
   input::placeholder {
