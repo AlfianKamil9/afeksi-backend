@@ -1,0 +1,102 @@
+* {
+    font-family: "Rubik", sans-serif !important;
+    text-decoration: none !important;
+  }
+  
+  
+  
+  /* hero section */
+  .hero {
+    padding: 50px 90px;
+    margin-bottom: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+  }
+  
+  .dflex {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .hero img {
+    width: 70%;
+  }
+  
+  .campaign {
+    padding: 50px 90px 90px 90px;
+  }
+  
+  /* CARD */
+  .card-daftar {
+    position: absolute;
+    top: 9.8rem;
+    right: 3rem;
+    z-index: 1;
+  }
+  
+  .card-daftar-campaign {
+    position: absolute;
+    top: 8.3rem;
+    right: 3rem;
+    z-index: 1;
+  }
+  
+  @media (max-width: 1000px) {
+    .card-daftar,
+    .card-daftar-campaign {
+      position: relative;
+      margin: 40px;
+      top: 0rem;
+      left: 0rem;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .card-daftar,
+    .card-daftar-campaign {
+      position: relative;
+      margin: 10px;
+      top: 0rem;
+      left: 0rem;
+    }
+  }
+  
+  
+  
+  
+  .btn-daftar {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .btn-daftar:hover {
+    transform: scale(0.9);
+  }
+  
+  .btn-daftar:focus {
+    outline: none;
+  }
+  
+  .custom-list li img {
+    margin-right: 10px;
+    font-size: 18px;
+    vertical-align: middle;
+  }
+  
+  /* CONTENT */
+  .list-daftar-webinar {
+    padding: 0;
+    list-style-position: inside;
+  }
+  
+  @media (max-width: 600px) {
+    .hero,
+    .contents,
+    .campaign {
+      padding: 50px 30px;
+    }
+  }
+  

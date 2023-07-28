@@ -41,3 +41,19 @@ Route::get('/tentang-kami', function () {
 Route::get('/kebijakan-privasi', function () {
     return view('pages.kebijakan-privasi');
 });
+
+Route::get('/kegiatan-webinar', function () {
+    return view('pages.kegiatan-webinar');
+});
+
+Route::get('/kegiatan-campaign', function () {
+    return view('pages.kegiatan-campaign');
+});
+
+Route::get('/detail-webinar', function () {
+    return view('pages.detail-webinar');
+});
+
+Route::get('/detail-campaign', function () {
+    return view('pages.detail-campaign');
+});
