@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\Event\CampaignController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GoogleController;
 use Illuminate\Support\Facades\Route;
@@ -43,9 +43,8 @@ Route::get('/kegiatan-webinar', function () {
     return view('pages.kegiatan-webinar');
 });
 
-Route::get('/kegiatan-campaign', function () {
-    return view('pages.kegiatan-campaign');
-});
+Route::get('/kegiatan-campaign', [CampaignController::class, 'index'])->name('campaign');
+Route::get('/kegiatan-campaign/{slug}', [CampaignController::class, 'show'])->name('campaign.detail');
 
 Route::get('/detail-webinar', function () {
     return view('pages.detail-webinar');

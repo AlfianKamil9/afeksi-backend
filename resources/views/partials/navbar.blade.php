@@ -85,7 +85,7 @@
                 <!-- <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button> -->
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="#"><i class="bi bi-camera-video-fill text-primary "></i> Webinar</a></li>
-                  <li><a class="dropdown-item" href="#"><i class="bi bi-megaphone-fill text-primary"></i> Campaign</a></li>
+                  <li><a class="dropdown-item" href="{{ route('campaign') }}"><i class="bi bi-megaphone-fill text-primary"></i> Campaign</a></li>
                   <li><a class="dropdown-item" href="#"><i class="bi bi-chat-left-fill text-primary"></i> Rekap History</a></li>
                 </ul>
               </li>

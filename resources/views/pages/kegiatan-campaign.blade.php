@@ -158,11 +158,12 @@
     
       <div class="content col-lg-9 col-md-8">
         <div class="row d-flex">
+          @forelse ($data as $data)
           <div class="col-lg-4 col-md-6 col-sm-12">
             <div class="card mb-4">
-              <img src="assets/img/kegiatan/WhatsApp Image 2023-02-12 at 20.29 1.png" class="card-img-top" alt="Image 1">
+              <img src="{{ Storage::url($data->cover_event) }}" class="card-img-top" alt="{{ $data->title_event }}">
               <div class="card-body">
-                <p class="card-title fw-semibold">Love Yourself Before Loving Others</p>
+                <a href="{{ route('campaign.detail', $data->slug_event) }}" class="card-title fw-semibold">{{ $data->title_event }}</a>
                 <div class="person d-flex gap-2 mt-3">
                   <img src="assets/img/kegiatan/Ellipse 216.png" alt="">
                   <div class="name">
@@ -171,26 +172,29 @@
                   </div>
                 </div>
                 <div class="mt-3 d-flex flex-wrap gap-2 justify-content-between">
-                  <span class="px-2 text-body-tertiary">Webinar</span>
-                  <span class="px-2 text-body-tertiary">E-Certificate</span>
-                  <span class="px-2 text-body-tertiary">Diskusi/Konsultasi</span>
+                  <span class="px-2 text-body-tertiary">{{ $data->event_categories->category_event_name }}</span>
+                  {{-- <span class="px-2 text-body-tertiary">E-Certificate</span>
+                  <span class="px-2 text-body-tertiary">Diskusi/Konsultasi</span> --}}
                 </div>
                 <div class="mt-3 d-flex justify-content-between">
                   <div class="d-flex date">
                     <img src="assets/img/kegiatan/material-symbols_date-range.png" class="me-2" alt="">
-                    <p class="text-muted">25 Juli 2023</p>
+                    <p class="text-muted">{{ $data->date_event }}</p>
                   </div>
                   <div class="d-flex date">
                     <img src="assets/img/kegiatan/watch_later.png" class="me-2" alt="">
-                    <p class="text-muted">12:00 - 15:00 WIB</p>
+                    <p class="text-muted">{{ $data->time_start }} - {{ $data->time_finish }} WIB</p>
                   </div>
                 </div>
-                <p class="fw-semibold lead mt-3 mb-0" style="color: #2139f9;">Gratis</p>
+                <p class="fw-semibold lead mt-3 mb-0" style="color: #2139f9;">Rp{{ number_format($data->price_event, 0, ',', '.') }}</p>
               </div>
             </div>
           </div>
+          @empty
+              <h2 class="text-center">Tidak Ada Campaign</h2>
+          @endforelse
           
-          <div class="col-lg-4 col-md-6 col-sm-12">
+          {{--<div class="col-lg-4 col-md-6 col-sm-12">
             <div class="card mb-4">
               <img src="assets/img/kegiatan/robot.png" class="card-img-top" alt="Image 1">
               <div class="card-body">
@@ -508,7 +512,7 @@
                 <p class="fw-semibold lead mt-3 mb-0" style="color: #2139f9;">50.000</p>
               </div>
             </div>
-          </div>
+          </div> --}}
           
         </div>
       </div>
