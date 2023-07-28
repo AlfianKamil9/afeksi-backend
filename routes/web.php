@@ -39,14 +39,29 @@ Route::get('/kebijakan-privasi', function () {
 })->name("kebijakan-privasi");
 
 
+Route::get('/kegiatan-webinar', function () {
+    return view('pages.kegiatan-webinar');
+});
 
-// frontend
+Route::get('/kegiatan-campaign', function () {
+    return view('pages.kegiatan-campaign');
+});
+
+Route::get('/detail-webinar', function () {
+    return view('pages.detail-webinar');
+});
+
+Route::get('/detail-campaign', function () {
+    return view('pages.detail-campaign');
+});
+
+
+// frontend yang belum fiks
 Route::get('/psikolog', function () {
     return view('pages.psikolog');
 });
 Route::get('/profesional-konseling', function () {
     return view('pages.profesional-konseling-online-senior');
 });
-
 
 
