@@ -26,7 +26,8 @@ class Event extends Model
         'cover_event',
         'price_event',
         'description_event',
-        'status_event'
+        'status_event',
+        'is_place'
     ];
 
     public function sluggable()
@@ -51,5 +52,9 @@ class Event extends Model
 
     public function event_transaction () {
         return $this->hasMany(EventTransaction::class);
+    }
+
+     public function webinar_session() {
+        return $this->hasMany(EventMaterialSession::class);
     }
 }

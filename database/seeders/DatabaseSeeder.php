@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
     {
        //user
         $this->call(UserSeeder::class);
+        $this->call(PsikologSeeder::class);
         $this->call(EventCategorySeeder::class);
         $this->call(EventSeeder::class);
         $this->call(EventTransactionSeeder::class);
@@ -26,5 +27,6 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(VolunteersSeeder::class);
         $this->call(KonselorsSeeder::class);
+        $this->call(EventMaterialSessionSeeder::class);
     }
 }

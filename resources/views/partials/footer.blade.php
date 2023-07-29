@@ -80,7 +80,7 @@
             <ul class="list-unstyled">
               <li class="mb-3"><a href="{{ route('tentang-kami') }}" class="text-white">Tentang kami</a></li>
               <li class="mb-3"><a href="#" class="text-white">Karir</a></li>
-              <li class="mb-3"><a href="#" class="text-white">Campaign</a></li>
+              <li class="mb-3"><a href="{{ route('campaign') }}" class="text-white">Campaign</a></li>
               <li class="mb-3"><a href="#" class="text-white">Webinar</a></li>
               <li class="mb-3"><a href="#" class="text-white">Rekap Histori</a></li>
             </ul>

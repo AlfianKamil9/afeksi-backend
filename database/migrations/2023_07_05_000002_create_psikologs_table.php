@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('psikologs', function (Blueprint $table) {
             $table->id();
+            $table->string('avatar')->nullable();
             $table->string('nama_psikolog');
-            $table->double('rating');
+            $table->double('rating')->nullable();
             $table->string('profil');
-            $table->string('keahlian');
+            $table->text('deskripsi')->nullable();
+            $table->string('keahlian')->nullable();
             $table->timestamps();
         });
     }

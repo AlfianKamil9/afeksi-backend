@@ -41,7 +41,7 @@ Route::get('/kebijakan-privasi', function () {
 
 Route::get('/kegiatan-webinar', function () {
     return view('pages.kegiatan-webinar');
-});
+})->name('webinar');
 
 Route::get('/kegiatan-campaign', [CampaignController::class, 'index'])->name('campaign');
 Route::get('/kegiatan-campaign/{slug}', [CampaignController::class, 'show'])->name('campaign.detail');
@@ -50,9 +50,9 @@ Route::get('/detail-webinar', function () {
     return view('pages.detail-webinar');
 });
 
-Route::get('/detail-campaign', function () {
-    return view('pages.detail-campaign');
-});
+// Route::get('/detail-campaign', function () {
+//     return view('pages.detail-campaign');
+// });
 
 
 // frontend yang belum fiks

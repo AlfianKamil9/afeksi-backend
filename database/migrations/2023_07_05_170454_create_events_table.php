@@ -26,7 +26,8 @@ return new class extends Migration
             $table->time('time_finish');
             $table->string('cover_event');
             $table->string('price_event')->nullable();
-            $table->string('description_event');
+            $table->string('is_place')->nullable();
+            $table->text('description_event');
             $table->enum('status_event', ['LIVE','DRAFT','EXPIRE']);
             $table->timestamps();
 

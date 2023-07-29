@@ -1,6 +1,6 @@
 @extends('../layout')
 
-@section('title', 'Webinar')
+@section('title', 'Webinar | AFEKSI')
 
 <!-- path style disesuaikan dengan folder css masing-masing page -->
 @section('styles')
