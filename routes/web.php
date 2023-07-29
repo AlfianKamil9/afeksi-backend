@@ -19,6 +19,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('pages.landing_page');
 })->name('homepage');
+Route::get('/tentang-kami', function () {
+    return view('pages.tentang-kami');
+})->name("tentang-kami");
+Route::get('/kebijakan-privasi', function () {
+    return view('pages.kebijakan-privasi');
+})->name("kebijakan-privasi");
+Route::get('/faq-konseling', function () {
+    return view('pages.faq-konseling');
+});
 
 
 Route::get('/beranda', function () {
@@ -31,12 +40,6 @@ require __DIR__ . '/auth.php';
 
 
 // PAGES NO RULES
-Route::get('/tentang-kami', function () {
-    return view('pages.tentang-kami');
-})->name("tentang-kami");
-Route::get('/kebijakan-privasi', function () {
-    return view('pages.kebijakan-privasi');
-})->name("kebijakan-privasi");
 
 
 Route::get('/kegiatan-webinar', function () {
@@ -50,9 +53,6 @@ Route::get('/detail-webinar', function () {
     return view('pages.detail-webinar');
 });
 
-// Route::get('/detail-campaign', function () {
-//     return view('pages.detail-campaign');
-// });
 
 
 // frontend yang belum fiks
@@ -62,5 +62,4 @@ Route::get('/psikolog', function () {
 Route::get('/profesional-konseling', function () {
     return view('pages.profesional-konseling-online-senior');
 });
-
 
