@@ -27,7 +27,7 @@ class WebinarTransaksiController extends Controller
             ], 402);
         }
 
-<<<<<<< HEAD
+
 // CEK PAYMENT METHOD YANG DIPILIH
         if ($request->payment_method == 'bni' || $request->payment_method == 'bri' || $request->payment_method == 'bca' ) 
             {
@@ -40,15 +40,6 @@ class WebinarTransaksiController extends Controller
                 $result = new TransferBankService();
                 $res = $result->bank($request->payment_method, $data);
                 // dd($res);
-=======
-        // CEK PAYMENT METHOD YANG DIPILIH
-        if ($request->payment_method == 'bni' || $request->payment_method == 'bri' || $request->payment_method == 'bca') {
-            $data = EventTransaction::with('event', 'user')->where('ref_transaction_event', $request->reference)->first();
-            $data = [
-                "reference" => $request->reference,
-                "harga_event" => $data->event->price_event,
-            ];
->>>>>>> ca62e7b8f860124f054e2647d79bd56c350c0659
 
             $result = new TransferBankService();
             $res = $result->bank($request->payment_method, $data);
@@ -75,6 +66,8 @@ class WebinarTransaksiController extends Controller
                 "va_transfer" => $res["va_numbers"][0]["va_number"]
             ]);
         }
+
+
         // CEK PAYMENT METHOD YANG DIPILIH MISAL PERMATA
         else if ($request->payment_method == 'permata') {
             $data = EventTransaction::with('event', 'user')->where('ref_transaction_event', $request->reference)->first();
@@ -108,6 +101,8 @@ class WebinarTransaksiController extends Controller
                 "va_transfer" =>  $res["permata_va_number"]
             ]);
         }
+
+
         // CEK PAYMENT METHOD YANG DIPILIH MISAL MANDIRI
         else if ($request->payment_method == 'mandiri') {
             $data = EventTransaction::with('event', 'user')->where('ref_transaction_event', $request->reference)->first();
@@ -141,11 +136,17 @@ class WebinarTransaksiController extends Controller
                 "bill_key" =>  $res["bill_key"],
                 "biller_code" => $res["biller_code"]
             ]);
+
+
         } else if ($request->payment_method == 'alfamart') {
             # code...
-        } else if ($request->payment_method == 'indomaret') {
+        } 
+        
+        else if ($request->payment_method == 'indomaret') {
             # code...
-        } else if ($request->payment_method == 'qris') {
+        } 
+        
+        else if ($request->payment_method == 'qris') {
             $data = EventTransaction::with('event', 'user')->where('ref_transaction_event', $request->reference)->first();
             // dd($request->payment_method);
             $data = [
