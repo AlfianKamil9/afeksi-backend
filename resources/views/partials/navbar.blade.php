@@ -100,7 +100,9 @@
                 @endif>Tentang Kami</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">FAQ</a>
+                <a class="nav-link" href="{{ route('FAQ') }}"  @if ( Route::CurrentRouteName() == "FAQ" )
+                  style="color: #233dff"
+                @endif>FAQ</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Karir</a>

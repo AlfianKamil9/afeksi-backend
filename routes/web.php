@@ -25,9 +25,9 @@ Route::get('/tentang-kami', function () {
 Route::get('/kebijakan-privasi', function () {
     return view('pages.kebijakan-privasi');
 })->name("kebijakan-privasi");
-Route::get('/faq-konseling', function () {
+Route::get('/FAQ', function () {
     return view('pages.faq-konseling');
-});
+})->name('FAQ');
 
 
 Route::get('/beranda', function () {
@@ -36,19 +36,12 @@ Route::get('/beranda', function () {
 
 require __DIR__ . '/auth.php';
 
-// PAGES WITH RULES AUTH
-
-
 // PAGES NO RULES
-
-
 Route::get('/kegiatan-webinar', function () {
     return view('pages.kegiatan-webinar');
 })->name('webinar');
-
 Route::get('/kegiatan-campaign', [CampaignController::class, 'index'])->name('campaign');
 Route::get('/kegiatan-campaign/{slug}', [CampaignController::class, 'show'])->name('campaign.detail');
-
 Route::get('/detail-webinar', function () {
     return view('pages.detail-webinar');
 });
