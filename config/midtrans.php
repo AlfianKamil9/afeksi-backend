@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 return [
 
@@ -8,5 +8,5 @@ return [
         'merchant_id' => env('MIDTRANS_MERCHANT_ID'),
         'url' => env('MIDTRANS_URL_CHARGE'),
     ]
-        
+
 ];
