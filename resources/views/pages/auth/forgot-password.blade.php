@@ -4,6 +4,7 @@
 
 @section('styles')
     <link rel="stylesheet" href="/assets/css/lupa-password.css">
+    <link rel="stylesheet" href="assets/css/lupa-password-notif.css">
 @endsection
 
 @section('content')
@@ -14,13 +15,23 @@
         </a>
     </nav>
     @if (session()->has('success'))  
-        <div class="wrapper p-4 m-auto d-flex flex-column justify-content-center text-center mt-5">
+        {{-- <div class="wrapper p-4 m-auto d-flex flex-column justify-content-center text-center mt-5">
             <h3 class="mt-4 mb-3 fw-bolder">Terima Kasih</h3>
             <p class="text-center">Kami mengirimkan link untuk membuat password baru ke
                 <span class="fw-bold">{{  session('success')  }}</span>.</p>
             <div class="row input-container">  
-                <a type="button" href="https://mail.google.com/" class="btn btn-primary mt-4 mb-3">Perikas Email Kamu</a>
-                <a href="{{ route('login') }}" class="text-center">Kembali</a>
+                <a  class="btn btn-primary mt-4 mb-3"></a>
+                <a href="" class="text-center">Kembali</a>
+            </div>
+        </div> --}}
+
+        <div class="wrapper p-4 m-auto d-flex flex-column justify-content-center text-center align-items-center">
+            <h3 class="mb-3">Terima Kasih</h3>
+            <p class="text-center">Kami mengirimkan link untuk membuat password baru ke
+                <span class="user-email fw-bold">{{  session('success')  }}</span></p>
+            <div class="input-container">             
+                <a type="button" href="https://mail.google.com/" class="btn btn-primary next-btn mt-4 mb-3">Perikas Email Kamu</a>
+                <a href="{{ route('login') }}" class="text-center back-btn">Kembali</a>
             </div>
         </div>
 

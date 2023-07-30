@@ -5,6 +5,7 @@
 
 @section('styles')
     <link rel="stylesheet" href="/assets/css/lupa-password.css">
+    <link rel="stylesheet" href="assets/css/reset-password.css">
 @endsection
 
 @section('content')
@@ -35,17 +36,35 @@
             <input type="hidden" name="token" value="{{ $request->route('token') }} " required>
             <input name="email" type="hidden" id="email" value="{{ old('email', $request->email) }}" placeholder="Email"  required />
             <label class="mb-1" for="email">Password Baru</label>
-            <input placeholder="Masukkan Email"  name="password" type="password"  />
+            <input placeholder="Masukkan Password"  name="password" type="password"  />
 
             <label class="mb-1 mt-3" for="email">Konfirmasi Password Baru</label>
-            <input placeholder="Masukkan Email"  name="password_confirmation" type="password" />
-            <button type="submit" class="btn btn-primary mt-4 mb-3">Reset Password</button>
+            <input placeholder="Masukkan Konfirmasi Password"  name="password_confirmation" type="password" />
+            <button  data-bs-toggle="modal" data-bs-target="#exampleModal" type="submit" class="btn btn-primary next-btn mt-4 mb-3">Reset Password</button>
             <a href="{{ route('login') }}" class="text-center">Kembali</a>
         </form>
         </div>
     </div>
     @endif
-    
+
+    {{-- <!-- Modals -->
+    <div class="modal fade @if(session()->has('status')) show @endif " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">                  
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+              <h3>Terima Kasih</h3>
+              <p>Password anda telah diperbarui, Anda dapat mencoba masuk sekarang</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary w-100">Masuk</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- End Modals -->  --}}
     
 </section> 
 @endsection
