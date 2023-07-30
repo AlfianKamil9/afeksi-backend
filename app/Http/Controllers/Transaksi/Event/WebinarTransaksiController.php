@@ -178,6 +178,7 @@ class WebinarTransaksiController extends Controller
                 "message" =>  $res["status_message"],
                 "actions" => $res['actions']
             ]);
+
         } else if ($request->payment_method == 'gopay') {
             $data = EventTransaction::with('event', 'user')->where('ref_transaction_event', $request->reference)->first();
             // dd($data);
@@ -217,6 +218,7 @@ class WebinarTransaksiController extends Controller
                 "message" =>  $res["status_message"],
                 "actions" => $res['actions']
             ]);
+            
         } else if ($request->payment_method == 'shopeepay') {
             $data = EventTransaction::with('event', 'user')->where('ref_transaction_event', $request->reference)->first();
             $data = [
