@@ -34,6 +34,7 @@ class WebinarTransaksiController extends Controller
                 
                 $result = new TransferBankService();
                 $res = $result->bank($request->payment_method, $data);
+                // dd($res);
 
                 //CEK KODE RESPON
                 if ($res["status_code"] != 201 ) {
