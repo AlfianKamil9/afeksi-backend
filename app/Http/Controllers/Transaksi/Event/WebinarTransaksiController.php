@@ -18,7 +18,6 @@ class WebinarTransaksiController extends Controller
 
 // CEK VALIDASI INPUTAN
         if ($validator->fails()) {
-            //return redirect()->with('error', $validator->messages());
             return response()->json([
                 "message" => $validator->messages()
             ], 402);
