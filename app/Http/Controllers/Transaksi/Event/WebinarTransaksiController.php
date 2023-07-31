@@ -140,7 +140,9 @@ class WebinarTransaksiController extends Controller
                 "biller_code" => $res["biller_code"]
             ]);
         }
-            else if ($request->payment_method == 'alfamart' ) 
+        
+        // PAYMENT ALFAMART
+        else if ($request->payment_method == 'alfamart' ) 
             {
                 $data = EventTransaction::with('event', 'user')->where('ref_transaction_event', $request->reference)->first();
                 $data = [
@@ -154,7 +156,7 @@ class WebinarTransaksiController extends Controller
               // Konversi respons menjadi array
 
              //CEK KODE RESPON
-             if ($res["status_code"] != 201 ) {
+            if ($res["status_code"] != 201 ) {
                 return response()->json($res);
             }
             //CEK RESPON ORDER
@@ -176,6 +178,8 @@ class WebinarTransaksiController extends Controller
                     "payment_code" => $res["payment_code"]
                 ]);
         }
+
+        //PAYMENT INDOMARET
         else if ($request->payment_method == 'indomaret') 
             {
                 $data = EventTransaction::with('event','user')->where('ref_transaction_event', $request->reference)->first();
@@ -249,7 +253,10 @@ class WebinarTransaksiController extends Controller
                 "actions" => $res['actions']
             ]);
 
-        } else if ($request->payment_method == 'gopay') {
+        } 
+        
+        // PAYMENT GOPAY
+        else if ($request->payment_method == 'gopay') {
             $data = EventTransaction::with('event', 'user')->where('ref_transaction_event', $request->reference)->first();
             // dd($data);
             $data = [
@@ -260,13 +267,6 @@ class WebinarTransaksiController extends Controller
 
             $result = new EwalletService();
             $res = $result->gopay($data, $request->payment_method);
-            // return response()->json([
-            //     'data' => $data,
-            //     'result' => $result,
-            //     'res' => $res
-            // ]);
-            // dd($res);
-            // dd($request->all());
 
             // CEK KODE RESPON
             if ($res["status_code"] != 201) {
@@ -289,7 +289,10 @@ class WebinarTransaksiController extends Controller
                 "actions" => $res['actions']
             ]);
             
-        } else if ($request->payment_method == 'shopeepay') {
+        } 
+        
+        // PAYMENT SHOPPEPAY
+        else if ($request->payment_method == 'shopeepay') {
             $data = EventTransaction::with('event', 'user')->where('ref_transaction_event', $request->reference)->first();
             $data = [
                 "reference" => $request->reference,
