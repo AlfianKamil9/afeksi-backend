@@ -1,6 +1,6 @@
 @extends('../layout')
 
-@section('title', 'Campagin')
+@section('title', 'Campaign | AFEKSI')
 
 <!-- path style disesuaikan dengan folder css masing-masing page -->
 @section('styles')
@@ -34,481 +34,168 @@
 
     <div class="contents row">
       <div class="side col-lg-3 col-md-4 mb-5">
-        <div class="form-group">
-          <p class="side-heading fw-semibold">Filter</p>
-          <div class="password-container">
-            <input type="text" class="form-control" placeholder="Search">
-            <img class="password-icon" src="assets/img/kegiatan/material-symbols_search.png" alt="">
-          </div>
-        </div>
-    
-        <hr class="mt-4">
-    
-        <div class="form-group">
-          <p class="side-heading fw-semibold">Urutkan</p>
-          <select class="form-select" aria-label="Default select example">
-            <option selected>Terbaru</option>
-            <option value="2">Terlama</option>
-          </select>
-        </div>
-    
-        <hr class="mt-4">
-
-        <div class="form-group">
-          <div class="d-flex justify-content-between">
-            <p class="side-heading fw-semibold">Harga</p>
-            <!-- <p><img style="height: 22px; margin-right: 9px;" src="assets/img/kegiatan/keyboard_arrow_up.png" alt=""></p> -->
-          </div>
-
-          <div class=" d-flex align-items-center">
-            <div class="p-2 bg-body-secondary rounded-start-2">
-              <label for="inputRp" style="font-size: 14px;" >Rp</label>
+        <form action="{{ route('campaign') }}" method="get">
+          <div class="form-group">
+            <p class="side-heading fw-semibold">Filter</p>
+            <div class="password-container">
+              <input type="text" name="input_search" class="form-control" placeholder="Search">
+              <img class="password-icon" src="assets/img/kegiatan/material-symbols_search.png" alt="">
             </div>
-            <input type="text" class="form-control rounded-0 rounded-end-2" id="inputRp" placeholder="Harga Maksimum" />
           </div>
-
-          <div class="mt-3 d-flex align-items-center">
-            <div class="p-2 bg-body-secondary rounded-start-2">
-              <label for="inputRp" style="font-size: 14px;" >Rp</label>
+      
+          <hr class="mt-4">
+    
+          <div class="form-group">
+            <p class="side-heading fw-semibold">Urutkan</p>
+            <select class="form-select" name="sort_date" aria-label="Default select example">
+              <option selected value="latest">Terbaru</option>
+              <option value="oldest">Terlama</option>
+            </select>
+          </div>
+      
+          <hr class="mt-4">
+  
+          <div class="form-group">
+            <div class="d-flex justify-content-between">
+              <p class="side-heading fw-semibold">Harga</p>
+              <!-- <p><img style="height: 22px; margin-right: 9px;" src="assets/img/kegiatan/keyboard_arrow_up.png" alt=""></p> -->
             </div>
-            <input type="text" class="form-control rounded-0 rounded-end-2" id="inputRp" placeholder="Harga Minimum" />
+  
+            <div class=" d-flex align-items-center">
+              <div class="p-2 bg-body-secondary rounded-start-2">
+                <label for="inputRp" style="font-size: 14px;" >Rp</label>
+              </div>
+              <input type="text" name="max_price" class="form-control rounded-0 rounded-end-2" id="inputRp" placeholder="Harga Maksimum" />
+            </div>
+  
+            <div class="mt-3 d-flex align-items-center">
+              <div class="p-2 bg-body-secondary rounded-start-2">
+                <label for="inputRp" style="font-size: 14px;" >Rp</label>
+              </div>
+              <input type="text" name="min_price" class="form-control rounded-0 rounded-end-2" id="inputRp" placeholder="Harga Minimum" />
+            </div>
+  
           </div>
-
-        </div>
-
-        <hr class="mt-4">
-
-        <div class="form-group">
-          <p class="side-heading fw-semibold">Topik</p>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="relationship" id="relationshipCheckbox">
-            <label class="form-check-label" for="relationshipCheckbox">
-              Relationship
-            </label>
+  
+          <hr class="mt-4">
+  
+          <div class="form-group">
+            <p class="side-heading fw-semibold">Topik</p>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="category" value="Relationship" id="relationshipCheckbox">
+              <label class="form-check-label" for="relationshipCheckbox">
+                Relationship
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="category" value="Self Love" id="selfLoveCheckbox">
+              <label class="form-check-label" for="selfLoveCheckbox">
+                Self Love
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="category" value="Parenting" id="selfLoveCheckbox">
+              <label class="form-check-label" for="selfLoveCheckbox">
+                Parenting
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="category" value="Pre-Marriage" id="selfLoveCheckbox">
+              <label class="form-check-label" for="selfLoveCheckbox">
+                Pre-Marriage
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="category" value="Emotional Management" id="selfLoveCheckbox">
+              <label class="form-check-label" for="selfLoveCheckbox">
+                Emotional Management
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="category" value="Family Issue" id="selfLoveCheckbox">
+              <label class="form-check-label" for="selfLoveCheckbox">
+                Family Issue
+              </label>
+            </div>
           </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="selfLove" id="selfLoveCheckbox">
-            <label class="form-check-label" for="selfLoveCheckbox">
-              Self Love
-            </label>
+  
+          <hr class="mt-4">
+  
+          <div class="form-group">
+            <p class="side-heading fw-semibold">Kategori</p>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="category_activity" value="Offline" id="relationshipCheckbox">
+              <label class="form-check-label" for="relationshipCheckbox">
+                Offline
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="category_activity" value="Online" id="selfLoveCheckbox">
+              <label class="form-check-label" for="selfLoveCheckbox">
+                Online
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="category_activity" value="Gratis" id="selfLoveCheckbox">
+              <label class="form-check-label" for="selfLoveCheckbox">
+                Gratis
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="category_activity" value="Berbayar" id="selfLoveCheckbox">
+              <label class="form-check-label" for="selfLoveCheckbox">
+                Berbayar
+              </label>
+            </div>
           </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="selfLove" id="selfLoveCheckbox">
-            <label class="form-check-label" for="selfLoveCheckbox">
-              Parenting
-            </label>
+  
+          <div class="d-flex flex-column mt-4">
+            <button class="btn side-btn">Terapkan Filter</button>
+            <div class="btn side-btn btn-outline">Hapus Filter</div>
           </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="selfLove" id="selfLoveCheckbox">
-            <label class="form-check-label" for="selfLoveCheckbox">
-              Pre-Marriage
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="selfLove" id="selfLoveCheckbox">
-            <label class="form-check-label" for="selfLoveCheckbox">
-              Emotional Management
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="selfLove" id="selfLoveCheckbox">
-            <label class="form-check-label" for="selfLoveCheckbox">
-              Family Issue
-            </label>
-          </div>
-        </div>
-
-        <hr class="mt-4">
-
-        <div class="form-group">
-          <p class="side-heading fw-semibold">Kategori</p>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="relationship" id="relationshipCheckbox">
-            <label class="form-check-label" for="relationshipCheckbox">
-              Offline
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="selfLove" id="selfLoveCheckbox">
-            <label class="form-check-label" for="selfLoveCheckbox">
-              Online
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="selfLove" id="selfLoveCheckbox">
-            <label class="form-check-label" for="selfLoveCheckbox">
-              Gratis
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="selfLove" id="selfLoveCheckbox">
-            <label class="form-check-label" for="selfLoveCheckbox">
-              Berbayar
-            </label>
-          </div>
-        </div>
-
-        <div class="d-flex flex-column mt-4">
-          <div class="btn side-btn">Terapkan Filter</div>
-          <div class="btn side-btn btn-outline">Hapus Filter</div>
-        </div>
+        </form>
 
 
       </div>
     
       <div class="content col-lg-9 col-md-8">
         <div class="row d-flex">
-          <div class="col-lg-4 col-md-6 col-sm-12">
+          @forelse ($data as $data)
+          <div class="col-md-4">
+            <a href="{{ route('campaign.detail', $data->slug_event) }}" class="">
             <div class="card mb-4">
-              <img src="assets/img/kegiatan/WhatsApp Image 2023-02-12 at 20.29 1.png" class="card-img-top" alt="Image 1">
+              {{-- <img src="{{ Storage::url($data->cover_event) }}" class="card-img-top" alt="{{ $data->title_event }}"> --}}
+                <img src="{{ asset('/assets/img/kegiatan/'.$data->cover_event) }}" class="card-img-top" alt="{{ $data->title_event }}">
               <div class="card-body">
-                <p class="card-title fw-semibold">Love Yourself Before Loving Others</p>
-                <div class="person d-flex gap-2 mt-3">
-                  <img src="assets/img/kegiatan/Ellipse 216.png" alt="">
-                  <div class="name">
-                    <p>Heraldha Savira, Dip. ABRSM, S.Psi</p>
-                    <p class="text-body-tertiary">Clinical Psychology Grads</p>
-                  </div>
-                </div>
+                <a href="{{ route('campaign.detail', $data->slug_event) }}" class="card-title fw-semibold">{{ $data->title_event }}</a>
                 <div class="mt-3 d-flex flex-wrap gap-2 justify-content-between">
-                  <span class="px-2 text-body-tertiary">Webinar</span>
+                  <span class="px-2 text-body-tertiary">{{ ucfirst(strtolower($data->activity_category_event)) }}</span>
                   <span class="px-2 text-body-tertiary">E-Certificate</span>
                   <span class="px-2 text-body-tertiary">Diskusi/Konsultasi</span>
                 </div>
                 <div class="mt-3 d-flex justify-content-between">
                   <div class="d-flex date">
                     <img src="assets/img/kegiatan/material-symbols_date-range.png" class="me-2" alt="">
-                    <p class="text-muted">25 Juli 2023</p>
+                    <p class="text-muted">{{ $data->date_event }}</p>
                   </div>
-                  <div class="d-flex date">
+                  {{-- <div class="d-flex date">
                     <img src="assets/img/kegiatan/watch_later.png" class="me-2" alt="">
-                    <p class="text-muted">12:00 - 15:00 WIB</p>
-                  </div>
+                    <p class="text-muted">{{ $data->time_start }} - {{ $data->time_finish }} WIB</p>
+                  </div> --}}
                 </div>
-                <p class="fw-semibold lead mt-3 mb-0" style="color: #2139f9;">Gratis</p>
+                <p class="fw-semibold lead mt-3 mb-0" style="color: #2139f9;">
+                  @if ($data->pay_category_event != "FREE")
+                    Rp{{ number_format($data->price_event, 0, ',', '.') }}
+                  @else
+                    Gratis
+                  @endif</p>
               </div>
             </div>
+          </a>
           </div>
-          
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card mb-4">
-              <img src="assets/img/kegiatan/robot.png" class="card-img-top" alt="Image 1">
-              <div class="card-body">
-                <p class="card-title fw-semibold">Embracing Equality: A Pathway to Dissolve Dating Violence</h5>
-                <div class="person d-flex gap-2 mt-3">
-                  <img src="assets/img/kegiatan/Ellipse 216.png" alt="">
-                  <div class="name">
-                    <p>Heraldha Savira, Dip. ABRSM, S.Psi</p>
-                    <p class="text-body-tertiary">Clicical Physicology Grads</p>
-                  </div>
-                </div>
-                <div class="mt-3 d-flex flex-wrap gap-2 justify-content-between">
-                  <span class="px-2 text-body-tertiary">Webinar</span>
-                  <span class="px-2 text-body-tertiary">E-Certificate</span>
-                  <span class="px-2 text-body-tertiary">Diskusi/Konsultasi</span>
-                </div>
-                <div class="mt-3 d-flex justify-content-between">
-                  <div class="d-flex date ">
-                    <img src="assets/img/kegiatan/material-symbols_date-range.png" class="me-2" alt="">
-                    <p class="text-muted">25 Juli 2023</p>
-                  </div>
-                  <div class="d-flex date ">
-                    <img src="assets/img/kegiatan/watch_later.png" class="me-2" alt="">
-                    <p class="text-muted">12:00 - 15:00 WIB</p>
-                  </div>
-                </div>
-                <p class="fw-semibold lead mt-3 mb-0" style="color: #2139f9;">50.000</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card mb-4">
-              <img src="assets/img/kegiatan/robot.png" class="card-img-top" alt="Image 1">
-              <div class="card-body">
-                <p class="card-title fw-semibold">Embracing Equality: A Pathway to Dissolve Dating Violence</h5>
-                <div class="person d-flex gap-2 mt-3">
-                  <img src="assets/img/kegiatan/Ellipse 216.png" alt="">
-                  <div class="name">
-                    <p>Heraldha Savira, Dip. ABRSM, S.Psi</p>
-                    <p class="text-body-tertiary">Clicical Physicology Grads</p>
-                  </div>
-                </div>
-                <div class="mt-3 d-flex flex-wrap gap-2 justify-content-between">
-                  <span class="px-2 text-body-tertiary">Webinar</span>
-                  <span class="px-2 text-body-tertiary">E-Certificate</span>
-                  <span class="px-2 text-body-tertiary">Diskusi/Konsultasi</span>
-                </div>
-                <div class="mt-3 d-flex justify-content-between">
-                  <div class="d-flex date ">
-                    <img src="assets/img/kegiatan/material-symbols_date-range.png" class="me-2" alt="">
-                    <p class="text-muted">25 Juli 2023</p>
-                  </div>
-                  <div class="d-flex date ">
-                    <img src="assets/img/kegiatan/watch_later.png" class="me-2" alt="">
-                    <p class="text-muted">12:00 - 15:00 WIB</p>
-                  </div>
-                </div>
-                <p class="fw-semibold lead mt-3 mb-0" style="color: #2139f9;">50.000</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card mb-4">
-              <img src="assets/img/kegiatan/robot.png" class="card-img-top" alt="Image 1">
-              <div class="card-body">
-                <p class="card-title fw-semibold">Embracing Equality: A Pathway to Dissolve Dating Violence</h5>
-                <div class="person d-flex gap-2 mt-3">
-                  <img src="assets/img/kegiatan/Ellipse 216.png" alt="">
-                  <div class="name">
-                    <p>Heraldha Savira, Dip. ABRSM, S.Psi</p>
-                    <p class="text-body-tertiary">Clicical Physicology Grads</p>
-                  </div>
-                </div>
-                <div class="mt-3 d-flex flex-wrap gap-2 justify-content-between">
-                  <span class="px-2 text-body-tertiary">Webinar</span>
-                  <span class="px-2 text-body-tertiary">E-Certificate</span>
-                  <span class="px-2 text-body-tertiary">Diskusi/Konsultasi</span>
-                </div>
-                <div class="mt-3 d-flex justify-content-between">
-                  <div class="d-flex date ">
-                    <img src="assets/img/kegiatan/material-symbols_date-range.png" class="me-2" alt="">
-                    <p class="text-muted">25 Juli 2023</p>
-                  </div>
-                  <div class="d-flex date ">
-                    <img src="assets/img/kegiatan/watch_later.png" class="me-2" alt="">
-                    <p class="text-muted">12:00 - 15:00 WIB</p>
-                  </div>
-                </div>
-                <p class="fw-semibold lead mt-3 mb-0" style="color: #2139f9;">50.000</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card mb-4">
-              <img src="assets/img/kegiatan/robot.png" class="card-img-top" alt="Image 1">
-              <div class="card-body">
-                <p class="card-title fw-semibold">Embracing Equality: A Pathway to Dissolve Dating Violence</h5>
-                <div class="person d-flex gap-2 mt-3">
-                  <img src="assets/img/kegiatan/Ellipse 216.png" alt="">
-                  <div class="name">
-                    <p>Heraldha Savira, Dip. ABRSM, S.Psi</p>
-                    <p class="text-body-tertiary">Clicical Physicology Grads</p>
-                  </div>
-                </div>
-                <div class="mt-3 d-flex flex-wrap gap-2 justify-content-between">
-                  <span class="px-2 text-body-tertiary">Webinar</span>
-                  <span class="px-2 text-body-tertiary">E-Certificate</span>
-                  <span class="px-2 text-body-tertiary">Diskusi/Konsultasi</span>
-                </div>
-                <div class="mt-3 d-flex justify-content-between">
-                  <div class="d-flex date ">
-                    <img src="assets/img/kegiatan/material-symbols_date-range.png" class="me-2" alt="">
-                    <p class="text-muted">25 Juli 2023</p>
-                  </div>
-                  <div class="d-flex date ">
-                    <img src="assets/img/kegiatan/watch_later.png" class="me-2" alt="">
-                    <p class="text-muted">12:00 - 15:00 WIB</p>
-                  </div>
-                </div>
-                <p class="fw-semibold lead mt-3 mb-0" style="color: #2139f9;">50.000</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card mb-4">
-              <img src="assets/img/kegiatan/robot.png" class="card-img-top" alt="Image 1">
-              <div class="card-body">
-                <p class="card-title fw-semibold">Embracing Equality: A Pathway to Dissolve Dating Violence</h5>
-                <div class="person d-flex gap-2 mt-3">
-                  <img src="assets/img/kegiatan/Ellipse 216.png" alt="">
-                  <div class="name">
-                    <p>Heraldha Savira, Dip. ABRSM, S.Psi</p>
-                    <p class="text-body-tertiary">Clicical Physicology Grads</p>
-                  </div>
-                </div>
-                <div class="mt-3 d-flex flex-wrap gap-2 justify-content-between">
-                  <span class="px-2 text-body-tertiary">Webinar</span>
-                  <span class="px-2 text-body-tertiary">E-Certificate</span>
-                  <span class="px-2 text-body-tertiary">Diskusi/Konsultasi</span>
-                </div>
-                <div class="mt-3 d-flex justify-content-between">
-                  <div class="d-flex date ">
-                    <img src="assets/img/kegiatan/material-symbols_date-range.png" class="me-2" alt="">
-                    <p class="text-muted">25 Juli 2023</p>
-                  </div>
-                  <div class="d-flex date ">
-                    <img src="assets/img/kegiatan/watch_later.png" class="me-2" alt="">
-                    <p class="text-muted">12:00 - 15:00 WIB</p>
-                  </div>
-                </div>
-                <p class="fw-semibold lead mt-3 mb-0" style="color: #2139f9;">50.000</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card mb-4">
-              <img src="assets/img/kegiatan/robot.png" class="card-img-top" alt="Image 1">
-              <div class="card-body">
-                <p class="card-title fw-semibold">Embracing Equality: A Pathway to Dissolve Dating Violence</h5>
-                <div class="person d-flex gap-2 mt-3">
-                  <img src="assets/img/kegiatan/Ellipse 216.png" alt="">
-                  <div class="name">
-                    <p>Heraldha Savira, Dip. ABRSM, S.Psi</p>
-                    <p class="text-body-tertiary">Clicical Physicology Grads</p>
-                  </div>
-                </div>
-                <div class="mt-3 d-flex flex-wrap gap-2 justify-content-between">
-                  <span class="px-2 text-body-tertiary">Webinar</span>
-                  <span class="px-2 text-body-tertiary">E-Certificate</span>
-                  <span class="px-2 text-body-tertiary">Diskusi/Konsultasi</span>
-                </div>
-                <div class="mt-3 d-flex justify-content-between">
-                  <div class="d-flex date ">
-                    <img src="assets/img/kegiatan/material-symbols_date-range.png" class="me-2" alt="">
-                    <p class="text-muted">25 Juli 2023</p>
-                  </div>
-                  <div class="d-flex date ">
-                    <img src="assets/img/kegiatan/watch_later.png" class="me-2" alt="">
-                    <p class="text-muted">12:00 - 15:00 WIB</p>
-                  </div>
-                </div>
-                <p class="fw-semibold lead mt-3 mb-0" style="color: #2139f9;">50.000</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card mb-4">
-              <img src="assets/img/kegiatan/robot.png" class="card-img-top" alt="Image 1">
-              <div class="card-body">
-                <p class="card-title fw-semibold">Embracing Equality: A Pathway to Dissolve Dating Violence</h5>
-                <div class="person d-flex gap-2 mt-3">
-                  <img src="assets/img/kegiatan/Ellipse 216.png" alt="">
-                  <div class="name">
-                    <p>Heraldha Savira, Dip. ABRSM, S.Psi</p>
-                    <p class="text-body-tertiary">Clicical Physicology Grads</p>
-                  </div>
-                </div>
-                <div class="mt-3 d-flex flex-wrap gap-2 justify-content-between">
-                  <span class="px-2 text-body-tertiary">Webinar</span>
-                  <span class="px-2 text-body-tertiary">E-Certificate</span>
-                  <span class="px-2 text-body-tertiary">Diskusi/Konsultasi</span>
-                </div>
-                <div class="mt-3 d-flex justify-content-between">
-                  <div class="d-flex date ">
-                    <img src="assets/img/kegiatan/material-symbols_date-range.png" class="me-2" alt="">
-                    <p class="text-muted">25 Juli 2023</p>
-                  </div>
-                  <div class="d-flex date ">
-                    <img src="assets/img/kegiatan/watch_later.png" class="me-2" alt="">
-                    <p class="text-muted">12:00 - 15:00 WIB</p>
-                  </div>
-                </div>
-                <p class="fw-semibold lead mt-3 mb-0" style="color: #2139f9;">50.000</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card mb-4">
-              <img src="assets/img/kegiatan/robot.png" class="card-img-top" alt="Image 1">
-              <div class="card-body">
-                <p class="card-title fw-semibold">Embracing Equality: A Pathway to Dissolve Dating Violence</h5>
-                <div class="person d-flex gap-2 mt-3">
-                  <img src="assets/img/kegiatan/Ellipse 216.png" alt="">
-                  <div class="name">
-                    <p>Heraldha Savira, Dip. ABRSM, S.Psi</p>
-                    <p class="text-body-tertiary">Clicical Physicology Grads</p>
-                  </div>
-                </div>
-                <div class="mt-3 d-flex flex-wrap gap-2 justify-content-between">
-                  <span class="px-2 text-body-tertiary">Webinar</span>
-                  <span class="px-2 text-body-tertiary">E-Certificate</span>
-                  <span class="px-2 text-body-tertiary">Diskusi/Konsultasi</span>
-                </div>
-                <div class="mt-3 d-flex justify-content-between">
-                  <div class="d-flex date ">
-                    <img src="assets/img/kegiatan/material-symbols_date-range.png" class="me-2" alt="">
-                    <p class="text-muted">25 Juli 2023</p>
-                  </div>
-                  <div class="d-flex date ">
-                    <img src="assets/img/kegiatan/watch_later.png" class="me-2" alt="">
-                    <p class="text-muted">12:00 - 15:00 WIB</p>
-                  </div>
-                </div>
-                <p class="fw-semibold lead mt-3 mb-0" style="color: #2139f9;">50.000</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card mb-4">
-              <img src="assets/img/kegiatan/robot.png" class="card-img-top" alt="Image 1">
-              <div class="card-body">
-                <p class="card-title fw-semibold">Embracing Equality: A Pathway to Dissolve Dating Violence</h5>
-                <div class="person d-flex gap-2 mt-3">
-                  <img src="assets/img/kegiatan/Ellipse 216.png" alt="">
-                  <div class="name">
-                    <p>Heraldha Savira, Dip. ABRSM, S.Psi</p>
-                    <p class="text-body-tertiary">Clicical Physicology Grads</p>
-                  </div>
-                </div>
-                <div class="mt-3 d-flex flex-wrap gap-2 justify-content-between">
-                  <span class="px-2 text-body-tertiary">Webinar</span>
-                  <span class="px-2 text-body-tertiary">E-Certificate</span>
-                  <span class="px-2 text-body-tertiary">Diskusi/Konsultasi</span>
-                </div>
-                <div class="mt-3 d-flex justify-content-between">
-                  <div class="d-flex date ">
-                    <img src="assets/img/kegiatan/material-symbols_date-range.png" class="me-2" alt="">
-                    <p class="text-muted">25 Juli 2023</p>
-                  </div>
-                  <div class="d-flex date ">
-                    <img src="assets/img/kegiatan/watch_later.png" class="me-2" alt="">
-                    <p class="text-muted">12:00 - 15:00 WIB</p>
-                  </div>
-                </div>
-                <p class="fw-semibold lead mt-3 mb-0" style="color: #2139f9;">50.000</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card mb-4">
-              <img src="assets/img/kegiatan/robot.png" class="card-img-top" alt="Image 1">
-              <div class="card-body">
-                <p class="card-title fw-semibold">Embracing Equality: A Pathway to Dissolve Dating Violence</h5>
-                <div class="person d-flex gap-2 mt-3">
-                  <img src="assets/img/kegiatan/Ellipse 216.png" alt="">
-                  <div class="name">
-                    <p>Heraldha Savira, Dip. ABRSM, S.Psi</p>
-                    <p class="text-body-tertiary">Clicical Physicology Grads</p>
-                  </div>
-                </div>
-                <div class="mt-3 d-flex flex-wrap gap-2 justify-content-between">
-                  <span class="px-2 text-body-tertiary">Webinar</span>
-                  <span class="px-2 text-body-tertiary">E-Certificate</span>
-                  <span class="px-2 text-body-tertiary">Diskusi/Konsultasi</span>
-                </div>
-                <div class="mt-3 d-flex justify-content-between">
-                  <div class="d-flex date ">
-                    <img src="assets/img/kegiatan/material-symbols_date-range.png" class="me-2" alt="">
-                    <p class="text-muted">25 Juli 2023</p>
-                  </div>
-                  <div class="d-flex date ">
-                    <img src="assets/img/kegiatan/watch_later.png" class="me-2" alt="">
-                    <p class="text-muted">12:00 - 15:00 WIB</p>
-                  </div>
-                </div>
-                <p class="fw-semibold lead mt-3 mb-0" style="color: #2139f9;">50.000</p>
-              </div>
-            </div>
-          </div>
+          @empty
+              <h4 class="text-center mt-3">Tidak Ada Campaign</h4>
+          @endforelse
           
         </div>
       </div>

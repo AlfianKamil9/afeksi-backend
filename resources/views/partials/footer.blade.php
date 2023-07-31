@@ -80,8 +80,8 @@
             <ul class="list-unstyled">
               <li class="mb-3"><a href="{{ route('tentang-kami') }}" class="text-white">Tentang kami</a></li>
               <li class="mb-3"><a href="#" class="text-white">Karir</a></li>
-              <li class="mb-3"><a href="#" class="text-white">Campaign</a></li>
-              <li class="mb-3"><a href="#" class="text-white">Webinar</a></li>
+              <li class="mb-3"><a href="{{ route('campaign') }}" class="text-white">Campaign</a></li>
+              <li class="mb-3"><a href="{{ route('webinar') }}" class="text-white">Webinar</a></li>
               <li class="mb-3"><a href="#" class="text-white">Rekap Histori</a></li>
             </ul>
           </div>
@@ -90,7 +90,7 @@
             <h5 class="link-title mb-4">Yang lainnya</h5>
             <ul class="list-unstyled">
               <li class="mb-3"><a href="{{ route('kebijakan-privasi') }}" class="text-white">Kebijakan Privasi</a></li>
-              <li><a href="#" class="text-white">FAQ</a></li>
+              <li><a href="{{ route('FAQ') }}" class="text-white">FAQ</a></li>
             </ul>
           </div>
 

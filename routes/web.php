@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\Event\CampaignController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GoogleController;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +19,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('pages.landing_page');
 })->name('homepage');
+Route::get('/tentang-kami', function () {
+    return view('pages.tentang-kami');
+})->name("tentang-kami");
+Route::get('/kebijakan-privasi', function () {
+    return view('pages.kebijakan-privasi');
+})->name("kebijakan-privasi");
+Route::get('/FAQ', function () {
+    return view('pages.faq-konseling');
+})->name('FAQ');
 
 
 Route::get('/beranda', function () {
@@ -27,33 +36,16 @@ Route::get('/beranda', function () {
 
 require __DIR__ . '/auth.php';
 
-// PAGES WITH RULES AUTH
-
-
 // PAGES NO RULES
-Route::get('/tentang-kami', function () {
-    return view('pages.tentang-kami');
-})->name("tentang-kami");
-Route::get('/kebijakan-privasi', function () {
-    return view('pages.kebijakan-privasi');
-})->name("kebijakan-privasi");
-
-
 Route::get('/kegiatan-webinar', function () {
     return view('pages.kegiatan-webinar');
-});
-
-Route::get('/kegiatan-campaign', function () {
-    return view('pages.kegiatan-campaign');
-});
-
+})->name('webinar');
+Route::get('/kegiatan-campaign', [CampaignController::class, 'index'])->name('campaign');
+Route::get('/kegiatan-campaign/{slug}', [CampaignController::class, 'show'])->name('campaign.detail');
 Route::get('/detail-webinar', function () {
     return view('pages.detail-webinar');
 });
 
-Route::get('/detail-campaign', function () {
-    return view('pages.detail-campaign');
-});
 
 
 // frontend yang belum fiks
@@ -63,5 +55,4 @@ Route::get('/psikolog', function () {
 Route::get('/profesional-konseling', function () {
     return view('pages.profesional-konseling-online-senior');
 });
-
 

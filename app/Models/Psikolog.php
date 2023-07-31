@@ -13,6 +13,12 @@ class Psikolog extends Model
         'nama_psikolog',
         'rating',
         'profil',
+        'deskripsi',
         'keahlian',
+        'avatar'
     ];
+
+    public function webinar_sesi() {
+        return $this->belongsTo(EventMaterialSession::class, 'pembicara_id');
+    }
 }
