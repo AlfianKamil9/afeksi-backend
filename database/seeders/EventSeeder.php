@@ -83,7 +83,7 @@ class EventSeeder extends Seeder
                 '2023-03-11',
                 '09:30',
                 '12:30',
-                'TEST.PNG',
+                'WEBINAR-2.png',
                 0,
                 'TEST DESKRIPSI',
                 'DRAFT',

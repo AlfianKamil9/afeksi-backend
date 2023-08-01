@@ -156,7 +156,7 @@
 
                 <div class="d-flex flex-column mt-4">
                     <button class="btn side-btn">Terapkan Filter</button>
-                    <div class="btn side-btn btn-outline">Hapus Filter</div>
+                    <button type="reset" class="btn side-btn btn-outline">Hapus Filter</button>
                 </div>
             </form>
         </div>
@@ -165,18 +165,25 @@
         <div class="content col-lg-9 col-md-8" id="#Content">
             <div class="row d-flex">
                 @forelse ($data as $data)
-                <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="col-md-4">
+                    <a href="{{ route('webinar.detail', $data->slug_event) }}" class="card-link" style="text-decoration: none; color: black;">
                     <div class="card mb-4" >
-                        <a href="{{ route('webinar.detail', $data->slug_event) }}" class="card-link" style="text-decoration: none; color: black;">
                             <img src="{{ asset('/assets/img/kegiatan/'.$data->cover_event) }}" class="card-img-top" alt="{{ $data->title_event }}">
                             <div class="card-body">
                                 <p  class="card-title fw-semibold">{{ $data->title_event }}</p>
                                 <div class="person d-flex gap-2 mt-3">
-                                    <img src="assets/img/kegiatan/Ellipse 216.png" alt="">
+                                    @foreach ($data->webinar_session as $item)
+                                    {{-- <img src="assets/img/kegiatan/Ellipse 216.png" alt="">
                                     <div class="name">
                                         <p>{{ $data->pembicara->nama_psikolog }}</p>
                                         <p class="text-body-tertiary">{{ $data->pembicara->profil }}</p>
-                                    </div>
+                                    </div> --}}
+                                        <img src="assets/img/kegiatan/Ellipse 216.png" alt="">
+                                        <div class="name">
+                                            <p>{{ $item->pembicara->nama_psikolog }}</p>
+                                            <p class="text-body-tertiary">{{ $item->profil }}</p>
+                                        </div> 
+                                    @endforeach
                                 </div>
                                 <div class="mt-3 d-flex flex-wrap gap-2 justify-content-between">
                                     <span class="px-2 text-body-tertiary">{{ ucfirst(strtolower($data->activity_category_event)) }}</span>
@@ -201,8 +208,8 @@
                                     @endif</p>
                                 </p>
                             </div>
-                        </a>
-                    </div>
+                        </div>
+                    </a>
                 </div>
                 @empty
                     <h4 class="text-center mt-3">Tidak Ada Webinar</h4>

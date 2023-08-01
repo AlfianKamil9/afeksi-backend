@@ -91,17 +91,24 @@
         <!-- PROFIL PEMBICARA -->
         <div class="row" id="profil-pembicara">
             <div class="col-lg-8">
-            <h5 class="fw-bold mb-3">Profil Pembicara</h5>
+            <h5 class="fw-bold mt-3 mb-3">Profil Pembicara</h5>
+            <?php $i = 1; ?>
+            @foreach ($data->webinar_session as $item)
+                @if ($data->webinar_session->count() > 1)
+                    <h6 class="text-secondary"> <span class="fw-bold text-dark">Materi {{ $i++ }} :</span> {{ $item->title_sesi }}</h6>    
+                @endif
             <div class="d-flex">
                 <div class="flex-shrink-0">
                     <img src="{{ asset('assets/img/kegiatan-detail-webinar/people.svg') }}" alt="Foto Profil Pembaca" />
                 </div>
                 <div class="flex-grow-1 ms-3 mb-5">
-                    <h6 class="fw-bold">{{ $data->pembicara->nama_psikolog }}</h6>
-                    <p class="text-muted mb-0">{{ $data->pembicara->profil }}</p>
+                    <h6 class="fw-bold">{{ $item->pembicara->nama_psikolog }}</h6>
+                    <p class="text-muted mb-0">{{ $item->pembicara->profil }}</p>
                     <p class="text-muted mb-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab magni expedita quam voluptate suscipit commodi?</p>
+                    {{-- <p class="fw-bold">Materi : {{ $item->title_sesi }}</p> --}}
                 </div>
             </div>
+            @endforeach
             </div>
         </div>
 

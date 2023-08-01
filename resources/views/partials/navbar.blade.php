@@ -84,6 +84,8 @@
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#"
                 @if ( Route::CurrentRouteName() == "campaign" ||  Route::CurrentRouteName() == "campaign.detail" )
                   style="color: #233dff"
+                @elseif ( Route::CurrentRouteName() == "webinar" ||  Route::CurrentRouteName() == "webinar.detail" )
+                  style="color: #233dff"
                 @endif
                 >Kegiatan</a>
                 <!-- <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button> -->

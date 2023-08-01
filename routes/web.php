@@ -49,12 +49,12 @@ require __DIR__ . '/auth.php';
 
 
 // frontend yang belum fiks
-Route::get('/psikolog', function () {
-    return view('pages.psikolog');
-});
-Route::get('/profesional-konseling', function () {
-    return view('pages.profesional-konseling-online-senior');
-});
+// Route::get('/psikolog', function () {
+//     return view('pages.psikolog');
+// });
+// Route::get('/profesional-konseling', function () {
+//     return view('pages.profesional-konseling-online-senior');
+// });
 
 
 // GAK KEPAKE
