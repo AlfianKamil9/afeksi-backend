@@ -114,11 +114,7 @@
           <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
               <div class="accordion-body">
                   <p>
-                    <ul>
-                      <li>
-                        Kerahasiaan Informasi Pribadi Anda adalah hal yang terpenting, sehingga kami selalu berusaha menjaga erat Informasi Pribadi Anda. Kami akan memberlakukan upaya terbaik untuk melindungi dan mengamankan data dan Informasi Pribadi Anda dari akses, pengumpulan, penggunaan atau pengungkapan oleh orang-orang yang tidak berwenang dan dari pengolahan yang bertentangan dengan hukum, kehilangan yang tidak disengaja, pemusnahan dan kerusakan atau risiko serupa. Namun, pengiriman informasi melalui internet tidak sepenuhnya aman. Walau kami akan berusaha sebaik mungkin untuk melindungi Informasi Pribadi Anda, Anda mengakui bahwa kami tidak dapat menjamin keutuhan dan keakuratan Informasi Pribadi apa pun yang Anda kirimkan melalui Internet, atau menjamin bahwa Informasi Pribadi tersebut tidak akan dicegat, diakses, diungkapkan, diubah atau dihancurkan oleh pihak ketiga yang tidak berwenang, karena faktor-faktor di luar kendali kami. Anda bertanggung jawab untuk menjaga kerahasiaan detail Akun Anda, termasuk kata sandi Anda dengan siapapun dan harus selalu menjaga dan bertanggung jawab atas keamanan perangkat yang Anda gunakan.
-                      </li>
-                    </ul>
+                      Kerahasiaan Informasi Pribadi Anda adalah hal yang terpenting, sehingga kami selalu berusaha menjaga erat Informasi Pribadi Anda. Kami akan memberlakukan upaya terbaik untuk melindungi dan mengamankan data dan Informasi Pribadi Anda dari akses, pengumpulan, penggunaan atau pengungkapan oleh orang-orang yang tidak berwenang dan dari pengolahan yang bertentangan dengan hukum, kehilangan yang tidak disengaja, pemusnahan dan kerusakan atau risiko serupa. Namun, pengiriman informasi melalui internet tidak sepenuhnya aman. Walau kami akan berusaha sebaik mungkin untuk melindungi Informasi Pribadi Anda, Anda mengakui bahwa kami tidak dapat menjamin keutuhan dan keakuratan Informasi Pribadi apa pun yang Anda kirimkan melalui Internet, atau menjamin bahwa Informasi Pribadi tersebut tidak akan dicegat, diakses, diungkapkan, diubah atau dihancurkan oleh pihak ketiga yang tidak berwenang, karena faktor-faktor di luar kendali kami. Anda bertanggung jawab untuk menjaga kerahasiaan detail Akun Anda, termasuk kata sandi Anda dengan siapapun dan harus selalu menjaga dan bertanggung jawab atas keamanan perangkat yang Anda gunakan.
                   </p>      
                 </div>
           </div>
@@ -133,11 +129,7 @@
           <div id="collapseTen" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
               <div class="accordion-body">
                   <p>
-                    <ul>
-                      <li>
-                        Kami dapat mengirimkan Anda pemasaran langsung, iklan, dan komunikasi promosi melalui iklan, push-notification, email marketing, social media, dan berbagai layanan pesan yang terkait (“Materi Pemasaran”) jika Anda telah setuju untuk menerima materi pemasaran dari kami, Anda dapat memilih untuk tidak menerima komunikasi pemasaran tersebut kapan saja dengan mengklik pilihan “berhenti berlangganan” yang ada dalam pesan yang bersangkutan, atau menghubungi kami melalui detail kontak yang tercantum di bawah ini. Mohon perhatikan bahwa jika Anda memilih untuk keluar, kami masih dapat mengirimi Anda pesan-pesan non-pemasaran, seperti Anda terima atau informasi tentang Akun Anda.
-                      </li>
-                    </ul>
+                      Kami dapat mengirimkan Anda pemasaran langsung, iklan, dan komunikasi promosi melalui iklan, push-notification, email marketing, social media, dan berbagai layanan pesan yang terkait (“Materi Pemasaran”) jika Anda telah setuju untuk menerima materi pemasaran dari kami, Anda dapat memilih untuk tidak menerima komunikasi pemasaran tersebut kapan saja dengan mengklik pilihan “berhenti berlangganan” yang ada dalam pesan yang bersangkutan, atau menghubungi kami melalui detail kontak yang tercantum di bawah ini. Mohon perhatikan bahwa jika Anda memilih untuk keluar, kami masih dapat mengirimi Anda pesan-pesan non-pemasaran, seperti Anda terima atau informasi tentang Akun Anda.
                   </p>
                 </div>
           </div>
