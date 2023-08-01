@@ -30,6 +30,10 @@ Route::get('/home', function () {
     return view('pages.landing_page');
 });
 
+Route::get('/landing-page-new', function () {
+    return view('pages.landing-page-new');
+});
+
 Route::get('/lupa-password', function () {
     return view('pages.lupa-password');
 });
