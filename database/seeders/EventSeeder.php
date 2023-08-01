@@ -49,7 +49,9 @@ class EventSeeder extends Seeder
                 '12:30',
                 'TEST.PNG',
                 0,
-                'TEST DESKRIPSI',
+                ' Kalian pasti sudah sering mendengar istilah self-love. Tahu, nggak? Ternyata self-love itu juga berperan dalam membangun hubungan yang sehat loh! Gimana, ya, caranya? Trus, seperti apa, sih, sebenernya konsep self-love itu sendiri?🤔
+
+                Jawabannya akan kalian dapatkan hanya di Afeksi Webinar Series 1.0 yang mengusung tema "Self-love: A Road to Relationship Goals"🥰 ',
                 'DRAFT',
                 'Self-Love:-A-Road-to-Relationship-Goals',
                 'WEBINAR',
@@ -67,7 +69,9 @@ class EventSeeder extends Seeder
                 '19:00',
                 'TEST.PNG',
                 150000,
-                'TEST DESKRIPSI',
+                ' Kalian pasti sudah sering mendengar istilah self-love. Tahu, nggak? Ternyata self-love itu juga berperan dalam membangun hubungan yang sehat loh! Gimana, ya, caranya? Trus, seperti apa, sih, sebenernya konsep self-love itu sendiri?🤔
+
+                Jawabannya akan kalian dapatkan hanya di Afeksi Webinar Series 1.0 yang mengusung tema "Self-love: A Road to Relationship Goals"🥰 ',
                 'DRAFT',
                 'love-your-self-bro',
                 'WEBINAR',
@@ -85,7 +89,13 @@ class EventSeeder extends Seeder
                 '12:30',
                 'WEBINAR-2.png',
                 0,
-                'TEST DESKRIPSI',
+                ' Kalian tau gak sih apa itu equality? Ternyata hal itu bakal pengaruh banget loh sama dating relationship😯
+
+                Buat temen-temen yang sekarang sedang dalam hubungan dengan seseorang, dan ingin meningkatkan kualitas hubungan kalian, wajib banget tau tentang equality dan hubungannya dengan dating violence!
+
+                Kalian bisa dapetin insightnya di Afeksi Webinar Series 2.0 yang mengusung tema
+
+                ✨Embracing Equality: A Pathway to Dissolve Dating Violence✨ ',
                 'DRAFT',
                 'Embracing-Equality:-A-Pathway-to-Disolve-Dating-Violence',
                 'WEBINAR',
@@ -103,13 +113,9 @@ class EventSeeder extends Seeder
                 '12:30',
                 'WEBINAR-3.PNG',
                 0,
-                '
-                <p style="text-align:justify;">Kalian tau kan akhir - akhir ini banyak banget pemberitaan terkait kasus perselingkuhan ? Dalam suatu hubungan, selingkuh itu sangat fatal loh akibatnya. Hubungan akan hancur dan terjadi perpisahan.</p>
-
-                <p style="text-align:justify;">Tapi kenapa yaa perselingkuhan bisa terjadi dan gimana yaa caranya untuk menjaga hubungan agar tidak terjadi perselingkuhan ?</p>
-
-                <p style="text-align:justify;">Nah! Jawabannya akan kalian dapatkan di Afeksi webinar Series 3.0 yang mengusung tema “Cheating: The Downfall of a Healthy Relationship</p>
-                ',
+                'Kalian tau kan akhir - akhir ini banyak banget pemberitaan terkait kasus perselingkuhan ? Dalam suatu hubungan, selingkuh itu sangat fatal loh akibatnya. Hubungan akan hancur dan terjadi perpisahan.
+                Tapi kenapa yaa perselingkuhan bisa terjadi dan gimana yaa caranya untuk menjaga hubungan agar tidak terjadi perselingkuhan ?
+                Nah! Jawabannya akan kalian dapatkan di Afeksi webinar Series 3.0 yang mengusung tema “Cheating: The Downfall of a Healthy Relationship” ',
                 'DRAFT',
                 'Cheating:-The-Downfall-of-a-Healthy-Relationship',
                 'WEBINAR',

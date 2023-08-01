@@ -18,10 +18,6 @@ class WebinarController extends Controller
         $query = Event::with('webinar_session.pembicara')
         ->where('activity_category_event', 'WEBINAR')->orderBy('date_event', 'desc');
 
-        // $query = Event::query()
-        // ->with('webinar_session.pembicara')
-        // ->where('activity_category_event', 'WEBINAR');
-
 
         // Filter using input type text
         if ($request->has('input_search')) {
@@ -83,13 +79,6 @@ class WebinarController extends Controller
      */
     public function show($slug)
     {
-// <<<<<<< HEAD
-//         // $data = EventMaterialSession::query()
-//         // ->with(['pembicara'])
-//         // ->join('events', 'event_material_sessions.event_id', '=', 'events.id')
-//         // ->where('events.slug_event', $slug)
-//         // ->firstOrFail();
-
         $data = Event::with('webinar_session.pembicara')
         ->where('events.slug_event', $slug)
         ->firstOrFail();
