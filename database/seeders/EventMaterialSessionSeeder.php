@@ -21,7 +21,7 @@ class EventMaterialSessionSeeder extends Seeder
                 ],
                 [
                     "title" => " Dating Violence and Its Intervention",
-                    "event" => 3,
+                    "event" => 4,
                     "pembicara" => 3
                 ],
                 [

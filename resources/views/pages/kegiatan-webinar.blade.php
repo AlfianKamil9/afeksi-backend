@@ -171,6 +171,7 @@
                             <img src="{{ asset('/assets/img/kegiatan/'.$data->cover_event) }}" class="card-img-top" alt="{{ $data->title_event }}">
                             <div class="card-body">
                                 <p  class="card-title fw-semibold">{{ $data->title_event }}</p>
+<<<<<<< HEAD
                                 <div class="row">
                                     @foreach ($data->webinar_session as $item)
                                     <div class="person d-flex gap-2 mt-3">        
@@ -181,7 +182,17 @@
                                             </div> 
                                         </div>
                                     @endforeach
+=======
+                                @foreach ($data->webinar_session as $psikolog)
+                                <div class="person d-flex gap-2 mt-3">
+                                    <img src="assets/img/kegiatan/Ellipse 216.png" alt="">
+                                    <div class="name">
+                                        <p>{{ $psikolog->pembicara->nama_psikolog }}</p>
+                                        <p class="text-body-tertiary">{{ $psikolog->pembicara->profil }}</p>
+                                    </div>
+>>>>>>> 8b1f588bf8c9fe21e40656918f3d635a06c8b85d
                                 </div>
+                                @endforeach
                                 <div class="mt-3 d-flex flex-wrap gap-2 justify-content-between">
                                     <span class="px-2 text-body-tertiary">{{ ucfirst(strtolower($data->activity_category_event)) }}</span>
                                     <span class="px-2 text-body-tertiary">E-Certificate</span>

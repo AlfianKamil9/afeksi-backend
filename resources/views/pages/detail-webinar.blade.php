@@ -91,17 +91,23 @@
         <!-- PROFIL PEMBICARA -->
         <div class="row" id="profil-pembicara">
             <div class="col-lg-8">
+<<<<<<< HEAD
             <h5 class="fw-bold mt-3 mb-3">Profil Pembicara</h5>
             <?php $i = 1; ?>
             @foreach ($data->webinar_session as $item)
                 @if ($data->webinar_session->count() > 1)
                     <h6 class="text-secondary"> <span class="fw-bold text-dark">Materi {{ $i++ }} :</span> {{ $item->title_sesi }}</h6>    
                 @endif
+=======
+            <h5 class="fw-bold mb-3">Profil Pembicara</h5>
+            @foreach ($data->webinar_session as $psikolog)
+>>>>>>> 8b1f588bf8c9fe21e40656918f3d635a06c8b85d
             <div class="d-flex">
                 <div class="flex-shrink-0">
                     <img src="{{ asset('assets/img/kegiatan-detail-webinar/people.svg') }}" alt="Foto Profil Pembaca" />
                 </div>
                 <div class="flex-grow-1 ms-3 mb-5">
+<<<<<<< HEAD
                     <h6 class="fw-bold">{{ $item->pembicara->nama_psikolog }}</h6>
                     <p class="text-muted mb-0">{{ $item->pembicara->profil }}</p>
 {{-- =======
@@ -110,6 +116,11 @@
 >>>>>>> 4025f3ba2600f01aa15784aa4670cfd14aa5076e --}}
                     <p class="text-muted mb-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab magni expedita quam voluptate suscipit commodi?</p>
                     {{-- <p class="fw-bold">Materi : {{ $item->title_sesi }}</p> --}}
+=======
+                    <h6 class="fw-bold">{{ $psikolog->pembicara->nama_psikolog }}</h6>
+                    <p class="text-muted mb-0">{{ $psikolog->pembicara->profil }}</p>
+                    <p class="text-muted mb-0">{{ $psikolog->pembicara->deskripsi }}</p>
+>>>>>>> 8b1f588bf8c9fe21e40656918f3d635a06c8b85d
                 </div>
             </div>
             @endforeach
