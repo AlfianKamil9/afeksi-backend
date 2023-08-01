@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\EventMaterialSession;
+use App\Models\Event;
 
 class WebinarController extends Controller
 {
@@ -15,6 +15,7 @@ class WebinarController extends Controller
      */
     public function index(Request $request)
     {
+<<<<<<< HEAD
         // $query = EventMaterialSession::query()
         // ->with(['pembicara'])
         // ->join('events', 'event_material_sessions.event_id', '=', 'events.id')
@@ -22,6 +23,11 @@ class WebinarController extends Controller
 
         $query = Event::with('webinar_session.pembicara')
         ->where('activity_category_event', 'WEBINAR')->orderBy('date_event', 'desc');
+=======
+        $query = Event::query()
+        ->with('webinar_session.pembicara')
+        ->where('activity_category_event', 'WEBINAR');
+>>>>>>> 4025f3ba2600f01aa15784aa4670cfd14aa5076e
 
         // Filter using input type text
         if ($request->has('input_search')) {
@@ -71,6 +77,7 @@ class WebinarController extends Controller
             // dd($event->time_start, $event->time_finish, $event->date_event);
         }
 
+        // dd($data);
         return view('pages.kegiatan-webinar', [
             'data' => $data,
         ]);
@@ -82,6 +89,7 @@ class WebinarController extends Controller
      */
     public function show($slug)
     {
+<<<<<<< HEAD
         // $data = EventMaterialSession::query()
         // ->with(['pembicara'])
         // ->join('events', 'event_material_sessions.event_id', '=', 'events.id')
@@ -90,6 +98,11 @@ class WebinarController extends Controller
 
         $data = Event::with('webinar_session.pembicara')
         ->where('events.slug_event', $slug)
+=======
+        $data = Event::query()
+        ->with('webinar_session.pembicara')
+        ->where('slug_event', $slug)
+>>>>>>> 4025f3ba2600f01aa15784aa4670cfd14aa5076e
         ->firstOrFail();
 
         $data->time_start = Carbon::parse($data->time_start)->format('H:i');

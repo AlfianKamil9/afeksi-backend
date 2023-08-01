@@ -175,6 +175,7 @@
                                     @foreach ($data->webinar_session as $item)
                                     {{-- <img src="assets/img/kegiatan/Ellipse 216.png" alt="">
                                     <div class="name">
+<<<<<<< HEAD
                                         <p>{{ $data->pembicara->nama_psikolog }}</p>
                                         <p class="text-body-tertiary">{{ $data->pembicara->profil }}</p>
                                     </div> --}}
@@ -184,6 +185,11 @@
                                             <p class="text-body-tertiary">{{ $item->profil }}</p>
                                         </div> 
                                     @endforeach
+=======
+                                        <p>{{ $data->webinar_session->pembicara->nama_psikolog }}</p>
+                                        <p class="text-body-tertiary">{{ $data->webinar_session->pembicara->profil }}</p>
+                                    </div>
+>>>>>>> 4025f3ba2600f01aa15784aa4670cfd14aa5076e
                                 </div>
                                 <div class="mt-3 d-flex flex-wrap gap-2 justify-content-between">
                                     <span class="px-2 text-body-tertiary">{{ ucfirst(strtolower($data->activity_category_event)) }}</span>
