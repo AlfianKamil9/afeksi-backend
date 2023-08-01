@@ -97,8 +97,8 @@
                     <img src="{{ asset('assets/img/kegiatan-detail-webinar/people.svg') }}" alt="Foto Profil Pembaca" />
                 </div>
                 <div class="flex-grow-1 ms-3 mb-5">
-                    <h6 class="fw-bold">{{ $data->pembicara->nama_psikolog }}</h6>
-                    <p class="text-muted mb-0">{{ $data->pembicara->profil }}</p>
+                    <h6 class="fw-bold">{{ $data->webinar_session->pembicara->nama_psikolog }}</h6>
+                    <p class="text-muted mb-0">{{ $data->webinar_session->pembicara->profil }}</p>
                     <p class="text-muted mb-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab magni expedita quam voluptate suscipit commodi?</p>
                 </div>
             </div>

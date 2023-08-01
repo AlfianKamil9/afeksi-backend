@@ -56,6 +56,6 @@ class Event extends Model
     }
 
      public function webinar_session() {
-        return $this->hasMany(EventMaterialSession::class);
+        return $this->hasOne(EventMaterialSession::class);
     }
 }

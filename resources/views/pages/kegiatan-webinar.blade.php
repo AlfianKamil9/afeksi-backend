@@ -174,8 +174,8 @@
                                 <div class="person d-flex gap-2 mt-3">
                                     <img src="assets/img/kegiatan/Ellipse 216.png" alt="">
                                     <div class="name">
-                                        <p>{{ $data->pembicara->nama_psikolog }}</p>
-                                        <p class="text-body-tertiary">{{ $data->pembicara->profil }}</p>
+                                        <p>{{ $data->webinar_session->pembicara->nama_psikolog }}</p>
+                                        <p class="text-body-tertiary">{{ $data->webinar_session->pembicara->profil }}</p>
                                     </div>
                                 </div>
                                 <div class="mt-3 d-flex flex-wrap gap-2 justify-content-between">
