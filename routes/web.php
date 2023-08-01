@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\Event\CampaignController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\GoogleController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Event\WebinarController;
+use App\Http\Controllers\Event\CampaignController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,14 +38,12 @@ Route::get('/beranda', function () {
 require __DIR__ . '/auth.php';
 
 // PAGES NO RULES
-Route::get('/kegiatan-webinar', function () {
-    return view('pages.kegiatan-webinar');
-})->name('webinar');
+Route::get('/kegiatan-webinar', [WebinarController::class, 'index'])->name('webinar');
+Route::get('/kegiatan-webinar/{slug}', [WebinarController::class, 'show'])->name('webinar.detail');
+
 Route::get('/kegiatan-campaign', [CampaignController::class, 'index'])->name('campaign');
 Route::get('/kegiatan-campaign/{slug}', [CampaignController::class, 'show'])->name('campaign.detail');
-Route::get('/detail-webinar', function () {
-    return view('pages.detail-webinar');
-});
+
 
 
 
@@ -55,4 +54,3 @@ Route::get('/psikolog', function () {
 Route::get('/profesional-konseling', function () {
     return view('pages.profesional-konseling-online-senior');
 });
-
