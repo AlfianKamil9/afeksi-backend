@@ -22,8 +22,4 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Transaksi\Event\WebinarTransaksiController;
 
 Route::post('/checkout', [WebinarTransaksiController::class, 'checkout']);
-Route::get('/test', function() {
-    $test = Event::with('event_categories', 'webinar_session.pembicara')->where('activity_category_event', "WEBINAR")->get();
 
-    return response($test);
-});

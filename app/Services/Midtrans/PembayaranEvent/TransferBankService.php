@@ -13,7 +13,7 @@ class TransferBankService
         $total_amount = $data["harga_event"] + 4000 ;
         $body = [
             "payment_type" => "bank_transfer",
-            "transaction_details" => [
+            "transaction_detaxils" => [
                 "order_id"      => $reference,
                 "gross_amount"  => $total_amount
                 ],
@@ -47,7 +47,7 @@ class TransferBankService
             ));
 
             $response = curl_exec($curl);
-            //dd($response);
+            // dd($response);
             $err = curl_error($curl);
             curl_close($curl);
             $response =json_decode($response, true);
