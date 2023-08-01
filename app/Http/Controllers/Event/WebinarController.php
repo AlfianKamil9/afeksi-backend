@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Event;
+
 
 class WebinarController extends Controller
 {
@@ -15,19 +15,13 @@ class WebinarController extends Controller
      */
     public function index(Request $request)
     {
-<<<<<<< HEAD
-        // $query = EventMaterialSession::query()
-        // ->with(['pembicara'])
-        // ->join('events', 'event_material_sessions.event_id', '=', 'events.id')
-        // ->where('activity_category_event', 'WEBINAR');
-
         $query = Event::with('webinar_session.pembicara')
         ->where('activity_category_event', 'WEBINAR')->orderBy('date_event', 'desc');
-=======
-        $query = Event::query()
-        ->with('webinar_session.pembicara')
-        ->where('activity_category_event', 'WEBINAR');
->>>>>>> 4025f3ba2600f01aa15784aa4670cfd14aa5076e
+
+        // $query = Event::query()
+        // ->with('webinar_session.pembicara')
+        // ->where('activity_category_event', 'WEBINAR');
+
 
         // Filter using input type text
         if ($request->has('input_search')) {
@@ -89,20 +83,15 @@ class WebinarController extends Controller
      */
     public function show($slug)
     {
-<<<<<<< HEAD
-        // $data = EventMaterialSession::query()
-        // ->with(['pembicara'])
-        // ->join('events', 'event_material_sessions.event_id', '=', 'events.id')
-        // ->where('events.slug_event', $slug)
-        // ->firstOrFail();
+// <<<<<<< HEAD
+//         // $data = EventMaterialSession::query()
+//         // ->with(['pembicara'])
+//         // ->join('events', 'event_material_sessions.event_id', '=', 'events.id')
+//         // ->where('events.slug_event', $slug)
+//         // ->firstOrFail();
 
         $data = Event::with('webinar_session.pembicara')
         ->where('events.slug_event', $slug)
-=======
-        $data = Event::query()
-        ->with('webinar_session.pembicara')
-        ->where('slug_event', $slug)
->>>>>>> 4025f3ba2600f01aa15784aa4670cfd14aa5076e
         ->firstOrFail();
 
         $data->time_start = Carbon::parse($data->time_start)->format('H:i');

@@ -23,3 +23,8 @@ use App\Http\Controllers\Transaksi\Event\WebinarTransaksiController;
 
 Route::post('/checkout', [WebinarTransaksiController::class, 'checkout']);
 
+Route::get('tetet', function() {
+    $query = Event::with('webinar_session.pembicara')
+        ->where('activity_category_event', 'WEBINAR')->orderBy('date_event', 'desc')->get();
+    return response($query);
+});

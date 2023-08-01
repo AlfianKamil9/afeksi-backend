@@ -102,13 +102,12 @@
                     <img src="{{ asset('assets/img/kegiatan-detail-webinar/people.svg') }}" alt="Foto Profil Pembaca" />
                 </div>
                 <div class="flex-grow-1 ms-3 mb-5">
-<<<<<<< HEAD
                     <h6 class="fw-bold">{{ $item->pembicara->nama_psikolog }}</h6>
                     <p class="text-muted mb-0">{{ $item->pembicara->profil }}</p>
-=======
+{{-- =======
                     <h6 class="fw-bold">{{ $data->webinar_session->pembicara->nama_psikolog }}</h6>
                     <p class="text-muted mb-0">{{ $data->webinar_session->pembicara->profil }}</p>
->>>>>>> 4025f3ba2600f01aa15784aa4670cfd14aa5076e
+>>>>>>> 4025f3ba2600f01aa15784aa4670cfd14aa5076e --}}
                     <p class="text-muted mb-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab magni expedita quam voluptate suscipit commodi?</p>
                     {{-- <p class="fw-bold">Materi : {{ $item->title_sesi }}</p> --}}
                 </div>
