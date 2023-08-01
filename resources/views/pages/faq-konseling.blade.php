@@ -4,7 +4,7 @@
 
 <!-- path style disesuaikan dengan folder css masing-masing page -->
 @section('styles')
-    <link rel="stylesheet" href="assets/css/faq-konseling.css">
+    <link rel="stylesheet" href="/assets/css/faq-konseling.css">
 @endsection
 
 {{-- @include('../partials/navbar')  --}}
@@ -23,20 +23,16 @@
         <div class="container pe-2 py-5">
           <div class="row">
             <div class="col-sm">
-              @if (request()->query('mentoring') == "true")     
-                <a type="button" href="?konseling=true" class="btn-konseling btn px-5 py-3 btn-outline-secondary" >FAQ Konseling</a>
-                <a type="button" href="?mentoring=true" class="btn-mentoring btn px-5 py-3 btn-secondary">FAQ Mentoring</a>
-              @else
-                <a type="button" href="?konseling=true" class="btn-konseling btn px-5 py-3 btn-secondary">FAQ Konseling</a>
-                <a type="button" href="?mentoring=true" class="btn-mentoring btn px-5 py-3 btn-outline-secondary">FAQ Mentoring</a>
-              @endif
+              {{-- @if (request()->query('mentoring') == "true")      --}}
+                <button onclick="konseling()" id="btn-konseling" class="tombol-aktif btn px-5 py-3 fw-bold btn-secondary" >FAQ Konseling</button>
+                <button onclick="mentoring()" id="btn-mentoring" class="btn px-5 py-3 fw-bold btn-outline-secondary">FAQ Mentoring</button>
             </div>
           </div>
         </div>
       </div>
 
-      @if(request()->query('mentoring') == "true")
-        <div class="mb-5">
+      {{-- @if(request()->query('mentoring') == "true") --}}
+        <div class="mb-5" id="mentoring-badge">
         <div class="container">
           <div class="row mb-3">
             <div class="col-sm">
@@ -127,9 +123,9 @@
           </div>
         </div>
       </div>
-      @else
+
           
-      <div class="mb-5">
+      <div class="mb-5" id="konseling-badge" >
         <div class="container">
           <div class="row mb-3">
             <div class="col-sm">
@@ -220,7 +216,7 @@
           </div>
         </div>
       </div>
-      @endif
+    
 
       <div class="mb-5">
         <div class="container p-5 rounded" style="background-color: #d3daff">
@@ -234,6 +230,12 @@
       </div>
     </section>
 
+    
+
 @include('../partials/footer') 
+
+@section('script')
+   <script src="assets/js/faq.js"></script>
+@endsection
 
 @endsection

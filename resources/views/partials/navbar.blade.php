@@ -50,7 +50,7 @@
   /* End Navbar */
 </style>
 
-<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top" style="z-index: 10000000">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">
           <img src="/assets/img/logo-copy.png" alt="Logo" class="d-inline-block align-text-top ms-5" style="width:60px;"/>
