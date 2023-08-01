@@ -92,16 +92,18 @@
         <div class="row" id="profil-pembicara">
             <div class="col-lg-8">
             <h5 class="fw-bold mb-3">Profil Pembicara</h5>
+            @foreach ($data->webinar_session as $psikolog)
             <div class="d-flex">
                 <div class="flex-shrink-0">
                     <img src="{{ asset('assets/img/kegiatan-detail-webinar/people.svg') }}" alt="Foto Profil Pembaca" />
                 </div>
                 <div class="flex-grow-1 ms-3 mb-5">
-                    <h6 class="fw-bold">{{ $data->pembicara->nama_psikolog }}</h6>
-                    <p class="text-muted mb-0">{{ $data->pembicara->profil }}</p>
-                    <p class="text-muted mb-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab magni expedita quam voluptate suscipit commodi?</p>
+                    <h6 class="fw-bold">{{ $psikolog->pembicara->nama_psikolog }}</h6>
+                    <p class="text-muted mb-0">{{ $psikolog->pembicara->profil }}</p>
+                    <p class="text-muted mb-0">{{ $psikolog->pembicara->deskripsi }}</p>
                 </div>
             </div>
+            @endforeach
             </div>
         </div>
 
