@@ -90,47 +90,6 @@
     text-align: justify;
 }
 
-/* ======= Fotter Layers ============ */
-footer {
-    position: relative;
-    overflow: hidden;
-}
-
-footer::before {
-    content: "";
-    position: absolute;
-    width: 220%;
-    height: 200%;
-    top: -300%;
-    left: 2%;
-    z-index: 0;
-    background: url(../assets/img/kebijakan-privasi-page/layer.png) no-repeat;
-    background-position: bottom right;
-    background-size: 35%;
-    transform: rotate(95deg);
-    opacity: 0.1;
-}
-
-.footer-layer {
-    position: relative;
-    overflow: hidden;
-}
-
-.footer-layer::before {
-    content: "";
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    top: 5%;
-    left: -108%;
-    z-index: 0;
-    background: url(../assets/img/kebijakan-privasi-page/layer-cl.png) no-repeat;
-    background-position: bottom right;
-    background-size: 20%;
-    transform: rotate(320deg);
-    opacity: 0.1;
-}
-/* ============================================================ */
 
 /* HERO VERSION 2 */
 .hero-2 {

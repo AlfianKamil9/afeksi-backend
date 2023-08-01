@@ -1,16 +1,31 @@
+:root {
+  --bg-afeksi-theme: #5a74fd;
+  --color-afeksi-custom: #374dfa;
+  --bg-final-footer: #4959db;
+}
 /* Faq Konseling Start */
+
+.hero-2 {
+    background-color: var(--bg-afeksi-theme);
+    background-image: url("/assets/img/kebijakan-privasi/hero-layer.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-size: 100% 100%;
+    color: white;
+}
+
 .accordion-button::after {
     background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-plus-circle' viewBox='0 0 16 16'><path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z'/><path d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z'/></svg>");
-  }
-  .accordion-button:not(.collapsed)::after {
+}
+.accordion-button:not(.collapsed)::after {
     background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-dash-circle' viewBox='0 0 16 16'><path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z'/><path d='M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z'/></svg>");
-  }
-  
-  .btn-whatsapp {
+}
+
+.btn-whatsapp {
     background-color: #233dff;
     border: none;
     border-radius: 10px;
     padding: 10px 20px;
-  }
-  /* Faq Konseling End */
-  
+}
+/* Faq Konseling End */

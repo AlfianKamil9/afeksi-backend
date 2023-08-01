@@ -12,16 +12,12 @@
 @section('content')
 
 <section id="Konseling">
-      <div class="mb-5" style="background-color: #5a74fd">
-        <div class="container px-1 py-5">
-          <div class="row">
-            <div class="col-sm">
-              <h2 class="fw-bold" style="color: #ffffff">F.A.Q - Pertanyaan yang Sering Ditanyakan</h2>
-              <p style="color: #ffffff">Bagaimana kami bisa membantu Anda?</p>
-            </div>
+      <div class="hero-2 d-flex align-items-center">
+          <div class="container py-5 my-5">
+            <h1 class="display-5 fw-semibold">F.A.Q - Pertanyaan yang Sering Ditanyakan</h1>
+            <p class="fs-4 mt-5 fw-light">Bagaimana kami bisa membantu Anda?</p>
           </div>
         </div>
-      </div>
 
       <div>
         <div class="container pe-2 py-5">
