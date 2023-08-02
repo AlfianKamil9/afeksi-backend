@@ -13,7 +13,7 @@ class TransferBankService
         $total_amount = $data["harga_event"] + 4000 ;
         $body = [
             "payment_type" => "bank_transfer",
-            "transaction_detaxils" => [
+            "transaction_details" => [
                 "order_id"      => $reference,
                 "gross_amount"  => $total_amount
                 ],
@@ -27,7 +27,7 @@ class TransferBankService
                     "phone"=> "+6281 1234 1234"
                 ]
             ];
-        
+        //dd($body);
         $curl = curl_init();
         curl_setopt_array($curl, array(
                 CURLOPT_URL => $url,// your preferred url
