@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('total_payment')->nullable();
             $table->string('fee_transaction')->nullable();
             $table->date('date_order');
-            $table->enum('status', ['PAID', 'UNPAID', "PENDING", 'FREE', 'EXPIRE']);
+            $table->enum('status', ['PAID', 'UNPAID', "PENDING", 'FREE', 'EXPIRE', 'DENIED']);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
