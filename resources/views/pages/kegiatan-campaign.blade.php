@@ -136,13 +136,13 @@
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="category_activity" value="Gratis" id="selfLoveCheckbox">
+              <input class="form-check-input" type="checkbox" name="pay_category" value="Free" id="selfLoveCheckbox">
               <label class="form-check-label" for="selfLoveCheckbox">
                 Gratis
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="category_activity" value="Berbayar" id="selfLoveCheckbox">
+              <input class="form-check-input" type="checkbox" name="pay_category" value="Paid" id="selfLoveCheckbox">
               <label class="form-check-label" for="selfLoveCheckbox">
                 Berbayar
               </label>
@@ -202,5 +202,6 @@
     </div>
 
 @include('../partials/footer') 
+
 
 @endsection
