@@ -46,10 +46,15 @@ class CampaignController extends Controller
                 $subquery->where('category_event_name', 'like', '%' . $request->input('category') . '%');
             });
         }
-        // filter by activity_category_event using checkbox
+        // filter by time_category_event using checkbox
         if ($request->has('category_activity')) {
             $categoryActivity = strtoupper($request->input('category_activity'));
             $query->where('time_category_event', 'like', '%' . $categoryActivity . '%');
+        }
+        // filter by pay_category_event using checkbox
+        if ($request->has('pay_category')) {
+            $pay_category = strtoupper($request->input('pay_category'));
+            $query->where('pay_category_event', 'like', '%' . $pay_category . '%');
         }
     
         $datas = $query->get();
