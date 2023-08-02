@@ -39,7 +39,7 @@ Route::get('/kegiatan-campaign/{slug}', [CampaignController::class, 'show'])->na
 
 // MIDLLEWARE
 Route::get('/beranda', function () {
-    return view('pages.landing_page');
+    return view('pages.landing-page-new');
 })->middleware(['auth', 'verified'])->name('beranda');
 
 

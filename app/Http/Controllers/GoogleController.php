@@ -37,7 +37,7 @@ class GoogleController extends Controller
             
             if($user){
                 Auth::login($user);
-                return redirect(RouteServiceProvider::HOME);
+                return redirect()->intended(RouteServiceProvider::HOME);
             }else{
 
                 //$users = User::where('email', $googleUser->email);
@@ -61,7 +61,7 @@ class GoogleController extends Controller
 
              Auth::login($newUser, true);
              session()->regenerate();
-             return redirect(RouteServiceProvider::HOME);
+             return redirect()->intended(RouteServiceProvider::HOME);
 
             
         }catch (\Exception $e) {
