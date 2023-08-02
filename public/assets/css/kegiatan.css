@@ -6,142 +6,141 @@
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
-  }
-  
-  .dflex {
+}
+
+.dflex {
     display: flex;
     align-items: center;
     gap: 10px;
-  }
+}
 
-  .hero img {
+.hero img {
     width: 100%;
-  }
-  
-  .campaign {
+}
+
+.campaign {
     padding: 50px 90px 90px 90px;
-  }
-  
-  .campaign-hero {
+}
+
+.campaign-hero {
     margin-bottom: -90px;
-  }
-  
-  /* contents */
-  .contents {
+}
+
+/* contents */
+.contents {
     padding: 50px 90px;
-  }
-  
-  .card {
+}
+
+.card {
     border: none;
     box-shadow: 0 4px 8px rgba(94, 94, 94, 0.1);
-  }
-  
-  .card img {
+}
+
+.card img {
     height: 185px;
     object-fit: cover;
-  }
-  
-  .card-title,
-  .side-heading {
+}
+
+.card-title,
+.side-heading {
     font-size: 17px;
-  }
-  
-  .card span {
+}
+
+.card span {
     font-size: 11px;
     background-color: #f2f5fa;
     border-radius: 20px;
-  }
-  
-  .person img {
+}
+
+.person img {
     width: 35px;
     height: 35px;
-  }
-  
-  .name p,
-  .date p {
+}
+
+.name p,
+.date p {
     font-size: 13px;
     margin: 0;
-  }
-  
-  .date img {
+}
+
+.date img {
     height: 16px;
-  }
-  
-  /* side */
-  .password-container {
+}
+
+/* side */
+.password-container {
     position: relative;
-  }
-  
-  .password-container input {
-    padding-left: 40px;
+}
+
+.password-container input {
     font-size: 15px;
     box-shadow: none !important;
     background: rgb(247, 247, 247);
-  }
-  
-  .form-check,
-  select,
-  .form-group input {
+}
+
+.button button:hover {
+  background-color: #f1f1f2 !important;
+}
+
+.password-icon {
+    width: 22px;
+}
+
+.form-check,
+select,
+.form-group input {
     font-size: 15px !important;
     box-shadow: none !important;
     color: rgb(103, 102, 102);
-  }
-  
-  .form-check {
+}
+
+.form-check {
     margin-bottom: 10px;
-  }
-  
-  .password-icon {
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-    cursor: pointer;
-    height: 25px;
-  }
-  
-  .side-btn {
+}
+
+.side-btn {
     background-color: #233dff !important;
     color: white !important;
     margin-bottom: 10px !important;
-  }
-  
-  .side-btn:hover {
+}
+
+.side-btn:hover {
     background-color: transparent !important;
     border: 1px solid #233dff !important;
     color: #233dff !important;
-  }
-  
-  .btn-outline {
+}
+
+.btn-outline {
     background-color: transparent !important;
     border: 1px solid #233dff !important;
     color: #233dff !important;
-  }
-  
-  .btn-outline:hover {
+}
+
+.btn-outline:hover {
     background-color: #233dff !important;
     color: white !important;
-  }
-  
-  @media (max-width: 900px) {
+}
+
+@media (max-width: 900px) {
     .name p,
     .date p {
-      font-size: 11px;
-      margin: 0;
+        font-size: 11px;
+        margin: 0;
     }
-  
+
     .card span {
-      font-size: 10px;
+        font-size: 10px;
     }
-  
+
     .card-title {
-      font-size: 15px;
+        font-size: 15px;
     }
-  }
-  
-  @media (max-width: 600px) {
-    .hero, .contents, .campaign {
-      padding: 50px 30px;
+}
+
+@media (max-width: 600px) {
+    .hero,
+    .contents,
+    .campaign {
+        padding: 50px 30px;
     }
-  }
-  
+}

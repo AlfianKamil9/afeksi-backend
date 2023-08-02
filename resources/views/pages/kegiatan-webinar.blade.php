@@ -36,6 +36,7 @@
 
     {{-- filter --}}
     <div class="contents row">
+<<<<<<< HEAD
         <div class="side col-lg-3 col-md-4 mb-5">
             <form action="{{ route('webinar') }}" method="get">
                 {{-- Search --}}
@@ -46,6 +47,30 @@
                         <img class="password-icon" src="assets/img/kegiatan/material-symbols_search.png" alt="">
                     </div>
                 </div>
+=======
+      <div class="side col-lg-3 col-md-4 mb-5">
+        <div class="form-group">
+          <p class="side-heading fw-semibold">Filter</p>
+          <div class="input-group password-container form-group">
+              <input type="text" class="form-control" placeholder="Search">
+              <div class="input-group-append button">
+                  <button class="btn rounded-0 rounded-end-2 bg-body-secondary" type="button"><img class="password-icon" src="assets/img/kegiatan/material-symbols_search.png" alt=""></button>
+              </div>
+          </div>
+        </div>
+    
+        <hr class="mt-4">
+    
+        <div class="form-group">
+          <p class="side-heading fw-semibold">Urutkan</p>
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Terbaru</option>
+            <option value="2">Terlama</option>
+          </select>
+        </div>
+    
+        <hr class="mt-4">
+>>>>>>> 2bb76615abd53d0537bff990a6d1acd139d4ff88
 
                 <hr class="mt-4">
 
