@@ -34,48 +34,19 @@
 
     <div class="contents row">
       <div class="side col-lg-3 col-md-4 mb-5">
-<<<<<<< HEAD
         <form action="{{ route('campaign') }}" method="get">
-          <div class="form-group">
-            <p class="side-heading fw-semibold">Filter</p>
-            <div class="password-container">
-              <input type="text" name="input_search" class="form-control" placeholder="Search">
-              <img class="password-icon" src="assets/img/kegiatan/material-symbols_search.png" alt="">
-=======
         <div class="form-group">
           <p class="side-heading fw-semibold">Filter</p>
           <div class="input-group password-container form-group">
-              <input type="text" class="form-control" placeholder="Search">
+              <input type="text" name="input_search" class="form-control" placeholder="Search">
               <div class="input-group-append button">
-                  <button class="btn rounded-0 rounded-end-2 bg-body-secondary" type="button"><img class="password-icon" src="assets/img/kegiatan/material-symbols_search.png" alt=""></button>
+                  <button class="btn rounded-0 rounded-end-2 bg-body-secondary" type="submit"><img class="password-icon" src="assets/img/kegiatan/material-symbols_search.png" alt=""></button>
               </div>
           </div>
         </div>
+        </form>
     
-        <hr class="mt-4">
-    
-        <div class="form-group">
-          <p class="side-heading fw-semibold">Urutkan</p>
-          <select class="form-select" aria-label="Default select example">
-            <option selected>Terbaru</option>
-            <option value="2">Terlama</option>
-          </select>
-        </div>
-    
-        <hr class="mt-4">
-
-        <div class="form-group">
-          <div class="d-flex justify-content-between">
-            <p class="side-heading fw-semibold">Harga</p>
-            <!-- <p><img style="height: 22px; margin-right: 9px;" src="assets/img/kegiatan/keyboard_arrow_up.png" alt=""></p> -->
-          </div>
-
-          <div class=" d-flex align-items-center">
-            <div class="p-2 bg-body-secondary rounded-start-2">
-              <label for="inputRp" style="font-size: 14px;" >Rp</label>
->>>>>>> 2bb76615abd53d0537bff990a6d1acd139d4ff88
-            </div>
-          </div>
+    <form action="{{ route('campaign') }}" method="get">
       
           <hr class="mt-4">
     
@@ -185,7 +156,7 @@
   
           <div class="d-flex flex-column mt-4">
             <button class="btn side-btn">Terapkan Filter</button>
-            <div class="btn side-btn btn-outline">Hapus Filter</div>
+            <button class="btn side-btn btn-outline" type="reset">Hapus Filter</button>
           </div>
         </form>
 
