@@ -36,7 +36,7 @@
         </div>
 
     @else
-        <div class="wrapper p-4 m-auto d-flex flex-column justify-content-center mt-5 text-center">
+        <div class="wrapper p-4 m-auto d-flex flex-column justify-content-center  text-center">
         <h3 class="mb-3 fw-bolder">Lupa Password</h3>
         <p class="text-center">Masukkan alamat email yang kamu daftarkan dan kami akan mengirimkan link untuk membuat password baru.</p>
         <div class="form-input input-container">

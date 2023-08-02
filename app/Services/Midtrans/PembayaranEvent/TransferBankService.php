@@ -27,7 +27,7 @@ class TransferBankService
                     "phone"=> "+6281 1234 1234"
                 ]
             ];
-        
+        //dd($body);
         $curl = curl_init();
         curl_setopt_array($curl, array(
                 CURLOPT_URL => $url,// your preferred url
@@ -47,7 +47,7 @@ class TransferBankService
             ));
 
             $response = curl_exec($curl);
-            //dd($response);
+            // dd($response);
             $err = curl_error($curl);
             curl_close($curl);
             $response =json_decode($response, true);

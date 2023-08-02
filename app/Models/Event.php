@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use App\Models\Psikolog;
 use App\Models\EventCategory;
 use App\Models\EventTransaction;
+use App\Models\EventMaterialSession;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -13,6 +15,7 @@ class Event extends Model
 
      protected $fillable = [
         'category_event_id',
+        // 'pembicara_id',
         'activity_category_event',
         'title_event',
         'slug_event',
@@ -43,8 +46,6 @@ class Event extends Model
     ];
 
     protected $table = 'events';
-    
-    // protected $with = ['event_categories'];
 
     public function event_categories () {
         return $this->belongsTo(EventCategory::class, 'category_event_id');

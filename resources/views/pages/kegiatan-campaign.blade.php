@@ -35,13 +35,18 @@
     <div class="contents row">
       <div class="side col-lg-3 col-md-4 mb-5">
         <form action="{{ route('campaign') }}" method="get">
-          <div class="form-group">
-            <p class="side-heading fw-semibold">Filter</p>
-            <div class="password-container">
+        <div class="form-group">
+          <p class="side-heading fw-semibold">Filter</p>
+          <div class="input-group password-container form-group">
               <input type="text" name="input_search" class="form-control" placeholder="Search">
-              <img class="password-icon" src="assets/img/kegiatan/material-symbols_search.png" alt="">
-            </div>
+              <div class="input-group-append button">
+                  <button class="btn rounded-0 rounded-end-2 bg-body-secondary" type="submit"><img class="password-icon" src="assets/img/kegiatan/material-symbols_search.png" alt=""></button>
+              </div>
           </div>
+        </div>
+        </form>
+    
+    <form action="{{ route('campaign') }}" method="get">
       
           <hr class="mt-4">
     
@@ -151,7 +156,7 @@
   
           <div class="d-flex flex-column mt-4">
             <button class="btn side-btn">Terapkan Filter</button>
-            <div class="btn side-btn btn-outline">Hapus Filter</div>
+            <button class="btn side-btn btn-outline" type="reset">Hapus Filter</button>
           </div>
         </form>
 

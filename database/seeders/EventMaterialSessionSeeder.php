@@ -37,7 +37,7 @@ class EventMaterialSessionSeeder extends Seeder
             ];
 
 
-        for ($i=0; $i < 4 ; $i++) { 
+        for ($i=0; $i < 4 ; $i++) {
             EventMaterialSession::create([
                 "title_sesi" => $data[$i]['title'],
                 "event_id" => $data[$i]['event'],

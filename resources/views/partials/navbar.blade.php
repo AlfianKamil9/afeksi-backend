@@ -50,7 +50,7 @@
   /* End Navbar */
 </style>
 
-<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top" style="z-index: 10000000">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">
           <img src="/assets/img/logo-copy.png" alt="Logo" class="d-inline-block align-text-top ms-5" style="width:60px;"/>
@@ -83,6 +83,8 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#"
                 @if ( Route::CurrentRouteName() == "campaign" ||  Route::CurrentRouteName() == "campaign.detail" )
+                  style="color: #233dff"
+                @elseif ( Route::CurrentRouteName() == "webinar" ||  Route::CurrentRouteName() == "webinar.detail" )
                   style="color: #233dff"
                 @endif
                 >Kegiatan</a>
