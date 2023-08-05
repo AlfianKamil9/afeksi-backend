@@ -30,8 +30,20 @@ Route::get('/home', function () {
     return view('pages.landing_page');
 });
 
+Route::get('/landing-page-new', function () {
+    return view('pages.landing-page-new');
+});
+
 Route::get('/lupa-password', function () {
     return view('pages.lupa-password');
+});
+
+Route::get('/lupa-password-notif', function () {
+    return view('pages.lupa-password-notif');
+});
+
+Route::get('/reset-password', function () {
+    return view('pages.reset-password');
 });
 
 Route::get('/tentang-kami', function () {
@@ -56,4 +68,8 @@ Route::get('/detail-webinar', function () {
 
 Route::get('/detail-campaign', function () {
     return view('pages.detail-campaign');
+});
+
+Route::get('/faq-konseling', function () {
+    return view('pages.faq-konseling');
 });

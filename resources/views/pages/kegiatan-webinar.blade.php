@@ -37,9 +37,11 @@
       <div class="side col-lg-3 col-md-4 mb-5">
         <div class="form-group">
           <p class="side-heading fw-semibold">Filter</p>
-          <div class="password-container">
-            <input type="text" class="form-control" placeholder="Search">
-            <img class="password-icon" src="assets/img/kegiatan/material-symbols_search.png" alt="">
+          <div class="input-group password-container form-group">
+              <input type="text" class="form-control" placeholder="Search">
+              <div class="input-group-append button">
+                  <button class="btn rounded-0 rounded-end-2 bg-body-secondary" type="button"><img class="password-icon" src="assets/img/kegiatan/material-symbols_search.png" alt=""></button>
+              </div>
           </div>
         </div>
     
