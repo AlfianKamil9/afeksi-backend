@@ -1,6 +1,6 @@
 @extends('../layout')
 
-@section('title', 'Detail Pendaftaran Konselor')
+@section('title', 'Pendaftaran Relationship Konselor | AFEKSI')
 
 @section('styles')
     <link rel="stylesheet" href="assets/css/detail-pendaftaran-relationship.css">
@@ -81,3 +81,4 @@
           <!-- End Modals -->
       </div>
 </section>
+@endsection

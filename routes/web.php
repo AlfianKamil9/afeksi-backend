@@ -34,6 +34,9 @@ Route::get('/kegiatan-webinar', [WebinarController::class, 'index'])->name('webi
 Route::get('/kegiatan-webinar/{slug}', [WebinarController::class, 'show'])->name('webinar.detail');
 Route::get('/kegiatan-campaign', [CampaignController::class, 'index'])->name('campaign');
 Route::get('/kegiatan-campaign/{slug}', [CampaignController::class, 'show'])->name('campaign.detail');
+Route::get('/test', function () {
+    return view('pages.detail-pendaftaran-relationship');
+});
 
 
 
