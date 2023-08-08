@@ -137,10 +137,9 @@
             <div class="col-lg-8">
             <h5 class="fw-bold mb-3">Cara Mengikuti Webinar</h5>
             <ol class="list-daftar-webinar">
-                <li class="mb-1">Daftar dan akses webinar di Afeksi melalui situs resmi.</li>
-                <li class="mb-1">Daftar dan akses webinar di Afeksi melalui situs resmi.</li>
-                <li class="mb-1">Daftar dan akses webinar di Afeksi melalui situs resmi.</li>
-                <li class="mb-1">Daftar dan akses webinar di Afeksi melalui situs resmi.</li>
+                <li class="mb-1">Bukti telah memfollow Instagram Afeksi <a href="https://www.instagram.com/afeksidn/" target="blank">@afeksidn</a></li>
+                <li class="mb-1">Bukti telah memposting poster webinar pada Instagram Story</li>
+                <li class="mb-1">Bukti telah memfollow Linkedin Afeksi <a href="https://www.linkedin.com/company/afeksi/mycompany/" target="blank">AFEKSI.IDN</a></li>
             </ol>
             </div>
         </div>

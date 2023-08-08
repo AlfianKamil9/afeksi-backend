@@ -42,7 +42,7 @@
   <div class="container content">
     <div class="row d-flex gap-5 align-content-center">
 
-      <div class="col-lg-4 bg-white rounded-4 p-4">
+      <div class="col-lg-5 bg-white rounded-4 p-4">
         <div class="d-flex text-muted mb-2">
           <div class="me-2">
             <img src="{{ asset('assets/img/footer/logo.png') }}" alt="Logo" width="70px" class="img" />
@@ -65,7 +65,7 @@
         </div>
       </div>
 
-      <div class="col-md-7">
+      <div class="col-lg-6">
         <div class="d-flex flex-wrap">
           <div class="text-white mb-4 me-3 flex-fill">
             <h5 class="link-title mb-4">Layanan</h5>
