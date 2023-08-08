@@ -4,7 +4,7 @@
 }
 .banner-wrapper{
     height: 500px;
-    background-image: url('./assets/img/banner.png');
+    background-image: url('../img/banner.png');
     background-size: cover;
     background-position: bottom;
     background-repeat: no-repeat;
@@ -31,6 +31,34 @@ ul > li{
 button.daftar{
     width: 100%;
     background-color: #233DFF;
+}
+label.col-form-label{
+    font-weight: 600;
+}
+select#pekerjaan{     
+    padding: .5rem;
+}
+.upload-file-wrapper{
+    cursor: pointer;
+}
+label.upload-file{
+    width: 100%;
+    color: #667085;
+    cursor: pointer;
+    border: 1px solid #D0D5DD;
+    border-radius: 8px;
+    padding: .5rem .5rem;
+}
+input#upload-file{
+    opacity: 0;
+    cursor: pointer;
+    margin-top: -35px;
+    margin-left: 10px;
+    z-index: 1;
+    cursor: pointer;
+}
+.bi-plus-circle-fill{
+    color: #233DFF;
 }
 @media screen and (max-width: 992px) {
     ul > li{

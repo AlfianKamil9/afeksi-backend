@@ -19,9 +19,9 @@
                 <span>&gt;</span>
                 <p>Konselor</p>
                 <span>&gt;</span>
-                <p>Relationship Konselor</p>
+                <p>Peer Konselor</p>
             </div>
-            <h1 class="mt-3 fw-bold">Relationship Konselor</h1>
+            <h1 class="mt-3 fw-bold">Peer Konselor</h1>
             <div class="info-utils d-flex gap-2 mt-4">
               <i class="bi bi-geo-alt-fill me-3"></i>
               <p class="work-type  fw-semibold">Remote - </p>
@@ -64,7 +64,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <h3 class="modal-title fw-semibold text-center px-5">Formulir Pendaftaran Relationship Konselor</h3>
+                    <h3 class="modal-title fw-semibold text-center px-5">Formulir Pendaftaran Peer Konselor</h3>
                     <p class="text-center px-4">Silahkan isi data anda dan pastikan data anda sudah sesuai.</p>
                   <form>
                     <div class="mb-3">
@@ -101,7 +101,7 @@
                       <input type="text" placeholder="Nama Tempat" class="form-control" id="jurusan">
                     </div>
                     <div class="mb-3">
-                      <label for="alasan" class="col-form-label">Alasan Memilih Relationship Konselor</label>
+                      <label for="alasan" class="col-form-label">Alasan Memilih Peer Konselor</label>
                       <textarea class="form-control"placeholder="Alasan" id="alasan"></textarea>
                     </div>
                     <div class="mb-3 upload-file-wrapper">                    
