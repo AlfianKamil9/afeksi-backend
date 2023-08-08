@@ -1,13 +1,13 @@
 @extends('../layout')
 
-@section('title', 'Detail Pendaftaran Konselor')
+@section('title', 'Pendaftaran Peer Konselor | AFEKSI')
 
 @section('styles')
     <link rel="stylesheet" href="assets/css/detail-pendaftaran-relationship.css">
 @endsection
 
 
-@include('../partials/navbar') 
+{{-- @include('../partials/navbar')  --}}
 
 @section('content')
 <section class="wrapper">
@@ -57,7 +57,7 @@
           </ul>
           <button type="button" class="btn btn-primary daftar" data-bs-toggle="modal" data-bs-target="#form-pendaftaran-konselor" data-bs-whatever="@getbootstrap">Daftar Sekarang</button>
           <!-- Modals -->
-          <div class="modal fade" id="form-pendaftaran-konselor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade modal-lg" data-bs-backdrop="static" id="form-pendaftaran-konselor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header text-center">
@@ -130,3 +130,5 @@
 </section>
 
 @include('../partials/footer') 
+
+@endsection

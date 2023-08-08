@@ -33,13 +33,13 @@
     color: white;
   }
 
-  .content {
+  .content1 {
     margin-bottom: 55px;
   }
 </style>
 
 <footer class="p-5" style="background-image: url('{{ asset('assets/img/footer/background.svg') }}');">
-  <div class="container content">
+  <div class="container content1">
     <div class="row d-flex gap-5 align-content-center">
 
       <div class="col-lg-5 bg-white rounded-4 p-4">
@@ -65,7 +65,7 @@
         </div>
       </div>
 
-      <div class="col-lg-6">
+      <div class="col-md-6">
         <div class="d-flex flex-wrap">
           <div class="text-white mb-4 me-3 flex-fill">
             <h5 class="link-title mb-4">Layanan</h5>
