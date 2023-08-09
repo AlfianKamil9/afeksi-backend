@@ -21,8 +21,9 @@ return new class extends Migration
             $table->string('bukti_follow')->nullable();
             $table->string('cv')->nullable();
             $table->string('portofolio')->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
+            
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

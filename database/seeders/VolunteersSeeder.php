@@ -15,7 +15,7 @@ class VolunteersSeeder extends Seeder
     {
 
         Volunteer::create([
-            'user_id' => 2,
+            'user_id' => 1,
         ]);
 
     }

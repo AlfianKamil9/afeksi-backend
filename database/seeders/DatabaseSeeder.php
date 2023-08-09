@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
         $this->call(categoryEbookSeeder::class);
         $this->call(EbookSeeder::class);
         $this->call(EcourseSeeder::class);
+        $this->call(InternshipSeeder::class);
 
 
     }
