@@ -73,3 +73,7 @@ Route::get('/detail-campaign', function () {
 Route::get('/faq-konseling', function () {
     return view('pages.faq-konseling');
 });
+
+Route::get('/internship-uiux', function () {
+    return view('pages.internship-uiux');
+});

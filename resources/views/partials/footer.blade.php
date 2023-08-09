@@ -32,13 +32,13 @@
     color: white;
   }
 
-  .content {
+  .content-footer {
     margin-bottom: 55px;
   }
 </style>
 
 <footer class="p-5" style="background-image: url('{{ asset('assets/img/footer/background.svg') }}');">
-  <div class="container content">
+  <div class="container content-footer">
     <div class="row d-flex gap-5 align-content-center">
 
       <div class="col-lg-4 bg-white rounded-4 p-4">
