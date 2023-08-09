@@ -20,18 +20,19 @@ class NotificationPaymentEventController extends Controller
 
     public function callback(Request $request)
     {
+    
         //set konfigurasi midtrans
         Config::$serverKey = 'SB-Mid-server-jCrOnrL8Qbl30LMOknfYOxtJ';
-        config::$isProduction = false;
-        config::$isSanitized = true;
-        config::$is3ds = true;
+        Config::$isProduction = false;
+        Config::$isSanitized = true;
+        Config::$is3ds = true;
         // config::$isProduction = config('midtrans.isProduction');
         // config::$isSanitized = config('midtrans.isSanitized');
         // config::$is3ds = config('midtrans.is3ds');
 
         //buat instance midtrans notification
         $notification = new Notification();
-        
+        dd($notification);
         //pecah order id
         $order = explode('-',  $notification->order_id);
 

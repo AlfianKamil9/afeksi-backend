@@ -32,6 +32,7 @@ Route::get('/kebijakan-privasi', function () {
 })->name("kebijakan-privasi");
 Route::get('/FAQ', function () {
     return view('pages.faq-konseling');
+<<<<<<< HEAD
 })->name('FAQ');
 Route::get('/kegiatan-webinar', [WebinarController::class, 'index'])->name('webinar');
 Route::get('/kegiatan-webinar/{slug}', [WebinarController::class, 'show'])->name('webinar.detail');
@@ -83,3 +84,10 @@ require __DIR__ . '/auth.php';
 // Route::get('/landing-page-new', function () {
 //     return view('pages.landing-page-new');
 // });
+=======
+});
+
+Route::get('/internship-uiux', function () {
+    return view('pages.internship-uiux');
+});
+>>>>>>> ac2c52afe6b134cb28beb94127de354ba2a89c60
