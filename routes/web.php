@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\NotificationPaymentEventController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\ProfileController;
@@ -48,6 +49,11 @@ Route::middleware(['auth', 'verified'])->group(function() {
     Route::get('/pendaftaran-relationship-konselor', [RelationshipKonselor::class, 'index'])->name('pendaftaran-relationship-konselor');
     Route::get('/pendaftaran-peer-konselor',  [PeerKonselor::class, 'index'])->name('pendaftaran-peer-konselor');
 });
+
+Route::post('/midtrans/callback', [NotificationPaymentEventController::class, 'callback']);
+Route::get('/midtrans/finish', [NotificationPaymentEventController::class, 'finishRedirect']);
+Route::get('/midtrans/unfinish', [NotificationPaymentEventController::class, 'unfinishRedirect']);
+Route::get('/midtrans/error', [NotificationPaymentEventController::class, 'errorRedirect']);
 
 
 

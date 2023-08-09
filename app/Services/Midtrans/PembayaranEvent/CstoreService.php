@@ -5,7 +5,6 @@ namespace App\Services\Midtrans\PembayaranEvent;
 class CstoreService
 {
     public function alfamart($method,$data) {
-        //
         $serverkey = config('midtrans.midtrans.server_key');
         $serverBase64 = base64_encode($serverkey.':');
         $url = config('midtrans.midtrans.url');

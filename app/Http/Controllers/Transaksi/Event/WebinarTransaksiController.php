@@ -151,8 +151,7 @@ class WebinarTransaksiController extends Controller
                 ];
                 
                 $result = new CstoreService();
-                $res = $result-> alfamart($request->payment_method, $data);
-
+                $res = $result->alfamart($request->payment_method, $data);
               // Konversi respons menjadi array
 
              //CEK KODE RESPON
@@ -284,10 +283,12 @@ class WebinarTransaksiController extends Controller
                 "status" => "PENDING",
                 "updated_at" => $res["transaction_time"]
             ]);
+            dd($res);
             return response()->json([
                 "message" =>  $res["status_message"],
                 "actions" => $res['actions']
             ]);
+
             
         } 
         
