@@ -31,7 +31,7 @@ class WebinarTransaksiController extends Controller
 
 
 // CEK PAYMENT METHOD YANG DIPILIH
-        if ($request->payment_method == 'bni' || $request->payment_method == 'bri' || $request->payment_method == 'bca' ) 
+        if ($request->payment_method == 'bni' || $request->payment_method == 'bri' || $request->payment_method == 'bca' ||  $request->payment_method == 'cimb') 
             {
                 $data = EventTransaction::with('event', 'user')->where('ref_transaction_event', $request->reference)->first();
                 $data = [

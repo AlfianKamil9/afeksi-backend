@@ -19,7 +19,11 @@ class EventTransaction extends Model
         'total_payment',
         'fee_transaction',
         'date_order',
-        'status'
+        'status',
+        'info_from',
+        'proof_follow_ig',
+        'proof_follow_linkdin',
+        'proof_share_poster',
     ];
 
     protected $guarded = [

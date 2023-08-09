@@ -21,6 +21,10 @@ return new class extends Migration
             $table->string('fee_transaction')->nullable();
             $table->date('date_order');
             $table->enum('status', ['PAID', 'UNPAID', "PENDING", 'FREE', 'EXPIRE', 'DENIED']);
+            $table->string('info_from')->nullable();
+            $table->string('proof_follow_ig')->nullable();
+            $table->string('proof_follow_linkdin')->nullable();
+            $table->string('proof_share_poster')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

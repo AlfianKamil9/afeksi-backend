@@ -3,8 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Karir\PeerKonselor;
 use App\Http\Controllers\Event\WebinarController;
 use App\Http\Controllers\Event\CampaignController;
+use App\Http\Controllers\Karir\RelationshipKonselor;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,10 +39,15 @@ Route::get('/kegiatan-campaign/{slug}', [CampaignController::class, 'show'])->na
 
 
 
+// Route::get('/beranda', function () {
+    //     return view('pages.landing-page-new');
+    // })->middleware(['auth', 'verified'])->name('beranda');
+
 // MIDLLEWARE
-Route::get('/beranda', function () {
-    return view('pages.landing_page');
-})->middleware(['auth', 'verified'])->name('beranda');
+Route::middleware(['auth', 'verified'])->group(function() {
+    Route::get('/pendaftaran-relationship-konselor', [RelationshipKonselor::class, 'index'])->name('pendaftaran-relationship-konselor');
+    Route::get('/pendaftaran-peer-konselor',  [PeerKonselor::class, 'index'])->name('pendaftaran-peer-konselor');
+});
 
 
 
