@@ -5,7 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class NotificationMidtransController extends Controller
+class NotificationPaymentEventController extends Controller
 {
     /**
      * Handle the incoming request.
