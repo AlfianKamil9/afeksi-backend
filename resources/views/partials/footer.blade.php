@@ -33,21 +33,13 @@
     color: white;
   }
 
-<<<<<<< HEAD
-  .content1 {
-=======
   .content-footer {
->>>>>>> ac2c52afe6b134cb28beb94127de354ba2a89c60
     margin-bottom: 55px;
   }
 </style>
 
 <footer class="p-5" style="background-image: url('{{ asset('assets/img/footer/background.svg') }}');">
-<<<<<<< HEAD
-  <div class="container content1">
-=======
   <div class="container content-footer">
->>>>>>> ac2c52afe6b134cb28beb94127de354ba2a89c60
     <div class="row d-flex gap-5 align-content-center">
 
       <div class="col-lg-5 bg-white rounded-4 p-4">

@@ -1,13 +1,15 @@
 @extends('../layout')
 
-@section('title', 'Detail Pendaftaran Konselor')
+@section('title')
+  Internship {{ $data->nama_posisi }} | AFEKSI
+@endsection
 
 @section('styles')
-    <link rel="stylesheet" href="assets/css/internship.css">
+    <link rel="stylesheet" href="/assets/css/internship.css">
 @endsection
 
 
-@include('../partials/navbar') 
+{{-- @include('../partials/navbar')  --}}
 
 @section('content')
 <section class="wrapper">
@@ -15,13 +17,13 @@
     </div>
         <div class="container content">
             <div class="bread-crumbs d-flex gap-2 fw-semibold">
-                <p>Karir</p>
+                <p class="fw-medium">Karir</p>
                 <span>&gt;</span>
-                <p>Internship</p>
+                <p class="fw-medium"><a class="text-dark" href="#">Internship</a></p>
                 <span>&gt;</span>
-                <p>UI/UX Designer</p>
+                <p><a href="/internship/{{ $data->slug }}" class="fw-bold text-dark">{{ $data->nama_posisi }}</a></p>
             </div>
-            <h1 class="mt-3 fw-bold">UI/UX Designer</h1>
+            <h1 class="mt-3 fw-bold">{{ $data->nama_posisi }}</h1>
             <div class="info-utils d-flex gap-2 mt-4">
               <i class="bi bi-geo-alt-fill me-3"></i>
               <p class="work-type  fw-semibold">Remote - </p>
@@ -31,30 +33,31 @@
           </div>
           <p class="afeksi-description">Afeksi adalah layanan edukasi dan konsultasi kesehatan hubungan berbasis psikologi relasi pertama di Indonesia Afeksi super team adalah program unpaid internship dengan sistem WFH yang mengasah kemampuan kalian dalam simulasi dunia kerja lewat pembelajaran aktif dalam membangun komunitas startup</p>
           <h3 class="mt-4">Job Description</h3>
-          <ul>
-              <li>Membantu membuat prototipe aplikasi web dan material desain untuk website</li>
-              <li>Mampu membuat prototype dan interaksi di figma dan framer</li>
-              <li>Mampu memanage page project agar terlihat rapi</li>
-              <li>Berkolaborasi dengan front end developer & back end developer</li>
-              <li>Mengerti perihal testing desain menggunakan maze</li>
-          </ul>
+
+          {{-- GET DATA JOBDESK --}}
+          <div class="list-list-list">
+              {!! $data->jobdesc !!}
+          </div>
+          {{-- ENDGET DATA JOBDESK --}}
+
           <h3 class="mt-4">Dicari orang yang:</h3>
-          <ul>
-              <li>Mahasiswa aktif jurusan Desain dan IT</li>
-              <li>Terbiasa menggunakan aplikasi desain seperti Figma dan framer</li>
-              <li>Kreatif dan memiliki passion di bidang desain</li>
-              <li>Memiliki kemampuan Usability,Problem Solving,User Research,Analytical Thinking,UI Design, Komunikasi dan kolaborasi.</li>
-          </ul>
+
+          {{--GET DATA KUALIFIKASI --}}
+          <div class="list-list-list">
+            {!! $data->kualifikasi !!}
+          </div>  
+          {{-- ENDGET DATA KUALIFIKASI --}}
+
           <button type="button" class="btn btn-primary daftar" data-bs-toggle="modal" data-bs-target="#form-pendaftaran-konselor" data-bs-whatever="@getbootstrap">Daftar Sekarang</button>
           <!-- Modals -->
-          <div class="modal fade" id="form-pendaftaran-konselor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade modal-lg"  data-bs-backdrop="static" id="form-pendaftaran-konselor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header text-center">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <h3 class="modal-title fw-semibold text-center px-5">Formulir Pendaftaran Relationship Konselor</h3>
+                    <h3 class="modal-title fw-semibold text-center px-5">Formulir Pendaftaran</h3>
                     <p class="text-center px-4">Silahkan isi data anda dan pastikan data anda sudah sesuai.</p>
                   <form>
                     <div class="mb-3">

@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Karir\PeerKonselor;
 use App\Http\Controllers\Event\WebinarController;
 use App\Http\Controllers\Event\CampaignController;
+use App\Http\Controllers\Karir\Internship;
 use App\Http\Controllers\Karir\RelationshipKonselor;
 
 /*
@@ -32,7 +33,6 @@ Route::get('/kebijakan-privasi', function () {
 })->name("kebijakan-privasi");
 Route::get('/FAQ', function () {
     return view('pages.faq-konseling');
-<<<<<<< HEAD
 })->name('FAQ');
 Route::get('/kegiatan-webinar', [WebinarController::class, 'index'])->name('webinar');
 Route::get('/kegiatan-webinar/{slug}', [WebinarController::class, 'show'])->name('webinar.detail');
@@ -47,8 +47,12 @@ Route::get('/kegiatan-campaign/{slug}', [CampaignController::class, 'show'])->na
 
 // MIDLLEWARE
 Route::middleware(['auth', 'verified'])->group(function() {
+    // PENDAFTARAN KARIR KONSELOR
     Route::get('/pendaftaran-relationship-konselor', [RelationshipKonselor::class, 'index'])->name('pendaftaran-relationship-konselor');
     Route::get('/pendaftaran-peer-konselor',  [PeerKonselor::class, 'index'])->name('pendaftaran-peer-konselor');
+    
+    // PENDAFTARAN KARIR INTERNSHIP
+    Route::get('/internship/{slug}', [Internship::class, 'show']);
 });
 
 Route::post('/midtrans/callback', [NotificationPaymentEventController::class, 'callback']);
@@ -71,23 +75,5 @@ require __DIR__ . '/auth.php';
 // });
 
 
-// GAK KEPAKE
-// Route::get('/lupa-password', function () {
-//     return view('pages.lupa-password');
-// });
-// Route::get('/lupa-password-notif', function () {
-//     return view('pages.lupa-password-notif');
-// });
-// Route::get('/reset-password', function () {
-//     return view('pages.reset-password');
-// });
-// Route::get('/landing-page-new', function () {
-//     return view('pages.landing-page-new');
-// });
-=======
-});
 
-Route::get('/internship-uiux', function () {
-    return view('pages.internship-uiux');
-});
->>>>>>> ac2c52afe6b134cb28beb94127de354ba2a89c60
+

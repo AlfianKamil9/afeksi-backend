@@ -27,7 +27,7 @@
     padding-bottom: 2rem;
     border-bottom: 1px solid #595959;
 }
-ul > li {
+.list-list-list ul > li {
     padding: 8px;
 }
 button.daftar {
