@@ -55,6 +55,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
     Route::get('/internship/{slug}', [Internship::class, 'show']);
 });
 
+<<<<<<< HEAD
 Route::post('/midtrans/callback', [NotificationPaymentEventController::class, 'callback']);
 Route::get('/midtrans/finish', [NotificationPaymentEventController::class, 'finishRedirect']);
 Route::get('/midtrans/unfinish', [NotificationPaymentEventController::class, 'unfinishRedirect']);
@@ -77,3 +78,16 @@ require __DIR__ . '/auth.php';
 
 
 
+=======
+Route::get('/karir', function () {
+    return view('pages.karir');
+});
+
+Route::get('/pendaftaran-konselor', function () {
+    return view('pages.pendaftaran-konselor');
+});
+
+Route::get('/internship-uiux', function () {
+    return view('pages.internship-uiux');
+});
+>>>>>>> 3dcd2c1f6629c54c7d97c85cb72fd054c229a745
