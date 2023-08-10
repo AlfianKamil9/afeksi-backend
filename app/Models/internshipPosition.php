@@ -15,6 +15,7 @@ class internshipPosition extends Model
 
     protected $filiable = [
         'nama_posisi',
+        'tipe_kerja',
         'slug',
         'jobdesc',
         'status',

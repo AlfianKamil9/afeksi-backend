@@ -17,6 +17,7 @@ class InternshipSeeder extends Seeder
             [
                 'nama_posisi' => 'Human Resources',
                 'slug' => "human-resources",
+                'tipe' => 'Internship',
                 'jobdesc' => 
                 "<ul>
                     <li>Membantu keterikatan setiap pihak</li>
@@ -38,6 +39,7 @@ class InternshipSeeder extends Seeder
             [
                 'nama_posisi' => 'UI/UX Designer',
                 'slug' => "ui/ux-designer",
+                'tipe' => 'Internship',
                 'jobdesc' => 
                 "<ul>
                     <li>Membantu membuat prototipe aplikasi web dan material desain untuk website</li>
@@ -60,6 +62,7 @@ class InternshipSeeder extends Seeder
             [
                 'nama_posisi' => 'Front End Developer',
                 'slug' => "frontend-developer",
+                'tipe' => 'Internship',
                 'jobdesc' => 
                 "<ul>
                     <li>Membuat dan mengembangkan website</li>
@@ -81,6 +84,7 @@ class InternshipSeeder extends Seeder
             [
                 'nama_posisi' => 'Back End Developer',
                 'slug' => "backend-developer",
+                'tipe' => 'Internship',
                 'jobdesc' => 
                 "<ul>
                     <li>Membangun website afeksi</li>
@@ -103,6 +107,7 @@ class InternshipSeeder extends Seeder
             [
                 'nama_posisi' => 'Public Relation',
                 'slug' => "public-relation",
+                'tipe' => 'Internship',
                 'jobdesc' => 
                 "<ul>
                     <li>Berkoordinasi dan menjalin komunikasi yang baik dengan media partner, lembaga, dan pihak eksternal lainnya</li>
@@ -123,6 +128,7 @@ class InternshipSeeder extends Seeder
             [
                 'nama_posisi' => 'Graphic Designer',
                 'slug' => "grapich-designer",
+                'tipe' => 'Internship',
                 'jobdesc' => 
                 "<ul>
                     <li>Membuat dan mendesain kebutuhan digital bisnis (foto dan video)</li>
@@ -143,6 +149,7 @@ class InternshipSeeder extends Seeder
             [
                 'nama_posisi' => 'Marketing and Communication',
                 'slug' => "marketing-and-communication",
+                'tipe' => 'Internship',
                 'jobdesc' => 
                 "<ul>
                     <li>Membuat strategi dan brief konten yang akan ditayangkan</li>
@@ -165,6 +172,7 @@ class InternshipSeeder extends Seeder
             [
                 'nama_posisi' => 'Product Development',
                 'slug' => "product-development",
+                'tipe' => 'Internship',
                 'jobdesc' => 
                 "<ul>
                     <li>Membuat dan mendesain kebutuhan digital bisnis (foto dan video)</li>
@@ -187,6 +195,7 @@ class InternshipSeeder extends Seeder
             [
                 'nama_posisi' => 'Bussiness Development',
                 'slug' => "bussiness-development",
+                'tipe' => 'Internship',
                 'jobdesc' => 
                 "<ul>
                     <li>Memahami produk & layanan perusahaan, kompetitor, dan posisi perusahaan dalam persaingan.</li>
@@ -207,6 +216,7 @@ class InternshipSeeder extends Seeder
             [
                 'nama_posisi' => 'Program Innovator',
                 'slug' => "program-innovator",
+                'tipe' => 'Internship',
                 'jobdesc' => 
                 "<ul>
                     <li>Merencanakan, mengeksekusi, dan mengevaluasi program kerja untuk mengedukasi masyarakat terkait psikologi</li>
@@ -227,6 +237,7 @@ class InternshipSeeder extends Seeder
             [
                 'nama_posisi' => 'Content Writer',
                 'slug' => "content-writer",
+                'tipe' => 'Internship',
                 'jobdesc' => 
                 "<ul>
                     <li>Membuat tulisan artikel maupun ebook digital bertema kesehatan mental berdasarkan referensi jurnal ilmiah maupun buku</li>
@@ -250,6 +261,7 @@ class InternshipSeeder extends Seeder
         for ($i=0; $i < 11 ; $i++) { 
             internshipPosition::create([
                 'nama_posisi' => $data[$i]['nama_posisi'],
+                'tipe_kerja' => $data[$i]['tipe'],
                 'slug' => $data[$i]['slug'],
                 'jobdesc' => $data[$i]['jobdesc'],
                 'status' => $data[$i]['status'],

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('internship_positions', function (Blueprint $table) {
             $table->id();
             $table->string('nama_posisi');
+            $table->enum('tipe_kerja', ['Internship', 'Fulltime']);
             $table->string('slug');
             $table->text('jobdesc');
             $table->text('kualifikasi');
