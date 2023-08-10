@@ -47,6 +47,7 @@ Route::get('/kegiatan-campaign/{slug}', [CampaignController::class, 'show'])->na
 Route::middleware(['auth', 'verified'])->group(function() {
     Route::get('/pendaftaran-relationship-konselor', [RelationshipKonselor::class, 'index'])->name('pendaftaran-relationship-konselor');
     Route::get('/pendaftaran-peer-konselor',  [PeerKonselor::class, 'index'])->name('pendaftaran-peer-konselor');
+    Route::post('/pendaftaran-peer-konselor', [PeerKonselor::class, 'store'])->name('store-peer-konselor');
 });
 
 

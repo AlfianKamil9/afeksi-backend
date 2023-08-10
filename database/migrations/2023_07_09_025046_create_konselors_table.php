@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('konselors', function (Blueprint $table) {
             $table->id('id_konselor');
             $table->unsignedBigInteger('user_id');
+            $table->string('nohp')->nullable();
+            $table->string('jenisKelamin')->nullable();
             $table->string('pekerjaan')->nullable();
             $table->string('instansi')->nullable();
             $table->string('divisi')->nullable();
@@ -21,6 +23,7 @@ return new class extends Migration
             $table->string('bukti_follow')->nullable();
             $table->string('cv')->nullable();
             $table->string('portofolio')->nullable();
+            $table->string('type')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
