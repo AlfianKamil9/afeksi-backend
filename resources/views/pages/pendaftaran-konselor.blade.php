@@ -1,13 +1,13 @@
 @extends('../layout')
 
-@section('title', 'Pendaftaran Konselor')
+@section('title', 'Pendaftaran Konselor | AFEKSI')
 
 <!-- path style disesuaikan dengan folder css masing-masing page -->
 @section('styles')
     <link rel="stylesheet" href="assets/css/pendaftaran-konselor.css">
 @endsection
 
-@include('../partials/navbar') 
+{{-- @include('../partials/navbar')  --}}
 
 @section('content')
 
@@ -17,15 +17,15 @@
         <div class="left col-lg-7">
           <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#">Karir</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Konselor</li>
+              <li class="breadcrumb-item"><a href="{{ route('karir') }}">Karir</a></li>
+              <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('pendaftaran.konselor') }}">Konselor</a></li>
             </ol>
           </nav>
           <div class="text text-white mt-5">
             <h1 class="mb-4 fw-bold">Great Things Happen When Good People Work Together</h1>
             <p class="fs-6">Membangun fondasi hubungan yang sehat dan memperkuat kualitas kehidupan melalui konsultasi dan bimbingan dalam hubungan.</p>
           </div>
-          <a href="#" type="button" class="btn btn-join mt-4 fw-medium">Gabung Jadi Konselor</a>
+          <a href="#section-notes" type="button" class="btn btn-join mt-4 fw-medium">Gabung Jadi Konselor</a>
         </div>
         <div class="col-lg-4 m-3">
           <img class="hero-image img-fluid" src="assets/img/pendaftaran-konselor/image-1.svg" />
@@ -233,7 +233,7 @@
 
     <!-- BERGABUNG BERSAMA KAMI -->
 
-    <div class="mb-5 mt-5">
+    <div class="mb-5 mt-5" id="section-notes">
       <div class="container px-4">
         <div class="row text-center mb-sm-3">
           <div class="col-sm">
@@ -248,7 +248,7 @@
               <div class="card-body">
                 <h5 class="card-title fw-bold" style="color: #2139f9">Peer Konselor</h5>
                 <p class="card-text" style="color: #717171">Mewadahi Niat Baik Semua Orang yang Ingin Terlibat Langsung di Lapangan sebagai Peer Konselor. Siapapun Bisa Bergabung!</p>
-                <a href="#" class="btn btn-selengkapnya w-100" style="background-color: #233dff; color: #ffffff; font-size: 14px; font-weight: 500">Selengkapnya</a>
+                <a href="{{ route('pendaftaran-peer-konselor') }}" class="btn btn-selengkapnya w-100" style="background-color: #233dff; color: #ffffff; font-size: 14px; font-weight: 500">Selengkapnya</a>
               </div>
             </div>
           </div>
@@ -258,7 +258,7 @@
               <div class="card-body">
                 <h5 class="card-title fw-bold" style="color: #2139f9">Relationship Konselor</h5>
                 <p class="card-text" style="color: #717171">Mewadahi Niat Baik Semua Orang yang Ingin Terlibat Langsung di Lapangan sebagai Relationship konselor. Siapapun Bisa Bergabung!</p>
-                <a href="#" class="btn btn-selengkapnya w-100" style="background-color: #233dff; color: #ffffff; font-size: 14px; font-weight: 500">Selengkapnya</a>
+                <a href="{{ route('pendaftaran-relationship-konselor') }}" class="btn btn-selengkapnya w-100" style="background-color: #233dff; color: #ffffff; font-size: 14px; font-weight: 500">Selengkapnya</a>
               </div>
             </div>
           </div>

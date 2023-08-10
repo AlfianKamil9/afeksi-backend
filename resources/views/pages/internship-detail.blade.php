@@ -17,7 +17,7 @@
     </div>
         <div class="container content">
             <div class="bread-crumbs d-flex gap-2 fw-semibold">
-                <p class="fw-medium">Karir</p>
+                <p class="fw-medium"><a href="{{ route('karir') }}" class="text-dark">Karir</a></p>
                 <span>&gt;</span>
                 <p class="fw-medium"><a class="text-dark" href="#">Internship</a></p>
                 <span>&gt;</span>

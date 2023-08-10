@@ -181,8 +181,7 @@ class WebinarTransaksiController extends Controller
                 "fee_transaction" => 4000,
                 "status" => "PENDING",
                 "updated_at" => $res["transaction_time"]
-            ]);
-                dd($res);              
+            ]);          
                 return response()->json([
                     "message" =>  $res["status_message"],
                     "store" => $res["store"],

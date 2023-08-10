@@ -1,13 +1,13 @@
 @extends('../layout')
 
-@section('title', 'Karir')
+@section('title', 'Karir | AFEKSI')
 
 <!-- path style disesuaikan dengan folder css masing-masing page -->
 @section('styles')
-    <link rel="stylesheet" href="assets/css/karir.css">
+    <link rel="stylesheet" href="/assets/css/karir.css">
 @endsection
 
-@include('../partials/navbar') 
+{{-- @include('../partials/navbar')  --}}
 
 @section('content')
 
@@ -75,7 +75,7 @@
                   <p class="card-text" style="color: #717171">
                     Mulailah konsultasi masalahmu dengan Konselor terbaik kami. Dan Temukan Konselor untuk menyelesaikan masalahmu !!!!
                   </p>
-                  <a href="#" class="btn btn-selengkapnya w-100" style="background-color: #233dff; color: #ffffff; font-size: 14px; font-weight: 500"
+                  <a href="{{ route('pendaftaran.konselor') }}" class="btn btn-selengkapnya w-100" style="background-color: #233dff; color: #ffffff; font-size: 14px; font-weight: 500"
                     >Selengkapnya</a
                   >
                 </div>
@@ -191,90 +191,22 @@
     </div>
 
     <div class="team-regis px-lg-5 px-4 pb-5" style="margin-top: 100px">
-      <div class="regis-card flex-wrap rounded-3 py-3 px-3 px-lg-4 d-flex justify-content-between align-items-center">
-        <div class="text">
-          <h2 class="fw-bold">Staff Business Development</h2>
-          <div class="d-flex gap-3">
-            <img style="height: 24px" src="assets/img/karir/location_on.png" alt="" />
-            <p style="color: #233dff" class="fw-bold">Remote <span class="text-secondary">- Surabaya, Indonesia</span></p>
-            <img style="height: 24px" src="assets/img/karir/work.png" alt="" />
-            <p><span class="text-secondary">Internship</span></p>
-          </div>
-        </div>
-        <div class="">
-          <div class="btn btn-fill">Daftar Sekarang</div>
-        </div>
-      </div>
-      <div class="regis-card flex-wrap rounded-3 py-3 px-3 px-lg-4 d-flex justify-content-between align-items-center">
-        <div class="text">
-          <h2 class="fw-bold">UI/UX Design</h2>
-          <div class="d-flex gap-3">
-            <img style="height: 24px" src="assets/img/karir/location_on.png" alt="" />
-            <p style="color: #233dff" class="fw-bold">Remote <span class="text-secondary">- Surabaya, Indonesia</span></p>
-            <img style="height: 24px" src="assets/img/karir/work.png" alt="" />
-            <p><span class="text-secondary">Internship</span></p>
-          </div>
-        </div>
-        <div class="">
-          <div class="btn btn-fill">Daftar Sekarang</div>
-        </div>
-      </div>
-      <div class="regis-card flex-wrap rounded-3 py-3 px-3 px-lg-4 d-flex justify-content-between align-items-center">
-        <div class="text">
-          <h2 class="fw-bold">Staff Inovator Program</h2>
-          <div class="d-flex gap-3">
-            <img style="height: 24px" src="assets/img/karir/location_on.png" alt="" />
-            <p style="color: #233dff" class="fw-bold">Remote <span class="text-secondary">- Surabaya, Indonesia</span></p>
-            <img style="height: 24px" src="assets/img/karir/work.png" alt="" />
-            <p><span class="text-secondary">Internship</span></p>
-          </div>
-        </div>
-        <div class="">
-          <div class="btn btn-fill">Daftar Sekarang</div>
-        </div>
-      </div>
-      <div class="regis-card flex-wrap rounded-3 py-3 px-3 px-lg-4 d-flex justify-content-between align-items-center">
-        <div class="text">
-          <h2 class="fw-bold">Staff HR</h2>
-          <div class="d-flex gap-3">
-            <img style="height: 24px" src="assets/img/karir/location_on.png" alt="" />
-            <p style="color: #233dff" class="fw-bold">Remote <span class="text-secondary">- Surabaya, Indonesia</span></p>
-            <img style="height: 24px" src="assets/img/karir/work.png" alt="" />
-            <p><span class="text-secondary">Internship</span></p>
-          </div>
-        </div>
-        <div class="">
-          <div class="btn btn-fill">Daftar Sekarang</div>
-        </div>
-      </div>
-      <div class="regis-card flex-wrap rounded-3 py-3 px-3 px-lg-4 d-flex justify-content-between align-items-center">
-        <div class="text">
-          <h2 class="fw-bold">Front End Developer</h2>
-          <div class="d-flex gap-3">
-            <img style="height: 24px" src="assets/img/karir/location_on.png" alt="" />
-            <p style="color: #233dff" class="fw-bold">Remote <span class="text-secondary">- Surabaya, Indonesia</span></p>
-            <img style="height: 24px" src="assets/img/karir/work.png" alt="" />
-            <p><span class="text-secondary">Internship</span></p>
-          </div>
-        </div>
-        <div class="">
-          <div class="btn btn-fill">Daftar Sekarang</div>
-        </div>
-      </div>
-      <div class="regis-card flex-wrap rounded-3 py-3 px-3 px-lg-4 d-flex justify-content-between align-items-center">
-        <div class="text">
-          <h2 class="fw-bold">Secretary</h2>
-          <div class="d-flex gap-3">
-            <img style="height: 24px" src="assets/img/karir/location_on.png" alt="" />
-            <p style="color: #233dff" class="fw-bold">Remote <span class="text-secondary">- Surabaya, Indonesia</span></p>
-            <img style="height: 24px" src="assets/img/karir/work.png" alt="" />
-            <p><span class="text-secondary">Internship</span></p>
-          </div>
-        </div>
-        <div class="">
-          <div class="btn btn-fill">Daftar Sekarang</div>
-        </div>
-      </div>
+        @foreach ($data as $item)
+            <div class="regis-card flex-wrap rounded-3 py-3 px-3 px-lg-4 d-flex justify-content-between align-items-center">
+              <div class="text">
+                <h2 class="fw-bold">{{ $item->nama_posisi }}</h2>
+                <div class="d-flex gap-3">
+                  <img style="height: 24px" src="assets/img/karir/location_on.png" alt="" />
+                  <p style="color: #233dff" class="fw-bold">Remote <span class="text-secondary">- Surabaya, Indonesia</span></p>
+                  <img style="height: 24px" src="assets/img/karir/work.png" alt="" />
+                  <p><span class="text-secondary">Internship</span></p>
+                </div>
+              </div>
+              <div class="">
+                <a href="/internship/{{ $item->slug }}" class="text-decoration-none"><div class="btn btn-fill">Daftar Sekarang</div></a>
+              </div>
+            </div>
+        @endforeach
     </div>
     <!-- Our team section -->
 

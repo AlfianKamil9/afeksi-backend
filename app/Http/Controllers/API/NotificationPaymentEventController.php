@@ -33,7 +33,7 @@ class NotificationPaymentEventController extends Controller
 
         //buat instance midtrans notification
         $notification = new Notification();
-        dd($notification);
+        //dd($notification);
         //pecah order id
         $order = explode('-',  $notification->order_id);
 

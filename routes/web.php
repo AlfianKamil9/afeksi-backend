@@ -8,6 +8,7 @@ use App\Http\Controllers\Karir\PeerKonselor;
 use App\Http\Controllers\Event\WebinarController;
 use App\Http\Controllers\Event\CampaignController;
 use App\Http\Controllers\Karir\Internship;
+use App\Http\Controllers\Karir\karirController;
 use App\Http\Controllers\Karir\RelationshipKonselor;
 
 /*
@@ -34,28 +35,33 @@ Route::get('/kebijakan-privasi', function () {
 Route::get('/FAQ', function () {
     return view('pages.faq-konseling');
 })->name('FAQ');
+
+// KEGIATAN
 Route::get('/kegiatan-webinar', [WebinarController::class, 'index'])->name('webinar');
 Route::get('/kegiatan-webinar/{slug}', [WebinarController::class, 'show'])->name('webinar.detail');
 Route::get('/kegiatan-campaign', [CampaignController::class, 'index'])->name('campaign');
 Route::get('/kegiatan-campaign/{slug}', [CampaignController::class, 'show'])->name('campaign.detail');
 
+// KARIER
+Route::get('/karir',[karirController::class, 'index'])->name('karir');
+Route::get('/pendaftaran-konselor', function () {
+    return view('pages.pendaftaran-konselor');
+})->name('pendaftaran.konselor');
 
 
-// Route::get('/beranda', function () {
-    //     return view('pages.landing-page-new');
-    // })->middleware(['auth', 'verified'])->name('beranda');
 
-// MIDLLEWARE
+
+// MIDLLEWARE {{ HALAMAN PERLU LOGIN }}
 Route::middleware(['auth', 'verified'])->group(function() {
     // PENDAFTARAN KARIR KONSELOR
     Route::get('/pendaftaran-relationship-konselor', [RelationshipKonselor::class, 'index'])->name('pendaftaran-relationship-konselor');
     Route::get('/pendaftaran-peer-konselor',  [PeerKonselor::class, 'index'])->name('pendaftaran-peer-konselor');
     
     // PENDAFTARAN KARIR INTERNSHIP
-    Route::get('/internship/{slug}', [Internship::class, 'show']);
+    Route::get('/internship/{slug}', [Internship::class, 'show'])->name('internship.detail');
 });
 
-<<<<<<< HEAD
+
 Route::post('/midtrans/callback', [NotificationPaymentEventController::class, 'callback']);
 Route::get('/midtrans/finish', [NotificationPaymentEventController::class, 'finishRedirect']);
 Route::get('/midtrans/unfinish', [NotificationPaymentEventController::class, 'unfinishRedirect']);
@@ -78,16 +84,11 @@ require __DIR__ . '/auth.php';
 
 
 
-=======
-Route::get('/karir', function () {
-    return view('pages.karir');
-});
 
-Route::get('/pendaftaran-konselor', function () {
-    return view('pages.pendaftaran-konselor');
-});
+
+
 
 Route::get('/internship-uiux', function () {
     return view('pages.internship-uiux');
 });
->>>>>>> 3dcd2c1f6629c54c7d97c85cb72fd054c229a745
+
