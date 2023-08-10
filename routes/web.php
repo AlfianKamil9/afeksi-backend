@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Controllers\API\NotificationPaymentEventController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Karir\PeerKonselor;
 use App\Http\Controllers\Event\WebinarController;
 use App\Http\Controllers\Event\CampaignController;
+use App\Http\Controllers\Karir\Internship;
+use App\Http\Controllers\Karir\karirController;
 use App\Http\Controllers\Karir\RelationshipKonselor;
 
 /*
@@ -32,23 +35,38 @@ Route::get('/kebijakan-privasi', function () {
 Route::get('/FAQ', function () {
     return view('pages.faq-konseling');
 })->name('FAQ');
+
+// KEGIATAN
 Route::get('/kegiatan-webinar', [WebinarController::class, 'index'])->name('webinar');
 Route::get('/kegiatan-webinar/{slug}', [WebinarController::class, 'show'])->name('webinar.detail');
 Route::get('/kegiatan-campaign', [CampaignController::class, 'index'])->name('campaign');
 Route::get('/kegiatan-campaign/{slug}', [CampaignController::class, 'show'])->name('campaign.detail');
 
+// KARIER
+Route::get('/karir',[karirController::class, 'index'])->name('karir');
+Route::get('/pendaftaran-konselor', function () {
+    return view('pages.pendaftaran-konselor');
+})->name('pendaftaran.konselor');
 
 
-// Route::get('/beranda', function () {
-    //     return view('pages.landing-page-new');
-    // })->middleware(['auth', 'verified'])->name('beranda');
 
-// MIDLLEWARE
+
+// MIDLLEWARE {{ HALAMAN PERLU LOGIN }}
 Route::middleware(['auth', 'verified'])->group(function() {
+    // PENDAFTARAN KARIR KONSELOR
     Route::get('/pendaftaran-relationship-konselor', [RelationshipKonselor::class, 'index'])->name('pendaftaran-relationship-konselor');
     Route::get('/pendaftaran-peer-konselor',  [PeerKonselor::class, 'index'])->name('pendaftaran-peer-konselor');
+
+    // PENDAFTARAN KARIR INTERNSHIP
+    Route::get('/internship/{slug}', [Internship::class, 'show'])->name('internship.detail');
     Route::post('/pendaftaran-peer-konselor', [PeerKonselor::class, 'store'])->name('store-peer-konselor');
 });
+
+
+Route::post('/midtrans/callback', [NotificationPaymentEventController::class, 'callback']);
+Route::get('/midtrans/finish', [NotificationPaymentEventController::class, 'finishRedirect']);
+Route::get('/midtrans/unfinish', [NotificationPaymentEventController::class, 'unfinishRedirect']);
+Route::get('/midtrans/error', [NotificationPaymentEventController::class, 'errorRedirect']);
 
 
 
@@ -65,16 +83,12 @@ require __DIR__ . '/auth.php';
 // });
 
 
-// GAK KEPAKE
-// Route::get('/lupa-password', function () {
-//     return view('pages.lupa-password');
-// });
-// Route::get('/lupa-password-notif', function () {
-//     return view('pages.lupa-password-notif');
-// });
-// Route::get('/reset-password', function () {
-//     return view('pages.reset-password');
-// });
-// Route::get('/landing-page-new', function () {
-//     return view('pages.landing-page-new');
-// });
+
+
+
+
+
+
+Route::get('/internship-uiux', function () {
+    return view('pages.internship-uiux');
+});

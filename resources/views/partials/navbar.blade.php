@@ -107,7 +107,13 @@
                 @endif>FAQ</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Karir</a>
+                <a class="nav-link" href="{{ route('karir') }}" 
+                @if ( Route::CurrentRouteName() == "karir" || Route::currentRouteName() == 'pendaftaran.konselor' || 
+                      Route::currentRouteName() == 'internship.detail' ||  Route::currentRouteName() == 'pendaftaran-peer-konselor' ||
+                      Route::currentRouteName() == 'pendaftaran-relationship-konselor'
+                      )
+                  style="color: #233dff"
+                @endif>Karir</a>
               </li>
             </ul>
 

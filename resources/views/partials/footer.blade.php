@@ -33,13 +33,13 @@
     color: white;
   }
 
-  .content1 {
+  .content-footer {
     margin-bottom: 55px;
   }
 </style>
 
 <footer class="p-5" style="background-image: url('{{ asset('assets/img/footer/background.svg') }}');">
-  <div class="container content1">
+  <div class="container content-footer">
     <div class="row d-flex gap-5 align-content-center">
 
       <div class="col-lg-5 bg-white rounded-4 p-4">
@@ -79,7 +79,7 @@
             <h5 class="link-title mb-4">Tentang kami</h5>
             <ul class="list-unstyled">
               <li class="mb-3"><a href="{{ route('tentang-kami') }}" class="text-white">Tentang kami</a></li>
-              <li class="mb-3"><a href="#" class="text-white">Karir</a></li>
+              <li class="mb-3"><a href="{{ route('karir') }}" class="text-white">Karir</a></li>
               <li class="mb-3"><a href="{{ route('campaign') }}" class="text-white">Campaign</a></li>
               <li class="mb-3"><a href="{{ route('webinar') }}" class="text-white">Webinar</a></li>
               <li class="mb-3"><a href="#" class="text-white">Rekap Histori</a></li>

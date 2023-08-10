@@ -37,6 +37,9 @@ class WebinarTransaksiController extends Controller
                 $data = [
                     "reference" => $request->reference,
                     "harga_event" => $data->event->price_event,
+                    "nama"  => $data->user->nama,
+                    "email"  => $data->user->email,
+                    "no_tlpn" => $data->user->no_whatsapp
                 ];
                 
                 $result = new TransferBankService();
@@ -74,8 +77,11 @@ class WebinarTransaksiController extends Controller
         else if ($request->payment_method == 'permata') {
             $data = EventTransaction::with('event', 'user')->where('ref_transaction_event', $request->reference)->first();
             $data = [
-                "reference" => $request->reference,
-                "harga_event" => $data->event->price_event,
+                    "reference" => $request->reference,
+                    "harga_event" => $data->event->price_event,
+                    "nama"  => $data->user->nama,
+                    "email"  => $data->user->email,
+                    "no_tlpn" => $data->user->no_whatsapp
             ];
 
             $result = new TransferBankService();
@@ -109,8 +115,11 @@ class WebinarTransaksiController extends Controller
         else if ($request->payment_method == 'mandiri') {
             $data = EventTransaction::with('event', 'user')->where('ref_transaction_event', $request->reference)->first();
             $data = [
-                "reference" => $request->reference,
-                "harga_event" => $data->event->price_event,
+                    "reference" => $request->reference,
+                    "harga_event" => $data->event->price_event,
+                    "nama"  => $data->user->nama,
+                    "email"  => $data->user->email,
+                    "no_tlpn" => $data->user->no_whatsapp
             ];
 
             $result = new TransferBankService();
@@ -148,11 +157,13 @@ class WebinarTransaksiController extends Controller
                 $data = [
                     "reference" => $request->reference,
                     "harga_event" => $data->event->price_event,
+                    "nama"  => $data->user->nama,
+                    "email"  => $data->user->email,
+                    "no_tlpn" => $data->user->no_whatsapp,
+                    "pesan" => "Pembayaran Webinar ".$data->event->title_event
                 ];
-                
                 $result = new CstoreService();
-                $res = $result-> alfamart($request->payment_method, $data);
-
+                $res = $result->alfamart($request->payment_method, $data);
               // Konversi respons menjadi array
 
              //CEK KODE RESPON
@@ -170,8 +181,7 @@ class WebinarTransaksiController extends Controller
                 "fee_transaction" => 4000,
                 "status" => "PENDING",
                 "updated_at" => $res["transaction_time"]
-            ]);
-
+            ]);          
                 return response()->json([
                     "message" =>  $res["status_message"],
                     "store" => $res["store"],
@@ -187,6 +197,10 @@ class WebinarTransaksiController extends Controller
                 $data = [
                         "reference" => $request->reference,
                         "harga_event" => $data->event->price_event,
+                        "nama"  => $data->user->nama,
+                        "email"  => $data->user->email,
+                        "no_tlpn" => $data->user->no_whatsapp,
+                        "pesan" => "Pembayaran Webinar ".$data->event->title_event
                     ];
                     // dd($data);
                     $result = new CstoreService();
@@ -224,8 +238,11 @@ class WebinarTransaksiController extends Controller
             $data = EventTransaction::with('event', 'user')->where('ref_transaction_event', $request->reference)->first();
             // dd($request->payment_method);
             $data = [
-                "reference" => $request->reference,
-                "harga_event" => $data->event->price_event,
+                    "reference" => $request->reference,
+                    "harga_event" => $data->event->price_event,
+                    "nama"  => $data->user->nama,
+                    "email"  => $data->user->email,
+                    "no_tlpn" => $data->user->no_whatsapp
             ];
             // dd($data);
 
@@ -260,8 +277,11 @@ class WebinarTransaksiController extends Controller
             $data = EventTransaction::with('event', 'user')->where('ref_transaction_event', $request->reference)->first();
             // dd($data);
             $data = [
-                "reference" => $request->reference,
-                "harga_event" => $data->event->price_event,
+                    "reference" => $request->reference,
+                    "harga_event" => $data->event->price_event,
+                    "nama"  => $data->user->nama,
+                    "email"  => $data->user->email,
+                    "no_tlpn" => $data->user->no_whatsapp
             ];
             // dd($data);
 
@@ -284,10 +304,12 @@ class WebinarTransaksiController extends Controller
                 "status" => "PENDING",
                 "updated_at" => $res["transaction_time"]
             ]);
+            dd($res);
             return response()->json([
                 "message" =>  $res["status_message"],
                 "actions" => $res['actions']
             ]);
+
             
         } 
         
@@ -297,6 +319,9 @@ class WebinarTransaksiController extends Controller
             $data = [
                 "reference" => $request->reference,
                 "harga_event" => $data->event->price_event,
+                "nama"  => $data->user->nama,
+                "email"  => $data->user->email,
+                "no_tlpn" => $data->user->no_whatsapp,
                 "event_id"  => $data->event->id,
                 "title_event" => $data->event->title_event
             ];

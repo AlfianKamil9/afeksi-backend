@@ -15,11 +15,11 @@
     </div>
         <div class="container content">
             <div class="bread-crumbs d-flex gap-2 fw-semibold">
-                <p>Karir</p>
+                <p><a href="{{ route('karir') }}" class="text-dark">Karir</a></p>
                 <span>&gt;</span>
-                <p>Konselor</p>
+                <p><a href="{{ route('pendaftaran.konselor') }}" class="text-dark">Konselor</a></p>
                 <span>&gt;</span>
-                <p>Peer Konselor</p>
+                <p><a href="{{ route('pendaftaran-peer-konselor') }}" class="text-dark">Peer Konselor</a></p>
             </div>
             {{-- intro peer konselor --}}
             <h1 class="mt-3 fw-bold">Peer Konselor</h1>

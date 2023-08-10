@@ -24,8 +24,8 @@ return new class extends Migration
             $table->string('cv')->nullable();
             $table->string('portofolio')->nullable();
             $table->string('type')->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
