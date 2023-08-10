@@ -78,6 +78,10 @@ Route::get('/karir', function () {
     return view('pages.karir');
 });
 
+Route::get('/pendaftaran-konselor', function () {
+    return view('pages.pendaftaran-konselor');
+});
+
 Route::get('/internship-uiux', function () {
     return view('pages.internship-uiux');
 });

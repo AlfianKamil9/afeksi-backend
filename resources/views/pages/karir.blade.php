@@ -1,6 +1,6 @@
 @extends('../layout')
 
-@section('title', 'FAQ')
+@section('title', 'Karir')
 
 <!-- path style disesuaikan dengan folder css masing-masing page -->
 @section('styles')
@@ -98,7 +98,7 @@
             menuju masa depan lebih baik secara personal maupun mendukung perusahaan
           </p>
         </div>
-        <div class="img-container d-flex mt-5 gap-2 justify-content-between px-lg-0 px-2 flex-wrap">
+        <div class="img-container d-flex mt-5 gap-2 justify-content-lg-between justify-content-around px-lg-0 px-2 flex-wrap">
           <img class="img" src="assets/img/karir/kegiatan.png" alt="" />
           <img class="img" src="assets/img/karir/kegiatan (1).png" alt="" />
           <img class="img" src="assets/img/karir/kegiatan (2).png" alt="" />
