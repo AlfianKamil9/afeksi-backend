@@ -29,7 +29,7 @@
               <p class="work-type  fw-semibold">Remote - </p>
               <p>Surabaya, Indonesia</p>
               <i class="bi bi-briefcase-fill me-2"></i>
-              <p>Internship</p>
+              <p>{{ $data->tipe_kerja }}</p>
           </div>
           <p class="afeksi-description">Afeksi adalah layanan edukasi dan konsultasi kesehatan hubungan berbasis psikologi relasi pertama di Indonesia Afeksi super team adalah program unpaid internship dengan sistem WFH yang mengasah kemampuan kalian dalam simulasi dunia kerja lewat pembelajaran aktif dalam membangun komunitas startup</p>
           <h3 class="mt-4">Job Description</h3>
