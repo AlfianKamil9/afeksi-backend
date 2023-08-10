@@ -56,13 +56,13 @@ class NotificationPaymentEventController extends Controller
             }
         }
         else if($status == 'settlement') {
-            $transaction->status = 'SUCCESS';
+            $transaction->status = 'PAID';
         }
         else if($status == 'pending') {
             $transaction->status = 'PENDING';
         }
         else if($status == 'deny') {
-            $transaction->status = 'FAILED';
+            $transaction->status = 'UNPAID';
         }
         else if($status == 'expire') {
             $transaction->status = 'EXPIRED';
@@ -75,6 +75,8 @@ class NotificationPaymentEventController extends Controller
         $transaction->update([
             'status' => $transaction->status
         ]);
+        dd($transaction);
+
 
         //mengirim email
         //  if ($transaction) {
