@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\EventTransaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Midtrans\Config;
 use Midtrans\Notification;
 
@@ -74,31 +75,8 @@ class NotificationPaymentEventController extends Controller
         $transaction->update([
             'status' => $transaction->status
         ]);
-        dd($transaction);
 
 
-        //mengirim email
-        //  if ($transaction) {
-        //      if ($status == 'capture' && $fraud == 'accept') {
-        //          Mail::to($transaction->user)->send(
-        //              new TransactionSuccess($transaction)
-        //          );
-        //      }
-        //  }
-        //  else if ($transaction) {
-        //     if ($status == 'settlement') {
-        //         Mail::to($transaction->user)->send(
-        //             new TransactionSuccess($transaction)
-        //         );
-        //     }
-        // }
-        // else if ($transaction) {
-        //     if ($status == 'success') {
-        //         Mail::to($transaction->user)->send(
-        //             new TransactionSuccess($transaction)
-        //         );
-        //     }
-        // }
         if ($transaction) {
             if ($status == 'capture' && $fraud == 'challenge') {
                 return response()->json([
