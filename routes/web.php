@@ -52,9 +52,10 @@ Route::get('/pendaftaran-konselor', function () {
 
 
 // MIDLLEWARE {{ HALAMAN PERLU LOGIN }}
-Route::middleware(['auth', 'verified'])->group(function() {
-    // PENDAFTARAN KARIR KONSELOR
+// MIDLLEWARE
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/pendaftaran-relationship-konselor', [RelationshipKonselor::class, 'index'])->name('pendaftaran-relationship-konselor');
+    Route::post('/pendaftaran-relationship-konselor/create', [RelationshipKonselor::class, 'store']);
     Route::get('/pendaftaran-peer-konselor',  [PeerKonselor::class, 'index'])->name('pendaftaran-peer-konselor');
     Route::post('/pendaftaran-peer-konselor', [PeerKonselor::class, 'store'])->name('store-peer-konselor');
 
@@ -72,23 +73,3 @@ Route::get('/midtrans/error', [NotificationPaymentEventController::class, 'error
 
 
 require __DIR__ . '/auth.php';
-
-
-// frontend yang belum fiks
-// Route::get('/psikolog', function () {
-//     return view('pages.psikolog');
-// });
-// Route::get('/profesional-konseling', function () {
-//     return view('pages.profesional-konseling-online-senior');
-// });
-
-
-
-
-
-
-
-
-Route::get('/internship-uiux', function () {
-    return view('pages.internship-uiux');
-});
