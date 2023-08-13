@@ -126,7 +126,7 @@
                       <div class="mb-3 upload-file-wrapper">                    
                         <label for="bukti_follow" class="col-form-label">Bukti Follow ig Afeksi</label>
                         <label class="upload-file" for="follow-ig" class="col-form-label bukti-follow"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload Bukti</label>
-                        <input type="file" name="bukti_follow" id="upload-file" class="d-block " required>
+                        <input type="file" name="bukti_follow" id="upload-file" class="d-block "  onchange="displayFileName(this)" required>
                         @error('bukti_follow')
                           <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -134,7 +134,7 @@
                       <div class="mb-3 upload-file-wrapper">          
                         <label for="cv" class="col-form-label">CV</label>
                         <label class="upload-file" for="cv" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload CV</label>
-                        <input type="file" name="cv" id="upload-file" multiple class="d-block" required>
+                        <input type="file" name="cv" id="upload-file" multiple class="d-block" onchange="displayFileName(this)"  required>
                         @error('cv')
                           <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -142,7 +142,7 @@
                       <div class="mb-3 upload-file-wrapper">                    
                         <label for="portfolio" class="col-form-label">Portfolio(Optional)</label>
                         <label class="upload-file" for="portfolio" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload bukti</label>
-                        <input type="file" name="portofolio" multiple id="upload-file" class="d-block" >
+                        <input type="file" name="portofolio" multiple id="upload-file"  onchange="displayFileName(this)" class="d-block" >
                         @error('portofolio')
                           <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -159,6 +159,11 @@
 
 @include('sweetalert::alert')
 @include('../partials/footer') 
+
+@section('script')
+    <script src="/assets/js/form-file-pendaftaran.js"></script>
+@endsection
+
 @endsection
 
 

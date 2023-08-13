@@ -62,19 +62,30 @@
                   <form>
                     <div class="mb-3">
                       <label for="email" class="col-form-label">Email</label>
-                      <input type="email" placeholder="Masukan Email" class="form-control" id="email">
+                      <input type="email" placeholder="Masukan Email" class="form-control" id="email" value="{{ Auth::user()->email }}" readonly>
                     </div>
                     <div class="mb-3">
                       <label for="nama" class="col-form-label">Nama Lengkap</label>
-                      <input type="text" placeholder="Nama Lengkap" class="form-control" id="nama">
+                      <input type="text" placeholder="Nama Lengkap" class="form-control" id="nama" value="{{ Auth::user()->nama }}" readonly>
                     </div>
                     <div class="mb-3">
                       <label for="jenis-kelamin" class="col-form-label">Jenis Kelamin</label>
-                      <input type="text"placeholder="Jenis Kelamin" class="form-control" id="jenis-kelamin">
+                       @if (auth()->user()->jenisKelamin)
+                                    <input type="text" value="{{ auth()->user()->jenisKelamin }}" readonly class="form-control" id="jenis-kelamin" name="jenisKelamin">
+                                @else
+                                    <select name="jenisKelamin" class="form-select" id="jenis_kelamin" required>
+                                      <option selected>Pilih Jenis Kelamin</option>
+                                      <option value="Laki-laki">Laki-laki</option>
+                                      <option value="Perempuan">Perempuan</option>
+                                    </select>    
+                                @endif
+                                @error('jenisKelamin')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
                     </div>
                     <div class="mb-3">
                       <label for="hp" class="col-form-label">No HP</label>
-                      <input type="number" placeholder="08xxxxxxxxx" class="form-control" id="hp">
+                      <input type="text" placeholder="08xxxxxxxxx" class="form-control" id="hp" value="{{ Auth::user()->no_whatsapp }}">
                     </div>
                     <div class="mb-3">
                       <label for="asal-daerah" class="col-form-label">Daerah</label>
@@ -95,19 +106,12 @@
                     <div class="mb-3">
                       <div class="mb-3">    
                         <label for="pekerjaan" class="col-form-label">Posisi yang dipilih</label>                  
-                        <select name="pekerjaan" class="form-select" id="pekerjaan">
-                          <option value="" disabled selected>Pilih posisi yang diminati</option>
-                        <option value="Human Resources">Human Resources</option>
-                        <option value="Content Writer">Content Writer</option>
-                        <option value="Program Innovator">Program Innovator</option>
-                        <option value="Business Development">Business Development</option>
-                        <option value="Product Development">Product Development</option>
-                        <option value="Marketing and Communication">Marketing and Communication</option>
-                        <option value="Graphic Design">Graphic Design</option>
-                        <option value="Public Relation">Public Relation</option>
-                        <option value="Front End Developer">Front End Developer</option>
-                        <option value="Back End Developer">Back End Developer</option>
-                        <option value="UI/UX Design">UI/UX Design</option>
+                        <select name="pekerjaan" class="form-select" id="pekerjaan" disabled>
+                            {{-- <option value="" disabled selected>Pilih posisi yang diminati</option> --}}
+                           @foreach ($detailPosisi as $item)
+                              <option value="{{ $item->nama_posisi }}" @if($item->slug == request('slug') ) selected readonly @endif>{{ $item->nama_posisi }}</option>
+                           @endforeach
+                            
                         </select>
                       </div>
                     </div>
@@ -146,9 +150,9 @@
                       <label class="upload-file" for="portfolio" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload bukti</label>
                       <input type="file" name="portfolio" id="upload-file" class="d-block" onchange="displayFileName(this)">
                     </div>
+                    <button type="button" class="btn btn-primary m-3">Daftar</button>                
                   </form>
-                </div>
-                <button type="button" class="btn btn-primary m-3">Daftar</button>                
+                  </div>
               </div>
             </div>
           </div>
@@ -159,7 +163,7 @@
 @include('../partials/footer') 
 
 @section('script')
-   <script src="assets/js/form-file-pendaftaran.js"></script>
+   <script src="/assets/js/form-file-pendaftaran.js"></script>
 @endsection
 
 @endsection
