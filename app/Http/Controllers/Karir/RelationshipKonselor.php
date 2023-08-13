@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Karir;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Konselor;
 
 class RelationshipKonselor extends Controller
 {
@@ -12,7 +14,7 @@ class RelationshipKonselor extends Controller
      */
     public function index()
     {
-         return view('pages.detail-pendaftaran-relationship');
+        return view('pages.detail-pendaftaran-relationship');
     }
 
     /**
@@ -28,7 +30,33 @@ class RelationshipKonselor extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // return $request;
+        // ddd($request);
+        $validatedData = $request->validate([
+            'pekerjaan' => 'required',
+            'instansi' => 'required',
+            'divisi' => 'required',
+            'alasan' => 'required',
+            'bukti_follow' => 'required|image',
+            'cv' => 'required',
+            'portofolio'
+        ]);
+        if ($request->file('cv')) {
+            $validatedData['cv'] = $request->file('cv')->store('pdf');
+        }
+        if ($request->file('bukti_follow')) {
+            $validatedData['bukti_follow'] = $request->file('bukti_follow')->store('img');
+        }
+        if ($request->file('portofolio')) {
+            $validatedData['portofolio'] = $request->file('portofolio')->store('pdf');
+        }
+        $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['email'] = Auth::user()->email;
+        $validatedData['namaLengkap'] = Auth::user()->nama;
+        $validatedData['jenisKelamin'] = Auth::user()->jenisKelamin;
+        $validatedData['noHP'] = Auth::user()->no_whatsapp;
+        Konselor::create($validatedData);
+        return redirect('/pendaftaran-relationship-konselor');
     }
 
     /**

@@ -40,12 +40,13 @@ Route::get('/kegiatan-campaign/{slug}', [CampaignController::class, 'show'])->na
 
 
 // Route::get('/beranda', function () {
-    //     return view('pages.landing-page-new');
-    // })->middleware(['auth', 'verified'])->name('beranda');
+//     return view('pages.landing-page-new');
+// })->middleware(['auth', 'verified'])->name('beranda');
 
 // MIDLLEWARE
-Route::middleware(['auth', 'verified'])->group(function() {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/pendaftaran-relationship-konselor', [RelationshipKonselor::class, 'index'])->name('pendaftaran-relationship-konselor');
+    Route::post('/pendaftaran-relationship-konselor/create', [RelationshipKonselor::class, 'store']);
     Route::get('/pendaftaran-peer-konselor',  [PeerKonselor::class, 'index'])->name('pendaftaran-peer-konselor');
 });
 

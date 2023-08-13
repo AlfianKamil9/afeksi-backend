@@ -57,74 +57,77 @@
           </ul>
           <button type="button" class="btn btn-primary daftar" data-bs-toggle="modal" data-bs-target="#form-pendaftaran-konselor" data-bs-whatever="@getbootstrap">Daftar Sekarang</button>
           <!-- Modals -->
-          <div class="modal fade modal-lg" data-bs-backdrop="static" id="form-pendaftaran-konselor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header text-center">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <form method="POST" action="/pendaftaran-relationship-konselor/create" enctype="multipart/form-data">
+            @csrf
+            <div class="modal fade modal-lg" data-bs-backdrop="static" id="form-pendaftaran-konselor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header text-center">
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      <h3 class="modal-title fw-semibold text-center px-5">Formulir Pendaftaran Relationship Konselor</h3>
+                      <p class="text-center px-4">Silahkan isi data anda dan pastikan data anda sudah sesuai.</p>
+                    <form>
+                      <div class="mb-3">
+                        <label for="email" class="col-form-label">Email</label>
+                        <input type="email" placeholder="Masukan Email" class="form-control" id="email" name="email" value="{{ Auth::user()->email }}" readonly>
+                      </div>
+                      <div class="mb-3">
+                        <label for="nama" class="col-form-label">Nama Lengkap</label>
+                        <input type="text" placeholder="Nama Lengkap" class="form-control" id="namaLengkap" name="namaLengkap" value="{{ Auth::user()->nama }}" readonly>
+                      </div>
+                      <div class="mb-3">
+                        <label for="jenis-kelamin" class="col-form-label">Jenis Kelamin</label>
+                        <input type="text"placeholder="Jenis Kelamin" class="form-control" id="jenisKelamin" name="jenisKelamin" value="{{ Auth::user()->jenisKelamin }}" readonly>
+                      </div>
+                      <div class="mb-3">
+                        <label for="hp" class="col-form-label">No HP</label>
+                        <input type="number" placeholder="08xxxxxxxxx" class="form-control" id="noHP" name="noHP" value="{{ Auth::user()->no_whatsapp }}" readonly>
+                      </div>
+                      <div class="mb-3">    
+                        <label for="pekerjaan" class="col-form-label">Pekerjaan</label>                  
+                        <select name="pekerjaan" class="form-select" id="pekerjaan" name="pekerjaan" required>
+                          <option selected>Pilih pekerjaan anda sekarang</option>
+                          <option value="pelajar">Pelajar</option>
+                          <option value="mahasiswa">mahasiswa</option>
+                          <option value="bekerja">Sudah Bekerja</option>
+                        </select>                                                
+                      </div>
+                      <div class="mb-3">
+                        <label for="instansi" class="col-form-label">Nama Instansi</label>
+                        <input type="text" placeholder="Nama Tempat" class="form-control" id="instansi" name="instansi" required>                        
+                      </div>
+                      <div class="mb-3">
+                        <label for="divisi" class="col-form-label">Jurusan/Divisi</label>
+                        <input type="text" placeholder="Nama Tempat" class="form-control" id="divisi" name="divisi" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="alasan" class="col-form-label">Alasan Memilih Relationship Konselor</label>
+                        <textarea class="form-control"placeholder="Alasan" id="alasan" name="alasan"></textarea required>
+                      </div>
+                      <div class="mb-3 upload-file-wrapper">                    
+                        <label for="bukti_follow" class="col-form-label">Bukti Follow ig Afeksi</label>
+                        <label class="upload-file" for="follow-ig" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload Bukti</label>
+                        <input type="file" name="bukti_follow" id="upload-file" class="d-block" required>
+                      </div>
+                      <div class="mb-3 upload-file-wrapper">          
+                        <label for="cv" class="col-form-label">CV</label>
+                        <label class="upload-file" for="cv" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload CV</label>
+                        <input type="file" name="cv" id="upload-file" class="d-block" required>
+                      </div>
+                      <div class="mb-3 upload-file-wrapper">                    
+                        <label for="portfolio" class="col-form-label">Portfolio(Optional)</label>
+                        <label class="upload-file" for="portfolio" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload bukti</label>
+                        <input type="file" name="portfolio" id="upload-file" class="d-block" required>
+                      </div>
+                    </form>
+                  </div>
+                  <button type="submit" class="btn btn-primary m-3">Daftar</button>                
                 </div>
-                <div class="modal-body">
-                    <h3 class="modal-title fw-semibold text-center px-5">Formulir Pendaftaran Relationship Konselor</h3>
-                    <p class="text-center px-4">Silahkan isi data anda dan pastikan data anda sudah sesuai.</p>
-                  <form>
-                    <div class="mb-3">
-                      <label for="email" class="col-form-label">Email</label>
-                      <input type="email" placeholder="Masukan Email" class="form-control" id="email">
-                    </div>
-                    <div class="mb-3">
-                      <label for="nama" class="col-form-label">Nama Lengkap</label>
-                      <input type="text" placeholder="Nama Lengkap" class="form-control" id="nama">
-                    </div>
-                    <div class="mb-3">
-                      <label for="jenis-kelamin" class="col-form-label">Jenis Kelamin</label>
-                      <input type="text"placeholder="Jenis Kelamin" class="form-control" id="jenis-kelamin">
-                    </div>
-                    <div class="mb-3">
-                      <label for="hp" class="col-form-label">No HP</label>
-                      <input type="number" placeholder="08xxxxxxxxx" class="form-control" id="hp">
-                    </div>
-                    <div class="mb-3">    
-                      <label for="pekerjaan" class="col-form-label">Pekerjaan</label>                  
-                      <select name="pekerjaan" class="form-select" id="pekerjaan">
-                        <option selected>Pilih pekerjaan anda sekarang</option>
-                        <option value="pelajar">Pelajar</option>
-                        <option value="mahasiswa">mahasiswa</option>
-                        <option value="bekerja">Sudah Bekerja</option>
-                      </select>
-                    </div>
-                    <div class="mb-3">
-                      <label for="instansi" class="col-form-label">Nama Instansi</label>
-                      <input type="text" placeholder="Nama Tempat" class="form-control" id="instansi">
-                    </div>
-                    <div class="mb-3">
-                      <label for="jurusan" class="col-form-label">Jurusan/Divisi</label>
-                      <input type="text" placeholder="Nama Tempat" class="form-control" id="jurusan">
-                    </div>
-                    <div class="mb-3">
-                      <label for="alasan" class="col-form-label">Alasan Memilih Relationship Konselor</label>
-                      <textarea class="form-control"placeholder="Alasan" id="alasan"></textarea>
-                    </div>
-                    <div class="mb-3 upload-file-wrapper">                    
-                      <label for="follow-ig" class="col-form-label">Bukti Follow ig Afeksi</label>
-                      <label class="upload-file" for="follow-ig" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload Bukti</label>
-                      <input type="file" name="follow-ig" id="upload-file" class="d-block">
-                    </div>
-                    <div class="mb-3 upload-file-wrapper">          
-                      <label for="cv" class="col-form-label">CV</label>
-                      <label class="upload-file" for="cv" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload CV</label>
-                      <input type="file" name="follow-ig" id="upload-file" class="d-block">
-                    </div>
-                    <div class="mb-3 upload-file-wrapper">                    
-                      <label for="portfolio" class="col-form-label">Portfolio(Optional)</label>
-                      <label class="upload-file" for="portfolio" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload bukti</label>
-                      <input type="file" name="portfolio" id="upload-file" class="d-block">
-                    </div>
-                  </form>
-                </div>
-                <button type="button" class="btn btn-primary m-3">Daftar</button>                
               </div>
             </div>
-          </div>
+          </form>
           <!-- End Modals -->
       </div>
 </section>
