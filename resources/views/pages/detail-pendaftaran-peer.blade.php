@@ -93,7 +93,11 @@
                                 @if (auth()->user()->jenisKelamin)
                                     <input type="text" value="{{ auth()->user()->jenisKelamin }}" readonly class="form-control" id="jenis-kelamin" name="jenisKelamin">
                                 @else
-                                    <input type="text" placeholder="Jenis Kelamin" class="form-control" id="jenis-kelamin" name="jenisKelamin" required>
+                                    <select name="jenisKelamin" class="form-select" id="jenis_kelamin" required>
+                                        <option selected>Pilih Jenis Kelamin</option>
+                                        <option value="Laki-laki">Laki-laki</option>
+                                        <option value="Perempuan">Perempuan</option>
+                                    </select>    
                                 @endif
                                 @error('jenisKelamin')
                                 <span class="text-danger">{{ $message }}</span>
@@ -167,7 +171,9 @@
                                 <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
-                            <button type="submit" class="btn btn-primary m-3">Daftar</button>
+                            <div class="row container">
+                                <button type="submit" class="btn btn-primary m-3">Daftar</button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -176,6 +182,8 @@
             <!-- End Modals -->
         </div>
 </section>
+
+@include('sweetalert::alert')
 
 @include('../partials/footer')
 

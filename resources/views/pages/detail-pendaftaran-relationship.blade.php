@@ -3,7 +3,7 @@
 @section('title', 'Pendaftaran Relationship Konselor | AFEKSI')
 
 @section('styles')
-    <link rel="stylesheet" href="assets/css/detail-pendaftaran-relationship.css">
+    <link rel="stylesheet" href="/assets/css/detail-pendaftaran-relationship.css">
 @endsection
 
 
@@ -68,7 +68,7 @@
                   <div class="modal-body">
                       <h3 class="modal-title fw-semibold text-center px-5">Formulir Pendaftaran Relationship Konselor</h3>
                       <p class="text-center px-4">Silahkan isi data anda dan pastikan data anda sudah sesuai.</p>
-                    <form>
+                   
                       <div class="mb-3">
                         <label for="email" class="col-form-label">Email</label>
                         <input type="email" placeholder="Masukan Email" class="form-control" id="email" name="email" value="{{ Auth::user()->email }}" readonly>
@@ -79,11 +79,22 @@
                       </div>
                       <div class="mb-3">
                         <label for="jenis-kelamin" class="col-form-label">Jenis Kelamin</label>
-                        <input type="text"placeholder="Jenis Kelamin" class="form-control" id="jenisKelamin" name="jenisKelamin" value="{{ Auth::user()->jenisKelamin }}" readonly>
+                         @if (auth()->user()->jenisKelamin)
+                                    <input type="text" value="{{ auth()->user()->jenisKelamin }}" readonly class="form-control" id="jenis-kelamin" name="jenisKelamin">
+                                @else
+                                    <select name="jenisKelamin" class="form-select" id="jenis_kelamin" required>
+                                      <option selected>Pilih Jenis Kelamin</option>
+                                      <option value="Laki-laki">Laki-laki</option>
+                                      <option value="Perempuan">Perempuan</option>
+                                    </select>    
+                                @endif
+                                @error('jenisKelamin')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
                       </div>
                       <div class="mb-3">
                         <label for="hp" class="col-form-label">No HP</label>
-                        <input type="number" placeholder="08xxxxxxxxx" class="form-control" id="noHP" name="noHP" value="{{ Auth::user()->no_whatsapp }}" readonly>
+                        <input type="text" placeholder="08xxxxxxxxx" class="form-control" id="noHP" name="nohp" value="{{ Auth::user()->no_whatsapp }}" >
                       </div>
                       <div class="mb-3">    
                         <label for="pekerjaan" class="col-form-label">Pekerjaan</label>                  
@@ -101,27 +112,41 @@
                       <div class="mb-3">
                         <label for="divisi" class="col-form-label">Jurusan/Divisi</label>
                         <input type="text" placeholder="Nama Tempat" class="form-control" id="divisi" name="divisi" required>
+                        @error('divisi')
+                          <span class="text-danger">{{ $message }}</span>
+                        @enderror
                       </div>
                       <div class="mb-3">
                         <label for="alasan" class="col-form-label">Alasan Memilih Relationship Konselor</label>
                         <textarea class="form-control"placeholder="Alasan" id="alasan" name="alasan"></textarea required>
+                        @error('alasan')
+                          <span class="text-danger">{{ $message }}</span>
+                        @enderror
                       </div>
                       <div class="mb-3 upload-file-wrapper">                    
                         <label for="bukti_follow" class="col-form-label">Bukti Follow ig Afeksi</label>
-                        <label class="upload-file" for="follow-ig" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload Bukti</label>
-                        <input type="file" name="bukti_follow" id="upload-file" class="d-block" required>
+                        <label class="upload-file" for="follow-ig" class="col-form-label bukti-follow"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload Bukti</label>
+                        <input type="file" name="bukti_follow" id="upload-file" class="d-block " required>
+                        @error('bukti_follow')
+                          <span class="text-danger">{{ $message }}</span>
+                        @enderror
                       </div>
                       <div class="mb-3 upload-file-wrapper">          
                         <label for="cv" class="col-form-label">CV</label>
                         <label class="upload-file" for="cv" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload CV</label>
-                        <input type="file" name="cv" id="upload-file" class="d-block" required>
+                        <input type="file" name="cv" id="upload-file" multiple class="d-block" required>
+                        @error('cv')
+                          <span class="text-danger">{{ $message }}</span>
+                        @enderror
                       </div>
                       <div class="mb-3 upload-file-wrapper">                    
                         <label for="portfolio" class="col-form-label">Portfolio(Optional)</label>
                         <label class="upload-file" for="portfolio" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload bukti</label>
-                        <input type="file" name="portfolio" id="upload-file" class="d-block" required>
+                        <input type="file" name="portofolio" multiple id="upload-file" class="d-block" >
+                        @error('portofolio')
+                          <span class="text-danger">{{ $message }}</span>
+                        @enderror
                       </div>
-                    </form>
                   </div>
                   <button type="submit" class="btn btn-primary m-3">Daftar</button>                
                 </div>
@@ -132,6 +157,7 @@
       </div>
 </section>
 
+@include('sweetalert::alert')
 @include('../partials/footer') 
 @endsection
 

@@ -44,12 +44,12 @@ class PeerKonselor extends Controller
         $nohp = $user->no_whatsapp ?: $request->input('nohp');
         $jenisKelamin = $user->jenisKelamin ?: $request->input('jenisKelamin');
 
-        $buktiFollowPath = $validatedData['bukti_follow']->store('konselor/bukti_follow', 'public');
-        $cvPath = $validatedData['cv']->store('konselor/cv', 'public');
+        $buktiFollowPath = $validatedData['bukti_follow']->store('konselor/peer/bukti_follow', 'public');
+        $cvPath = $validatedData['cv']->store('konselor/peer/cv', 'public');
 
         $portofolioPath = null;
         if ($request->hasFile('portofolio')) {
-            $portofolioPath = $validatedData['portofolio']->store('konselor/portofolio', 'public');
+            $portofolioPath = $validatedData['portofolio']->store('konselor/peer/portofolio', 'public');
         }
 
         $konselorData = [
@@ -70,7 +70,7 @@ class PeerKonselor extends Controller
 
         Konselor::create($konselorData);
 
-        return redirect()->route('pendaftaran-peer-konselor')->with('success', 'Peer Konselor data has been submitted.');
+        return redirect()->route('pendaftaran-peer-konselor')->with('success', 'Register Peer Konselor data has been submitted.');
     }
 
     /**
