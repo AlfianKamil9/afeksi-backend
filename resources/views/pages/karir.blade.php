@@ -163,35 +163,36 @@
       <h2 class="fw-bold mb-3">Be a part of our team</h2>
       <p>Raih kesempatan untuk mengembangkan diri dan berdampak bersama AFEKSI</p>
       <div class="box rounded-4 pt-4 pb-3 px-5 border">
-        <div class="row align-items-center">
-            <div class="inputs col-md-3 mb-3">
-                <input type="text" class="form-control" placeholder="Search">
-                <img src="assets/img/karir/search.png" alt="" class="input-icon">
-            </div>
-            <div class="col-md-3 mb-3 inputs">
-                <input type="text" class="form-control" placeholder="Location">
-                <img src="assets/img/karir/location_on.png" alt="" class="input-icon">
+        <form action="/karir">
+          <div class="row align-items-center">
+              <div class="inputs col-md-3 mb-3">
+                  <input type="text" class="form-control" placeholder="Search" name="nama_posisi" id="nama_posisi">
+                  <img src="assets/img/karir/search.png" alt="" class="input-icon">
               </div>
-            <div class="col-md-3 mb-3 inputs">
-                <select class="form-select">
-                    <option value="" selected>Type</option>
-                    <option value="option1">Internship</option>
-                    <option value="option2">Full time</option>
-                    <!-- Add more options as needed -->
-                </select>
-                <img src="assets/img/karir/work.png" alt="" class="input-icon">
-            </div>
-            <div class="col-md-3 mb-3 d-flex gap-2 flex-wrap">
-                <button class="btn btn-fill flex-fill">Temukan</button>
-                <button class="btn btn-outline flex-fill">Semua Posisi</button>
-            </div>
-
-        </div>
+              <div class="col-md-3 mb-3 inputs">
+                  <input type="text" class="form-control" placeholder="Location" name="tempat" id="tempat">
+                  <img src="assets/img/karir/location_on.png" alt="" class="input-icon">
+                </div>
+              <div class="col-md-3 mb-3 inputs">
+                  <select class="form-select" name="tipe_kerja" id="tipe_kerja">
+                      <option value="" selected>Type</option>
+                      <option value="Internship">Internship</option>
+                      <option value="Full Time">Full time</option>
+                      <!-- Add more options as needed -->
+                  </select>
+                  <img src="assets/img/karir/work.png" alt="" class="input-icon">
+              </div>
+              <div class="col-md-3 mb-3 d-flex gap-2 flex-wrap">
+                  <button type="submit" class="btn btn-fill flex-fill">Temukan</button>
+                  <button type="submit" class="btn btn-outline flex-fill">Semua Posisi</button>
+              </div>
+          </div>
+        </form>
     </div>
     </div>
 
     <div class="team-regis px-lg-5 px-4 pb-5" style="margin-top: 100px">
-        @foreach ($data as $item)
+        @foreach ($result as $item)
             <div class="regis-card flex-wrap rounded-3 py-3 px-3 px-lg-4 d-flex justify-content-between align-items-center">
               <div class="text">
                 <h2 class="fw-bold">{{ $item->nama_posisi }}</h2>
@@ -207,6 +208,9 @@
               </div>
             </div>
         @endforeach
+        @if ($result->isEmpty())
+            <p>No results found</p>
+        @endif
     </div>
     <!-- Our team section -->
 
