@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nama_posisi');
             $table->enum('tipe_kerja', ['Internship', 'Fulltime']);
             $table->string('slug');
+            $table->string('tempat');
             $table->text('jobdesc');
             $table->text('kualifikasi');
             $table->enum('status', ['DIPROSES', 'AKTIF', 'DITERIMA']);

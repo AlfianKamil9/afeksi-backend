@@ -17,6 +17,7 @@ class internshipPosition extends Model
         'nama_posisi',
         'tipe_kerja',
         'slug',
+        'tempat',
         'jobdesc',
         'status',
         'kualifikasi'
