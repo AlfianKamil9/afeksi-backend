@@ -198,7 +198,7 @@
                 <h2 class="fw-bold">{{ $item->nama_posisi }}</h2>
                 <div class="d-flex gap-3">
                   <img style="height: 24px" src="assets/img/karir/location_on.png" alt="" />
-                  <p style="color: #233dff" class="fw-bold">Remote <span class="text-secondary">- Surabaya, Indonesia</span></p>
+                  <p style="color: #233dff" class="fw-bold">Remote <span class="text-secondary">- {{ $item->tempat }}</span></p>
                   <img style="height: 24px" src="assets/img/karir/work.png" alt="" />
                   <p><span class="text-secondary">Internship</span></p>
                 </div>
@@ -209,7 +209,9 @@
             </div>
         @endforeach
         @if ($result->isEmpty())
-            <p>No results found</p>
+         <div class="regis-card flex-wrap rounded-3 py-3 px-3 px-lg-3 d-flex justify-content-center align-items-center">
+            <p class="text-center mt-3">No results found</p>
+         </div>
         @endif
     </div>
     <!-- Our team section -->
