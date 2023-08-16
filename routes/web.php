@@ -61,6 +61,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // PENDAFTARAN KARIR INTERNSHIP
     Route::get('/internship/{slug}', [Internship::class, 'show'])->name('internship.detail');
+    Route::post('/Registerinternship', [Internship::class, 'store'])->name('internship.register');
+
 });
 
 
