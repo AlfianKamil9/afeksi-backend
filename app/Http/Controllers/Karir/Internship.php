@@ -16,16 +16,15 @@ class Internship extends Controller
     }
 
     public function show($slug) {
-        $detailPosisi = internshipPosition::all();
         $data = internshipPosition::where('slug' , $slug)->first();
-        return view('pages.internship-detail', compact('data', 'detailPosisi'));
+        return view('pages.internship-detail', compact('data'));
     }
 
     public function store( Request $request){
         // dd($request->all());
 
-        $request -> validate([
-        'user_id' => "required", 
+        $request->validate([
+        // 'user_id' => "required", INI PENYEBAB ERROR 
         'position_id'=> "required",
         "status"=>"nullable",
         'asal_daerah'=> "required",
@@ -44,13 +43,13 @@ class Internship extends Controller
 
         
         $buktiFollow = $request ->bukti_follow ->getClientOriginalName();
-        $request ->bukti_follow->move(public_path('bukti-screenshot'), $buktiFollow);
+        $request ->bukti_follow->move(public_path('storage/internship/bukti_follow'), $buktiFollow);
 
         $lampiran_CV = $request ->cv ->getClientOriginalName();
-        $request ->cv->move(public_path('CV'), $lampiran_CV);
+        $request ->cv->move(public_path('storage/internship/cv'), $lampiran_CV);
 
         $lampiran_portofolio = $request ->portofolio ->getClientOriginalName();
-        $request ->portofolio->move(public_path('portofolio'), $lampiran_portofolio);
+        $request ->portofolio->move(public_path('storage/internship/portofolio'), $lampiran_portofolio);
 
         // $status = "SUDAH DAFTAR";
         // dd($request-> buktiFollow);

@@ -22,9 +22,9 @@ class internship_registration extends Model
         'kekurangan',
         'harapan',
         'one_description',
-        // 'bukti_follow',
-        // 'cv',
-        // 'portofolio'
+        'bukti_follow',
+        'cv',
+        'portofolio'
     ];
 
     public function position()

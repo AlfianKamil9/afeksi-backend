@@ -95,7 +95,11 @@
                   <li><a class="dropdown-item" href="#"><i class="bi bi-chat-left-fill text-primary"></i> Rekap History</a></li>
                 </ul>
               </li>
-
+              <li class="nav-item">
+                <a class="nav-link" href="#" @if ( Route::CurrentRouteName() == "artikel")
+                  style="color: #233dff"
+                @endif>Artikel</a>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('tentang-kami') }}" @if ( Route::CurrentRouteName() == "tentang-kami")
                   style="color: #233dff"
