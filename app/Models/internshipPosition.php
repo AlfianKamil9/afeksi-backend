@@ -22,4 +22,9 @@ class internshipPosition extends Model
         'status',
         'kualifikasi'
     ];
+
+    public function registrations()
+    {
+        return $this->hasMany(internship_registration::class, 'position_id');
+    }
 }
