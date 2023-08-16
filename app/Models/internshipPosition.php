@@ -13,7 +13,7 @@ class internshipPosition extends Model
         'id'
     ];
 
-    protected $filiable = [
+    protected $fillable = [
         'nama_posisi',
         'tipe_kerja',
         'slug',

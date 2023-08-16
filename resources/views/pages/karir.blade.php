@@ -170,7 +170,7 @@
                   <img src="assets/img/karir/search.png" alt="" class="input-icon">
               </div>
               <div class="col-md-3 mb-3 inputs">
-                  <input type="text" class="form-control" placeholder="Location" name="tempat" id="tempat">
+                  <input type="text" class="form-control" placeholder="Location" name="tempat" id="tempat" value="Surabaya" readonly>
                   <img src="assets/img/karir/location_on.png" alt="" class="input-icon">
                 </div>
               <div class="col-md-3 mb-3 inputs">
