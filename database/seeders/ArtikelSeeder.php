@@ -16,7 +16,7 @@ class ArtikelSeeder extends Seeder
         $data = [
             [
                 'judul_artikel' => 'Kenali gejala kanker',
-                'slug' => 'the-avenger',
+                'slug' => 'kenali-gejala-kanker',
                 'topik' => 'KESEHATAN',
                 'isi_artikel' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus ipsa quibusdam similique quasi ad, maxime cupiditate cumque veniam ullam repudiandae optio, molestiae quam doloremque deleniti adipisci. Praesentium, illo! Quasi, beatae.',
             ],
