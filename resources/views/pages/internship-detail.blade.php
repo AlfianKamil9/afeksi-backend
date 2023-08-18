@@ -59,6 +59,7 @@
                 <div class="modal-body">
                     <h3 class="modal-title fw-semibold text-center px-5">Formulir Pendaftaran</h3>
                     <p class="text-center px-4">Silahkan isi data anda dan pastikan data anda sudah sesuai.</p>
+<<<<<<< HEAD
                   <form  action={{ route("internship.register") }}  method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
@@ -155,6 +156,104 @@
                         <button type="submit" class="btn btn-primary m-3">Daftar</button>   
                     </div>               
                   </form>
+=======
+                    <form  action={{ route("internship.register") }}  method="POST" enctype="multipart/form-data">
+                      @csrf
+                      <div class="mb-3">
+                        <label for="email" class="col-form-label">Email</label>
+                        <input type="email" placeholder="Masukan Email" class="form-control"  value="{{ Auth::user()->email }}" readonly  required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="nama" class="col-form-label">Nama Lengkap</label>
+                        <input type="text" placeholder="Nama Lengkap" class="form-control" id="nama" value="{{ Auth::user()->nama }}" readonl  requiredy>
+                      </div>
+                      <div class="mb-3">
+                        <label for="jenis-kelamin" class="col-form-label">Jenis Kelamin</label>
+                         @if (auth()->user()->jenisKelamin)
+                                      <input type="text" value="{{auth()->user()->jenisKelamin }}" readonly class="form-control" id="jenis-kelamin"  required>
+                                  @else
+                                      <select name="jenisKelamin" class="form-select" id="jenis_kelamin" required>
+                                        <option selected>Pilih Jenis Kelamin</option>
+                                        <option value="Laki-laki">Laki-laki</option>
+                                        <option value="Perempuan">Perempuan</option>
+                                      </select>    
+                                  @endif
+                                  @error('jenisKelamin')
+                                  <span class="text-danger">{{ $message }}</span>
+                                  @enderror
+                      </div>
+                      <div class="mb-3">
+                        <label for="hp" class="col-form-label">No HP</label>
+                        <input type="text" placeholder="08xxxxxxxxx" class="form-control" id="hp" value="{{ Auth::user()->no_whatsapp }}" required>
+                      </div>
+  
+                      <input type="hidden" name="status" value="SUDAH DAFTAR">
+                      <div class="mb-3">
+                        <label for="asal_daerah" class="col-form-label">Daerah</label>
+                        <input type="text"placeholder="Asal Daerah" class="form-control" name="asal_daerah" id="asal_daerah" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="semester" class="col-form-label">Mahasiswa Semester</label>
+                        <input type="text"placeholder="Semester dalam angka" name="semester" class="form-control" id="semester" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="universitas" class="col-form-label">Nama Universitas</label>
+                        <input type="text" placeholder="Universitas" name="universitas" class="form-control" id="universitas" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="jurusan" class="col-form-label">Jurusan Kuliah</label>
+                        <input type="text" placeholder="Jurusan" class="form-control" id="jurusan" name="jurusan" required>
+                      </div>
+                      <div class="mb-3">
+                        <div class="mb-3">    
+                          <label for="position_id" class="col-form-label">Posisi yang dipilih</label>                  
+                          <select class="form-select" id="position_id"  name="position_id" required>
+                              {{-- <option value="" disabled selected>Pilih posisi yang diminati</option> --}}
+                              {{-- INI JUGA YANG NYEBABIN ERROR GABOLEH DISABLED --}}
+                                <option value="{{ $data->id }}" @if($data->slug == request('slug') ) selected readonly @endif>{{ $data->nama_posisi }}</option>                
+                          </select>
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                        <label for="alasan" class="col-form-label">Alasan Memilih Posisi tersebut</label>
+                        <textarea class="form-control"placeholder="Alasan" id="alasan" name="alasan" required></textarea>
+                      </div>
+                      <div class="mb-3">
+                        <label for="kelebihan" class="col-form-label">3 Kelebihan yang kamu miliki</label>
+                        <input type="text" placeholder="Kelebihan kamu" class="form-control" id="kelebihan" name="kelebihan" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="kekurangan" class="col-form-label">3 kekurangan yang kamu miliki</label>
+                        <input type="text" placeholder="kekurangan kamu" class="form-control" id="kekurangan" name="kekurangan" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="harapan" class="col-form-label">Apa harapan kamu gabung bersama Afeksi</label>
+                        <textarea class="form-control"placeholder="Harapan kamu" id="harapan" name="harapan" required></textarea>
+                      </div>
+                      <div class="mb-3">
+                        <label for="one_description" class="col-form-label">Satu kalimat yang mendeskripsikan diri kamu</label>
+                        <input type="text" placeholder="Satu kalimat yang mendeskripsikan diri kamu" class="form-control" id="one_description" name="one_description" required>
+                      </div>
+                      <div class="mb-3 upload-file-wrapper">                    
+                        <label for="follow-ig" class="col-form-label">Bukti Follow ig Afeksi</label>
+                        <label class="upload-file" for="follow-ig" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3" required></i>Upload Bukti</label>
+                        <input type="file" name="bukti_follow" id="upload-file" class="d-block" onchange="displayFileName(this)">
+                      </div>
+                      <div class="mb-3 upload-file-wrapper">          
+                        <label for="cv" class="col-form-label">CV</label>
+                        <label class="upload-file" for="cv" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload CV</label>
+                        <input type="file" name="cv" id="upload-file" class="d-block" required onchange="displayFileName(this)">
+                      </div>
+                      <div class="mb-3 upload-file-wrapper">                    
+                        <label for="portfolio" class="col-form-label">Portfolio(Optional)</label>
+                        <label class="upload-file" for="portfolio" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload bukti</label>
+                        <input type="file" name="portofolio" id="upload-file" class="d-block" onchange="displayFileName(this)">
+                      </div>
+                      <div class="row container">
+                          <button type="submit" class="btn btn-primary m-3">Daftar</button>   
+                      </div>               
+                    </form>
+>>>>>>> 13e1db3631258afe700ad92178e5ae5c40316bfd
                   </div>
               </div>
             </div>
