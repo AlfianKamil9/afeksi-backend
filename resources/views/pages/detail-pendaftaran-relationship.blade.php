@@ -94,7 +94,11 @@
                       </div>
                       <div class="mb-3">
                         <label for="hp" class="col-form-label">No HP</label>
-                        <input type="text" placeholder="08xxxxxxxxx" class="form-control" id="noHP" name="nohp" value="{{ Auth::user()->no_whatsapp }}" >
+                        @if (auth()->user()->no_whatsapp)
+                            <input type="text" placeholder="08xxxxxxxxx" class="form-control" id="noHP" name="nohp" readonly  value="{{ Auth::user()->no_whatsapp }}" >
+                        @else
+                            <input type="text" placeholder="08xxxxxxxxx" class="form-control" id="noHP" name="nohp" >
+                        @endif
                       </div>
                       <div class="mb-3">    
                         <label for="pekerjaan" class="col-form-label">Pekerjaan</label>                  

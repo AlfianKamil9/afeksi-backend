@@ -7,6 +7,7 @@ use App\Models\Konselor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class RelationshipKonselor extends Controller
 {
@@ -84,7 +85,9 @@ class RelationshipKonselor extends Controller
 
         User::where('id', $user->id)->update($user_update);
         Konselor::create($konselorData);
-        return redirect('/pendaftaran-relationship-konselor')->with('success', 'Register Relationship Konselor data has been submitted.');
+
+        Alert::alert()->html('<img src="/assets/img/image-notification.png" height="150px" />',"Terima Kasih <br> Formulir pendaftaran Anda berhasil dikirim")->persistent(true,false)->showConfirmButton('Kembali', '#3085d6');
+        return redirect('/pendaftaran-relationship-konselor');
     }
 
     /**

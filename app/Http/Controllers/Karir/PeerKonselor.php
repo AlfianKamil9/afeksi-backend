@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Karir;
 
+use App\Models\User;
 use App\Models\Konselor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PeerKonselor extends Controller
 {
@@ -65,12 +67,16 @@ class PeerKonselor extends Controller
             'portofolio' => $portofolioPath,
             'type' => 'peer', //Peer Konselor
         ];
+        $user_update =[
+            'no_whatsapp' => $nohp,
+            'jenisKelamin' => $jenisKelamin,
+        ];
 
-        // dd($konselorData);
-
+        User::where('id', $user->id)->update($user_update);
         Konselor::create($konselorData);
 
-        return redirect()->route('pendaftaran-peer-konselor')->with('success', 'Register Peer Konselor data has been submitted.');
+        Alert::alert()->html('<img src="/assets/img/image-notification.png" height="150px" />',"Terima Kasih <br> Formulir pendaftaran Anda berhasil dikirim")->persistent(true,false)->showConfirmButton('Kembali', '#3085d6');
+        return redirect()->route('pendaftaran-peer-konselor');
     }
 
     /**
