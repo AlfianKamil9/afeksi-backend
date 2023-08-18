@@ -152,7 +152,9 @@
                                 <label class="upload-file" for="bukti_follow" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload Bukti</label>
                                 <input type="file" name="bukti_follow" id="bukti_follow" class="d-block visually-hidden"  onchange="displayFileName(this)" required>
                                 @error('bukti_follow')
-                                <span class="text-danger">{{ $message }}</span>
+                                    <span class="text-danger">{{ $message }}</span>
+                                @else
+                                    <span class="text-muted fst-italic mt-1" style="font-size: 12px;">File Max 2MB (jpg , jpeg, png)</span>
                                 @enderror
                             </div>
                             <div class="mb-3 upload-file-wrapper">
@@ -160,7 +162,9 @@
                                 <label class="upload-file" for="cv" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload CV</label>
                                 <input type="file" name="cv" id="cv" class="d-block visually-hidden"  onchange="displayFileName(this)" required>
                                 @error('cv')
-                                <span class="text-danger">{{ $message }}</span>
+                                    <span class="text-danger">{{ $message }}</span>
+                                @else
+                                    <span class="text-muted fst-italic mt-1" style="font-size: 12px;">File Max 10MB (Only PDF)</span>
                                 @enderror
                             </div>
                             <div class="mb-3 upload-file-wrapper">
@@ -168,7 +172,9 @@
                                 <label class="upload-file" for="portofolio" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload Portofolio</label>
                                 <input type="file" name="portofolio" id="portofolio"  onchange="displayFileName(this)" class="d-block visually-hidden">
                                 @error('portofolio')
-                                <span class="text-danger">{{ $message }}</span>
+                                    <span class="text-danger">{{ $message }}</span>
+                                @else
+                                    <span class="text-muted fst-italic mt-1" style="font-size: 12px;">File Max 10MB (Only PDF)</span>
                                 @enderror
                             </div>
                             <div class="row container">
