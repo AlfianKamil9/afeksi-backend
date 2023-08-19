@@ -77,3 +77,6 @@ Route::get('/faq-konseling', function () {
 Route::get('/internship-uiux', function () {
     return view('pages.internship-uiux');
 });
+Route::get('/page-mentoring', function () {
+    return view('pages.page-mentoring');
+});

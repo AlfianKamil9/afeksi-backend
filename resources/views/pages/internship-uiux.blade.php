@@ -130,7 +130,7 @@
                     </div>
                     <div class="mb-3 upload-file-wrapper">                    
                       <label for="follow-ig" class="col-form-label">Bukti Follow ig Afeksi</label>
-                      <label class="upload-file" for="follow-ig" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload Bukti</label>
+                      <label class="upload-file" for="follow-ig" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload bukti</label>
                       <input type="file" name="follow-ig" id="upload-file" class="d-block">
                     </div>
                     <div class="mb-3 upload-file-wrapper">          
