@@ -66,6 +66,8 @@ Route::get('/artikel/detail', function () {
     return view('pages.artikel-detail');
 })->name('artikel.detail');
 
+
+
 // MIDLLEWARE HALAMAN YANG PERLU LOGIN
 Route::middleware(['auth', 'verified'])->group(function () {
     // PENDAFTARAN RELATIONSHIP KONSELOR
