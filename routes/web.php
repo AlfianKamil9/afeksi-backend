@@ -88,3 +88,9 @@ Route::get('/internship-uiux', function () {
 Route::get('/page-mentoring', function () {
     return view('pages.page-mentoring');
 });
+Route::get('/artikel', function () {
+    return view('pages.artikel');
+});
+Route::get('/artikel-detail', function () {
+    return view('pages.artikel-detail');
+});

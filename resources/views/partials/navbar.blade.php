@@ -26,7 +26,7 @@
 div .button-daftar {
   border-color: #233dff;
   color: #233dff;
-  width: 95px;
+  width: 93px;
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
@@ -34,7 +34,7 @@ div .button-login {
   background-color: #233dff;
   color: #fff;
   border: 2px solid transparent;
-  width: 95px;
+  width: 93px;
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
@@ -58,7 +58,7 @@ div .button-login {
 </style>
 
 <nav class="navbar navbar-expand-md navbar-light">
-      <div class="container-fluid">
+      <div class="container-fluid px-2">
         <a class="navbar-brand" href="#">
           <img src="assets/img/logo.png" alt="Logo" class="d-inline-block align-text-top w-50" />
         </a>
