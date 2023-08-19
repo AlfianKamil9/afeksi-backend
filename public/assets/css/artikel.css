@@ -6,12 +6,8 @@
 /* contents */
 .contents {
     /* navbar height + padding top */
-<<<<<<< HEAD
     /* padding: calc(50px + 94px) 90px;  */
     padding: calc(50px + 10px) 90px;
-=======
-    padding: calc(50px + 94px) 90px;
->>>>>>> dc82102c86c67db8c1f92e0bc0fb3d94a5398dbe
     max-width: 1375px;
     margin: auto !important;
 }
@@ -47,18 +43,6 @@ select,
     margin-bottom: 10px;
 }
 
-<<<<<<< HEAD
-.password-icon {
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-    cursor: pointer;
-    height: 25px;
-}
-
-=======
->>>>>>> dc82102c86c67db8c1f92e0bc0fb3d94a5398dbe
 .side-btn,
 .card-btn {
     background-color: #233dff !important;
