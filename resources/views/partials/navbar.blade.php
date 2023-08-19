@@ -80,7 +80,11 @@ div .button-login {
                 @endif>Beranda</a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">Layanan & Produk</a>
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"  
+                @if ( Route::CurrentRouteName() == "mentoring" ||  Route::CurrentRouteName() == "konseling" )
+                  style="color: #233dff"
+                @endif
+                  href="#">Layanan & Produk</a>
                 <!-- <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button> -->
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="{{ route('mentoring') }}">Mentoring</a></li>

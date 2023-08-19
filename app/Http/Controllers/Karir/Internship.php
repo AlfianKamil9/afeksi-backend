@@ -18,7 +18,7 @@ class Internship extends Controller
     }
 
     public function show($slug) {
-        $data = internshipPosition::where('slug' , $slug)->first();
+        $data = internshipPosition::where('slug' , $slug)->firstOrFail();
         return view('pages.internship-detail', compact('data'));
     }
 

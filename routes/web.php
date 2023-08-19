@@ -2,8 +2,6 @@
 
 use App\Http\Controllers\API\NotificationPaymentEventController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\GoogleController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Karir\PeerKonselor;
 use App\Http\Controllers\Event\WebinarController;
 use App\Http\Controllers\Event\CampaignController;
@@ -22,16 +20,22 @@ use App\Http\Controllers\Karir\RelationshipKonselor;
 |
 */
 
-// PAGES NO RULES
+// BERANDA
 Route::get('/', function () {
     return view('pages.landing-page-new');
 })->name('homepage');
+
+// TENTANG KAMI
 Route::get('/tentang-kami', function () {
     return view('pages.tentang-kami');
 })->name("tentang-kami");
+
+// KEBIJAKAN PRIVASI
 Route::get('/kebijakan-privasi', function () {
     return view('pages.kebijakan-privasi');
 })->name("kebijakan-privasi");
+
+// FAQ
 Route::get('/FAQ', function () {
     return view('pages.faq-konseling');
 })->name('FAQ');
@@ -56,22 +60,22 @@ Route::get('/mentoring', function () {
 
 
 
-// MIDLLEWARE {{ HALAMAN PERLU LOGIN }}
-// MIDLLEWARE
+// MIDLLEWARE HALAMAN YANG PERLU LOGIN
 Route::middleware(['auth', 'verified'])->group(function () {
+    // PENDAFTARAN RELATIONSHIP KONSELOR
     Route::get('/pendaftaran-relationship-konselor', [RelationshipKonselor::class, 'index'])->name('pendaftaran-relationship-konselor');
     Route::post('/pendaftaran-relationship-konselor/create', [RelationshipKonselor::class, 'store']);
+    // PENDAFTARAN PEER KONSELOR
     Route::get('/pendaftaran-peer-konselor',  [PeerKonselor::class, 'index'])->name('pendaftaran-peer-konselor');
     Route::post('/pendaftaran-peer-konselor', [PeerKonselor::class, 'store'])->name('store-peer-konselor');
-
-    // PENDAFTARAN KARIR INTERNSHIP
+    // PENDAFTARAN INTERNSHIP
     Route::get('/internship/{slug}', [Internship::class, 'show'])->name('internship.detail');
     Route::post('/Registerinternship', [Internship::class, 'store'])->name('internship.register');
 
 });
 
 
-
+// API CALLBACK
 Route::post('/midtrans/callback', [NotificationPaymentEventController::class, 'callback']);
 Route::get('/midtrans/finish', [NotificationPaymentEventController::class, 'finishRedirect']);
 Route::get('/midtrans/unfinish', [NotificationPaymentEventController::class, 'unfinishRedirect']);
