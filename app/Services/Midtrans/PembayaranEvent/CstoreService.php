@@ -18,15 +18,13 @@ class CstoreService
             ],
             "cstore" => [
               "store" => $method,
-              "alfamart_free_text_1"=> "1st row of receipt,",
+              "alfamart_free_text_1"=> $data['pesan'],
             ],
             "customer_details"  => [
-                "email"  => "noreply@example.com",
-                "first_name" => "budi",
-                "last_name" => "utomo",
-                "phone"=> "+6281 1234 1234"
+                "email"  => $data['email'],
+                "first_name" => $data['nama'],
+                "phone"=> $data['no_tlpn']
             ]
-          
             ];
             $curl = curl_init();
             curl_setopt_array($curl, array(
@@ -73,10 +71,9 @@ class CstoreService
               "store" => $method,
             ],
             "customer_details"  => [
-                "email"  => "noreply@example.com",
-                "first_name" => "budi",
-                "last_name" => "utomo",
-                "phone"=> "+6281 1234 1234"
+                "email"  => $data['email'],
+                "first_name" => $data['nama'],
+                "phone"=> $data['no_tlpn'],
             ]
           
             ];

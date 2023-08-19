@@ -8,17 +8,22 @@ use Illuminate\Database\Eloquent\Model;
 class Konselor extends Model
 {
     use HasFactory;
-    protected $table = 'volunteers';
+    protected $table = 'konselors';
+    protected $guarded = ['id'];
 
     protected $fillable = [
         'user_id',
+        'namaLengkap',
+        'jenisKelamin',
+        'nohp',
         'pekerjaan',
         'instansi',
         'divisi',
-        'cv',
-        'portofolio',
         'alasan',
         'bukti_follow',
+        'cv',
+        'portofolio',
+        'type',
     ];
 
     public function user()
