@@ -6,7 +6,7 @@
 /* contents */
 .contents {
     /* navbar height + padding top */
-    padding: calc(50px + 94px) 90px; 
+    padding: calc(50px + 94px) 90px;
     max-width: 1375px;
     margin: auto !important;
 }
@@ -17,10 +17,17 @@
 }
 
 .password-container input {
-    padding-left: 40px;
     font-size: 15px;
     box-shadow: none !important;
     background: rgb(247, 247, 247);
+}
+
+.button button:hover {
+    background-color: #f1f1f2 !important;
+}
+
+.password-icon {
+    width: 22px;
 }
 
 .form-check,
@@ -35,16 +42,8 @@ select,
     margin-bottom: 10px;
 }
 
-.password-icon {
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-    cursor: pointer;
-    height: 25px;
-}
-
-.side-btn, .card-btn {
+.side-btn,
+.card-btn {
     background-color: #233dff !important;
     color: white !important;
     margin-bottom: 10px;
