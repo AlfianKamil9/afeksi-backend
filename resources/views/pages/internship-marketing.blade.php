@@ -155,5 +155,9 @@
 
 @include('../partials/footer') 
 
+@section('script')
+   <script src="assets/js/form-file-pendaftaran.js"></script>
+@endsection
+
 @endsection
 

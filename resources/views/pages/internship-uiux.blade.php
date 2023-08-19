@@ -130,18 +130,23 @@
                     </div>
                     <div class="mb-3 upload-file-wrapper">                    
                       <label for="follow-ig" class="col-form-label">Bukti Follow ig Afeksi</label>
+<<<<<<< HEAD
                       <label class="upload-file" for="follow-ig" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload bukti</label>
                       <input type="file" name="follow-ig" id="upload-file" class="d-block">
+=======
+                      <label class="upload-file" for="follow-ig" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload Bukti</label>
+                      <input type="file" name="follow-ig" id="upload-file" class="d-block" onchange="displayFileName(this)">
+>>>>>>> 2b4bab30fde4c53490786b5ff01389ac38d6db5e
                     </div>
                     <div class="mb-3 upload-file-wrapper">          
                       <label for="cv" class="col-form-label">CV</label>
                       <label class="upload-file" for="cv" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload CV</label>
-                      <input type="file" name="follow-ig" id="upload-file" class="d-block">
+                      <input type="file" name="follow-ig" id="upload-file" class="d-block" onchange="displayFileName(this)">
                     </div>
                     <div class="mb-3 upload-file-wrapper">                    
                       <label for="portfolio" class="col-form-label">Portfolio(Optional)</label>
                       <label class="upload-file" for="portfolio" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload bukti</label>
-                      <input type="file" name="portfolio" id="upload-file" class="d-block">
+                      <input type="file" name="portfolio" id="upload-file" class="d-block" onchange="displayFileName(this)">
                     </div>
                   </form>
                 </div>
@@ -154,6 +159,10 @@
 </section>
 
 @include('../partials/footer') 
+
+@section('script')
+   <script src="assets/js/form-file-pendaftaran.js"></script>
+@endsection
 
 @endsection
 
