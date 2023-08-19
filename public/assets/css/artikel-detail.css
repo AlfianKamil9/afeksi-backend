@@ -1,6 +1,7 @@
 /* contents */
 .contents {
-    padding: calc(70px + 94px) 150px;
+    /* padding: calc(70px + 94px) 150px; */
+    padding: calc(50px + 20px) 90px;
     max-width: 1375px;
     margin: auto !important;
 }

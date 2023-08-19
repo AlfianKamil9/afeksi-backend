@@ -1,6 +1,6 @@
 @extends('../layout')
 
-@section('title', 'Artikel')
+@section('title', 'Artikel | AFEKSI')
 
 @section('styles')
     <link rel="stylesheet" href="/assets/css/artikel.css">
@@ -10,6 +10,8 @@
 @include('../partials/navbar') 
 
 @section('content')
+
+
 <div class="contents row">
       <h1 style="color: #233dff">Article</h1>
       <div class="side col-lg-3 col-md-4 mb-5">

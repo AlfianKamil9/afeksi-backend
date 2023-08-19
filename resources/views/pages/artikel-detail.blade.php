@@ -1,9 +1,9 @@
 @extends('../layout')
 
-@section('title', 'Artikel detail')
+@section('title', 'Artikel Detail | AFEKSI')
 
 @section('styles')
-    <link rel="stylesheet" href="assets/css/artikel-detail.css">
+    <link rel="stylesheet" href="/assets/css/artikel-detail.css">
 @endsection
 
 
@@ -13,7 +13,7 @@
 
 <div class="contents row">
       <div class="content">
-        <img class="mb-2" src="assets/img/article/contentImg.png" alt="" />
+        <img class="mb-2" src="/assets/img/article/contentImg.png" alt="" />
         <div class="title mb-5">
           <h1 style="color: #233dff;">Lorem Ipsum</h1>
           <span class="text-secondary">15 Agustus 2023</span>

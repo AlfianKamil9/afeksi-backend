@@ -7,7 +7,7 @@
 .contents {
     /* navbar height + padding top */
     /* padding: calc(50px + 94px) 90px;  */
-    padding: 50px;
+    padding: calc(50px + 10px) 90px;
     max-width: 1375px;
     margin: auto !important;
 }
