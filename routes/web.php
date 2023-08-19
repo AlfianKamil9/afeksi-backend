@@ -48,6 +48,11 @@ Route::get('/pendaftaran-konselor', function () {
     return view('pages.pendaftaran-konselor');
 })->name('pendaftaran.konselor');
 
+// MENTORING
+Route::get('/mentoring', function () {
+    return view('pages.page-mentoring');
+})->name('mentoring');
+
 
 
 
@@ -66,6 +71,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 
+
 Route::post('/midtrans/callback', [NotificationPaymentEventController::class, 'callback']);
 Route::get('/midtrans/finish', [NotificationPaymentEventController::class, 'finishRedirect']);
 Route::get('/midtrans/unfinish', [NotificationPaymentEventController::class, 'unfinishRedirect']);
@@ -75,3 +81,6 @@ Route::get('/midtrans/error', [NotificationPaymentEventController::class, 'error
 
 
 require __DIR__ . '/auth.php';
+
+
+
