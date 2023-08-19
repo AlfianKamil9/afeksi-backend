@@ -58,7 +58,13 @@ Route::get('/mentoring', function () {
 })->name('mentoring');
 
 
-
+// ARTIKEL
+Route::get('/artikel', function () {
+    return view('pages.artikel');
+})->name('artikel');
+Route::get('/artikel/detail', function () {
+    return view('pages.artikel-detail');
+})->name('artikel.detail');
 
 // MIDLLEWARE HALAMAN YANG PERLU LOGIN
 Route::middleware(['auth', 'verified'])->group(function () {
@@ -75,6 +81,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 
+
 // API CALLBACK
 Route::post('/midtrans/callback', [NotificationPaymentEventController::class, 'callback']);
 Route::get('/midtrans/finish', [NotificationPaymentEventController::class, 'finishRedirect']);
@@ -85,6 +92,8 @@ Route::get('/midtrans/error', [NotificationPaymentEventController::class, 'error
 
 
 require __DIR__ . '/auth.php';
+
+
 
 
 

@@ -8,7 +8,7 @@
   
   /* NAVBAR */
   .navbar {
-  box-shadow: 0px 13px 40px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 13px 40px 0px rgba(176, 176, 176, 0.3);
   position: relative;
   width: 100%;
   background-color: white;
@@ -26,7 +26,7 @@
 div .button-daftar {
   border-color: #233dff;
   color: #233dff;
-  width: 95px;
+  width: 93px;
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
@@ -34,7 +34,7 @@ div .button-login {
   background-color: #233dff;
   color: #fff;
   border: 2px solid transparent;
-  width: 95px;
+  width: 93px;
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
@@ -108,7 +108,7 @@ div .button-login {
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" @if ( Route::CurrentRouteName() == "artikel")
+                <a class="nav-link" href="{{ route('artikel') }}" @if ( Route::CurrentRouteName() == "artikel" || Route::CurrentRouteName() == "artikel.detail")
                   style="color: #233dff"
                 @endif>Artikel</a>
               </li>
