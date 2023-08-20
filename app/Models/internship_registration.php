@@ -26,4 +26,9 @@ class internship_registration extends Model
         'cv',
         'portofolio'
     ];
+
+    public function position()
+    {
+        return $this->belongsTo(internshipPosition::class, 'position_id');
+    }
 }

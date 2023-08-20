@@ -94,7 +94,11 @@
                       </div>
                       <div class="mb-3">
                         <label for="hp" class="col-form-label">No HP</label>
-                        <input type="text" placeholder="08xxxxxxxxx" class="form-control" id="noHP" name="nohp" value="{{ Auth::user()->no_whatsapp }}" >
+                        @if (auth()->user()->no_whatsapp)
+                            <input type="text" placeholder="08xxxxxxxxx" class="form-control" id="noHP" name="nohp" readonly  value="{{ Auth::user()->no_whatsapp }}" >
+                        @else
+                            <input type="text" placeholder="08xxxxxxxxx" class="form-control" id="noHP" name="nohp" >
+                        @endif
                       </div>
                       <div class="mb-3">    
                         <label for="pekerjaan" class="col-form-label">Pekerjaan</label>                  
@@ -129,6 +133,8 @@
                         <input type="file" name="bukti_follow" id="upload-file" class="d-block "  onchange="displayFileName(this)" required>
                         @error('bukti_follow')
                           <span class="text-danger">{{ $message }}</span>
+                        @else
+                            <span class="text-muted fst-italic mt-1" style="font-size: 12px;">File Max 2MB (jpg , jpeg, png)</span>
                         @enderror
                       </div>
                       <div class="mb-3 upload-file-wrapper">          
@@ -137,6 +143,8 @@
                         <input type="file" name="cv" id="upload-file" multiple class="d-block" onchange="displayFileName(this)"  required>
                         @error('cv')
                           <span class="text-danger">{{ $message }}</span>
+                        @else
+                            <span class="text-muted fst-italic mt-1" style="font-size: 12px;">File Max 10MB (Only PDF)</span>
                         @enderror
                       </div>
                       <div class="mb-3 upload-file-wrapper">                    
@@ -144,7 +152,9 @@
                         <label class="upload-file" for="portfolio" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload bukti</label>
                         <input type="file" name="portofolio" multiple id="upload-file"  onchange="displayFileName(this)" class="d-block" >
                         @error('portofolio')
-                          <span class="text-danger">{{ $message }}</span>
+                              <span class="text-danger">{{ $message }}</span>
+                          @else
+                              <span class="text-muted fst-italic mt-1" style="font-size: 12px;">File Max 10MB (Only PDF)</span>
                         @enderror
                       </div>
                   </div>

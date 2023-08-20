@@ -59,99 +59,149 @@
                 <div class="modal-body">
                     <h3 class="modal-title fw-semibold text-center px-5">Formulir Pendaftaran</h3>
                     <p class="text-center px-4">Silahkan isi data anda dan pastikan data anda sudah sesuai.</p>
-                  <form>
-                    <div class="mb-3">
-                      <label for="email" class="col-form-label">Email</label>
-                      <input type="email" placeholder="Masukan Email" class="form-control" id="email" value="{{ Auth::user()->email }}" readonly>
-                    </div>
-                    <div class="mb-3">
-                      <label for="nama" class="col-form-label">Nama Lengkap</label>
-                      <input type="text" placeholder="Nama Lengkap" class="form-control" id="nama" value="{{ Auth::user()->nama }}" readonly>
-                    </div>
-                    <div class="mb-3">
-                      <label for="jenis-kelamin" class="col-form-label">Jenis Kelamin</label>
-                       @if (auth()->user()->jenisKelamin)
-                                    <input type="text" value="{{ auth()->user()->jenisKelamin }}" readonly class="form-control" id="jenis-kelamin" name="jenisKelamin">
-                                @else
-                                    <select name="jenisKelamin" class="form-select" id="jenis_kelamin" required>
-                                      <option selected>Pilih Jenis Kelamin</option>
-                                      <option value="Laki-laki">Laki-laki</option>
-                                      <option value="Perempuan">Perempuan</option>
-                                    </select>    
-                                @endif
-                                @error('jenisKelamin')
+                    <form  action={{ route("internship.register") }}  method="POST" enctype="multipart/form-data">
+                      @csrf
+                      <div class="mb-3">
+                        <label for="email" class="col-form-label">Email</label>
+                        <input type="email" placeholder="Masukan Email" class="form-control"  value="{{ Auth::user()->email }}" readonly  required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="nama" class="col-form-label">Nama Lengkap</label>
+                        <input type="text" placeholder="Nama Lengkap" class="form-control" id="nama" value="{{ Auth::user()->nama }}" readonly  required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="jenis-kelamin" class="col-form-label">Jenis Kelamin</label>
+                         @if (auth()->user()->jenisKelamin)
+                                      <input type="text" value="{{auth()->user()->jenisKelamin }}" readonly class="form-control" id="jenis-kelamin"  required>
+                                  @else
+                                      <select name="jenisKelamin" class="form-select" id="jenis_kelamin" required>
+                                        <option selected>Pilih Jenis Kelamin</option>
+                                        <option value="Laki-laki">Laki-laki</option>
+                                        <option value="Perempuan">Perempuan</option>
+                                      </select>    
+                                  @endif
+                                  @error('jenisKelamin')
+                                  <span class="text-danger">{{ $message }}</span>
+                                  @enderror
+                      </div>
+                      <div class="mb-3">
+                        <label for="hp" class="col-form-label">No HP</label>
+                        <input type="text" name="nohp" placeholder="08xxxxxxxxx" class="form-control" id="hp" @if (auth()->user()->no_whatsapp)
+                            readonly
+                        @endif value="{{ Auth::user()->no_whatsapp }}" required>
+                        @error('nohp')
                                 <span class="text-danger">{{ $message }}</span>
                                 @enderror
-                    </div>
-                    <div class="mb-3">
-                      <label for="hp" class="col-form-label">No HP</label>
-                      <input type="text" placeholder="08xxxxxxxxx" class="form-control" id="hp" value="{{ Auth::user()->no_whatsapp }}">
-                    </div>
-                    <div class="mb-3">
-                      <label for="asal-daerah" class="col-form-label">Daerah</label>
-                      <input type="text"placeholder="Asal Daerah" class="form-control" id="asal-daerah">
-                    </div>
-                    <div class="mb-3">
-                      <label for="mahasiswa" class="col-form-label">Mahasiswa Semester</label>
-                      <input type="text"placeholder="Semester dalam angka" class="form-control" id="mahasiswa">
-                    </div>
-                    <div class="mb-3">
-                      <label for="universitas" class="col-form-label">Nama Universitas</label>
-                      <input type="text" placeholder="Universitas" class="form-control" id="universitas">
-                    </div>
-                    <div class="mb-3">
-                      <label for="jurusan" class="col-form-label">Jurusan Kuliah</label>
-                      <input type="text" placeholder="Jurusan" class="form-control" id="jurusan">
-                    </div>
-                    <div class="mb-3">
-                      <div class="mb-3">    
-                        <label for="pekerjaan" class="col-form-label">Posisi yang dipilih</label>                  
-                        <select name="pekerjaan" class="form-select" id="pekerjaan" disabled>
-                            {{-- <option value="" disabled selected>Pilih posisi yang diminati</option> --}}
-                           @foreach ($detailPosisi as $item)
-                              <option value="{{ $item->nama_posisi }}" @if($item->slug == request('slug') ) selected readonly @endif>{{ $item->nama_posisi }}</option>
-                           @endforeach
-                            
-                        </select>
                       </div>
-                    </div>
-                    <div class="mb-3">
-                      <label for="alasan" class="col-form-label">Alasan Memilih Posisi tersebut</label>
-                      <textarea class="form-control"placeholder="Alasan" id="alasan"></textarea>
-                    </div>
-                    <div class="mb-3">
-                      <label for="kelebihan" class="col-form-label">3 Kelebihan yang kamu miliki</label>
-                      <input type="text" placeholder="Kelebihan kamu" class="form-control" id="kelebihan">
-                    </div>
-                    <div class="mb-3">
-                      <label for="kekurangan" class="col-form-label">3 kekurangan yang kamu miliki</label>
-                      <input type="text" placeholder="kekurangan kamu" class="form-control" id="kekurangan">
-                    </div>
-                    <div class="mb-3">
-                      <label for="harapan" class="col-form-label">Apa harapan kamu gabung bersama Afeksi</label>
-                      <textarea class="form-control"placeholder="Harapan kamu" id="harapan"></textarea>
-                    </div>
-                    <div class="mb-3">
-                      <label for="deskripsi" class="col-form-label">Satu kalimat yang mendeskripsikan diri kamu</label>
-                      <input type="text" placeholder="Satu kalimat yang mendeskripsikan diri kamu" class="form-control" id="deskripsi">
-                    </div>
-                    <div class="mb-3 upload-file-wrapper">                    
-                      <label for="follow-ig" class="col-form-label">Bukti Follow ig Afeksi</label>
-                      <label class="upload-file" for="follow-ig" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload Bukti</label>
-                      <input type="file" name="follow-ig" id="upload-file" class="d-block" onchange="displayFileName(this)">
-                    </div>
-                    <div class="mb-3 upload-file-wrapper">          
-                      <label for="cv" class="col-form-label">CV</label>
-                      <label class="upload-file" for="cv" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload CV</label>
-                      <input type="file" name="follow-ig" id="upload-file" class="d-block" onchange="displayFileName(this)">
-                    </div>
-                    <div class="mb-3 upload-file-wrapper">                    
-                      <label for="portfolio" class="col-form-label">Portfolio(Optional)</label>
-                      <label class="upload-file" for="portfolio" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload bukti</label>
-                      <input type="file" name="portfolio" id="upload-file" class="d-block" onchange="displayFileName(this)">
-                    </div>
-                    <button type="button" class="btn btn-primary m-3">Daftar</button>                
-                  </form>
+  
+                      <input type="hidden" name="status" value="SUDAH DAFTAR">
+                      <div class="mb-3">
+                        <label for="asal_daerah" class="col-form-label">Daerah</label>
+                        <input type="text"placeholder="Asal Daerah" class="form-control" name="asal_daerah" id="asal_daerah" required>
+                        @error('asal_daerah')
+                              <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                      </div>
+                      <div class="mb-3">
+                        <label for="semester" class="col-form-label">Mahasiswa Semester</label>
+                        <input type="text"placeholder="Semester dalam angka" name="semester" class="form-control" id="semester" required>
+                        @error('semester')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                      </div>
+                      <div class="mb-3">
+                        <label for="universitas" class="col-form-label">Nama Universitas</label>
+                        <input type="text" placeholder="Universitas" name="universitas" class="form-control" id="universitas" required>
+                        @error('universitas')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                      </div>
+                      <div class="mb-3">
+                        <label for="jurusan" class="col-form-label">Jurusan Kuliah</label>
+                        <input type="text" placeholder="Jurusan" class="form-control" id="jurusan" name="jurusan" required>
+                        @error('jurusan')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                      </div>
+                      <div class="mb-3">
+                        <div class="mb-3">    
+                          <label for="position_id" class="col-form-label">Posisi yang dipilih</label>                  
+                          <select class="form-select" id="position_id"  name="position_id" required>
+                              {{-- <option value="" disabled selected>Pilih posisi yang diminati</option> --}}
+                              {{-- INI JUGA YANG NYEBABIN ERROR GABOLEH DISABLED --}}
+                                <option value="{{ $data->id }}" @if($data->slug == request('slug') ) selected readonly @endif>{{ $data->nama_posisi }}</option>                
+                          </select>
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                        <label for="alasan" class="col-form-label">Alasan Memilih Posisi tersebut</label>
+                        <textarea class="form-control"placeholder="Alasan" id="alasan" name="alasan" required></textarea>
+                        @error('alasan')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                      </div>
+                      <div class="mb-3">
+                        <label for="kelebihan" class="col-form-label">3 Kelebihan yang kamu miliki</label>
+                        <input type="text" placeholder="Kelebihan kamu" class="form-control" id="kelebihan" name="kelebihan" required>
+                        @error('kelebihan')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                      </div>
+                      <div class="mb-3">
+                        <label for="kekurangan" class="col-form-label">3 kekurangan yang kamu miliki</label>
+                        <input type="text" placeholder="kekurangan kamu" class="form-control" id="kekurangan" name="kekurangan" required>
+                        @error('kekurangan')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                      </div>
+                      <div class="mb-3">
+                        <label for="harapan" class="col-form-label">Apa harapan kamu gabung bersama Afeksi</label>
+                        <textarea class="form-control"placeholder="Harapan kamu" id="harapan" name="harapan" required></textarea>
+                        @error('harapan')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                      </div>
+                      <div class="mb-3">
+                        <label for="one_description" class="col-form-label">Satu kalimat yang mendeskripsikan diri kamu</label>
+                        <input type="text" placeholder="Satu kalimat yang mendeskripsikan diri kamu" class="form-control" id="one_description" name="one_description" required>
+                        @error('one_description')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                      </div>
+                      <div class="mb-3 upload-file-wrapper">                    
+                        <label for="follow-ig" class="col-form-label">Bukti Follow ig Afeksi</label>
+                        <label class="upload-file" for="follow-ig" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3" required></i>Upload Bukti</label>
+                        <input type="file" name="bukti_follow" id="upload-file" class="d-block" onchange="displayFileName(this)">
+                        @error('bukti_follow')
+                            <span class="text-danger">{{ $message }}</span>
+                        @else
+                            <span class="text-muted fst-italic mt-1" style="font-size: 12px;">File Max 2MB (jpg , jpeg, png)</span>
+                        @enderror
+                      </div>
+                      <div class="mb-3 upload-file-wrapper">          
+                        <label for="cv" class="col-form-label">CV</label>
+                        <label class="upload-file" for="cv" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload CV</label>
+                        <input type="file" name="cv" id="upload-file" class="d-block" required onchange="displayFileName(this)">
+                        @error('cv')
+                            <span class="text-danger">{{ $message }}</span>
+                              @else
+                            <span class="text-muted fst-italic mt-1" style="font-size: 12px;">File Max 10MB (Only PDF)</span>
+                        @enderror
+                      </div>
+                      <div class="mb-3 upload-file-wrapper">                    
+                        <label for="portfolio" class="col-form-label">Portfolio(Optional)</label>
+                        <label class="upload-file" for="portfolio" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload bukti</label>
+                        <input type="file" name="portofolio" id="upload-file" class="d-block" onchange="displayFileName(this)">
+                        @error('portofolio')
+                            <span class="text-danger">{{ $message }}</span>
+                            @else
+                            <span class="text-muted fst-italic mt-1" style="font-size: 12px;">File Max 10MB (Only PDF)</span>
+                        @enderror
+                      </div>
+                      <div class="row container">
+                          <button type="submit" class="btn btn-primary m-3">Daftar</button>   
+                      </div>               
+                    </form>
                   </div>
               </div>
             </div>
@@ -159,7 +209,7 @@
           <!-- End Modals -->
       </div>
 </section>
-
+@include('sweetalert::alert')
 @include('../partials/footer') 
 
 @section('script')

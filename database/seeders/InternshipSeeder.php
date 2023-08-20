@@ -39,7 +39,7 @@ class InternshipSeeder extends Seeder
             ],
             [
                 'nama_posisi' => 'UI/UX Designer',
-                'slug' => "ui/ux-designer",
+                'slug' => "uiux-designer",
                 'tipe' => 'Internship',
                  'tempat' => 'Surabaya, Indonesia',
                 'jobdesc' => 

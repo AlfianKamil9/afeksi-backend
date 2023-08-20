@@ -8,45 +8,53 @@
   
   /* NAVBAR */
   .navbar {
-    box-shadow: 0px 13px 40px 0px rgba(0, 0, 0, 0.100); 
-    position: relative;
-    z-index: 1;
-  }
-  .navbar li a {
-    color: #94a8be;
-  }
-  
-  div .button-daftar {
-    border-color: #233dff ;
-    color: #233dff;
-    width: 95px;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-  }
-  
-  div .button-login {
-    background-color: #233dff;
-    color: #fff;
-    border: 2px solid transparent;
-    width: 95px;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-  }
-  
-  .button-daftar:hover {
-    transform: scale(1.1);
-  }
-  
-  .button-login:hover {
-    transform: scale(1.1);
-    background: #233dff;
-  }
-  
-  .button-daftar:focus {
-    outline: none;
-  }
-  
-  .button-login:focus {
-    outline: #233dff;
-  }
+  box-shadow: 0px 13px 40px 0px rgba(176, 176, 176, 0.3);
+  position: relative;
+  width: 100%;
+  background-color: white;
+  position: fixed !important;
+  z-index: 1;
+}
+.navbar .container-fluid {
+  max-width: 1375px;
+  margin: auto;
+}
+.navbar li a {
+  color: #94a8be;
+}
+
+div .button-daftar {
+  border-color: #233dff;
+  color: #233dff;
+  width: 93px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+div .button-login {
+  background-color: #233dff;
+  color: #fff;
+  border: 2px solid transparent;
+  width: 93px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.button-daftar:hover {
+  transform: scale(1.1);
+}
+
+.button-login:hover {
+  transform: scale(1.1);
+  background: #233dff;
+}
+
+.button-daftar:focus {
+  outline: none;
+}
+
+.button-login:focus {
+  outline: #233dff;
+}
+
   /* End Navbar */
 </style>
 
@@ -72,10 +80,14 @@
                 @endif>Beranda</a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">Layanan & Produk</a>
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"  
+                @if ( Route::CurrentRouteName() == "mentoring" ||  Route::CurrentRouteName() == "konseling" )
+                  style="color: #233dff"
+                @endif
+                  href="#">Layanan & Produk</a>
                 <!-- <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button> -->
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Mentoring</a></li>
+                  <li><a class="dropdown-item" href="{{ route('mentoring') }}">Mentoring</a></li>
                   <li><a class="dropdown-item" href="#">Konseling</a></li>
                   <li><a class="dropdown-item" href="#">Profesional Konseling</a></li>
                 </ul>
@@ -95,7 +107,11 @@
                   <li><a class="dropdown-item" href="#"><i class="bi bi-chat-left-fill text-primary"></i> Rekap History</a></li>
                 </ul>
               </li>
-
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('artikel') }}" @if ( Route::CurrentRouteName() == "artikel" || Route::CurrentRouteName() == "artikel.detail")
+                  style="color: #233dff"
+                @endif>Artikel</a>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('tentang-kami') }}" @if ( Route::CurrentRouteName() == "tentang-kami")
                   style="color: #233dff"

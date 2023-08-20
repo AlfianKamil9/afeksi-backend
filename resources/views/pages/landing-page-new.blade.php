@@ -184,7 +184,7 @@
                           Terdapat banyak layanan mentoring, yang meliputi Parenting Mentoring, Pre Marriage Mentoring, dan Relationship Mentoring.
                           Segera pilih layanan mentoring yang kamu minatti !!
                         </p>
-                        <a href="#" class="btn-pilih">Pilih</a>
+                        <a href="{{ route('mentoring') }}" class="btn-pilih">Pilih</a>
                       </div>
                     </div>
                   </div>
