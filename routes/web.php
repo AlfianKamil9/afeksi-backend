@@ -94,3 +94,8 @@ Route::get('/artikel', function () {
 Route::get('/artikel-detail', function () {
     return view('pages.artikel-detail');
 });
+
+// hanya untuk cek tampilan timeline
+Route::get('/horizontal-timeline', function () {
+    return view('partials.horizontal-timeline');
+});
