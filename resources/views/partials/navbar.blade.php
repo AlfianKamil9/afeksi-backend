@@ -27,7 +27,6 @@
 div .button-daftar {
   border-color: #233dff;
   color: #233dff;
-  width: 93px;
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
@@ -94,7 +93,9 @@ div .button-login {
                   <li><a class="dropdown-item" href="#">Something else here</a></li>
                 </ul>
               </li>
-
+              <li class="nav-item">
+                <a class="nav-link" href="#">Artikel</a>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Tentang Kami</a>
               </li>

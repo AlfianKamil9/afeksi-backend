@@ -12,7 +12,7 @@
 @section('content')
 
 <!-- HEADER -->
-<div class="mb-5 bg-transparent text-white overflow-hidden">
+<div class="mb-5 bg-transparent text-white overflow-hidden" style="padding-top:94px;">
     <div class="container-fluid py-5" style="height: 31.9rem">
       <div class="row mt-5 pt-5">
         <div class="col-md">

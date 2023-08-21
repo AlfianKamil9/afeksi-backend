@@ -82,6 +82,10 @@ Route::get('/pendaftaran-konselor', function () {
     return view('pages.pendaftaran-konselor');
 });
 
+Route::get('/detail-pendaftaran-peer', function () {
+    return view('pages.detail-pendaftaran-peer');
+});
+
 Route::get('/internship-uiux', function () {
     return view('pages.internship-uiux');
 });
