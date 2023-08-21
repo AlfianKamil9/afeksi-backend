@@ -11,6 +11,7 @@
   box-shadow: 0px 13px 40px 0px rgba(0, 0, 0, 0.3);
   position: relative;
   width: 100%;
+  padding:0;
   background-color: white;
   position: fixed !important;
   z-index: 1;
