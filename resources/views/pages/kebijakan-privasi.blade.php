@@ -13,7 +13,7 @@
 <!-- HERO
       ================================================================= -->
       <section>
-        <div class="hero d-flex align-items-center">
+        <div class="hero d-flex align-items-center" style="padding-top:94px;">
           <div class="container py-5 my-5">
             <h1 class="display-5 fw-semibold">Kebijakan Privasi AFEKSI</h1>
             <p class="fs-4 mt-5 fw-light">Terakhir Diubah pada 05 Juli 2023</p>

@@ -29,7 +29,7 @@
         @include('partials/navbar')
     @endif
   
-    <div class="pt-5 mt-3">
+    <div class="">
       @yield('content') 
     </div>
 

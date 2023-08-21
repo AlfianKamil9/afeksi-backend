@@ -24,8 +24,8 @@
 @endif --}}
 
 
-<div class="container-lg pt-5 mt-2 px-4">
-    <div class="row align-items-center justify-content-center gap-2">
+<div class="container-lg mt-5 px-4" style="padding-top:94px;">
+    <div class="row align-items-center justify-content-center gap-2" >
       <div class="col-md-5 d-none d-md-inline">
         <img src="assets/img/login-register/loginImg.svg" class="img-fluid align-self-center" alt="Image">
         <div class="heading text-center mt-5">

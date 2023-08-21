@@ -1,10 +1,10 @@
 @extends('../layout')
 
-@section('title', 'junior')
+@section('title', 'junior psikolog')
 
 @section('styles')
-    <link rel="stylesheet" href="/assets/css/junior-psikolog.css">
-    <link rel="stylesheet" href="/assets/css/stepper.css">
+    <link rel="stylesheet" href="assets/css/junior-psikolog.css">
+    <link rel="stylesheet" href="assets/css/stepper.css">
 @endsection
 
 {{-- 
@@ -12,32 +12,35 @@
 
 @section('content')
 <!-- Step -->
+{{-- <<<<<<< HEAD
 <div class="container mt-5 pt-2">
+======= --}}
+<div class="container" style="padding-top:calc(70px + 94px);">
     <div class="position-relative">
       <div class="stepper-wrapper">
-        <div class="stepper-item completed">
+        <div class="stepper-item active">
           <!-- add class COMPLETED to enable checklist -->
           <div class="step-counter">
-            <span class="step-checkmark">✓</span>
+            <span class="step-checkmark">1</span>
           </div>
           <div class="step-name text-center">
             Pilih <br />
             Pengalaman Psikologi
           </div>
         </div>
-        <div class="stepper-item completed">
+        <div class="stepper-item">
           <div class="step-counter">
-            <span class="step-checkmark">✓</span>
+            <span class="step-checkmark">2</span>
           </div>
           <div class="step-name">Pilih Paket</div>
         </div>
-        <div class="stepper-item completed">
+        <div class="stepper-item">
           <div class="step-counter">
-            <span class="step-checkmark">✓</span>
+            <span class="step-checkmark">3</span>
           </div>
           <div class="step-name">Pilih Psikolog</div>
         </div>
-        <div class="stepper-item active">
+        <div class="stepper-item">
           <div class="step-counter">
             <span class="step-checkmark">4</span>
           </div>
@@ -59,7 +62,7 @@
 <div class="container py-5">
 <div class="junior-psikolog-wrapper row align-items-center px-5 mb-5">
     <div class="col-xl-6">
-        <img class="psikolog-img" src="/assets/img/junior-psikolog/junior-psikolog-img.png" alt="">
+        <img class="psikolog-img" src="assets/img/junior-psikolog/junior-psikolog-img.png" alt="">
     </div>
     <div class="col-xl-6 content-wrapper">
         <h3 class="fw-semibold">Psikolog Junior</h3>
@@ -69,7 +72,7 @@
 </div>
 <div class="junior-psikolog-wrapper row align-items-center px-5 mb-5">
     <div class="col-xl-6">
-        <img class="psikolog-img" src="/assets/img/junior-psikolog/junior-psikolog-img.png" alt="">
+        <img class="psikolog-img" src="assets/img/junior-psikolog/junior-psikolog-img.png" alt="">
     </div>
     <div class="col-xl-6 content-wrapper">
         <h3 class="fw-semibold">Psikolog Senior</h3>
@@ -78,6 +81,7 @@
     </div>
 </div>
 </div>
-
 @include('../partials/footer') 
 @endsection
+
+

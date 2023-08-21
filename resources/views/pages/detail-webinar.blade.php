@@ -13,7 +13,7 @@
 
 @section('content')
     {{-- Header --}}
-    <div class="hero webinar" style="background-image: url(../assets/img/kegiatan/Banner.svg)">
+    <div class="hero webinar mt-5" style="background-image: url(../assets/img/kegiatan/Banner.svg)" style="padding-top:94px;">
         <div class="d-flex justify-content-between flex-column flex-lg-row gap-5 text-center text-lg-start">
             <div class="left col-lg-8">
                 <div class="d-flex dflex gap-2 text-white ">

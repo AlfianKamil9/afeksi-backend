@@ -15,7 +15,7 @@
 
 @section('content')
     <!-- Section Hero Content Start -->
-    <section id="title" class="mb-5" style="background-image: url(../assets/img/landingpage/bg.png); background-size: cover">
+    <section id="title" class="mb-5" style="background-image: url(../assets/img/landingpage/bg.png); background-size: cover; padding:94px 0 50px 0;">
         <div class="container px-4 pt-5">
           <div class="row flex-lg-row-reverse align-items-center g-5 pt-5">
             <div class="col-10 col-sm-8 col-lg-6">

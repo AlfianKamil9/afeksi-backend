@@ -11,6 +11,7 @@
   box-shadow: 0px 13px 40px 0px rgba(176, 176, 176, 0.3);
   position: relative;
   width: 100%;
+  padding:0;
   background-color: white;
   position: fixed !important;
   z-index: 1;
@@ -26,7 +27,6 @@
 div .button-daftar {
   border-color: #233dff;
   color: #233dff;
-  width: 93px;
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
@@ -61,7 +61,7 @@ div .button-login {
 <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top" style="z-index: 10000000">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">
-          <img src="/assets/img/logo-copy.png" alt="Logo" class="d-inline-block align-text-top ms-5" style="width:60px;"/>
+          <img src="/assets/img/logo-copy.png" alt="Logo" class="d-inline-block align-text-top ms-5 p-1" style="width:60px;"/>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvas" aria-controls="navbarOffcanvas">
           <span class="navbar-toggler-icon"></span>

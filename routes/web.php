@@ -52,6 +52,7 @@ Route::get('/pendaftaran-konselor', function () {
     return view('pages.pendaftaran-konselor');
 })->name('pendaftaran.konselor');
 
+
 // MENTORING
 Route::get('/mentoring', function () {
     return view('pages.page-mentoring');
@@ -84,6 +85,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 
 
+
 // API CALLBACK
 Route::post('/midtrans/callback', [NotificationPaymentEventController::class, 'callback']);
 Route::get('/midtrans/finish', [NotificationPaymentEventController::class, 'finishRedirect']);
@@ -110,3 +112,11 @@ Route::get('/horizontal-timeline', function () {
 Route::get('/junior', function () {
     return view('pages.junior-psikolog');
 });
+
+Route::get('/junior-psikolog', function () {
+    return view('pages.junior-psikolog');
+});
+Route::get('/popup-informasi', function () {
+    return view('pages.popup-informasi');
+});
+

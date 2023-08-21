@@ -11,7 +11,7 @@
 
 @section('content')
 <!-- HEADER -->
-<div class="mb-5 bg-transparent text-white">
+<div class="mb-5 mt-5 bg-transparent text-white" >
       <div class="container-fluid py-5" style="height: 31.9rem">
         <div class="row mt-5">
           <div class="col-md-6">

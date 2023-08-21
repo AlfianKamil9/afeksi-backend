@@ -14,7 +14,7 @@
  <!-- HEADER -->
  <div class="mb-5 bg-transparent text-white">
       <div class="container-fluid py-5">
-        <div class="row mt-5">
+        <div class="row mt-5 pt-5">
           <div class="col-md-6">
             <h1 class="display-6 fw-bold mb-4">Grow With AFEKSI</h1>
             <p class="fs-5">
@@ -24,7 +24,7 @@
             </p>
           </div>
           <div class="col-md-6 d-flex justify-content-center align-items-center">
-            <img src="assets/img/karir/header.png" alt="Header" class="img-fluid" />
+            <img src="/assets/img/karir/header.png" alt="Header" class="img-fluid" />
           </div>
         </div>
       </div>

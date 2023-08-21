@@ -11,7 +11,7 @@
 
 @section('content')
 
-<div class="contents row">
+<div class="contents row" style="padding-top:94px;">
       <div class="content">
         <img class="mb-2" src="/assets/img/article/contentImg.png" alt="" />
         <div class="title mb-5">

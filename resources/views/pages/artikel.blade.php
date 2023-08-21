@@ -10,7 +10,7 @@
 {{-- @include('../partials/navbar')  --}}
 
 @section('content')
-<div class="contents row">
+<div class="contents row" style="padding-top:94px;">
       <h1 style="color: #233dff">Article</h1>
       <div class="side col-lg-3 col-md-4 mb-5">
         <div class="form-group">

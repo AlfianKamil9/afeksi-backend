@@ -4,7 +4,7 @@
 
 <!-- path style disesuaikan dengan folder css masing-masing page -->
 @section('styles')
-    <link rel="stylesheet" href="assets/css/pendaftaran-konselor.css">
+    <link rel="stylesheet" href="/assets/css/pendaftaran-konselor.css">
 @endsection
 
 {{-- @include('../partials/navbar')  --}}
@@ -12,7 +12,7 @@
 @section('content')
 
  <!-- HEADER -->
- <div class="mb-5 bg-transparent text-white">
+ <div class="mb-5 bg-transparent text-white" style="padding-top:70px;">
       <div class="hero d-flex justify-content-between flex-column flex-lg-row gap-5 text-center text-lg-start">
         <div class="left col-lg-7">
           <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">

@@ -27,6 +27,9 @@
     padding-bottom: 2rem;
     border-bottom: 1px solid #595959;
 }
+/* <<<<<<< HEAD
+.content ul > li {
+======= */
 .content ul > li {
     padding: 8px;
 }

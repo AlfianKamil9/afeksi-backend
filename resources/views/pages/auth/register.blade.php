@@ -10,7 +10,7 @@
 {{-- @include('../partials/navbar')  --}}
 
 @section('content')
-<div class="container-lg pt-5 mt-2 px-4">
+<div class="container-lg mt-3 px-4" style="padding-top:94px;">
     <div class="row align-items-center justify-content-center gap-2">
       <!-- Left Column -->
       <div class="col-md-5 d-none d-md-inline">
