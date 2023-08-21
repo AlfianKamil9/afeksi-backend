@@ -64,7 +64,6 @@ Route::get('/artikel', function () {
 })->name('artikel');
 Route::get('/artikel/detail', function () {
     return view('pages.artikel-detail');
-<<<<<<< HEAD
 })->name('artikel.detail');
 
 
@@ -102,11 +101,12 @@ Route::fallback(function () {
 
 
 
-=======
-});
-
 // hanya untuk cek tampilan timeline
 Route::get('/horizontal-timeline', function () {
     return view('partials.horizontal-timeline');
 });
->>>>>>> db06f14ffba1703db560e8fb27f3f521c83f38cb
+
+// hanya untuk cek tampilan junior
+Route::get('/junior', function () {
+    return view('pages.junior-psikolog');
+});

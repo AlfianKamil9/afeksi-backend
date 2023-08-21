@@ -1,20 +1,18 @@
 @extends('../layout')
 
-@section('title', 'lupa-password')
+@section('title', 'junior')
 
 @section('styles')
-    <link rel="stylesheet" href="assets/css/junior-psikolog.css">
-@endsection
-@section('styles')
-    <link rel="stylesheet" href="assets/css/stepper.css">
+    <link rel="stylesheet" href="/assets/css/junior-psikolog.css">
+    <link rel="stylesheet" href="/assets/css/stepper.css">
 @endsection
 
-
-@include('../partials/navbar') 
+{{-- 
+@include('../partials/navbar')  --}}
 
 @section('content')
 <!-- Step -->
-<div class="container">
+<div class="container mt-5 pt-2">
     <div class="position-relative">
       <div class="stepper-wrapper">
         <div class="stepper-item completed">
@@ -61,7 +59,7 @@
 <div class="container py-5">
 <div class="junior-psikolog-wrapper row align-items-center px-5 mb-5">
     <div class="col-xl-6">
-        <img class="psikolog-img" src="./assets/img/junior-psikolog-img.png" alt="">
+        <img class="psikolog-img" src="/assets/img/junior-psikolog/junior-psikolog-img.png" alt="">
     </div>
     <div class="col-xl-6 content-wrapper">
         <h3 class="fw-semibold">Psikolog Junior</h3>
@@ -71,7 +69,7 @@
 </div>
 <div class="junior-psikolog-wrapper row align-items-center px-5 mb-5">
     <div class="col-xl-6">
-        <img class="psikolog-img" src="./assets/img/junior-psikolog/junior-psikolog/junior-psikolog-img.png" alt="">
+        <img class="psikolog-img" src="/assets/img/junior-psikolog/junior-psikolog-img.png" alt="">
     </div>
     <div class="col-xl-6 content-wrapper">
         <h3 class="fw-semibold">Psikolog Senior</h3>
@@ -80,6 +78,6 @@
     </div>
 </div>
 </div>
-@endsection
 
 @include('../partials/footer') 
+@endsection
