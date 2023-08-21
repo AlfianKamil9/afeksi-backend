@@ -73,3 +73,29 @@ Route::get('/detail-campaign', function () {
 Route::get('/faq-konseling', function () {
     return view('pages.faq-konseling');
 });
+
+Route::get('/karir', function () {
+    return view('pages.karir');
+});
+
+Route::get('/pendaftaran-konselor', function () {
+    return view('pages.pendaftaran-konselor');
+});
+
+Route::get('/internship-uiux', function () {
+    return view('pages.internship-uiux');
+});
+Route::get('/page-mentoring', function () {
+    return view('pages.page-mentoring');
+});
+Route::get('/artikel', function () {
+    return view('pages.artikel');
+});
+Route::get('/artikel-detail', function () {
+    return view('pages.artikel-detail');
+});
+
+// hanya untuk cek tampilan timeline
+Route::get('/horizontal-timeline', function () {
+    return view('partials.horizontal-timeline');
+});

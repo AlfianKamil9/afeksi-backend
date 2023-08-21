@@ -8,50 +8,57 @@
   
   /* NAVBAR */
   .navbar {
-    box-shadow: 0px 13px 40px 0px rgba(0, 0, 0, 0.3); 
-    position: relative;
-    z-index: 1;
-  }
-  .navbar li a {
-    color: #94a8be;
-  }
-  
-  div .button-daftar {
-    border-color: #233dff ;
-    color: #233dff;
-    width: 95px;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-  }
-  
-  div .button-login {
-    background-color: #233dff;
-    color: #fff;
-    border: 2px solid transparent;
-    width: 95px;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-  }
-  
-  .button-daftar:hover {
-    transform: scale(1.1);
-  }
-  
-  .button-login:hover {
-    transform: scale(1.1);
-    background: #233dff;
-  }
-  
-  .button-daftar:focus {
-    outline: none;
-  }
-  
-  .button-login:focus {
-    outline: #233dff;
-  }
+  box-shadow: 0px 13px 40px 0px rgba(0, 0, 0, 0.3);
+  position: relative;
+  width: 100%;
+  background-color: white;
+  position: fixed !important;
+  z-index: 1;
+}
+.navbar .container-fluid {
+  max-width: 1375px;
+  margin: auto;
+}
+.navbar li a {
+  color: #94a8be;
+}
+
+div .button-daftar {
+  border-color: #233dff;
+  color: #233dff;
+  width: 93px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+div .button-login {
+  background-color: #233dff;
+  color: #fff;
+  border: 2px solid transparent;
+  width: 93px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.button-daftar:hover {
+  transform: scale(1.1);
+}
+
+.button-login:hover {
+  transform: scale(1.1);
+  background: #233dff;
+}
+
+.button-daftar:focus {
+  outline: none;
+}
+
+.button-login:focus {
+  outline: #233dff;
+}
   /* End Navbar */
 </style>
 
 <nav class="navbar navbar-expand-md navbar-light">
-      <div class="container-fluid">
+      <div class="container-fluid px-2">
         <a class="navbar-brand" href="#">
           <img src="assets/img/logo.png" alt="Logo" class="d-inline-block align-text-top w-50" />
         </a>
