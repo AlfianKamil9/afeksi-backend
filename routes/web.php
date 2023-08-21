@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\NotificationPaymentEventController;
+use App\Http\Controllers\Artikel\artikelController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Karir\PeerKonselor;
 use App\Http\Controllers\Event\WebinarController;
@@ -59,12 +60,8 @@ Route::get('/mentoring', function () {
 
 
 // ARTIKEL
-Route::get('/artikel', function () {
-    return view('pages.artikel');
-})->name('artikel');
-Route::get('/artikel/detail', function () {
-    return view('pages.artikel-detail');
-})->name('artikel.detail');
+Route::get('/artikel', [artikelController::class, 'index'])->name('artikel');
+Route::get('/artikel/detail/{slug}', [artikelController::class, 'show'])->name('artikel.detail');
 
 
 
