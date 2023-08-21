@@ -59,7 +59,7 @@
           <!-- Modals -->
           <form method="POST" action="/pendaftaran-relationship-konselor/create" enctype="multipart/form-data">
             @csrf
-            <div class="modal fade modal-lg" data-bs-backdrop="static" id="form-pendaftaran-konselor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade modal-lg" data-bs-backdrop="static" id="form-pendaftaran-konselor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 300000000000">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header text-center">

@@ -104,15 +104,11 @@ Route::fallback(function () {
 
 
 // hanya untuk cek tampilan timeline
-Route::get('/horizontal-timeline', function () {
-    return view('partials.horizontal-timeline');
-});
+// Route::get('/horizontal-timeline', function () {
+//     return view('partials.horizontal-timeline');
+// });
 
 // hanya untuk cek tampilan junior
-Route::get('/junior', function () {
-    return view('pages.junior-psikolog');
-});
-
 Route::get('/junior-psikolog', function () {
     return view('pages.junior-psikolog');
 });

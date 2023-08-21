@@ -50,7 +50,7 @@
 
           <button type="button" class="btn btn-primary daftar" data-bs-toggle="modal" data-bs-target="#form-pendaftaran-konselor" data-bs-whatever="@getbootstrap">Daftar Sekarang</button>
           <!-- Modals -->
-          <div class="modal fade modal-lg"  data-bs-backdrop="static" id="form-pendaftaran-konselor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade modal-lg"  data-bs-backdrop="static" id="form-pendaftaran-konselor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 300000000000">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header text-center">
