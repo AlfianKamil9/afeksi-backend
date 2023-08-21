@@ -94,7 +94,9 @@ Route::get('/midtrans/error', [NotificationPaymentEventController::class, 'error
 
 
 require __DIR__ . '/auth.php';
-
+Route::fallback(function () {
+    return view('errors.404'); // Menampilkan halaman 404
+});
 
 
 
