@@ -15,7 +15,10 @@ class DetailPembayaran extends Model
         'pembayaran_layanan_id',
         'tgl_konsultasi',
         'jam_konsultasi',
-        'detail_masalah'
+        'detail_masalah',
+        'kode_bayar_1',
+        'kode_bayar_2',
+        'expired_date'
     ];
 
     public function pembayaran_layanan()

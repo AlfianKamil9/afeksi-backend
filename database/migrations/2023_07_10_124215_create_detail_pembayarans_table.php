@@ -17,6 +17,9 @@ return new class extends Migration
             $table->date('tgl_konsultasi');
             $table->string('jam_konsultasi');
             $table->string('detail_masalah');
+            $table->string('kode_bayar_1')->nullable();
+            $table->string('kode_bayar_2')->nullable();
+            $table->date('expired_date');
             $table->timestamps();
 
             $table->foreign('pembayaran_layanan_id')->references('id')->on('pembayaran_layanans')->onDelete('cascade');

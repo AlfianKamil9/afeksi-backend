@@ -13,6 +13,8 @@ class Psikolog extends Model
     protected $table = 'psikologs';
 
     protected $fillable = [
+        'layanan_non_professionals_id',
+        'professional_conseling_id',
         'nama_psikolog',
         'rating',
         'profil',
@@ -24,5 +26,20 @@ class Psikolog extends Model
     public function webinar_session()
     {
         return $this->belongsTo(EventMaterialSession::class, 'pembicara_id');
+    }
+
+    public function layanan_non_professionals()
+    {
+        return $this->belongsTo(LayananNonProfessional::class, 'layanan_non_professionals_id', 'id');
+    }
+
+    public function profresional_conselings()
+    {
+        return $this->belongsTo(profresional_conseling::class, 'professional_conseling_id', 'id');
+    }
+
+    public function pembayaran_layanans()
+    {
+        return $this->hasMany(PembayaranLayanan::class, 'psikolog_id', 'id');
     }
 }

@@ -11,7 +11,17 @@ class PaketProfesionalConseling extends Model
     private $table = 'paket_profesional_conselings';
     protected $fillable = [
         'nama_paket',
-        'status',
+        'professional_conseling_id',
         'harga',
     ];
+
+    public function professional_conseling_id()
+    {
+        return $this->belongsTo(profresional_conseling::class, 'profesional_conseling_id', 'id_profConseling');
+    }
+
+    public function pembayaran_layanans()
+    {
+        return $this->hasMany(PembayaranLayanan::class, 'paket_professional_conseling_id', 'id');
+    }
 }

@@ -10,10 +10,24 @@ class profresional_conseling extends Model
     use HasFactory;
 
     protected $table = "profresional_conselings";
-    protected $fillable = ["namaPengalaman"];
+    protected $fillable = [
+        'jenis_layanan',
+        "namaPengalaman",
+        'slug'
+    ];
 
-    public function pembayaran_layanan()
+    // public function pembayaran_layanan()
+    // {
+    //     return $this->hasMany(PembayaranLayanan::class);
+    // }
+
+    public function paket_professional_conseling()
     {
-        return $this->hasMany(PembayaranLayanan::class);
+        return $this->hasMany(PaketProfessionalConseling::class, 'professional_conseling_id', 'id_profConseling');
+    }
+
+    public function psikologs()
+    {
+        return $this->hasMany(Psikolog::class, 'professional_conseling_id', 'id');
     }
 }
