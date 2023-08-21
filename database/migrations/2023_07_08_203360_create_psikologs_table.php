@@ -24,7 +24,7 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreign('layanan_non_professionals_id')->references('id')->on('layanan_non_professionals')->onDelete('cascade');
-            $table->foreign('professional_conseling_id')->references('id_profConseling')->on('profresional_conselings')->onDelete('cascade');
+            $table->foreign('professional_conseling_id')->references('id')->on('professional_conselings')->onDelete('cascade');
         });
     }
 

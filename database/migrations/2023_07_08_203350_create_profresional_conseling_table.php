@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('profresional_conselings', function (Blueprint $table) {
-            $table->id('id_profConseling');
+        Schema::create('professional_conselings', function (Blueprint $table) {
+            $table->id('id');
             $table->string('jenis_layanan')->default('KONSELING');
             $table->enum('namaPengalaman', ['Relationship Konseling', 'Quality Gender']);
             $table->timestamps();
