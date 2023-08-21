@@ -71,7 +71,7 @@
 </div>
 <div class="junior-psikolog-wrapper row align-items-center px-5 mb-5">
     <div class="col-xl-6">
-        <img class="psikolog-img" src="./assets/img/junior-psikolog-img.png" alt="">
+        <img class="psikolog-img" src="./assets/img/junior-psikolog/junior-psikolog/junior-psikolog-img.png" alt="">
     </div>
     <div class="col-xl-6 content-wrapper">
         <h3 class="fw-semibold">Psikolog Senior</h3>
