@@ -104,3 +104,6 @@ Route::get('/junior-psikolog', function () {
 Route::get('/popup-informasi', function () {
     return view('pages.popup-informasi');
 });
+Route::get('/pembayaran', function () {
+    return view('pages.pembayaran');
+});

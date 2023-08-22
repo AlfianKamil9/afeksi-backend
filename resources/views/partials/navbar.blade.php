@@ -12,6 +12,7 @@
   position: relative;
   width: 100%;
   padding:0;
+  z-index: 999 !important;
   background-color: white;
   position: fixed !important;
   z-index: 1;
