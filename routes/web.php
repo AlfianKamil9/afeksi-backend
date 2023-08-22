@@ -1,13 +1,16 @@
 <?php
 
-use App\Http\Controllers\API\NotificationPaymentEventController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Karir\Internship;
 use App\Http\Controllers\Karir\PeerKonselor;
+use App\Http\Controllers\Karir\karirController;
 use App\Http\Controllers\Event\WebinarController;
 use App\Http\Controllers\Event\CampaignController;
-use App\Http\Controllers\Karir\Internship;
-use App\Http\Controllers\Karir\karirController;
 use App\Http\Controllers\Karir\RelationshipKonselor;
+use App\Http\Controllers\API\NotificationPaymentEventController;
+use App\Http\Controllers\Transaksi\Layanan\MentoringTransaksiController;
+use App\Http\Controllers\API\KlaimCode;
 
 /*
 |--------------------------------------------------------------------------
@@ -99,7 +102,7 @@ require __DIR__ . '/auth.php';
 Route::fallback(function () {
     return view('errors.404'); // Menampilkan halaman 404
 });
-
+Route::post('/proses', [MentoringTransaksiController::class, 'checkoutLayananNonProfessional']);
 
 
 
@@ -116,6 +119,4 @@ Route::get('/popup-informasi', function () {
     return view('pages.popup-informasi');
 });
 
-Route::get('/pembayaran', function () {
-    return view('pages.pembayaran');
-});
+Route::get('/{ref_transaction_layanan}/pembayaran', [MentoringTransaksiController::class, 'layananNonProfesional']);

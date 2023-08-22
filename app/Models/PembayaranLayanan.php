@@ -41,7 +41,7 @@ class PembayaranLayanan extends Model
         return $this->belongsTo(Conseling::class, 'conseling_id', 'id');
     }
 
-    public function psikolog_id()
+    public function psikolog()
     {
         return $this->belongsTo(Psikolog::class, 'psikolog_id', 'id');
     }
@@ -53,10 +53,10 @@ class PembayaranLayanan extends Model
 
     public function detail_pembayarans()
     {
-        return $this->hasMany(DetailPembayaran::class, 'pembayaran_layanan_id', 'id');
+        return $this->belongsTo(DetailPembayaran::class, 'id');
     }
 
-    public function paket_layanan_non_professionals()
+    public function paket_non_professionals()
     {
         return $this->belongsTo(PaketLayananNonProfessional::class, 'paket_layanan_non_professional_id', 'id');
     }

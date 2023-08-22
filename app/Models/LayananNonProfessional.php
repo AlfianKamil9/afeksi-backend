@@ -19,7 +19,7 @@ class LayananNonProfessional extends Model
 
     public function paket_layanan_non_professionals()
     {
-        return $this->hasMany(PaketLayananNonProfessional::class, 'layanan_non_professionals_id', 'id');
+        return $this->hasMany(PaketLayananNonProfessional::class,'id');
     }
 
     public function psikologs()

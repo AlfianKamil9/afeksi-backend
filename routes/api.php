@@ -17,6 +17,7 @@
 //     Route::post('/logout', [LoginController::class, 'logout']);
 // });
 
+use App\Http\Controllers\API\KlaimCode;
 use App\Models\Event;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Transaksi\Event\WebinarTransaksiController;
@@ -28,3 +29,5 @@ Route::get('tetet', function() {
         ->where('activity_category_event', 'WEBINAR')->orderBy('date_event', 'desc')->get();
     return response($query);
 });
+
+Route::post('/claim-voucher', [KlaimCode::class, 'claim']);
