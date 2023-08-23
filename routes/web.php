@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\KlaimCode;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Controllers\Karir\Internship;
 use App\Http\Controllers\Karir\PeerKonselor;
 use App\Http\Controllers\Karir\karirController;
@@ -10,7 +12,6 @@ use App\Http\Controllers\Event\CampaignController;
 use App\Http\Controllers\Karir\RelationshipKonselor;
 use App\Http\Controllers\API\NotificationPaymentEventController;
 use App\Http\Controllers\Transaksi\Layanan\MentoringTransaksiController;
-use App\Http\Controllers\API\KlaimCode;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,9 @@ use App\Http\Controllers\API\KlaimCode;
 
 // BERANDA
 Route::get('/', function () {
+    // $va = "25275426";
+    // $t = "Silahkan lengkapi Pembayaran and melalui<br> Bank BNI VA = 25275426";
+    // Alert::alert()->html('<h3 class="fw-bold">VA BNI = '.$va.'</h3>',$t)->persistent(true,false)->hideCloseButton();
     return view('pages.landing-page-new');
 })->name('homepage');
 
@@ -84,6 +88,17 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/internship/{slug}', [Internship::class, 'show'])->name('internship.detail');
     Route::post('/Registerinternship', [Internship::class, 'store'])->name('internship.register');
 
+
+
+
+    // MENTORING LAYANAN
+    // ISI FORM DATA DIRI KHUSUS MENTORING 
+    Route::get('/slug-mentoring-yg-dipilih/{ref_transaction_layanan}/data-diri', [MentoringTransaksiController::class, 'showFormDataDiri'])->name('form.datadiri.mentoring');
+    Route::post('/slug-mentoring-yg-dipilih/{ref_transaction_layanan}/submit-form-mentoring', [MentoringTransaksiController::class, 'submitFormDataDiri'])->name('submit.form.datadiri.mentoring');
+    // CHECKOUT KHUSUS MENTORING
+    Route::get('/slug-mentoring-yg-dipilih/{ref_transaction_layanan}/pembayaran', [MentoringTransaksiController::class, 'layananNonProfesional'])->name('checkout.layanan.mentoring');
+    Route::post('/slug-mentoring-yg-dipilih/{ref_transaction_layanan}/checkout', [MentoringTransaksiController::class, 'checkoutLayananNonProfessional']);
+
 });
 
 
@@ -102,7 +117,7 @@ require __DIR__ . '/auth.php';
 Route::fallback(function () {
     return view('errors.404'); // Menampilkan halaman 404
 });
-Route::post('/proses', [MentoringTransaksiController::class, 'checkoutLayananNonProfessional']);
+
 
 
 
@@ -118,14 +133,6 @@ Route::get('/junior-psikolog', function () {
 Route::get('/popup-informasi', function () {
     return view('pages.popup-informasi');
 });
-<<<<<<< HEAD
 
-Route::get('/{ref_transaction_layanan}/pembayaran', [MentoringTransaksiController::class, 'layananNonProfesional']);
-=======
-Route::get('/pembayaran', function () {
-    return view('pages.pembayaran');
-});
-Route::get('/data-diri', function () {
-    return view('pages.data-diri');
-});
->>>>>>> da23543b7981144be5cea493b134be6ce7c8a2f6
+
+

@@ -2,6 +2,8 @@
 
 namespace App\Services\Midtrans\PembayaranEvent;
 
+use Illuminate\Support\Facades\Auth;
+
 class TransferBankService
 {
 
@@ -21,10 +23,9 @@ class TransferBankService
                     "bank"  => $method
                 ],
             "customer_details"  => [
-                    "email"  => "noreply@example.com",
-                    "first_name" => "budi",
-                    "last_name" => "utomo",
-                    "phone"=> "+6281 1234 1234"
+                    "email"  => Auth::user()->email,
+                    "first_name" => Auth::user()->nama,
+                    "phone"=> Auth::user()->no_whatsapp
                 ]
             ];
         //dd($body);
@@ -73,10 +74,9 @@ class TransferBankService
                 "bill_info2" => "Online purchase"
                 ],
             "customer_details"  => [
-                    "email"  => "noreply@example.com",
-                    "first_name" => "budi",
-                    "last_name" => "utomo",
-                    "phone"=> "+6281 1234 1234"
+                    "email"  => Auth::user()->email,
+                    "first_name" => Auth::user()->nama,
+                    "phone"=> Auth::user()->no_whatsapp
                 ]
             ];
         
@@ -120,10 +120,9 @@ class TransferBankService
                 "gross_amount"  => $total_amount
                 ],
             "customer_details"  => [
-                    "email"  => "noreply@example.com",
-                    "first_name" => "budi",
-                    "last_name" => "utomo",
-                    "phone"=> "+6281 1234 1234"
+                    "email"  => Auth::user()->email,
+                    "first_name" => Auth::user()->nama,
+                    "phone"=> Auth::user()->no_whatsapp
                 ]
             ];
         

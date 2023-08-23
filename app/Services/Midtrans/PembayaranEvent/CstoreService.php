@@ -2,6 +2,8 @@
 
 namespace App\Services\Midtrans\PembayaranEvent;
 
+use Illuminate\Support\Facades\Auth;
+
 class CstoreService
 {
     public function alfamart($method,$data) {
@@ -20,11 +22,11 @@ class CstoreService
               "store" => $method,
               "alfamart_free_text_1"=> $data['pesan'],
             ],
-            "customer_details"  => [
-                "email"  => $data['email'],
-                "first_name" => $data['nama'],
-                "phone"=> $data['no_tlpn']
-            ]
+           "customer_details"  => [
+                    "email"  => Auth::user()->email,
+                    "first_name" => Auth::user()->nama,
+                    "phone"=> Auth::user()->no_whatsapp
+                ]
             ];
             $curl = curl_init();
             curl_setopt_array($curl, array(
@@ -71,10 +73,10 @@ class CstoreService
               "store" => $method,
             ],
             "customer_details"  => [
-                "email"  => $data['email'],
-                "first_name" => $data['nama'],
-                "phone"=> $data['no_tlpn'],
-            ]
+                    "email"  => Auth::user()->email,
+                    "first_name" => Auth::user()->nama,
+                    "phone"=> Auth::user()->no_whatsapp
+                ]
           
             ];
             // dd($dataCStore);

@@ -347,7 +347,7 @@
       <!-- Section Tanya Admin End -->
     </main>
 
-
+@include('sweetalert::alert')
 @include('../partials/footer') 
 
 @section('script')

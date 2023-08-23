@@ -51,21 +51,21 @@ var data = [
         children: [
             {
                 value: "gopay",
-                id: 8,
+                id: 7,
                 selected: false,
                 text: "Gopay",
                 image: "/assets/img/pembayaran/gopay.svg",
             },
             {
                 value: "qris",
-                id: 9,
+                id: 8,
                 selected: false,
                 text: "QRIS",
                 image: "/assets/img/pembayaran/qris.svg",
             },
             {
                 value: "shopeepay",
-                id: 10,
+                id: 9,
                 selected: false,
                 text: "Shopee Pay",
                 image: "/assets/img/pembayaran/shoopepay.svg",
@@ -77,14 +77,14 @@ var data = [
         children: [
             {
                 value: "indomaret",
-                id: 11,
+                id: 10,
                 selected: false,
                 text: "Indomaret",
                 image: "/assets/img/pembayaran/indomaret.svg",
             },
             {
                 value: "alfamart",
-                id: 12,
+                id: 11,
                 selected: false,
                 text: "Alfamart",
                 image: "/assets/img/pembayaran/alfamart.svg",

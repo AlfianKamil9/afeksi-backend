@@ -3,6 +3,7 @@
 namespace App\Services\Midtrans\PembayaranEvent;
 
 use \Midtrans\Config;
+use Illuminate\Support\Facades\Auth;
 
 class EwalletService
 {
@@ -24,11 +25,10 @@ class EwalletService
                 "gross_amount"  => $total_amount
             ],
             "customer_details"  => [
-                "email"  => "noreply@example.com",
-                "first_name" => "budi",
-                "last_name" => "utomo",
-                "phone" => "+6281 1234 1234"
-            ]
+                    "email"  => Auth::user()->email,
+                    "first_name" => Auth::user()->nama,
+                    "phone"=> Auth::user()->no_whatsapp
+                ]
         ];
 
         $curl = curl_init();
@@ -71,11 +71,10 @@ class EwalletService
                 "gross_amount"  => $total_amount
             ],
             "customer_details"  => [
-                "email"  => "noreply@example.com",
-                "first_name" => "budi",
-                "last_name" => "utomo",
-                "phone" => "+6281 1234 1234"
-            ],
+                    "email"  => Auth::user()->email,
+                    "first_name" => Auth::user()->nama,
+                    "phone"=> Auth::user()->no_whatsapp
+                ],
             "qris" => [
                 "acquirer" => "gopay"
             ]
@@ -129,12 +128,11 @@ class EwalletService
                     "name" => $data['title_event']
                 ]
             ],
-            "customer_details"  => [
-                "email"  => "noreply@example.com",
-                "first_name" => "budi",
-                "last_name" => "utomo",
-                "phone" => "+6281 1234 1234"
-            ],
+           "customer_details"  => [
+                    "email"  => Auth::user()->email,
+                    "first_name" => Auth::user()->nama,
+                    "phone"=> Auth::user()->no_whatsapp
+                ],
             "shopeepay" => [
                 "callback_url" => "https://midtrans.com/"
             ]
