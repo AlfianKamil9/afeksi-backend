@@ -11,8 +11,12 @@
 
 @section('content')
 
+{{-- <<<<<<< HEAD
 <div class="hero campaign mt-5" style="background-image: url(assets/img/kegiatan/Banner.svg)" style="padding-top:94px;">
       <div class="d-flex justify-content-between flex-column flex-lg-row gap-5 text-center text-lg-start">
+======= --}}
+<div class="hero campaign" style="background-image: url(assets/img/kegiatan/Banner.svg)">
+      <div class="d-flex pt-5 mt-5 justify-content-between flex-column flex-lg-row gap-5 text-center text-lg-start">
         <div class="left col-lg-5">
           <div class="dflex gap-2 text-white">
             <p>Kegiatan</p>
