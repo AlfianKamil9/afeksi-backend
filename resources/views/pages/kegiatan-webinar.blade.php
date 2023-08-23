@@ -11,7 +11,7 @@
 
 @section('content')
 
-<<<<<<< HEAD
+
 {{-- Banner --}}
 <div class="hero mt-5" style="background-image: url(assets/img/kegiatan/Banner.svg)" style="padding-top:94px;">
         <div class="d-flex justify-content-between flex-column flex-lg-row gap-5 text-center text-lg-start">
@@ -32,23 +32,6 @@
             <div class="right col-lg-6 ">
                 <img src="assets/img/kegiatan/Hero.svg" />
             </div>
-=======
-<div class="hero" style="background-image: url(assets/img/kegiatan/Banner.svg)">
-      <div class="d-flex pt-5 mt-5 justify-content-between flex-column flex-lg-row gap-5 text-center text-lg-start">
-        <div class="left col-lg-6">
-          <div class="dflex text-white ">
-            <p>Kegiatan</p>
-            <p><img src="assets/img/kegiatan/Vector (6).png" class="img-fluid"  alt="" /></p>
-            <p>Webinar</p>
-          </div>
-          <div class="text text-white mt-5">
-            <h1 class="mb-4" >Temukan beragam webinar menarik dan bermanfaat dari Afeksi</h1>
-            <p>
-              Jangan lewatkan kesempatan untuk belajar dari para ahli, mendapatkan wawasan baru, dan berinteraksi dengan orang-orang lain yang
-              memiliki minat yang sama. Bersama-sama, mari kita bangun hubungan yang lebih mendalam, intim, dan penuh makna!
-            </p>
-          </div>
->>>>>>> 19b23fa2e5910484c1984f130ee76dbd7a2e4d94
         </div>
     </div>
 
