@@ -118,5 +118,14 @@ Route::get('/junior-psikolog', function () {
 Route::get('/popup-informasi', function () {
     return view('pages.popup-informasi');
 });
+<<<<<<< HEAD
 
 Route::get('/{ref_transaction_layanan}/pembayaran', [MentoringTransaksiController::class, 'layananNonProfesional']);
+=======
+Route::get('/pembayaran', function () {
+    return view('pages.pembayaran');
+});
+Route::get('/data-diri', function () {
+    return view('pages.data-diri');
+});
+>>>>>>> da23543b7981144be5cea493b134be6ce7c8a2f6
