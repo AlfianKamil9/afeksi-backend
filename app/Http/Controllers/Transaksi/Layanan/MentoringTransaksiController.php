@@ -154,7 +154,7 @@ class MentoringTransaksiController extends Controller
 
             return redirect('/'.$ref_transaction_layanan.'/notification/success')
             ->with([
-                'point' => true,
+                'popupAfterMentoring' => true,
                 'kode' => $va,
                 'pesan' => $pesan 
             ]);
@@ -167,6 +167,7 @@ class MentoringTransaksiController extends Controller
     public function klasifikasiPaymentMethod ($bank, $ref) {
         $tabelPembayaran = PembayaranLayanan::where('ref_transaction_layanan', $ref)->pluck('id')->first();
 
+         // -----------------BNI, BRI, BCA, CIMB----------------------- //
         if ($bank == 'bni' || $bank == 'bri' ||$bank == 'bca' || $bank == 'cimb' ) {
                 $data = PembayaranLayanan::with('user', 'paket_non_professionals.layanan_non_professionals', 'psikolog', 'detail_pembayarans')->where('ref_transaction_layanan', $ref)->first();
                 $data = [
@@ -207,6 +208,7 @@ class MentoringTransaksiController extends Controller
                 return $responData;
         } 
 
+         // -----------------MANDIRI----------------------- //
         else if ($bank == "mandiri") {
                 $data = PembayaranLayanan::with('user', 'paket_non_professionals.layanan_non_professionals', 'psikolog', 'detail_pembayarans')->where('ref_transaction_layanan', $ref)->first();
                 $data = [
@@ -251,6 +253,7 @@ class MentoringTransaksiController extends Controller
 
         }
 
+         // -----------------PERMATA----------------------- //
         else if ($bank == "permata") {
                 $data = PembayaranLayanan::with('user', 'paket_non_professionals.layanan_non_professionals', 'psikolog', 'detail_pembayarans')->where('ref_transaction_layanan', $ref)->first();
                 $data = [
@@ -289,8 +292,9 @@ class MentoringTransaksiController extends Controller
                     "va_transfer" =>  $res["permata_va_number"]
                 ];
                 return $responData;
-
         }
+
+        // -----------------INDOMARET----------------------- //
         else if ($bank == "indomaret") {
                 $data = PembayaranLayanan::with('user', 'paket_non_professionals.layanan_non_professionals', 'psikolog', 'detail_pembayarans')->where('ref_transaction_layanan', $ref)->first();
                 $data = [
@@ -331,6 +335,8 @@ class MentoringTransaksiController extends Controller
                 ];
                 return $responData;
         }
+
+         // -----------------ALFAMART----------------------- //
         else if($bank == "alfamart") {
                 $data = PembayaranLayanan::with('user', 'paket_non_professionals.layanan_non_professionals', 'psikolog', 'detail_pembayarans')->where('ref_transaction_layanan', $ref)->first();
                 $data = [

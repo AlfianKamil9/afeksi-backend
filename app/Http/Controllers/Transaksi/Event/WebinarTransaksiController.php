@@ -20,7 +20,7 @@ class WebinarTransaksiController extends Controller
             "payment_method" => 'required',
             "reference" => 'required',
         ]);
-        // dd($request->all());
+        //dd($request->all());
 
         // CEK VALIDASI INPUTAN
         if ($validator->fails()) {
@@ -42,12 +42,12 @@ class WebinarTransaksiController extends Controller
                     "no_tlpn" => $data->user->no_whatsapp
                 ];
                 
+                // $result = new TransferBankService();
+                // $res = $result->bank($request->payment_method, $data);
+                
                 $result = new TransferBankService();
                 $res = $result->bank($request->payment_method, $data);
-                // dd($res);
-
-            $result = new TransferBankService();
-            $res = $result->bank($request->payment_method, $data);
+                dd($data);
 
             //CEK KODE RESPON
             if ($res["status_code"] != 201) {

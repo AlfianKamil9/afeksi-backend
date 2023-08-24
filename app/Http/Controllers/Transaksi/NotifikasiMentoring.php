@@ -11,11 +11,11 @@ class NotifikasiMentoring extends Controller
 {
     public function index($ref_transaction_layanan) {
         
-        if (session()->has('point')) {
+        if (session()->has('popupAfterMentoring')) {
             Alert::alert()->html(session('kode'), session('pesan'))->persistent(true,false);
+            $cekSlug = PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->where('status', 'PENDING')->firstOrFail();
         }
 
-        $cekSlug = PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->where('status', 'PENDING')->firstOrFail();
         if (!$cekSlug) {
             return redirect('/error');
         }
