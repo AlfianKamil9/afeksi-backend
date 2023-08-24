@@ -15,13 +15,17 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\PaketLayananNonProfessional;
 use App\Http\Controllers\Transaksi\PaymentMethod;
 use App\Services\Midtrans\PembayaranEvent\CstoreService;
+use App\Services\Midtrans\PembayaranEvent\EwalletService;
 use App\Services\Midtrans\PembayaranEvent\TransferBankService;
 
 class MentoringTransaksiController extends Controller
 {
     // Menampilkan Halaman Data Diri 
-    public function showFormDataDiri() {
-        return view('pages.LayananMentoring.data-diri');
+    public function showFormDataDiri($ref_transaction_layanan) {
+        $set = PembayaranLayanan::where("ref_transaction_layanan", $ref_transaction_layanan)->where('status', 'UNPAID')->firstOrFail();
+        if($set) {
+            return view('pages.LayananMentoring.data-diri');
+        }
     }
 
     // Input data diri dan masukkan ke tabel user bagi fielad yang masih kosong dan ke tabel detailTransaksi  layanan
@@ -152,6 +156,35 @@ class MentoringTransaksiController extends Controller
             $va =   '<h6 style="text-transform:uppercase;">'.$bank.' Kode Pembayaran = '.$getData->kode_bayar_1.'</h6>';
             $pesan = "Silahkan Lengkapi Pembayaran Sebelum <br><strong>".$getData2->updated_at->addDay(1)->format('l, d M Y')."</strong> pukul </strong>".$getData->updated_at->format('H:i')."</strong>";
 
+            return redirect('/'.$ref_transaction_layanan.'/notification/success')
+            ->with([
+                'popupAfterMentoring' => true,
+                'kode' => $va,
+                'pesan' => $pesan 
+            ]);
+        }
+         // ---------###############---------------
+        else if ($bank == 'shopeepay') {
+            $getData = DetailPembayaran::where('pembayaran_layanan_id', $id)->first();
+            $getData2 = PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->first();
+            $va =   '<center><a style="text-transform:uppercase;" href="'.$getData->kode_bayar_1.'" class="btn btn-primary">Bayar Sekarang</a></center>';
+            $pesan = "Silahkan Lengkapi Pembayaran Sebelum <br><strong>".$getData2->updated_at->format('l, d M Y')."</strong> pukul </strong>".$getData->updated_at->addMinutes(15)->format('H:i')."</strong>";
+            return redirect('/'.$ref_transaction_layanan.'/notification/success')
+            ->with([
+                'popupAfterMentoring' => true,
+                'kode' => $va,
+                'pesan' => $pesan 
+            ]);
+        }
+        // --------------################-------------
+        else if ($bank == 'gopay') {
+            // <img src="'.$getData->kode_bayar_2.'" width="75px" alt="Kode_Pembayaran">
+            $getData = DetailPembayaran::where('pembayaran_layanan_id', $id)->first();
+            $getData2 = PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->first();
+            $va =   '<center>
+                        <a style="text-transform:uppercase;" href="'.$getData->kode_bayar_1.'"  class="btn btn-primary">Bayar Sekarang</a>
+                    </center>';
+            $pesan = "Silahkan Lengkapi Pembayaran Sebelum <br><strong>".$getData2->updated_at->format('l, d M Y')."</strong> pukul </strong>".$getData->updated_at->addMinutes(15)->format('H:i')."</strong>";
             return redirect('/'.$ref_transaction_layanan.'/notification/success')
             ->with([
                 'popupAfterMentoring' => true,
@@ -377,11 +410,79 @@ class MentoringTransaksiController extends Controller
         }
         
         else if ($bank == "gopay") {
-            # code...
-        } 
+                $data = PembayaranLayanan::with('user', 'paket_non_professionals.layanan_non_professionals', 'psikolog', 'detail_pembayarans')->where('ref_transaction_layanan', $ref)->first();
+                $data = [
+                    "reference" => $ref,
+                    "harga_event" => $data->paket_non_professionals->harga,
+                    "nama"  => $data->user->nama,
+                    "email"  => $data->user->email,
+                    "no_tlpn" => $data->user->no_whatsapp,
+                ];
 
-        else if ($bank == "shoppepay") {
-            # code...
+                $result = new EwalletService();
+                $res = $result->gopay($bank, $data);
+                //CEK KODE RESPON
+                if ($res["status_code"] != 201 ) {
+                    return response()->json($res);
+                }
+                //CEK RESPON ORDER
+                if ($res["order_id"] != $data["reference"]) {
+                    return response()->json(["message" => "Sorry, Yor Order Id and not valid"]);
+                }
+                PembayaranLayanan::where('ref_transaction_layanan', $res["order_id"])->update([
+                    "payment_method" => $bank,
+                    "total_payment" => $res["gross_amount"],
+                    "fee_transaksi" => 4000,
+                    "status" => "PENDING",
+                    "updated_at" => $res["transaction_time"]
+                ]);
+                DetailPembayaran::where('pembayaran_layanan_id', $tabelPembayaran)->update([
+                    "kode_bayar_1" => $res["actions"][1]['url'],
+                    "kode_bayar_2" => $res["actions"][0]['url'],
+                ]);
+                $responData = [
+                    "message" =>  $res["status_message"],
+                ];
+                return $responData;
+        } 
+        // ----------------------------SHOPPE-PAY---------------------
+        else if ($bank == "shopeepay") {
+                $data = PembayaranLayanan::with('user', 'paket_non_professionals.layanan_non_professionals', 'psikolog', 'detail_pembayarans')->where('ref_transaction_layanan', $ref)->first();
+                $data = [
+                    "reference" => $ref,
+                    "harga_event" => $data->paket_non_professionals->harga,
+                    "nama"  => $data->user->nama,
+                    "email"  => $data->user->email,
+                    "no_tlpn" => $data->user->no_whatsapp,
+                    "event_id" => $data->id,
+                    "title_event" => "Pembayaran Layanan Mentoring Afeksi"
+                ];
+
+                $result = new EwalletService();
+                $res = $result->shopeePay($bank, $data);
+                //CEK KODE RESPON
+                if ($res["status_code"] != 201 ) {
+                    return response()->json($res);
+                }
+                //CEK RESPON ORDER
+                if ($res["order_id"] != $data["reference"]) {
+                    return response()->json(["message" => "Sorry, Yor Order Id and not valid"]);
+                }
+                // insert db
+                PembayaranLayanan::where('ref_transaction_layanan', $res["order_id"])->update([
+                    "payment_method" => $bank,
+                    "total_payment" => $res["gross_amount"],
+                    "fee_transaksi" => 4000,
+                    "status" => "PENDING",
+                    "updated_at" => $res["transaction_time"]
+                ]);
+                DetailPembayaran::where('pembayaran_layanan_id', $tabelPembayaran)->update([
+                    "kode_bayar_1" => $res["actions"][0]['url'],
+                ]);
+                $responData = [
+                    "message" =>  $res["status_message"],
+                ];
+                return $responData;
         }
     }
 }

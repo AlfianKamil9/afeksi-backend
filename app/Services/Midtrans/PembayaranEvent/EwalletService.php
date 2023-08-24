@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class EwalletService
 {
-    public function gopay($data, $method)
+    public function gopay($method, $data)
     {
         $serverkey = config('midtrans.midtrans.server_key');
         // dd($serverkey);
@@ -25,10 +25,14 @@ class EwalletService
                 "gross_amount"  => $total_amount
             ],
             "customer_details"  => [
-                    "email"  => Auth::user()->email,
-                    "first_name" => Auth::user()->nama,
-                    "phone"=> Auth::user()->no_whatsapp
-                ]
+                "email"  => Auth::user()->email,
+                "first_name" => Auth::user()->nama,
+                "phone"=> Auth::user()->no_whatsapp
+            ],
+            "gopay" => [
+                'enable_callback' => true,         // optional
+                'callback_url' => env('URL_WEB')   // optional
+            ]
         ];
 
         $curl = curl_init();
@@ -57,7 +61,7 @@ class EwalletService
         return $response ?: $err;
     }
 
-    public function qris($data, $method)
+    public function qris($method, $data)
     {
         $serverkey = config('midtrans.midtrans.server_key');
         $serverBase64 = base64_encode($serverkey . ':');
@@ -71,10 +75,13 @@ class EwalletService
                 "gross_amount"  => $total_amount
             ],
             "customer_details"  => [
-                    "email"  => Auth::user()->email,
-                    "first_name" => Auth::user()->nama,
-                    "phone"=> Auth::user()->no_whatsapp
-                ],
+                // "email"  => Auth::user()->email,
+                // "first_name" => Auth::user()->nama,
+                // "phone"=> Auth::user()->no_whatsapp
+                "email"  => 'rifqialfiansyah@student.ac.id',
+                "first_name" => 'rifqi alfian',
+                "phone"=> '089798686863'
+            ],
             "qris" => [
                 "acquirer" => "gopay"
             ]
@@ -107,7 +114,7 @@ class EwalletService
         return $response ?: $err;
     }
 
-    public function shopeePay($data, $method)
+    public function shopeePay($method, $data)
     {
         $serverkey = config('midtrans.midtrans.server_key');
         $serverBase64 = base64_encode($serverkey . ':');
@@ -128,13 +135,13 @@ class EwalletService
                     "name" => $data['title_event']
                 ]
             ],
-           "customer_details"  => [
+            "customer_details"  => [
                     "email"  => Auth::user()->email,
                     "first_name" => Auth::user()->nama,
                     "phone"=> Auth::user()->no_whatsapp
                 ],
             "shopeepay" => [
-                "callback_url" => "https://midtrans.com/"
+                "callback_url" => env('URL_WEB')
             ]
         ];
         // dd($body);

@@ -30,12 +30,12 @@ use App\Http\Controllers\Transaksi\NotifikasiMentoring;
 
 // BERANDA
 Route::get('/', function () {
-    $bank = "bni";
-    $getData = DetailPembayaran::where('pembayaran_layanan_id', 1)->first();
-    $va = '<a href="https://api.midtrans.com/v2/gopay/e48447d1-cfa9-4b02-b163-2e915d4417ac/qr-code"><img height="100px" src="https://api.midtrans.com/v2/gopay/e48447d1-cfa9-4b02-b163-2e915d4417ac/qr-code"></a>
-    <h3 style="text-transform:uppercase;">'.$bank.' VA = '.$getData->kode_bayar_1.'</h3>';
-    alert()->html($va,"Silahkan Lengkapi Pembayaran Sebelum <br><strong>".$getData->updated_at->addDay(1)->format('l, d M Y')." pukul ".$getData->updated_at->format('H:i')."</strong>");
-    // //Alert::success('SuccessAlert','Lorem ipsum dolor sit amet.')->persistent(true,false);
+    // $bank = "bni";
+    // $getData = DetailPembayaran::where('pembayaran_layanan_id', 1)->first();
+    // $va = '<a href="https://api.midtrans.com/v2/gopay/e48447d1-cfa9-4b02-b163-2e915d4417ac/qr-code"><img height="100px" src="https://api.midtrans.com/v2/gopay/e48447d1-cfa9-4b02-b163-2e915d4417ac/qr-code"></a>
+    // <h3 style="text-transform:uppercase;">'.$bank.' VA = '.$getData->kode_bayar_1.'</h3>';
+    // alert()->html($va,"Silahkan Lengkapi Pembayaran Sebelum <br><strong>".$getData->updated_at->addDay(1)->format('l, d M Y')." pukul ".$getData->updated_at->format('H:i')."</strong>");
+    // // //Alert::success('SuccessAlert','Lorem ipsum dolor sit amet.')->persistent(true,false);
     return view('pages.landing-page-new');
 })->name('homepage');
 
@@ -89,12 +89,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // PENDAFTARAN INTERNSHIP
     Route::get('/internship/{slug}', [Internship::class, 'show'])->name('internship.detail');
     Route::post('/Registerinternship', [Internship::class, 'store'])->name('internship.register');
-
-
+    //PENDAFTARAN WEBINAR
+    Route::post('/kegiatan-webinar/{slug}', [WebinarController::class, 'store'])->name('daftar-webinar');
 
 
     // MENTORING LAYANAN
-    // ISI FORM DATA DIRI KHUSUS MENTORING 
+    // ISI FORM DATA DIRI KHUSUS MENTORING
     Route::get('/slug-mentoring-yg-dipilih/{ref_transaction_layanan}/data-diri', [MentoringTransaksiController::class, 'showFormDataDiri'])->name('form.datadiri.mentoring');
     Route::post('/slug-mentoring-yg-dipilih/{ref_transaction_layanan}/submit-form-mentoring', [MentoringTransaksiController::class, 'submitFormDataDiri'])->name('submit.form.datadiri.mentoring');
     // CHECKOUT KHUSUS MENTORING
@@ -134,9 +134,8 @@ Route::fallback(function () {
 Route::get('/junior-psikolog', function () {
     return view('pages.junior-psikolog');
 });
-// Route::get('/popup-informasi', function () {
-//     return view('pages.popup-informasi');
-// });
 
-
+Route::get('/popup-informasi', function () {
+    return view('pages.popup-informasi');
+});
 

@@ -247,7 +247,8 @@ class WebinarTransaksiController extends Controller
             // dd($data);
 
             $result = new EwalletService();
-            $res = $result->qris($data, $request->payment_method);
+            $res = $result->qris($request->payment_method, $data);
+            return response($res);
 
             //CEK KODE RESPON
             if ($res["status_code"] != 201) {
@@ -304,7 +305,7 @@ class WebinarTransaksiController extends Controller
                 "status" => "PENDING",
                 "updated_at" => $res["transaction_time"]
             ]);
-            dd($res);
+           // dd($res);
             return response()->json([
                 "message" =>  $res["status_message"],
                 "actions" => $res['actions']
@@ -328,7 +329,7 @@ class WebinarTransaksiController extends Controller
 
             $result = new EwalletService();
             $res = $result->shopeePay($data, $request->payment_method);
-
+            //return response($res, 201);
             //CEK KODE RESPON
             if ($res["status_code"] != 201) {
                 return response()->json($res);

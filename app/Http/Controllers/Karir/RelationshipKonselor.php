@@ -39,9 +39,9 @@ class RelationshipKonselor extends Controller
             'instansi' => 'required',
             'divisi' => 'required',
             'alasan' => 'required',
-            'bukti_follow' => 'required|file|max:10240', // Max size 2MB
-            'cv' => 'required|file|max:10240', // Max size 2MB
-            'portofolio' => 'nullable|file|max:10240', // Max size 2MB
+            'bukti_follow' => 'required|file|max:2048',
+            'cv' => 'required|file|max:10240',
+            'portofolio' => 'nullable|file|max:10240',
         ]);
         // if ($request->file('cv')) {
         //     $validatedData['cv'] = $request->file('cv')->store('pdf');
@@ -58,7 +58,7 @@ class RelationshipKonselor extends Controller
         $jenisKelamin = $user->jenisKelamin ?: $request->input('jenisKelamin');
 
         $buktiFollowPath = $validatedData['bukti_follow']->store('konselor/relationship/bukti_follow', 'public');
-        $cvPath = $validatedData['cv']->store('konselor/relationship/cv', 'public'); 
+        $cvPath = $validatedData['cv']->store('konselor/relationship/cv', 'public');
 
         $portofolioPath = null;
         if ($request->hasFile('portofolio')) {

@@ -37,9 +37,9 @@ class PeerKonselor extends Controller
             'instansi' => 'required',
             'divisi' => 'required',
             'alasan' => 'required',
-            'bukti_follow' => 'required|file|max:10240', // Max size 2MB
-            'cv' => 'required|file|max:10240', // Max size 2MB
-            'portofolio' => 'nullable|file|max:10240', // Max size 2MB
+            'bukti_follow' => 'required|file|max:2048',
+            'cv' => 'required|file|max:10240',
+            'portofolio' => 'nullable|file|max:10240',
         ]);
 
         $user = auth()->user();
@@ -67,6 +67,7 @@ class PeerKonselor extends Controller
             'portofolio' => $portofolioPath,
             'type' => 'peer', //Peer Konselor
         ];
+
         $user_update =[
             'no_whatsapp' => $nohp,
             'jenisKelamin' => $jenisKelamin,

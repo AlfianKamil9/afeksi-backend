@@ -20,10 +20,10 @@ class EventTransaction extends Model
         'fee_transaction',
         'date_order',
         'status',
-        'info_from',
-        'proof_follow_ig',
-        'proof_follow_linkdin',
-        'proof_share_poster',
+        'info',
+        'bukti_follow',
+        'bukti_linkedin',
+        'bukti_share',
     ];
 
     protected $guarded = [

@@ -1,13 +1,11 @@
 <?php
-
 namespace App\Http\Controllers\Event;
-
 use Carbon\Carbon;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
-
+use App\Models\EventTransaction;
+use App\Models\User;
 class WebinarController extends Controller
 {
     /**
@@ -18,12 +16,10 @@ class WebinarController extends Controller
         $query = Event::with('webinar_session.pembicara')
         ->where('activity_category_event', 'WEBINAR')->orderBy('date_event', 'desc');
 
-
         // Filter using input type text
         if ($request->has('input_search')) {
             $query->where('title_event', 'like', '%' . $request->input('input_search') . '%');
         }
-
         // Filter by date using dropdown
         $dateFilter = $request->input('sort_date');
         if ($dateFilter === 'latest') {
@@ -31,7 +27,6 @@ class WebinarController extends Controller
         } elseif ($dateFilter === 'oldest') {
             $query->orderBy('date_event', 'asc');
         }
-
         // Filter by minimum and maximum price using input fields
         $minPrice = $request->input('min_price');
         $maxPrice = $request->input('max_price');
@@ -41,38 +36,31 @@ class WebinarController extends Controller
         if ($maxPrice !== null) {
             $query->where('price_event', '<=', $maxPrice);
         }
-
         // filter by category_event_id using checkbox
         if ($request->has('category_event_id')) {
             $query->where('category_event_id', $request->input('category_event_id'));
         }
-
         // filter by time_category_event using checkbox
         if ($request->has('time_category_event')) {
             $query->where('time_category_event', $request->input('time_category_event'));
         }
-
         // filter by pay_category_event using checkbox
         if ($request->has('pay_category_event')) {
             $query->where('pay_category_event', $request->input('pay_category_event'));
         }
-
         $data = $query->get();
         //dd($data);
-
         foreach ($data as $event) {
             $event->time_start = Carbon::parse($event->time_start)->format('H:i');
             $event->time_finish = Carbon::parse($event->time_finish)->format('H:i');
             $event->date_event = Carbon::parse($event->date_event)->format('d F Y');
             // dd($event->time_start, $event->time_finish, $event->date_event);
         }
-
         // dd($data);
         return view('pages.kegiatan-webinar', [
             'data' => $data,
         ]);
     }
-
 
     /**
      * Display the specified resource.
@@ -83,13 +71,57 @@ class WebinarController extends Controller
         ->where('events.slug_event', $slug)
         ->firstOrFail();
 
+
         $data->time_start = Carbon::parse($data->time_start)->format('H:i');
         $data->time_finish = Carbon::parse($data->time_finish)->format('H:i');
         $data->date_event = Carbon::parse($data->date_event)->format('d F Y');
-
         // dd($data);
         return view('pages.detail-webinar',[
             'data' => $data
         ]);
+    }
+
+    public function store(Request $request, $slug)
+    {
+        //dd($request->all());
+        $validatedData = $request->validate([
+            'institusi' => 'required',
+            'domisili' => 'required',
+            'no_whatsapp' => 'required',
+            'info' => 'required',
+            'bukti_follow' => 'required|file|max:10240',
+            'bukti_linkedin' => 'required|file|max:10240',
+            'bukti_share' => 'nullable|file|max:10240',
+        ]);
+
+        $user = auth()->user();
+
+        User::where('id', auth()->user()->id)->update([
+            'institusi' => $request->institusi,
+            'domisili' => $request->domisili,
+            'no_whatsapp' => $request->no_whatsapp
+        ]);
+
+        $buktiFollow = $validatedData['bukti_follow']->store('Webinar/bukti_follow', 'public');
+        $buktiLinkedin = $validatedData['bukti_linkedin']->store('Webinar/bukti_linkedin', 'public');
+        $buktiShare = $validatedData['bukti_share']->store('Webinar/bukti_share', 'public');
+
+        $event = Event::where('slug_event', $slug)->first();
+        $event_id = $event->id;
+        $konselorData = [
+            'user_id' => $user->id,
+            'event_id' => $event_id,
+            'info' => $validatedData['info'],
+            'bukti_follow' => $buktiFollow,
+            'bukti_linkedin' => $buktiLinkedin,
+            'bukti_share' => $buktiShare,
+        ];
+        EventTransaction::create($konselorData);
+
+        if ($event->pay_category_event === 'PAID') {
+            return redirect()->route('homepage'); //misal saja
+        } else {
+            return redirect()->back()->with('success', 'Register Peer Konselor data has been submitted.');
+        }
     }
 }

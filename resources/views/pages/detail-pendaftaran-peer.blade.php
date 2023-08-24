@@ -97,7 +97,7 @@
                                         <option selected>Pilih Jenis Kelamin</option>
                                         <option value="Laki-laki">Laki-laki</option>
                                         <option value="Perempuan">Perempuan</option>
-                                    </select>    
+                                    </select>
                                 @endif
                                 @error('jenisKelamin')
                                 <span class="text-danger">{{ $message }}</span>
