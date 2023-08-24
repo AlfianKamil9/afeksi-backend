@@ -2,8 +2,7 @@
 
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\API\NotificationPaymentEventController;
-use App\Http\Controllers\Artikel\artikelController;
+use App\Models\DetailPembayaran;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\KlaimCode;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -12,8 +11,11 @@ use App\Http\Controllers\Karir\PeerKonselor;
 use App\Http\Controllers\Karir\karirController;
 use App\Http\Controllers\Event\WebinarController;
 use App\Http\Controllers\Event\CampaignController;
+use App\Http\Controllers\Artikel\artikelController;
 use App\Http\Controllers\Karir\RelationshipKonselor;
+use App\Http\Controllers\API\NotificationPaymentEventController;
 use App\Http\Controllers\Transaksi\Layanan\MentoringTransaksiController;
+use App\Http\Controllers\Transaksi\NotifikasiMentoring;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,9 +30,12 @@ use App\Http\Controllers\Transaksi\Layanan\MentoringTransaksiController;
 
 // BERANDA
 Route::get('/', function () {
-    // $va = "25275426";
-    // $t = "Silahkan lengkapi Pembayaran and melalui<br> Bank BNI VA = 25275426";
-    // Alert::alert()->html('<h3 class="fw-bold">VA BNI = '.$va.'</h3>',$t)->persistent(true,false)->hideCloseButton();
+    $bank = "bni";
+    $getData = DetailPembayaran::where('pembayaran_layanan_id', 1)->first();
+    $va = '<a href="https://api.midtrans.com/v2/gopay/e48447d1-cfa9-4b02-b163-2e915d4417ac/qr-code"><img height="100px" src="https://api.midtrans.com/v2/gopay/e48447d1-cfa9-4b02-b163-2e915d4417ac/qr-code"></a>
+    <h3 style="text-transform:uppercase;">'.$bank.' VA = '.$getData->kode_bayar_1.'</h3>';
+    alert()->html($va,"Silahkan Lengkapi Pembayaran Sebelum <br><strong>".$getData->updated_at->addDay(1)->format('l, d M Y')." pukul ".$getData->updated_at->format('H:i')."</strong>");
+    // //Alert::success('SuccessAlert','Lorem ipsum dolor sit amet.')->persistent(true,false);
     return view('pages.landing-page-new');
 })->name('homepage');
 
@@ -96,6 +101,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/slug-mentoring-yg-dipilih/{ref_transaction_layanan}/pembayaran', [MentoringTransaksiController::class, 'layananNonProfesional'])->name('checkout.layanan.mentoring');
     Route::post('/slug-mentoring-yg-dipilih/{ref_transaction_layanan}/checkout', [MentoringTransaksiController::class, 'checkoutLayananNonProfessional']);
 
+    // NOTIFICATION AFTER PEMBAYARAN
+    Route::get('/{ref_transaction_layanan}/notification/success', [NotifikasiMentoring::class, 'index'])->name('notification.success');
 });
 
 
@@ -127,9 +134,9 @@ Route::fallback(function () {
 Route::get('/junior-psikolog', function () {
     return view('pages.junior-psikolog');
 });
-Route::get('/popup-informasi', function () {
-    return view('pages.popup-informasi');
-});
+// Route::get('/popup-informasi', function () {
+//     return view('pages.popup-informasi');
+// });
 
 
 

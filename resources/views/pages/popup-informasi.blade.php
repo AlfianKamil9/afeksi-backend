@@ -65,7 +65,7 @@
         Kami akan mengingatkan Anda H-1 dari jadwal yang sudah dipilih
       </h5>
 
-      <a href="#" class="mt-4 btn-kembali">
+      <a href="{{ route('homepage') }}" class="mt-4 btn-kembali">
         Kembali Ke Halaman Utama ➡
       </a>
     </div>
