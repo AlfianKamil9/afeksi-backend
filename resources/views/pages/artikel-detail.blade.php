@@ -13,22 +13,13 @@
 
 <div class="contents row" style="padding-top:94px;">
       <div class="content">
-        <img class="mb-2" src="/assets/img/article/contentImg.png" alt="" />
+        <img class="mb-2" src="{{ $data->gambar ? $data->gambar : '/assets/img/article/contentImg.png' }}" alt="{{ $data->judul_artikel }}" />
         <div class="title mb-5">
-          <h1 style="color: #233dff;">Lorem Ipsum</h1>
-          <span class="text-secondary">15 Agustus 2023</span>
+          <h1 style="color: #233dff;">{{ $data->judul_artikel }}</h1>
+          <span class="text-secondary">{{ $data->created_at->format('d M Y') }}</span>
         </div>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu fermentum ipsum, eget eleifend odio. Aliquam lacinia congue risus
-          sed pharetra. Integer a ante nec nunc semper dictum. Sed ultrices sagittis leo a posuere. Donec eu eros accumsan, sagittis nisl eget,
-          volutpat justo. Mauris sodales nibh at dui bibendum, vitae bibendum nulla rutrum. Vivamus ac efficitur sem. Proin fermentum consequat
-          accumsan. Suspendisse at quam eget nulla vehicula porta. Integer malesuada, est vel gravida consectetur, tellus quam placerat enim, sed
-          consequat quam sem id tortor. Nulla vel luctus nibh. Quisque mattis enim ipsum, sed facilisis sapien placerat sed. Morbi fringilla ipsum ut
-          diam feugiat molestie viverra vel velit. Donec scelerisque massa nibh, sed suscipit augue imperdiet ut. Vivamus nec odio massa. Aliquam
-          libero lacus, varius vitae venenatis vitae, molestie at risus Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum sed placeat ut, magnam facere repudiandae!. <br /> <br>
-          Nulla facilisi. Suspendisse a dictum sapien, id facilisis risus. Nulla sit amet pellentesque velit. Aenean vel laoreet justo, quis pharetra
-          erat. Etiam sit amet egestas sem. Etiam iaculis enim egestas magna interdum ultricies. Donec blandit lectus a nibh posuere, quis cursus nisi
-          auctor. Etiam ut fermentum leo Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam quis incidunt quidem obcaecati reprehenderit perferendis!.
+          {!! $data->isi_artikel !!}
         </p>
       </div>
     </div>

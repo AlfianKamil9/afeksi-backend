@@ -1,6 +1,9 @@
 <?php
 
+
 use Illuminate\Http\Request;
+use App\Http\Controllers\API\NotificationPaymentEventController;
+use App\Http\Controllers\Artikel\artikelController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\KlaimCode;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -10,7 +13,6 @@ use App\Http\Controllers\Karir\karirController;
 use App\Http\Controllers\Event\WebinarController;
 use App\Http\Controllers\Event\CampaignController;
 use App\Http\Controllers\Karir\RelationshipKonselor;
-use App\Http\Controllers\API\NotificationPaymentEventController;
 use App\Http\Controllers\Transaksi\Layanan\MentoringTransaksiController;
 
 /*
@@ -65,14 +67,9 @@ Route::get('/mentoring', function () {
     return view('pages.page-mentoring');
 })->name('mentoring');
 
-
 // ARTIKEL
-Route::get('/artikel', function () {
-    return view('pages.artikel');
-})->name('artikel');
-Route::get('/artikel/detail', function () {
-    return view('pages.artikel-detail');
-})->name('artikel.detail');
+Route::get('/artikel', [artikelController::class, 'index'])->name('artikel');
+Route::get('/artikel/detail/{slug}', [artikelController::class, 'show'])->name('artikel.detail');
 
 
 
