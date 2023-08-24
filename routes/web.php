@@ -87,12 +87,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // PENDAFTARAN INTERNSHIP
     Route::get('/internship/{slug}', [Internship::class, 'show'])->name('internship.detail');
     Route::post('/Registerinternship', [Internship::class, 'store'])->name('internship.register');
-
-
+    //PENDAFTARAN WEBINAR
+    Route::post('/kegiatan-webinar/{slug}', [WebinarController::class, 'store'])->name('daftar-webinar');
 
 
     // MENTORING LAYANAN
-    // ISI FORM DATA DIRI KHUSUS MENTORING 
+    // ISI FORM DATA DIRI KHUSUS MENTORING
     Route::get('/slug-mentoring-yg-dipilih/{ref_transaction_layanan}/data-diri', [MentoringTransaksiController::class, 'showFormDataDiri'])->name('form.datadiri.mentoring');
     Route::post('/slug-mentoring-yg-dipilih/{ref_transaction_layanan}/submit-form-mentoring', [MentoringTransaksiController::class, 'submitFormDataDiri'])->name('submit.form.datadiri.mentoring');
     // CHECKOUT KHUSUS MENTORING
@@ -133,6 +133,3 @@ Route::get('/junior-psikolog', function () {
 Route::get('/popup-informasi', function () {
     return view('pages.popup-informasi');
 });
-
-
-

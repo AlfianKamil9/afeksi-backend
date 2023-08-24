@@ -19,12 +19,12 @@ return new class extends Migration
             $table->string('payment_method')->nullable();
             $table->string('total_payment')->nullable();
             $table->string('fee_transaction')->nullable();
-            $table->date('date_order');
+            $table->date('date_order')->nullable();
             $table->enum('status', ['PAID', 'UNPAID', "PENDING", 'FREE', 'EXPIRE', 'DENIED']);
-            $table->string('info_from')->nullable();
-            $table->string('proof_follow_ig')->nullable();
-            $table->string('proof_follow_linkdin')->nullable();
-            $table->string('proof_share_poster')->nullable();
+            $table->string('info')->nullable();
+            $table->string('bukti_follow')->nullable();
+            $table->string('bukti_linkedin')->nullable();
+            $table->string('bukti_share')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
