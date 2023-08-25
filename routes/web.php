@@ -102,8 +102,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // CHECKOUT KHUSUS MENTORING
     Route::get('/slug-mentoring-yg-dipilih/{ref_transaction_layanan}/pembayaran', [MentoringTransaksiController::class, 'layananNonProfesional'])->name('checkout.layanan.mentoring');
     Route::post('/slug-mentoring-yg-dipilih/{ref_transaction_layanan}/checkout', [MentoringTransaksiController::class, 'checkoutLayananNonProfessional']);
-
-    // NOTIFICATION AFTER PEMBAYARAN
+    // NOTIFICATION AFTER PEMBAYARAN MENTORING
     Route::get('/{ref_transaction_layanan}/notification/success', [NotifikasiMentoring::class, 'index'])->name('notification.success');
 });
 

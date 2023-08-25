@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use App\Models\DetailPembayaran;
 use App\Models\PembayaranLayanan;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
 use App\Models\PaketLayananNonProfessional;
@@ -72,13 +74,10 @@ class MentoringTransaksiController extends Controller
     // Checkout
     public function checkoutLayananNonProfessional(Request $request, $ref_transaction_layanan ) {
         $id = PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->pluck('id')->first();
-
-        // if untuk membatalkan kupon
         if (isset($request->btnBatalVoucher)) {
             session()->forget('apply');
             return back();
         }
-        // if untuk appy kupon
         else if (isset($request->btnApplyVoucher)) {
             if (isset($request->input_code)) {
                 $now = Carbon::now();
@@ -114,12 +113,11 @@ class MentoringTransaksiController extends Controller
             $va = '<h6 style="text-transform:uppercase;">'.$bank.' VA = '.$getData->kode_bayar_1.'</h6>';
             $pesan = "Silahkan Lengkapi Pembayaran Sebelum <br><strong>".$getData2->updated_at->addDay(1)->format('l, d M Y')."</strong> pukul </strong>".$getData->updated_at->format('H:i')."</strong>";
 
-            return redirect('/'.$ref_transaction_layanan.'/notification/success')
-            ->with([
-                'point' => true,
+            Session::flash('popupAfterMentoring', [
                 'kode' => $va,
                 'pesan' => $pesan 
             ]);
+            return Redirect::to('/'.$ref_transaction_layanan.'/notification/success');
         } 
         // ----------###--------------
         else if ($bank == 'mandiri') {
@@ -129,12 +127,11 @@ class MentoringTransaksiController extends Controller
                     <h6 style="text-transform:uppercase;">'.$bank.' Bill Code = '.$getData->kode_bayar_2.'</h6>';
             $pesan = "Silahkan Lengkapi Pembayaran Sebelum <br><strong>".$getData2->updated_at->addDay(1)->format('l, d M Y')."</strong> pukul </strong>".$getData->updated_at->format('H:i')."</strong>";
 
-            return redirect('/'.$ref_transaction_layanan.'/notification/success')
-            ->with([
-                'point' => true,
+            Session::flash('popupAfterMentoring', [
                 'kode' => $va,
                 'pesan' => $pesan 
             ]);
+            return Redirect::to('/'.$ref_transaction_layanan.'/notification/success');
         } 
         // ---------###---------------
         else if ($bank == 'indomaret') {
@@ -145,12 +142,11 @@ class MentoringTransaksiController extends Controller
                     ';
             $pesan = "Silahkan Lengkapi Pembayaran Sebelum <br><strong>".$getData2->updated_at->addDay(1)->format('l, d M Y')."</strong> pukul </strong>".$getData->updated_at->format('H:i')."</strong>";
 
-            return redirect('/'.$ref_transaction_layanan.'/notification/success')
-            ->with([
-                'point' => true,
+            Session::flash('popupAfterMentoring', [
                 'kode' => $va,
                 'pesan' => $pesan 
             ]);
+            return Redirect::to('/'.$ref_transaction_layanan.'/notification/success');
         }
         // ---------######--------------
         else if ($bank == 'alfamart') {
@@ -159,12 +155,11 @@ class MentoringTransaksiController extends Controller
             $va =   '<h6 style="text-transform:uppercase;">'.$bank.' Kode Pembayaran = '.$getData->kode_bayar_1.'</h6>';
             $pesan = "Silahkan Lengkapi Pembayaran Sebelum <br><strong>".$getData2->updated_at->addDay(1)->format('l, d M Y')."</strong> pukul </strong>".$getData->updated_at->format('H:i')."</strong>";
 
-            return redirect('/'.$ref_transaction_layanan.'/notification/success')
-            ->with([
-                'popupAfterMentoring' => true,
+            Session::flash('popupAfterMentoring', [
                 'kode' => $va,
                 'pesan' => $pesan 
             ]);
+            return Redirect::to('/'.$ref_transaction_layanan.'/notification/success');
         }
          // ---------###############---------------
         else if ($bank == 'shopeepay') {
@@ -172,12 +167,12 @@ class MentoringTransaksiController extends Controller
             $getData2 = PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->first();
             $va =   '<center><a style="text-transform:uppercase;" href="'.$getData->kode_bayar_1.'" class="btn btn-primary">Bayar Sekarang</a></center>';
             $pesan = "Silahkan Lengkapi Pembayaran Sebelum <br><strong>".$getData2->updated_at->format('l, d M Y')."</strong> pukul </strong>".$getData->updated_at->addMinutes(15)->format('H:i')."</strong>";
-            return redirect('/'.$ref_transaction_layanan.'/notification/success')
-            ->with([
-                'popupAfterMentoring' => true,
+            
+            Session::flash('popupAfterMentoring', [
                 'kode' => $va,
                 'pesan' => $pesan 
             ]);
+            return Redirect::to('/'.$ref_transaction_layanan.'/notification/success');
         }
         // --------------################-------------
         else if ($bank == 'gopay') {
@@ -188,12 +183,12 @@ class MentoringTransaksiController extends Controller
                         <a style="text-transform:uppercase;" href="'.$getData->kode_bayar_1.'"  class="btn btn-primary">Bayar Sekarang</a>
                     </center>';
             $pesan = "Silahkan Lengkapi Pembayaran Sebelum <br><strong>".$getData2->updated_at->format('l, d M Y')."</strong> pukul </strong>".$getData->updated_at->addMinutes(15)->format('H:i')."</strong>";
-            return redirect('/'.$ref_transaction_layanan.'/notification/success')
-            ->with([
-                'popupAfterMentoring' => true,
+            
+            Session::flash('popupAfterMentoring', [
                 'kode' => $va,
                 'pesan' => $pesan 
             ]);
+            return Redirect::to('/'.$ref_transaction_layanan.'/notification/success');
         }
 
 
