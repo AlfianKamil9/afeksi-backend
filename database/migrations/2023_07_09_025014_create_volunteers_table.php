@@ -14,6 +14,14 @@ return new class extends Migration
         Schema::create('volunteers', function (Blueprint $table) {
             $table->id('id_volunteer');
             $table->unsignedBigInteger('user_id');
+            $table->enum('volunteer_category', ['relationship heroes', 'brand ambasador']);
+            $table->string('pekerjaan')->nullable();
+            $table->string('instansi')->nullable();
+            $table->string('divisi')->nullable();
+            $table->text('alasan')->nullable();
+            $table->string('bukti_follow')->nullable();
+            $table->string('cv')->nullable();
+            $table->string('portofolio')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
