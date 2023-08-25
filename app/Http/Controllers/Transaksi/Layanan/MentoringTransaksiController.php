@@ -72,10 +72,13 @@ class MentoringTransaksiController extends Controller
     // Checkout
     public function checkoutLayananNonProfessional(Request $request, $ref_transaction_layanan ) {
         $id = PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->pluck('id')->first();
+
+        // if untuk membatalkan kupon
         if (isset($request->btnBatalVoucher)) {
             session()->forget('apply');
             return back();
         }
+        // if untuk appy kupon
         else if (isset($request->btnApplyVoucher)) {
             if (isset($request->input_code)) {
                 $now = Carbon::now();
