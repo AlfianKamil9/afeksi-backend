@@ -16,7 +16,7 @@ class MentoringSeeder extends Seeder
         //
         $mentoringData = [
             [
-                'namaMentoring' => 'Mom & Baby Mentoring',
+                'namaMentoring' => 'Parenting Mentoring',
             ],
             [
                 'namaMentoring' => 'Pre Marriage Mentoring',

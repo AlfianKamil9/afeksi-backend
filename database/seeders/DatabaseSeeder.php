@@ -8,6 +8,7 @@ use Database\Seeders\UserSeeder;
 use Database\Seeders\EventSeeder;
 use Database\Seeders\EventCategorySeeder;
 use Database\Seeders\EventTransactionSeeder;
+use Database\Seeders\PaketLayananNonProfessionalSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,6 +18,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         //user
+        $this->call(LayananNonProfessionalSeeder::class);
+        $this->call(PaketLayananNonProfessionalSeeder::class);
         $this->call(UserSeeder::class);
         $this->call(PsikologSeeder::class);
         $this->call(EventCategorySeeder::class);

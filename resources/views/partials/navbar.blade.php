@@ -88,9 +88,10 @@ div .button-login {
                   href="#">Layanan & Produk</a>
                 <!-- <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button> -->
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="{{ route('mentoring') }}">Mentoring</a></li>
-                  <li><a class="dropdown-item" href="#">Konseling</a></li>
-                  <li><a class="dropdown-item" href="#">Profesional Konseling</a></li>
+                  <li class="mb-1"><a class="dropdown-item" href="#" ><img class="me-3" src="/assets/img/icon/icon-konseling.png" width="20px" style="object-fit:contain">Konseling</a></li>
+                  <li class="mb-1"><a class="dropdown-item" href="{{ route('mentoring') }}"> <img class="me-3" src="/assets/img/icon/icon-mentoring.png" width="20px" style="object-fit:contain">Mentoring</a></li>
+                  <li class="mb-1"><a class="dropdown-item" href="#"><img class="me-3" src="/assets/img/icon/icon-ebook.png" width="20px" style="object-fit:contain">E-Book</a></li>
+                  <li class="mb-1"><a class="dropdown-item" href="#"><img class="me-3" src="/assets/img/icon/icon-ecourse.png" width="20px" style="object-fit:contain">E-Course</a></li>
                 </ul>
               </li>
               <li class="nav-item dropdown">
@@ -103,9 +104,9 @@ div .button-login {
                 >Kegiatan</a>
                 <!-- <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button> -->
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="{{ route('webinar') }}"><i class="bi bi-camera-video-fill text-primary "></i> Webinar</a></li>
-                  <li><a class="dropdown-item" href="{{ route('campaign') }}"><i class="bi bi-megaphone-fill text-primary"></i> Campaign</a></li>
-                  <li><a class="dropdown-item" href="#"><i class="bi bi-chat-left-fill text-primary"></i> Rekap History</a></li>
+                  <li class="mb-1"><a class="dropdown-item" href="{{ route('webinar') }}"><img class="me-3" src="/assets/img/icon/icon-webinar.png" width="20px" style="object-fit:contain"> Webinar</a></li>
+                  <li class="mb-1"><a class="dropdown-item" href="{{ route('campaign') }}"><img class="me-3" src="/assets/img/icon/icon-campaign.png" width="20px" style="object-fit:contain">Campaign</a></li>
+                  <li class="mb-1"><a class="dropdown-item" href="#"><img class="me-3" src="/assets/img/icon/icon-recap.png" width="20px" style="object-fit:contain"> Rekap History</a></li>
                 </ul>
               </li>
               <li class="nav-item">
@@ -136,21 +137,21 @@ div .button-login {
 
             <div class="ms-auto d-flex p-2 mx-lg-3 gap-2">
               @auth
-              {{-- <a type="button" href="{{ route('logout') }}" class="btn button-login rounded-3">Logout</a> --}}
-              <div class="dropdown-center">
-                <button class="btn btn-primary text-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  {{ auth()->user()->nama }}
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Riwayat Transaksi</a></li>
-                  <li><a class="dropdown-item" href="#">Pengaturan</a></li>
-                  <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
-                </ul>
-              </div>
+                  {{-- <a type="button" href="{{ route('logout') }}" class="btn button-login rounded-3">Logout</a> --}}
+                  <div class="dropdown-center">
+                    <button class="btn btn-primary text-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      {{ auth()->user()->nama }}
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Riwayat Transaksi</a></li>
+                      <li><a class="dropdown-item" href="#">Pengaturan</a></li>
+                      <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
+                    </ul>
+                  </div>
               <div class="me-3"></div>
               @else
-              <a type="button" href="{{ route('register') }}" class="btn button-daftar rounded-3 me-2">Daftar</a>
-              <a type="button" href="{{ route('login') }}" class="btn button-login rounded-3">Masuk</a>
+                  <a type="button" href="{{ route('register') }}" class="btn button-daftar rounded-3 me-2">Daftar</a>
+                  <a type="button" href="{{ route('login') }}" class="btn button-login rounded-3">Masuk</a>
               @endauth
             </div>
           </div>

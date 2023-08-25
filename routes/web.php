@@ -91,6 +91,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/Registerinternship', [Internship::class, 'store'])->name('internship.register');
     //PENDAFTARAN WEBINAR
     Route::post('/kegiatan-webinar/{slug}', [WebinarController::class, 'store'])->name('daftar-webinar');
+    // PENDAFTARAN CAMPAIGN
+    Route::post('/kegitan-campaign/{slug}', [CampaignController::class, 'store'])->name('daftar-campaign');
 
 
     // MENTORING LAYANAN

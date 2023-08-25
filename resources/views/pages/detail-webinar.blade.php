@@ -258,6 +258,7 @@
     @section('script')
     <script src="/assets/js/form-file-pendaftaran.js"></script>
 @endsection
+@include('sweetalert::alert')
 @include('../partials/footer')
 
 @endsection

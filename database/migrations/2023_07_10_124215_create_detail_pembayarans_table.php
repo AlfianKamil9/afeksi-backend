@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('detail_masalah');
             $table->string('kode_bayar_1')->nullable();
             $table->string('kode_bayar_2')->nullable();
-            $table->date('expired_date')->nullable();
+            $table->datetime('expired_date')->nullable();
             $table->timestamps();
 
             $table->foreign('pembayaran_layanan_id')->references('id')->on('pembayaran_layanans')->onDelete('cascade');

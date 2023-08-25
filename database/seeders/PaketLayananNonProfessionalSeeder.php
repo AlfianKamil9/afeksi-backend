@@ -15,52 +15,52 @@ class PaketLayananNonProfessionalSeeder extends Seeder
     {
         $paket = [
             [
-                'layanan_non_professionals_id' => 1,
+                'layanan_nonProfessionals_id' => 1,
                 'nama_paket' => 'Paket A',
                 'harga' => '100000'
             ],
             [
-                'layanan_non_professionals_id' => 1,
+                'layanan_nonProfessionals_id' => 1,
                 'nama_paket' => 'Paket B',
                 'harga' => '200000'
             ],
             [
-                'layanan_non_professionals_id' => 1,
+                'layanan_nonProfessionals_id' => 1,
                 'nama_paket' => 'Paket C',
                 'harga' => '300000'
             ],
             [
-                'layanan_non_professionals_id' => 2,
+                'layanan_nonProfessionals_id' => 2,
                 'nama_paket' => 'Paket A',
                 'harga' => '100000'
             ],
             [
-                'layanan_non_professionals_id' => 2,
+                'layanan_nonProfessionals_id' => 2,
                 'nama_paket' => 'Paket B',
                 'harga' => '200000'
             ],
             [
-                'layanan_non_professionals_id' => 3,
+                'layanan_nonProfessionals_id' => 3,
                 'nama_paket' => 'Paket A',
                 'harga' => '300000'
             ],
             [
-                'layanan_non_professionals_id' => 3,
+                'layanan_nonProfessionals_id' => 3,
                 'nama_paket' => 'Paket B',
                 'harga' => '200000'
             ],
             [
-                'layanan_non_professionals_id' => 3,
+                'layanan_nonProfessionals_id' => 3,
                 'nama_paket' => 'Paket C',
                 'harga' => '400000'
             ],
             [
-                'layanan_non_professionals_id' => 4,
+                'layanan_nonProfessionals_id' => 4,
                 'nama_paket' => 'Paket A',
                 'harga' => '100000'
             ],
             [
-                'layanan_non_professionals_id' => 4,
+                'layanan_nonProfessionals_id' => 4,
                 'nama_paket' => 'Paket B',
                 'harga' => '200000'
             ]

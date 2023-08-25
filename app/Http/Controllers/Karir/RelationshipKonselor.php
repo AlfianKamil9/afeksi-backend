@@ -43,15 +43,6 @@ class RelationshipKonselor extends Controller
             'cv' => 'required|file|max:10240',
             'portofolio' => 'nullable|file|max:10240',
         ]);
-        // if ($request->file('cv')) {
-        //     $validatedData['cv'] = $request->file('cv')->store('pdf');
-        // }
-        // if ($request->file('bukti_follow')) {
-        //     $validatedData['bukti_follow'] = $request->file('bukti_follow')->store('img');
-        // }
-        // if ($request->file('portofolio')) {
-        //     $validatedData['portofolio'] = $request->file('portofolio')->store('pdf');
-        // }
 
         $user = auth()->user();
         $nohp = $user->no_whatsapp ?: $request->input('nohp');
