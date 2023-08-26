@@ -15,5 +15,5 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
         server: ftp.ahay.my.id
-        username: ahaymyid
+        username: afeksi@ahay.my.id
         password: afeksi260823
