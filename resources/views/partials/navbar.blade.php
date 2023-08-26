@@ -11,6 +11,8 @@
   box-shadow: 0px 13px 40px 0px rgba(0, 0, 0, 0.3);
   position: relative;
   width: 100%;
+  padding:0;
+  z-index: 999 !important;
   background-color: white;
   position: fixed !important;
   z-index: 1;
@@ -26,7 +28,6 @@
 div .button-daftar {
   border-color: #233dff;
   color: #233dff;
-  width: 93px;
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
@@ -93,7 +94,9 @@ div .button-login {
                   <li><a class="dropdown-item" href="#">Something else here</a></li>
                 </ul>
               </li>
-
+              <li class="nav-item">
+                <a class="nav-link" href="#">Artikel</a>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Tentang Kami</a>
               </li>

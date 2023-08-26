@@ -12,7 +12,7 @@
 @section('content')
 
 <div class="hero" style="background-image: url(assets/img/kegiatan/Banner.svg)">
-      <div class="d-flex justify-content-between flex-column flex-lg-row gap-5 text-center text-lg-start">
+      <div class="d-flex pt-5 mt-5 justify-content-between flex-column flex-lg-row gap-5 text-center text-lg-start">
         <div class="left col-lg-6">
           <div class="dflex text-white ">
             <p>Kegiatan</p>

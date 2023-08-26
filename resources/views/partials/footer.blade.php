@@ -50,7 +50,7 @@
             <p>Afeksi adalah layanan edukasi dan konsultasi kesehatan hubungan berbasis psikologi relasi pertama di Indonesia.</p>
           </div>
         </div>
-        <p class="mb-2" style="font-weight: bold; color: #2139f9">Layanan Contact Center AFEKSI</p>
+        <p class="mb-2 fw-bold" style="color: #2139f9">Layanan Contact Center AFEKSI</p>
         <div class="d-flex flex-column">
           <div class="mb-2">
             <img src="{{ asset('assets/img/footer/phone.png') }}" class="me-3 contact-img" alt="" />+6282142625552
@@ -67,7 +67,7 @@
       <div class="col-md-7">
         <div class="d-flex flex-wrap">
           <div class="text-white mb-4 me-3 flex-fill">
-            <h5 class="link-title mb-4">Layanan</h5>
+            <h5 class="link-title mb-4 fw-bold">Layanan</h5>
             <ul class="list-unstyled">
               <li class="mb-3"><a href="#" class="text-white">Konseling</a></li>
               <li class="mb-3"><a href="#" class="text-white">Mentoring</a></li>
@@ -75,7 +75,7 @@
           </div>
 
           <div class="text-white mb-4 me-3 flex-fill">
-            <h5 class="link-title mb-4">Tentang kami</h5>
+            <h5 class="link-title mb-4 fw-bold">Tentang kami</h5>
             <ul class="list-unstyled">
               <li class="mb-3"><a href="#" class="text-white">Tentang kami</a></li>
               <li class="mb-3"><a href="#" class="text-white">Karir</a></li>
@@ -86,7 +86,7 @@
           </div>
 
           <div class="text-white mb-4 me-3 flex-fill">
-            <h5 class="link-title mb-4">Yang lainnya</h5>
+            <h5 class="link-title mb-4 fw-bold">Yang lainnya</h5>
             <ul class="list-unstyled">
               <li class="mb-3"><a href="#" class="text-white">Kebijakan Privasi</a></li>
               <li><a href="#" class="text-white">FAQ</a></li>
@@ -94,7 +94,7 @@
           </div>
 
           <div class="text-white mb-4 flex-fill">
-            <h5 class="link-title mb-4">Ikuti Kami</h5>
+            <h5 class="link-title mb-4 fw-bold">Ikuti Kami</h5>
             <ul class="list-unstyled d-flex flex-wrap">
               <img src="{{ asset('assets/img/footer/Vector (1).png') }}" alt="" class="contact-img me-2 mb-3" />
               <img src="{{ asset('assets/img/footer/Vector (2).png') }}" alt="" class="contact-img me-2 mb-3" />
@@ -109,5 +109,5 @@
     </div>
   </div>
 
-  <div class="bottom">© 2023 AFEKSI IDN | Edukasi & Konsultasi Relasi #1</div>
+  <div class="fw-bold bottom">© 2023 AFEKSI IDN | Edukasi & Konsultasi Relasi #1</div>
 </footer>
