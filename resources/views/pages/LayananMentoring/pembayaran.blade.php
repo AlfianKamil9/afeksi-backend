@@ -51,10 +51,10 @@
           </div>
           <div class="step-name">Data Diri</div>
         </div>
-        <div class="stepper-item completed">
+        <div class="stepper-item active">
           <!--add class active to enable active step progess-->
           <div class="step-counter">
-            <span class="step-checkmark">✓</span>
+            <span class="step-checkmark">5</span>
           </div>
           <div class="step-name">Pembayaran</div>
         </div>
@@ -81,7 +81,7 @@
           @endif
           <select id="myDropdown" class="form-select" name="bank" style="width: 100%">
             <!-- option on Pembayaran.js -->
-            <option value="" selected>Pilih Metode Pembayarans</option>
+            <option value="" selected>Pilih Metode Pembayaran</option>
           </select>
           
 
