@@ -14,6 +14,8 @@ use App\Http\Controllers\Event\CampaignController;
 use App\Http\Controllers\Artikel\artikelController;
 use App\Http\Controllers\Karir\RelationshipKonselor;
 use App\Http\Controllers\API\NotificationPaymentEventController;
+use App\Http\Controllers\Karir\BrandAmbasador;
+use App\Http\Controllers\Karir\RelationshipHeroes;
 use App\Http\Controllers\Transaksi\Layanan\MentoringTransaksiController;
 use App\Http\Controllers\Transaksi\NotifikasiMentoring;
 
@@ -89,6 +91,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // PENDAFTARAN INTERNSHIP
     Route::get('/internship/{slug}', [Internship::class, 'show'])->name('internship.detail');
     Route::post('/Registerinternship', [Internship::class, 'store'])->name('internship.register');
+    // PENDAFTARAN BRAND AMBASSADOR (VOLUNTEER)
+    Route::get('/pendaftaran-brand-ambassador', [BrandAmbasador::class, 'index'])->name('volunteer.brand-ambassador');
+    // PENDAFTARAN RELATIONSHIP HEROES (VOLUNTEER)
+    Route::get('/pendaftaran-relationship-heroes', [RelationshipHeroes::class, 'index'])->name('volunteer.relationship-heroes'); 
     //PENDAFTARAN WEBINAR
     Route::post('/kegiatan-webinar/{slug}', [WebinarController::class, 'store'])->name('daftar-webinar');
     // PENDAFTARAN CAMPAIGN

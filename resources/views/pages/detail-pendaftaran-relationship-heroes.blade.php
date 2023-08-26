@@ -1,13 +1,12 @@
 @extends('../layout')
 
-@section('title', 'Detail Pendaftaran Relationship Heroes')
+@section('title', 'Pendaftaran Volunteer Relationship Heroes | AFEKSI')
 
 @section('styles')
-    <link rel="stylesheet" href="assets/css/detail-pendaftaran-relationship-heroes.css">
+    <link rel="stylesheet" href="/assets/css/detail-pendaftaran-relationship-heroes.css">
 @endsection
 
 
-@include('../partials/navbar') 
 
 @section('content')
 <section class="wrapper">
@@ -15,11 +14,11 @@
     </div>
         <div class="container content">
             <div class="bread-crumbs d-flex gap-2 fw-semibold">
-                <p>Karir</p>
+               <p><a href="{{ route('karir') }}" class="text-dark">Karir</a></p>
                 <span>&gt;</span>
-                <p>Volunteer</p>
+                <p><a href="#" class="text-dark">Volunteer</a></p>
                 <span>&gt;</span>
-                <p>Relationship Heroes</p>
+                <p><a href="{{ route('volunteer.relationship-heroes') }}" class="text-dark">Relationship Heroes</a></p>
             </div>
             <h1 class="mt-3 fw-bold">Relationship Heroes</h1>
             <div class="info-utils d-flex gap-2 mt-4">
@@ -57,7 +56,7 @@
           </ul>
           <button type="button" class="btn btn-primary daftar" data-bs-toggle="modal" data-bs-target="#form-pendaftaran-konselor" data-bs-whatever="@getbootstrap">Daftar Sekarang</button>
           <!-- Modals -->
-          <div class="modal fade" id="form-pendaftaran-konselor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade modal-lg" data-bs-backdrop="static" id="form-pendaftaran-konselor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header text-center">
@@ -107,17 +106,17 @@
                     <div class="mb-3 upload-file-wrapper">                    
                       <label for="follow-ig" class="col-form-label">Bukti Follow ig Afeksi</label>
                       <label class="upload-file" for="follow-ig" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload Bukti</label>
-                      <input type="file" name="follow-ig" id="upload-file" class="d-block">
+                      <input type="file" name="follow-ig" id="upload-file"  onchange="displayFileName(this)" class="d-block">
                     </div>
                     <div class="mb-3 upload-file-wrapper">          
                       <label for="cv" class="col-form-label">CV</label>
                       <label class="upload-file" for="cv" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload CV</label>
-                      <input type="file" name="follow-ig" id="upload-file" class="d-block">
+                      <input type="file" name="follow-ig" id="upload-file"  onchange="displayFileName(this)" class="d-block">
                     </div>
                     <div class="mb-3 upload-file-wrapper">                    
                       <label for="portfolio" class="col-form-label">Portfolio(Optional)</label>
                       <label class="upload-file" for="portfolio" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload bukti</label>
-                      <input type="file" name="portfolio" id="upload-file" class="d-block">
+                      <input type="file" name="portfolio" id="upload-file"  onchange="displayFileName(this)" class="d-block">
                     </div>
                   </form>
                 </div>
@@ -128,4 +127,10 @@
           <!-- End Modals -->
       </div>
   </section>
+
+@include('sweetalert::alert')
 @include('../partials/footer') 
+@section('script')
+    <script src="/assets/js/form-file-pendaftaran.js"></script>
+@endsection
+@endsection
