@@ -107,3 +107,6 @@ Route::get('/popup-informasi', function () {
 Route::get('/pembayaran', function () {
     return view('pages.pembayaran');
 });
+Route::get('/page-konseling', function () {
+    return view('pages.page-konseling');
+});
