@@ -93,6 +93,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/Registerinternship', [Internship::class, 'store'])->name('internship.register');
     // PENDAFTARAN BRAND AMBASSADOR (VOLUNTEER)
     Route::get('/pendaftaran-brand-ambassador', [BrandAmbasador::class, 'index'])->name('volunteer.brand-ambassador');
+    Route::post('/pendaftaran-brand-ambassador/create', [BrandAmbasador::class, 'store'])->name('volunteer.register-brand-ambassador');
     // PENDAFTARAN RELATIONSHIP HEROES (VOLUNTEER)
     Route::get('/pendaftaran-relationship-heroes', [RelationshipHeroes::class, 'index'])->name('volunteer.relationship-heroes'); 
     //PENDAFTARAN WEBINAR

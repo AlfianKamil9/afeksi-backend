@@ -68,22 +68,40 @@
                 <div class="modal-body">
                     <h3 class="modal-title fw-semibold text-center px-5">Formulir Pendaftaran Brand Ambassador</h3>
                     <p class="text-center px-4">Silahkan isi data anda dan pastikan data anda sudah sesuai.</p>
-                  <form>
+                  <form action="{{ route('volunteer.register-brand-ambassador') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+
+                    <input type="hidden" name="volunteer_category" value="brand ambasador">
                     <div class="mb-3">
                       <label for="email" class="col-form-label">Email</label>
-                      <input type="email" placeholder="Masukan Email" class="form-control" id="email">
+                      <input type="email" placeholder="Masukan Email" class="form-control" id="email" value="{{ Auth::user()->email }}">
                     </div>
                     <div class="mb-3">
                       <label for="nama" class="col-form-label">Nama Lengkap</label>
-                      <input type="text" placeholder="Nama Lengkap" class="form-control" id="nama">
+                      <input type="text" placeholder="Nama Lengkap" class="form-control" id="nama" value="{{ Auth::user()->email }}">
                     </div>
                     <div class="mb-3">
                       <label for="jenis-kelamin" class="col-form-label">Jenis Kelamin</label>
-                      <input type="text"placeholder="Jenis Kelamin" class="form-control" id="jenis-kelamin">
+                      @if (auth()->user()->jenisKelamin)
+                                    <input type="text" value="{{ auth()->user()->jenisKelamin }}" readonly class="form-control" id="jenis-kelamin" name="jenisKelamin">
+                                @else
+                                    <select name="jenisKelamin" class="form-select" id="jenis_kelamin" required>
+                                      <option selected>Pilih Jenis Kelamin</option>
+                                      <option value="Laki-laki">Laki-laki</option>
+                                      <option value="Perempuan">Perempuan</option>
+                                    </select>    
+                                @endif
+                                @error('jenisKelamin')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
                     </div>
                     <div class="mb-3">
                       <label for="hp" class="col-form-label">No HP</label>
-                      <input type="number" placeholder="08xxxxxxxxx" class="form-control" id="hp">
+                      @if (auth()->user()->no_whatsapp)
+                            <input type="text" placeholder="08xxxxxxxxx" class="form-control" id="noHP" name="nohp" readonly  value="{{ Auth::user()->no_whatsapp }}" >
+                        @else
+                            <input type="text" placeholder="08xxxxxxxxx" class="form-control" id="noHP" name="nohp" >
+                        @endif
                     </div>
                     <div class="mb-3">    
                       <label for="pekerjaan" class="col-form-label">Pekerjaan</label>                  
@@ -96,34 +114,34 @@
                     </div>
                     <div class="mb-3">
                       <label for="instansi" class="col-form-label">Nama Instansi</label>
-                      <input type="text" placeholder="Nama Tempat" class="form-control" id="instansi">
+                      <input type="text" name="instansi" placeholder="Nama Tempat" class="form-control" id="instansi" >
                     </div>
                     <div class="mb-3">
                       <label for="jurusan" class="col-form-label">Jurusan/Divisi</label>
-                      <input type="text" placeholder="Nama Tempat" class="form-control" id="jurusan">
+                      <input type="text" name="divisi" placeholder="Nama Tempat" class="form-control" id="jurusan" >  
                     </div>
                     <div class="mb-3">
                       <label for="alasan" class="col-form-label">Alasan Memilih Brand Ambassador</label>
-                      <textarea class="form-control"placeholder="Alasan" id="alasan"></textarea>
+                      <textarea  name="alasan" class="form-control"placeholder="Alasan" id="alasan"></textarea>
                     </div>
                     <div class="mb-3 upload-file-wrapper">                    
                       <label for="follow-ig" class="col-form-label">Bukti Follow ig Afeksi</label>
                       <label class="upload-file" for="follow-ig" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload Bukti</label>
-                      <input type="file" name="follow-ig" id="upload-file"  onchange="displayFileName(this)" class="d-block">
+                      <input type="file" name="bukti_follow" id="upload-file"  onchange="displayFileName(this)" class="d-block">
                     </div>
                     <div class="mb-3 upload-file-wrapper">          
                       <label for="cv" class="col-form-label">CV</label>
                       <label class="upload-file" for="cv" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload CV</label>
-                      <input type="file" name="follow-ig" id="upload-file"  onchange="displayFileName(this)" class="d-block">
+                      <input type="file" name="cv" id="upload-file"  onchange="displayFileName(this)" class="d-block">
                     </div>
                     <div class="mb-3 upload-file-wrapper">                    
                       <label for="portfolio" class="col-form-label">Portfolio(Optional)</label>
                       <label class="upload-file" for="portfolio" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload bukti</label>
-                      <input type="file" name="portfolio" id="upload-file"  onchange="displayFileName(this)" class="d-block">
+                      <input type="file" name="portofolio" id="upload-file"  onchange="displayFileName(this)" class="d-block">
                     </div>
-                  </form>
-                </div>
-                <button type="button" class="btn btn-primary m-3">Daftar</button>                
+                  </div>
+                  <button type="submit" class="btn btn-primary m-3">Daftar</button>                
+                </form>
               </div>
             </div>
           </div>
