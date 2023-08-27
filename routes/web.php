@@ -110,3 +110,6 @@ Route::get('/pembayaran', function () {
 Route::get('/page-konseling', function () {
     return view('pages.page-konseling');
 });
+Route::get('/data-diri', function () {
+    return view('pages.data-diri');
+});
