@@ -65,62 +65,110 @@
                 <div class="modal-body">
                     <h3 class="modal-title fw-semibold text-center px-5">Formulir Pendaftaran Relationship Heroes</h3>
                     <p class="text-center px-4">Silahkan isi data anda dan pastikan data anda sudah sesuai.</p>
-                  <form>
+                  <form action="{{ route('volunteer.store-relationship-heroes') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="mb-3">
-                      <label for="email" class="col-form-label">Email</label>
-                      <input type="email" placeholder="Masukan Email" class="form-control" id="email">
+                        <label for="email" class="col-form-label">Email</label>
+                        <input type="email" value="{{ auth()->user()->email }}" readonly class="form-control" id="email" name="email">
                     </div>
                     <div class="mb-3">
-                      <label for="nama" class="col-form-label">Nama Lengkap</label>
-                      <input type="text" placeholder="Nama Lengkap" class="form-control" id="nama">
+                        <label for="nama" class="col-form-label">Nama Lengkap</label>
+                        <input type="text" value="{{ auth()->user()->nama }}" readonly class="form-control" id="nama" name="nama">
                     </div>
                     <div class="mb-3">
                       <label for="jenis-kelamin" class="col-form-label">Jenis Kelamin</label>
-                      <input type="text"placeholder="Jenis Kelamin" class="form-control" id="jenis-kelamin">
+                      @if (auth()->user()->jenisKelamin)
+                          <input type="text" value="{{ auth()->user()->jenisKelamin }}" readonly class="form-control" id="jenis-kelamin" name="jenisKelamin">
+                      @else
+                          <select name="jenisKelamin" class="form-select" id="jenis_kelamin" required>
+                              <option selected>Pilih Jenis Kelamin</option>
+                              <option value="Laki-laki">Laki-laki</option>
+                              <option value="Perempuan">Perempuan</option>
+                          </select>
+                          @endif
+                          @error('jenisKelamin')
+                            <span class="text-danger">{{ $message }}</span>
+                          @enderror
                     </div>
                     <div class="mb-3">
-                      <label for="hp" class="col-form-label">No HP</label>
-                      <input type="number" placeholder="08xxxxxxxxx" class="form-control" id="hp">
-                    </div>
-                    <div class="mb-3">    
-                      <label for="pekerjaan" class="col-form-label">Pekerjaan</label>                  
-                      <select name="pekerjaan" class="form-select" id="pekerjaan">
-                        <option selected>Pekerjaan anda sekarang</option>
-                        <option value="pelajar">Pelajar</option>
-                        <option value="mahasiswa">mahasiswa</option>
-                        <option value="bekerja">Sudah Bekerja</option>
-                      </select>
+                        <label for="hp" class="col-form-label">No HP</label>
+                          @if (auth()->user()->no_whatsapp)
+                              <input type="text" value="{{ auth()->user()->no_whatsapp }}" readonly class="form-control" id="hp" name="nohp">
+                          @else
+                              <input type="text" placeholder="08xxxxxxxxx" class="form-control" id="hp" name="nohp" required>
+                          @endif
+                          @error('nohp')
+                          <span class="text-danger">{{ $message }}</span>
+                          @enderror
                     </div>
                     <div class="mb-3">
-                      <label for="instansi" class="col-form-label">Nama Instansi</label>
-                      <input type="text" placeholder="Nama Tempat" class="form-control" id="instansi">
+                        <label for="pekerjaan" class="col-form-label">Pekerjaan</label>
+                        <select name="pekerjaan" class="form-select" id="pekerjaan" required>
+                            <option selected disabled>Pilih pekerjaan anda sekarang</option>
+                            <option value="pelajar">Pelajar</option>
+                            <option value="mahasiswa">mahasiswa</option>
+                            <option value="bekerja">Sudah Bekerja</option>
+                        </select>
+                        @error('pekerjaan')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="mb-3">
-                      <label for="jurusan" class="col-form-label">Jurusan/Divisi</label>
-                      <input type="text" placeholder="Nama Tempat" class="form-control" id="jurusan">
+                        <label for="instansi" class="col-form-label">Nama Instansi</label>
+                        <input type="text" placeholder="Nama Tempat" class="form-control" id="instansi" name="instansi" required>
+                        @error('instansi')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="mb-3">
-                      <label for="alasan" class="col-form-label">Alasan Memilih Relationship Heroes</label>
-                      <textarea class="form-control"placeholder="Alasan" id="alasan"></textarea>
+                        <label for="jurusan" class="col-form-label">Jurusan/Divisi</label>
+                        <input type="text" placeholder="Jurusan/Divisi" class="form-control" id="jurusan" name="divisi" required>
+                        @error('divisi')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
-                    <div class="mb-3 upload-file-wrapper">                    
-                      <label for="follow-ig" class="col-form-label">Bukti Follow ig Afeksi</label>
-                      <label class="upload-file" for="follow-ig" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload Bukti</label>
-                      <input type="file" name="follow-ig" id="upload-file"  onchange="displayFileName(this)" class="d-block">
+                    <div class="mb-3">
+                        <label for="alasan" class="col-form-label">Alasan Memilih Relationship Heroes</label>
+                        <textarea class="form-control" placeholder="Alasan" id="alasan" name="alasan" required></textarea>
+                        @error('alasan')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
-                    <div class="mb-3 upload-file-wrapper">          
-                      <label for="cv" class="col-form-label">CV</label>
-                      <label class="upload-file" for="cv" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload CV</label>
-                      <input type="file" name="follow-ig" id="upload-file"  onchange="displayFileName(this)" class="d-block">
+                    <div class="mb-3 upload-file-wrapper">
+                        <label for="bukti_follow" class="col-form-label">Bukti Follow ig Afeksi</label>
+                        <label class="upload-file" for="bukti_follow" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload Bukti</label>
+                        <input type="file" name="bukti_follow" id="bukti_follow" class="d-block visually-hidden"  onchange="displayFileName(this)" required>
+                        @error('bukti_follow')
+                            <span class="text-danger">{{ $message }}</span>
+                        @else
+                            <span class="text-muted fst-italic mt-1" style="font-size: 12px;">File Max 2MB (jpg , jpeg, png)</span>
+                        @enderror
                     </div>
-                    <div class="mb-3 upload-file-wrapper">                    
-                      <label for="portfolio" class="col-form-label">Portfolio(Optional)</label>
-                      <label class="upload-file" for="portfolio" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload bukti</label>
-                      <input type="file" name="portfolio" id="upload-file"  onchange="displayFileName(this)" class="d-block">
+                    <div class="mb-3 upload-file-wrapper">
+                        <label for="cv" class="col-form-label">CV</label>
+                        <label class="upload-file" for="cv" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload CV</label>
+                        <input type="file" name="cv" id="cv" class="d-block visually-hidden"  onchange="displayFileName(this)" required>
+                        @error('cv')
+                            <span class="text-danger">{{ $message }}</span>
+                        @else
+                            <span class="text-muted fst-italic mt-1" style="font-size: 12px;">File Max 10MB (Only PDF)</span>
+                        @enderror
                     </div>
+                    <div class="mb-3 upload-file-wrapper">
+                        <label for="portofolio" class="col-form-label">Portofolio(Optional)</label>
+                        <label class="upload-file" for="portofolio" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload Portofolio</label>
+                        <input type="file" name="portofolio" id="portofolio"  onchange="displayFileName(this)" class="d-block visually-hidden">
+                        @error('portofolio')
+                            <span class="text-danger">{{ $message }}</span>
+                        @else
+                            <span class="text-muted fst-italic mt-1" style="font-size: 12px;">File Max 10MB (Only PDF)</span>
+                        @enderror
+                    </div>
+                    <div class="row container">
+                        <button type="submit" class="btn btn-primary m-3">Daftar</button>
+                    </div>              
                   </form>
                 </div>
-                <button type="button" class="btn btn-primary m-3">Daftar</button>                
               </div>
             </div>
           </div>

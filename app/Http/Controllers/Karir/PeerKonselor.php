@@ -77,7 +77,7 @@ class PeerKonselor extends Controller
         Konselor::create($konselorData);
 
         Alert::alert()->html('<img src="/assets/img/image-notification.png" height="150px" />',"Terima Kasih <br> Formulir pendaftaran Anda berhasil dikirim")->persistent(true,false)->showConfirmButton('Kembali', '#3085d6');
-        return redirect()->route('pendaftaran-peer-konselor');
+        return redirect()->route('volunteer.relationship-heroes');
     }
 
     /**
