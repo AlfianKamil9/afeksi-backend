@@ -13,9 +13,10 @@ use App\Http\Controllers\Event\WebinarController;
 use App\Http\Controllers\Event\CampaignController;
 use App\Http\Controllers\Artikel\artikelController;
 use App\Http\Controllers\Karir\RelationshipKonselor;
-use App\Http\Controllers\API\NotificationPaymentEventController;
-use App\Http\Controllers\Transaksi\Layanan\MentoringTransaksiController;
 use App\Http\Controllers\Transaksi\NotifikasiMentoring;
+use App\Http\Controllers\API\NotificationPaymentEventController;
+use App\Http\Controllers\Transaksi\Event\WebinarTransaksiController;
+use App\Http\Controllers\Transaksi\Layanan\MentoringTransaksiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,6 +92,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/Registerinternship', [Internship::class, 'store'])->name('internship.register');
     //PENDAFTARAN WEBINAR
     Route::post('/kegiatan-webinar/{slug}', [WebinarController::class, 'store'])->name('daftar-webinar');
+    Route::get('/{ref_transaction_event}/pembayaran', [WebinarTransaksiController::class, 'pembayaran'])->name('checkout-webinar');
+    Route::post('/{ref_transaction_event}/checkout', [WebinarTransaksiController::class, 'checkoutWebinar']);
     // PENDAFTARAN CAMPAIGN
     Route::post('/kegitan-campaign/{slug}', [CampaignController::class, 'store'])->name('daftar-campaign');
 
@@ -140,4 +143,3 @@ Route::get('/junior-psikolog', function () {
 Route::get('/popup-informasi', function () {
     return view('pages.popup-informasi');
 });
-

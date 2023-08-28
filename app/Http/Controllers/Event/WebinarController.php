@@ -57,7 +57,7 @@ class WebinarController extends Controller
             // dd($event->time_start, $event->time_finish, $event->date_event);
         }
         // dd($data);
-        return view('pages.kegiatan-webinar', [
+        return view('pages.KegiatanWebinar.kegiatan-webinar', [
             'data' => $data,
         ]);
     }
@@ -76,7 +76,7 @@ class WebinarController extends Controller
         $data->time_finish = Carbon::parse($data->time_finish)->format('H:i');
         $data->date_event = Carbon::parse($data->date_event)->format('d F Y');
         // dd($data);
-        return view('pages.detail-webinar',[
+        return view('pages.KegiatanWebinar.detail-webinar',[
             'data' => $data
         ]);
     }
@@ -84,6 +84,7 @@ class WebinarController extends Controller
     public function store(Request $request, $slug)
     {
         //dd($request->all());
+
         $validatedData = $request->validate([
             'institusi' => 'required',
             'domisili' => 'required',
@@ -108,6 +109,9 @@ class WebinarController extends Controller
 
         $event = Event::where('slug_event', $slug)->first();
         $event_id = $event->id;
+
+        $ref_transaction_event = 'WEB-' . time();
+
         $konselorData = [
             'user_id' => $user->id,
             'event_id' => $event_id,
@@ -115,13 +119,22 @@ class WebinarController extends Controller
             'bukti_follow' => $buktiFollow,
             'bukti_linkedin' => $buktiLinkedin,
             'bukti_share' => $buktiShare,
+            'ref_transaction_event' => $ref_transaction_event,
+            'date_order' => Carbon::now(),
         ];
-        EventTransaction::create($konselorData);
+
+        if ($event->pay_category_event === 'FREE') {
+            $konselorData['status'] = 'FREE';
+        } elseif ($event->pay_category_event === 'PAID') {
+            $konselorData['status'] = 'UNPAID';
+        }
+
+        $transaction = EventTransaction::create($konselorData);
 
         if ($event->pay_category_event === 'PAID') {
-            return redirect()->route('homepage'); //misal saja
+            return redirect()->route('checkout-webinar', ['ref_transaction_event' => $transaction->ref_transaction_event]);
         } else {
-            return redirect()->back()->with('success', 'Register Peer Konselor data has been submitted.');
+            return redirect()->back()->with('success', 'Register Webinar has been submitted.');
         }
     }
 }
