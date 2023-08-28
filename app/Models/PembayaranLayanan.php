@@ -53,7 +53,7 @@ class PembayaranLayanan extends Model
 
     public function detail_pembayarans()
     {
-        return $this->belongsTo(DetailPembayaran::class, 'id');
+        return $this->hasMany(DetailPembayaran::class, 'pembayaran_layanan_id', 'id');
     }
 
     public function paket_non_professionals()

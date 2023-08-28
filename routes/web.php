@@ -14,7 +14,9 @@ use App\Http\Controllers\Event\CampaignController;
 use App\Http\Controllers\Artikel\artikelController;
 use App\Http\Controllers\Karir\RelationshipKonselor;
 use App\Http\Controllers\API\NotificationPaymentEventController;
+use App\Http\Controllers\Transaksi\Layanan\KonselingTransaksiController;
 use App\Http\Controllers\Transaksi\Layanan\MentoringTransaksiController;
+use App\Http\Controllers\Transaksi\NotifikasiKonseling;
 use App\Http\Controllers\Transaksi\NotifikasiMentoring;
 
 /*
@@ -61,7 +63,7 @@ Route::get('/kegiatan-campaign', [CampaignController::class, 'index'])->name('ca
 Route::get('/kegiatan-campaign/{slug}', [CampaignController::class, 'show'])->name('campaign.detail');
 
 // KARIER
-Route::get('/karir',[karirController::class, 'index'])->name('karir');
+Route::get('/karir', [karirController::class, 'index'])->name('karir');
 Route::get('/pendaftaran-konselor', function () {
     return view('pages.pendaftaran-konselor');
 })->name('pendaftaran.konselor');
@@ -105,6 +107,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // NOTIFICATION AFTER PEMBAYARAN
     Route::get('/{ref_transaction_layanan}/notification/success', [NotifikasiMentoring::class, 'index'])->name('notification.success');
+
+    //PROFESSIONAL KONSELING
+    Route::get('/slug-konseling-yg-dipilih/{ref_transaction_layanan}/data-diri', [KonselingTransaksiController::class, 'showFormDataDiri']);
+    Route::post('/slug-konseling-yg-dipilih/{ref_transaction_layanan}/submit-form-konseling', [KonselingTransaksiController::class, 'submitDataDiri']);
+    //CHECKOUT
+    Route::get('/slug-konseling-yg-dipilih/{ref_transaction_layanan}/pembayaran', [KonselingTransaksiController::class, 'showPembayaran']);
+    Route::post('/slug-konseling-yg-dipilih/{ref_transaction_layanan}/checkout', [KonselingTransaksiController::class, 'checkoutProfessionalKonseling']);
+    Route::get('/{ref_transaction_layanan}/notification/success', [NotifikasiKonseling::class, 'index']);
 });
 
 
@@ -140,4 +150,3 @@ Route::get('/junior-psikolog', function () {
 Route::get('/popup-informasi', function () {
     return view('pages.popup-informasi');
 });
-
