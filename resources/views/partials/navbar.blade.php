@@ -88,7 +88,7 @@ div .button-login {
                   href="#">Layanan & Produk</a>
                 <!-- <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button> -->
                 <ul class="dropdown-menu">
-                  <li class="mb-1"><a class="dropdown-item" href="#" ><img class="me-3" src="/assets/img/icon/icon-konseling.png" width="20px" style="object-fit:contain">Konseling</a></li>
+                  <li class="mb-1"><a class="dropdown-item" href="{{ route('konseling') }}" ><img class="me-3" src="/assets/img/icon/icon-konseling.png" width="20px" style="object-fit:contain">Konseling</a></li>
                   <li class="mb-1"><a class="dropdown-item" href="{{ route('mentoring') }}"> <img class="me-3" src="/assets/img/icon/icon-mentoring.png" width="20px" style="object-fit:contain">Mentoring</a></li>
                   <li class="mb-1"><a class="dropdown-item" href="#"><img class="me-3" src="/assets/img/icon/icon-ebook.png" width="20px" style="object-fit:contain">E-Book</a></li>
                   <li class="mb-1"><a class="dropdown-item" href="#"><img class="me-3" src="/assets/img/icon/icon-ecourse.png" width="20px" style="object-fit:contain">E-Course</a></li>

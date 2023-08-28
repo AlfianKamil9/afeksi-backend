@@ -70,7 +70,6 @@ class MentoringTransaksiController extends Controller
             'psikolog',
             'detail_pembayarans'
         )->where('ref_transaction_layanan', $ref_transaction_layanan)->firstOrFail();
-
         return view('pages.LayananMentoring.pembayaran', compact('data'));
     }
 
@@ -122,7 +121,7 @@ class MentoringTransaksiController extends Controller
                 'kode' => $va,
                 'pesan' => $pesan 
             ]);
-            return Redirect::to('/'.$ref_transaction_layanan.'/notification/success');
+            return Redirect::to('/'.$ref_transaction_layanan.'/notification-mentoring/success');
         } 
         
         // ----------###--------------
@@ -137,7 +136,7 @@ class MentoringTransaksiController extends Controller
                 'kode' => $va,
                 'pesan' => $pesan 
             ]);
-            return Redirect::to('/'.$ref_transaction_layanan.'/notification/success');
+            return Redirect::to('/'.$ref_transaction_layanan.'/notification-mentoring/success');
         } 
 
         
@@ -156,8 +155,7 @@ class MentoringTransaksiController extends Controller
                 'kode' => $va,
                 'pesan' => $pesan 
             ]);
-            return Redirect::to('/'.$ref_transaction_layanan.'/notification/success');
-
+            return Redirect::to('/'.$ref_transaction_layanan.'/notification-mentoring/success');
         }
         // ---------######--------------
         else if ($bank == 'alfamart') {
@@ -171,15 +169,7 @@ class MentoringTransaksiController extends Controller
                 'kode' => $va,
                 'pesan' => $pesan 
             ]);
-            return Redirect::to('/'.$ref_transaction_layanan.'/notification/success');
-
-            return redirect('/' . $ref_transaction_layanan . '/notification/success')
-                ->with([
-                    'popupAfterMentoring' => true,
-                    'kode' => $va,
-                    'pesan' => $pesan
-                ]);
-
+            return Redirect::to('/'.$ref_transaction_layanan.'/notification-mentoring/success');
         }
         // ---------###############---------------
         else if ($bank == 'shopeepay') {
@@ -193,7 +183,7 @@ class MentoringTransaksiController extends Controller
                 'kode' => $va,
                 'pesan' => $pesan 
             ]);
-            return Redirect::to('/'.$ref_transaction_layanan.'/notification/success');
+            return Redirect::to('/'.$ref_transaction_layanan.'/notification-mentoring/success');
 
         }
         // --------------################-------------
@@ -210,7 +200,7 @@ class MentoringTransaksiController extends Controller
                 'kode' => $va,
                 'pesan' => $pesan 
             ]);
-            return Redirect::to('/'.$ref_transaction_layanan.'/notification/success');
+            return Redirect::to('/'.$ref_transaction_layanan.'/notification-mentoring/success');
         }
     }
 

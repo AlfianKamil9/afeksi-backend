@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers\Transaksi\Layanan;
 
-use App\Http\Controllers\Controller;
-use App\Models\DetailPembayaran;
-use App\Models\PembayaranLayanan;
-use Illuminate\Http\Request;
+use Carbon\Carbon;
+use App\Models\bank;
 use App\Models\User;
 use App\Models\Voucher;
-use Carbon\Carbon;
+use Illuminate\Http\Request;
+use App\Models\DetailPembayaran;
+use App\Models\PembayaranLayanan;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
-use App\Models\bank;
 use App\Services\Midtrans\PembayaranEvent\CstoreService;
 use App\Services\Midtrans\PembayaranEvent\EwalletService;
 use App\Services\Midtrans\PembayaranEvent\TransferBankService;
@@ -127,12 +129,12 @@ class KonselingTransaksiController extends Controller
             $va = '<h6 style="text-transform:uppercase;">' . $bank . ' VA = ' . $getData->kode_bayar_1 . '</h6>';
             $pesan = "Silahkan Lengkapi Pembayaran Sebelum <br><strong>" . $getData2->updated_at->addDay(1)->format('l, d M Y') . "</strong> pukul </strong>" . $getData->updated_at->format('H:i') . "</strong>";
 
-            return redirect('/' . $ref_transaction_layanan . '/notification/success')
-                ->with([
-                    'point' => true,
-                    'kode' => $va,
-                    'pesan' => $pesan
-                ]);
+            Session::flash('popupAfterMentoring', [
+                'kode' => $va,
+                'pesan' => $pesan 
+            ]);
+            return Redirect::to('/' . $ref_transaction_layanan . '/notification-konseling/success');
+
         } else if ($bank == 'mandiri') {
             $getData = DetailPembayaran::where('pembayaran_layanan_id', $id->id)->first();
             $getData2 = PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->first();
@@ -140,12 +142,12 @@ class KonselingTransaksiController extends Controller
                     <h6 style="text-transform:uppercase;">' . $bank . ' Bill Code = ' . $getData->kode_bayar_2 . '</h6>';
             $pesan = "Silahkan Lengkapi Pembayaran Sebelum <br><strong>" . $getData2->updated_at->addDay(1)->format('l, d M Y') . "</strong> pukul </strong>" . $getData->updated_at->format('H:i') . "</strong>";
 
-            return redirect('/' . $ref_transaction_layanan . '/notification/success')
-                ->with([
-                    'point' => true,
-                    'kode' => $va,
-                    'pesan' => $pesan
-                ]);
+            Session::flash('popupAfterMentoring', [
+                'kode' => $va,
+                'pesan' => $pesan 
+            ]);
+            return Redirect::to('/' . $ref_transaction_layanan . '/notification-konseling/success');
+
         } else if ($bank == 'indomaret') {
             $getData = DetailPembayaran::where('pembayaran_layanan_id', $id->id)->first();
             $getData2 = PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->first();
@@ -154,35 +156,36 @@ class KonselingTransaksiController extends Controller
                     ';
             $pesan = "Silahkan Lengkapi Pembayaran Sebelum <br><strong>" . $getData2->updated_at->addDay(1)->format('l, d M Y') . "</strong> pukul </strong>" . $getData->updated_at->format('H:i') . "</strong>";
 
-            return redirect('/' . $ref_transaction_layanan . '/notification/success')
-                ->with([
-                    'point' => true,
-                    'kode' => $va,
-                    'pesan' => $pesan
-                ]);
+            Session::flash('popupAfterMentoring', [
+                'kode' => $va,
+                'pesan' => $pesan 
+            ]);
+            return Redirect::to('/' . $ref_transaction_layanan . '/notification-konseling/success');
+
         } else if ($bank == 'alfamart') {
             $getData = DetailPembayaran::where('pembayaran_layanan_id', $id->id)->first();
             $getData2 = PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->first();
             $va =   '<h6 style="text-transform:uppercase;">' . $bank . ' Kode Pembayaran = ' . $getData->kode_bayar_1 . '</h6>';
             $pesan = "Silahkan Lengkapi Pembayaran Sebelum <br><strong>" . $getData2->updated_at->addDay(1)->format('l, d M Y') . "</strong> pukul </strong>" . $getData->updated_at->format('H:i') . "</strong>";
 
-            return redirect('/' . $ref_transaction_layanan . '/notification/success')
-                ->with([
-                    'popupAfterKonseling' => true,
-                    'kode' => $va,
-                    'pesan' => $pesan
-                ]);
+            Session::flash('popupAfterMentoring', [
+                'kode' => $va,
+                'pesan' => $pesan 
+            ]);
+            return Redirect::to('/' . $ref_transaction_layanan . '/notification-konseling/success');
+
         } else if ($bank == 'shopeepay') {
             $getData = DetailPembayaran::where('pembayaran_layanan_id', $id->id)->first();
             $getData2 = PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->first();
             $va =   '<center><a style="text-transform:uppercase;" href="' . $getData->kode_bayar_1 . '" class="btn btn-primary">Bayar Sekarang</a></center>';
             $pesan = "Silahkan Lengkapi Pembayaran Sebelum <br><strong>" . $getData2->updated_at->format('l, d M Y') . "</strong> pukul </strong>" . $getData->updated_at->addMinutes(15)->format('H:i') . "</strong>";
-            return redirect('/' . $ref_transaction_layanan . '/notification/success')
-                ->with([
-                    'popupAfterKonseling' => true,
-                    'kode' => $va,
-                    'pesan' => $pesan
-                ]);
+            
+            Session::flash('popupAfterMentoring', [
+                'kode' => $va,
+                'pesan' => $pesan 
+            ]);
+            return Redirect::to('/' . $ref_transaction_layanan . '/notification-konseling/success');
+
         } else if ($bank == 'gopay') {
             // <img src="'.$getData->kode_bayar_2.'" width="75px" alt="Kode_Pembayaran">
             $getData = DetailPembayaran::where('pembayaran_layanan_id', $id->id)->first();
@@ -191,12 +194,12 @@ class KonselingTransaksiController extends Controller
                         <a style="text-transform:uppercase;" href="' . $getData->kode_bayar_1 . '"  class="btn btn-primary">Bayar Sekarang</a>
                     </center>';
             $pesan = "Silahkan Lengkapi Pembayaran Sebelum <br><strong>" . $getData2->updated_at->format('l, d M Y') . "</strong> pukul </strong>" . $getData->updated_at->addMinutes(15)->format('H:i') . "</strong>";
-            return redirect('/' . $ref_transaction_layanan . '/notification/success')
-                ->with([
-                    'popupAfterKonseling' => true,
-                    'kode' => $va,
-                    'pesan' => $pesan
-                ]);
+            
+            Session::flash('popupAfterMentoring', [
+                'kode' => $va,
+                'pesan' => $pesan 
+            ]);
+            return Redirect::to('/' . $ref_transaction_layanan . '/notification-konseling/success');
         }
     }
 

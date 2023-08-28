@@ -75,6 +75,10 @@ Route::get('/pendaftaran-konselor', function () {
 Route::get('/mentoring', function () {
     return view('pages.page-mentoring');
 })->name('mentoring');
+// KONSELING
+Route::get('/konseling', function () {
+    return view('pages.page-konseling');
+})->name('konseling');
 
 // ARTIKEL
 Route::get('/artikel', [artikelController::class, 'index'])->name('artikel');
@@ -112,15 +116,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/slug-mentoring-yg-dipilih/{ref_transaction_layanan}/pembayaran', [MentoringTransaksiController::class, 'layananNonProfesional'])->name('checkout.layanan.mentoring');
     Route::post('/slug-mentoring-yg-dipilih/{ref_transaction_layanan}/checkout', [MentoringTransaksiController::class, 'checkoutLayananNonProfessional']);
     // NOTIFICATION AFTER PEMBAYARAN MENTORING
-    Route::get('/{ref_transaction_layanan}/notification/success', [NotifikasiMentoring::class, 'index'])->name('notification.success');
+    Route::get('/{ref_transaction_layanan}/notification-mentoring/success', [NotifikasiMentoring::class, 'index'])->name('notification.success');
 
+    // KONSELING
     //PROFESSIONAL KONSELING
     Route::get('/slug-konseling-yg-dipilih/{ref_transaction_layanan}/data-diri', [KonselingTransaksiController::class, 'showFormDataDiri']);
     Route::post('/slug-konseling-yg-dipilih/{ref_transaction_layanan}/submit-form-konseling', [KonselingTransaksiController::class, 'submitDataDiri']);
     //CHECKOUT
     Route::get('/slug-konseling-yg-dipilih/{ref_transaction_layanan}/pembayaran', [KonselingTransaksiController::class, 'showPembayaran']);
     Route::post('/slug-konseling-yg-dipilih/{ref_transaction_layanan}/checkout', [KonselingTransaksiController::class, 'checkoutProfessionalKonseling']);
-    Route::get('/{ref_transaction_layanan}/notification/success', [NotifikasiKonseling::class, 'index']);
+    Route::get('/{ref_transaction_layanan}/notification-konseling/success', [NotifikasiKonseling::class, 'index']);
 });
 
 
@@ -156,3 +161,11 @@ Route::get('/junior-psikolog', function () {
 Route::get('/popup-informasi', function () {
     return view('pages.popup-informasi');
 });
+
+// Route::get('/pembayaran', function () {
+//     return view('pages.pembayaran');
+// });
+// Route::get('/data-diri', function () {
+//     return view('pages.data-diri');
+// });
+

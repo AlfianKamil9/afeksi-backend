@@ -70,7 +70,7 @@
           <div class="text-white mb-4 me-3 flex-fill">
             <h5 class="link-title mb-4 fw-bold">Layanan</h5>
             <ul class="list-unstyled">
-              <li class="mb-3"><a href="#" class="text-white">Konseling</a></li>
+              <li class="mb-3"><a href="{{ route('konseling') }}" class="text-white">Konseling</a></li>
               <li class="mb-3"><a href="{{ route('mentoring') }}" class="text-white">Mentoring</a></li>
             </ul>
           </div>

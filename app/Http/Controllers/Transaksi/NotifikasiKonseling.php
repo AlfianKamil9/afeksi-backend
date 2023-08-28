@@ -11,16 +11,16 @@ class NotifikasiKonseling extends Controller
 {
     public function index($ref_transaction_layanan)
     {
-
         if (session()->has('popupAfterKonseling')) {
             Alert::alert()->html(session('kode'), session('pesan'))->persistent(true, false);
-            $cekSlug = PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->where('status', 'UNPAID')->first();
-            // dd($cekSlug);
+            return view('pages.popup-informasi');
+        } else {
+            $cekSlug = PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->where('status', 'PENDING')->first();
+            if (!$cekSlug) {
+                return redirect('/error');
+            }
+            return view('pages.popup-informasi');
         }
-        return view('pages.popup-informasi');
 
-        if (!$cekSlug) {
-            return redirect('/error');
-        }
     }
 }
