@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 class TransferBankService
 {
 
-    public function bank($method, $data) {      // PAYMENT MENGGUNAKAN BNI, BRI, BCA 
+    public function bank($method, $data) {      // PAYMENT MENGGUNAKAN BNI, BRI, BCA ,CIMB
         $serverkey = config('midtrans.midtrans.server_key');
         $serverBase64 = base64_encode($serverkey.':');
         $url = config('midtrans.midtrans.url');

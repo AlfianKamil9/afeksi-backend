@@ -70,7 +70,7 @@
     <div class="col-lg-7">
       <div class="card mb-4" style="border-color: #2139f9; z-index: 0">
         <div class="card-body">
-          <form action="/slug-mentoring-yg-dipilih/{{ request('ref_transaction_layanan') }}/checkout" method="post">
+          <form action="/slug-konseling-yg-dipilih/{{ request('ref_transaction_layanan') }}/checkout" method="post">
             @csrf
           <h5 class="fw-bolder" style="color: #2139f9">Pembayaran</h5>
 
@@ -111,7 +111,11 @@
                 <tbody>
                   <tr>
                     <td class="text-muted fw-bold">Sub Total</td>
-                    <td class="text-end fw-bold">Rp {{ number_format($data->paket_non_professionals->harga + 4000, 0, ',', '.') }}</td>
+                    <td class="text-end fw-bold">Rp {{ number_format($data->paket_profesional_conselings->harga) }}</td>
+                  </tr>
+                  <tr>
+                    <td class="text-muted fw-bold">Biaya Admin</td>
+                    <td class="text-end fw-bold">Rp. {{ number_format(4000, 0 ,',' ,'.') }}</td>
                   </tr>
                   <tr>
                     <td class="text-muted fw-bold">Voucher Diskon</td>
@@ -134,9 +138,9 @@
                     <td class="fs-5 fw-bold text-muted">Total Pembayaran</td>
                     <td class="text-end fw-bold fs-5">Rp. 
                       @if (session()->has('apply'))
-                          {{ number_format($data->paket_non_professionals->harga + 4000 - session('apply')['diskon'], 0, ',', '.') }}
+                          {{ number_format($data->paket_profesional_conselings->harga + 4000 - session('apply')['diskon'], 0, ',', '.') }}
                       @else
-                          {{ number_format($data->paket_non_professionals->harga + 4000, 0, ',', '.') }}
+                          {{ number_format($data->paket_profesional_conselings->harga + 4000, 0, ',', '.') }}
                       @endif
                     </td>
                   </tr>
@@ -153,9 +157,9 @@
                 <h5 class="text-muted">Total Pembayaran</h5>
                   <h5 class="fw-bold" style="color: #2139f9">Rp. 
                     @if(session()->has('apply'))  
-                      {{ number_format($data->paket_non_professionals->harga + 4000 - session('apply')['diskon'], 0, ',', '.') }}
+                      {{ number_format($data->paket_profesional_conselings->harga + 4000 - session('apply')['diskon'], 0, ',', '.') }}
                     @else
-                      {{ number_format($data->paket_non_professionals->harga + 4000, 0, ',', '.') }}
+                      {{ number_format($data->paket_profesional_conselings->harga + 4000, 0, ',', '.') }}
                     @endif
                   </h5>
               </div>
@@ -182,7 +186,7 @@
                 <img src="/assets/img/pembayaran/plus-counseling.png" alt="Plus Counseling" class="img-fluid" />
               </div>
               <div class="text-container px-2">
-                <h6 class="mt-3 mb-0 fw-bold" style="color: #2139f9">{{ $data->paket_non_professionals->nama_paket }}</h6>
+                <h6 class="mt-3 mb-0 fw-bold" style="color: #2139f9">{{ $data->paket_profesional_conselings->nama_paket }}</h6>
                 <p style="font-size: 10px">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
               </div>
             </div>
@@ -210,17 +214,17 @@
                     <tr>
                       <td>Topik</td>
                       <td>:</td>
-                      <td>{{ $data->paket_non_professionals->layanan_non_professionals->nama_layanan }}</td>
+                      <td>{{ $data->paket_profesional_conselings->nama_paket }}</td>
                     </tr>
                     <tr>
                       <td>Tanggal</td>
                       <td>:</td>
-                      <td>{{ \Carbon\Carbon::parse($data->detail_pembayarans->tgl_konsultasi)->format('l, d-m-Y') }}</td>
+                      <td>{{ \Carbon\Carbon::parse($data->detail_pembayarans[0]->tgl_konsultasi)->format('l, d-m-Y') }}</td>
                     </tr>
                     <tr>
                       <td>Waktu</td>
                       <td>:</td>
-                      <td>{{ $data->detail_pembayarans->jam_konsultasi }}</td>
+                      <td>{{ $data->detail_pembayarans[0]->jam_konsultasi }}</td>
                     </tr>
                     <tr>
                       <td>Durasi</td>
@@ -239,7 +243,7 @@
                 <h5 class="fw-bold text-muted">Harga Paket</h5>
               </div>
               <div class="col-md-6 text-end">
-                <h5 class="fw-bold" style="color: #2139f9">Rp. {{ number_format($data->paket_non_professionals->harga, 0, ',', '.') }}</h5>
+                <h5 class="fw-bold" style="color: #2139f9">Rp. {{ number_format($data->paket_profesional_conselings->harga, 0, ',', '.') }}</h5>
               </div>
             </div>
           </div>
