@@ -190,7 +190,7 @@
     </div>
     </div>
 
-    <div class="team-regis px-lg-5 px-4 pb-5" style="margin-top: 100px">
+    <div class="team-regis container pb-5" style="margin-top: 100px">
       <div class="regis-card flex-wrap rounded-3 py-3 px-3 px-lg-4 d-flex justify-content-between align-items-center">
         <div class="text">
           <h2 class="fw-bold">Staff Business Development</h2>

@@ -104,6 +104,10 @@ span {
 }
 
 /* caurosel */
+:root {
+    --swiper-navigation-size: 25px !important;
+}
+
 .contents {
     padding: 0 100px;
 }
@@ -134,6 +138,7 @@ span {
 
 .swiper-slide span {
     font-size: 14px;
+    color: black;
 }
 
 .slide-container .swiper-pagination-bullet {

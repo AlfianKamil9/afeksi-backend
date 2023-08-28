@@ -50,6 +50,23 @@ div .container-fluid img {
     right: 0px;
     z-index: -1;
 }
+
+@media (min-width:1600px) {
+    div .container-fluid {
+        padding: 5rem 15rem;
+        height: 31.9rem;
+        position: relative;
+    }
+
+    div .container-fluid img {
+        max-width: 65rem;
+        width: 65rem;
+        top: 50%;
+        right: 0rem;
+        transform: translateY(-50%);
+        z-index: -1;
+    }
+}
 /* END HEADER */
 
 .card img {
@@ -169,6 +186,7 @@ div .container-fluid img {
 
 .our-team .box {
     width: 85%;
+    max-width: 1200px;
     height: fit-content;
     background-color: white;
     position: absolute;
