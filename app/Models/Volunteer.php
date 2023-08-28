@@ -9,10 +9,23 @@ class Volunteer extends Model
 {
     use HasFactory;
 
-    protected $table = 'konselors';
+    protected $table = 'volunteers';
+
+    protected $fillable = [
+        "user_id",
+        "volunteer_category",
+        "pekerjaan",
+        "instansi",
+        "divisi",
+        "alasan",
+        "bukti_follow",
+        "cv",
+        "portofolio"];
+
+
 
     public function user2()
     {
-        return $this->belongsTo(User2::class, 'user_2_id', 'id_user');
+        return $this->belongsTo(User::class, 'user_id', 'id_user');
     }
 }

@@ -15,6 +15,8 @@ use App\Http\Controllers\Artikel\artikelController;
 use App\Http\Controllers\Karir\RelationshipKonselor;
 use App\Http\Controllers\Transaksi\NotifikasiMentoring;
 use App\Http\Controllers\API\NotificationPaymentEventController;
+use App\Http\Controllers\Karir\BrandAmbasador;
+use App\Http\Controllers\Karir\RelationshipHeroes;
 use App\Http\Controllers\Transaksi\Event\WebinarTransaksiController;
 use App\Http\Controllers\Transaksi\Layanan\MentoringTransaksiController;
 
@@ -90,6 +92,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // PENDAFTARAN INTERNSHIP
     Route::get('/internship/{slug}', [Internship::class, 'show'])->name('internship.detail');
     Route::post('/Registerinternship', [Internship::class, 'store'])->name('internship.register');
+    // PENDAFTARAN BRAND AMBASSADOR (VOLUNTEER)
+    Route::get('/pendaftaran-brand-ambassador', [BrandAmbasador::class, 'index'])->name('volunteer.brand-ambassador');
+    Route::post('/pendaftaran-brand-ambassador/create', [BrandAmbasador::class, 'store'])->name('volunteer.register-brand-ambassador');
+    // PENDAFTARAN RELATIONSHIP HEROES (VOLUNTEER)
+    Route::get('/pendaftaran-relationship-heroes', [RelationshipHeroes::class, 'index'])->name('volunteer.relationship-heroes');
     //PENDAFTARAN WEBINAR
     Route::post('/kegiatan-webinar/{slug}', [WebinarController::class, 'store'])->name('daftar-webinar');
     Route::get('/{ref_transaction_event}/pembayaran', [WebinarTransaksiController::class, 'pembayaran'])->name('checkout-webinar');
@@ -105,8 +112,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // CHECKOUT KHUSUS MENTORING
     Route::get('/slug-mentoring-yg-dipilih/{ref_transaction_layanan}/pembayaran', [MentoringTransaksiController::class, 'layananNonProfesional'])->name('checkout.layanan.mentoring');
     Route::post('/slug-mentoring-yg-dipilih/{ref_transaction_layanan}/checkout', [MentoringTransaksiController::class, 'checkoutLayananNonProfessional']);
-
-    // NOTIFICATION AFTER PEMBAYARAN
+    // NOTIFICATION AFTER PEMBAYARAN MENTORING
     Route::get('/{ref_transaction_layanan}/notification/success', [NotifikasiMentoring::class, 'index'])->name('notification.success');
 });
 

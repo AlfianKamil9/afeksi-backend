@@ -1,6 +1,6 @@
 @extends('../layout')
 
-@section('title', 'junior psikolog')
+@section('title', 'Notifikasi | AFEKSI')
 
 @section('styles')
     <link rel="stylesheet" href="/assets/css/popinformasi.css">

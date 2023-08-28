@@ -54,11 +54,11 @@
                   alt="psikolog"
                   style="background-size: cover" />
                 <div class="card-body">
-                  <h5 class="card-title fw-bold" style="color: #2139f9">Psikolog</h5>
+                  <h5 class="card-title fw-bold" style="color: #2139f9">Konselor</h5>
                   <p class="card-text" style="color: #717171">
                     Mulailah konsultasi masalahmu dengan psikolog terbaik kami. Dan Temukan Psikolog untuk menyelesaikan masalahmu !!!!
                   </p>
-                  <a href="#" class="btn btn-selengkapnya w-100" style="background-color: #233dff; color: #ffffff; font-size: 14px; font-weight: 500"
+                  <a href="{{ route('pendaftaran.konselor') }}" class="btn btn-selengkapnya w-100" style="background-color: #233dff; color: #ffffff; font-size: 14px; font-weight: 500"
                     >Selengkapnya</a
                   >
                 </div>
@@ -72,11 +72,11 @@
                   alt="psikolog"
                   style="background-size: cover" />
                 <div class="card-body">
-                  <h5 class="card-title fw-bold" style="color: #2139f9">Konselor</h5>
+                  <h5 class="card-title fw-bold" style="color: #2139f9">Volunteer</h5>
                   <p class="card-text" style="color: #717171">
                     Mulailah konsultasi masalahmu dengan Konselor terbaik kami. Dan Temukan Konselor untuk menyelesaikan masalahmu !!!!
                   </p>
-                  <a href="{{ route('pendaftaran.konselor') }}" class="btn btn-selengkapnya w-100" style="background-color: #233dff; color: #ffffff; font-size: 14px; font-weight: 500"
+                  <a href="#" class="btn btn-selengkapnya w-100" style="background-color: #233dff; color: #ffffff; font-size: 14px; font-weight: 500"
                     >Selengkapnya</a
                   >
                 </div>
