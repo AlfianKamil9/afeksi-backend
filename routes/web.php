@@ -113,3 +113,6 @@ Route::get('/page-konseling', function () {
 Route::get('/data-diri', function () {
     return view('pages.data-diri');
 });
+Route::get('/volunteer', function () {
+    return view('pages.volunteer');
+});
