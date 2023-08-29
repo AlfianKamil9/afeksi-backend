@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="/assets/css/karir.css">
 @endsection
 
-{{-- @include('../partials/navbar')  --}}
 
 @section('content')
 
@@ -31,8 +30,8 @@
       </div>
     </div>
 
-    <img class="background left d-none d-md-block" src="assets/img/about-us/Frame-1.png" alt="" />
-    <img class="background right d-none d-md-block" src="assets/img/about-us/Frame-2.png" alt="" />
+    <img class="background left d-none d-md-block" src="/assets/img/about-us/Frame-1.png" alt="" />
+    <img class="background right d-none d-md-block" src="/assets/img/about-us/Frame-2.png" alt="" />
     <!-- End HEADER -->
 
     <!-- Bergabung bersama kami section -->
@@ -76,7 +75,7 @@
                   <p class="card-text" style="color: #717171">
                     Mulailah konsultasi masalahmu dengan Konselor terbaik kami. Dan Temukan Konselor untuk menyelesaikan masalahmu !!!!
                   </p>
-                  <a href="#" class="btn btn-selengkapnya w-100" style="background-color: #233dff; color: #ffffff; font-size: 14px; font-weight: 500"
+                  <a href="{{ route('join.volunteer') }}" class="btn btn-selengkapnya w-100" style="background-color: #233dff; color: #ffffff; font-size: 14px; font-weight: 500"
                     >Selengkapnya</a
                   >
                 </div>
@@ -191,6 +190,7 @@
         </form>
     </div>
     </div>
+
 
     <div class="team-regis px-lg-5 px-4 pb-5" style="margin-top: 100px">
         @foreach ($result as $item)

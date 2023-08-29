@@ -34,12 +34,6 @@ use App\Http\Controllers\Transaksi\NotifikasiMentoring;
 
 // BERANDA
 Route::get('/', function () {
-    // $bank = "bni";
-    // $getData = DetailPembayaran::where('pembayaran_layanan_id', 1)->first();
-    // $va = '<a href="https://api.midtrans.com/v2/gopay/e48447d1-cfa9-4b02-b163-2e915d4417ac/qr-code"><img height="100px" src="https://api.midtrans.com/v2/gopay/e48447d1-cfa9-4b02-b163-2e915d4417ac/qr-code"></a>
-    // <h3 style="text-transform:uppercase;">'.$bank.' VA = '.$getData->kode_bayar_1.'</h3>';
-    // alert()->html($va,"Silahkan Lengkapi Pembayaran Sebelum <br><strong>".$getData->updated_at->addDay(1)->format('l, d M Y')." pukul ".$getData->updated_at->format('H:i')."</strong>");
-    // // //Alert::success('SuccessAlert','Lorem ipsum dolor sit amet.')->persistent(true,false);
     return view('pages.landing-page-new');
 })->name('homepage');
 
@@ -66,10 +60,12 @@ Route::get('/kegiatan-campaign/{slug}', [CampaignController::class, 'show'])->na
 
 // KARIER
 Route::get('/karir', [karirController::class, 'index'])->name('karir');
-Route::get('/pendaftaran-konselor', function () {
-    return view('pages.pendaftaran-konselor');
+Route::get('/join-konselor', function () {
+    return view('pages.Karir.pendaftaran-konselor');
 })->name('pendaftaran.konselor');
-
+Route::get('/join-volunteer', function () {
+    return view('pages.Karir.volunteer');
+})->name('join.volunteer');
 
 // MENTORING
 Route::get('/mentoring', function () {
@@ -163,10 +159,23 @@ Route::get('/popup-informasi', function () {
     return view('pages.popup-informasi');
 });
 
+
 // Route::get('/pembayaran', function () {
 //     return view('pages.pembayaran');
 // });
 // Route::get('/data-diri', function () {
 //     return view('pages.data-diri');
 // });
+
+
+Route::get('/pembayaran', function () {
+    return view('pages.pembayaran');
+});
+Route::get('/page-konseling', function () {
+    return view('pages.page-konseling');
+});
+Route::get('/data-diri', function () {
+    return view('pages.data-diri');
+});
+
 

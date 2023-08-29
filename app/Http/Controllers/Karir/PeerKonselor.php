@@ -15,7 +15,7 @@ class PeerKonselor extends Controller
      */
     public function index()
     {
-        return view('pages.detail-pendaftaran-peer');
+        return view('pages.Karir.detail-pendaftaran-peer');
     }
 
     /**

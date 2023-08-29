@@ -16,7 +16,7 @@ class RelationshipKonselor extends Controller
      */
     public function index()
     {
-        return view('pages.detail-pendaftaran-relationship');
+        return view('pages.Karir.detail-pendaftaran-relationship');
     }
 
     /**

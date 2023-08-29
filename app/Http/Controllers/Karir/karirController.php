@@ -45,6 +45,6 @@ class karirController extends Controller
                 ->Where('tipe_kerja', 'LIKE', '%' . $request->tipe_kerja . '%')
                 ->get();
         }
-        return view('pages.karir', compact('result'));
+        return view('pages.Karir.karir', compact('result'));
     }
 }

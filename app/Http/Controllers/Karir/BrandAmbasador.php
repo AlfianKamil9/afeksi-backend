@@ -12,7 +12,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 class BrandAmbasador extends Controller
 {
      public function index() {
-        return view('pages.detail-pendaftaran-brand-ambassador');
+        return view('pages.Karir.detail-pendaftaran-brand-ambassador');
     }
 
     public function store(Request $request) {

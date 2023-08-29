@@ -11,7 +11,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 class RelationshipHeroes extends Controller
 {
     public function index() {
-        return view('pages.detail-pendaftaran-relationship-heroes');
+        return view('pages.Karir.detail-pendaftaran-relationship-heroes');
     }
 
     public function store(Request $request) {
