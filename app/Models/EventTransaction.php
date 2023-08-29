@@ -24,6 +24,8 @@ class EventTransaction extends Model
         'bukti_follow',
         'bukti_linkedin',
         'bukti_share',
+        'kode_bayar_1',
+        'kode_bayar_2',
     ];
 
     protected $guarded = [

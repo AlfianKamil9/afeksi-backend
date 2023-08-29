@@ -118,7 +118,7 @@ class CampaignController extends Controller
         $konselorData = [
             'user_id' => $user->id,
             'status' => 'FREE',
-            'ref_transaction_event' => 'CAM-'.Str::random(8),
+            'ref_transaction_event' => 'CAM-'.Carbon::now()->format('dmYHis'),
             'event_id' => $event_id,
             'info' => $validatedData['info'],
             'bukti_follow' => $buktiFollow,

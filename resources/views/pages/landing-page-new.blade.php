@@ -210,7 +210,7 @@
                           Terdapat banyak layanan konseling, yang meliputi Professional Counseling dan Peers Counseling. Segera pilih layanan
                           konseling yang kamu minatti !!
                         </p>
-                        <a href="#" class="btn-pilih">Pilih</a>
+                        <a href="{{ route('konseling') }}" class="btn-pilih">Pilih</a>
                       </div>
                     </div>
                   </div>

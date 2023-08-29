@@ -1,6 +1,6 @@
 @extends('../layout')
 
-@section('title', 'Pembayaran | AFEKSI')
+@section('title', 'Pembayaran Mentoring | AFEKSI')
 
 @section('styles')
     <link rel="stylesheet" href="/assets/css/pembayaran.css">

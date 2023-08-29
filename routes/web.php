@@ -13,13 +13,16 @@ use App\Http\Controllers\Event\WebinarController;
 use App\Http\Controllers\Event\CampaignController;
 use App\Http\Controllers\Artikel\artikelController;
 use App\Http\Controllers\Karir\RelationshipKonselor;
+use App\Http\Controllers\Transaksi\NotifikasiMentoring;
 use App\Http\Controllers\API\NotificationPaymentEventController;
+use App\Http\Controllers\Event\NotificationWebinar;
 use App\Http\Controllers\Karir\BrandAmbasador;
 use App\Http\Controllers\Karir\RelationshipHeroes;
 use App\Http\Controllers\Transaksi\Layanan\KonselingTransaksiController;
 use App\Http\Controllers\Transaksi\Layanan\MentoringTransaksiController;
 use App\Http\Controllers\Transaksi\NotifikasiKonseling;
-use App\Http\Controllers\Transaksi\NotifikasiMentoring;
+use App\Http\Controllers\Transaksi\Event\WebinarTransaksiController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -69,7 +72,7 @@ Route::get('/join-volunteer', function () {
 
 // MENTORING
 Route::get('/mentoring', function () {
-    return view('pages.page-mentoring');
+    return view('pages.LayananMentoring.page-mentoring');
 })->name('mentoring');
 // KONSELING
 Route::get('/konseling', function () {
@@ -99,8 +102,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // PENDAFTARAN RELATIONSHIP HEROES (VOLUNTEER)
     Route::get('/pendaftaran-relationship-heroes', [RelationshipHeroes::class, 'index'])->name('volunteer.relationship-heroes'); 
     Route::post('/pendaftaran-relationship-heroes', [RelationshipHeroes::class, 'store'])->name('volunteer.store-relationship-heroes'); 
+
+
+    // PENDAFTARAN KEGIATAN
     //PENDAFTARAN WEBINAR
     Route::post('/kegiatan-webinar/{slug}', [WebinarController::class, 'store'])->name('daftar-webinar');
+    Route::get('/{ref_transaction_event}/pembayaran-webinar', [WebinarTransaksiController::class, 'pembayaran'])->name('checkout-webinar');
+    Route::post('/{ref_transaction_event}/checkout/webinar', [WebinarTransaksiController::class, 'checkoutWebinar']);
+    Route::get('/{ref_transaction_event}/notification-webinar/success', [NotificationWebinar::class, 'index'])->name('notification.success.webinar');
     // PENDAFTARAN CAMPAIGN
     Route::post('/kegitan-campaign/{slug}', [CampaignController::class, 'store'])->name('daftar-campaign');
 
@@ -158,6 +167,7 @@ Route::get('/junior-psikolog', function () {
 Route::get('/popup-informasi', function () {
     return view('pages.popup-informasi');
 });
+
 
 
 // Route::get('/pembayaran', function () {

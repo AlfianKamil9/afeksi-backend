@@ -1,6 +1,6 @@
 @extends('../layout')
 
-@section('title', 'Pendaftaran Konselor | AFEKSI')
+@section('title', 'Join Konselor | AFEKSI')
 
 <!-- path style disesuaikan dengan folder css masing-masing page -->
 @section('styles')

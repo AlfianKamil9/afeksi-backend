@@ -6,7 +6,7 @@
 
 <!-- path style disesuaikan dengan folder css masing-masing page -->
 @section('styles')
-    <link rel="stylesheet" href="{{ asset('assets/css/detail-kegiatan.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/css/detail-kegiatan.css') }}">
 @endsection
 
 {{-- @include('../partials/navbar')  --}}

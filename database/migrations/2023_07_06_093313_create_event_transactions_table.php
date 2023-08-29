@@ -17,6 +17,8 @@ return new class extends Migration
             $table->unsignedBigInteger('event_id');
             $table->string('ref_transaction_event')->default('WEB-', 'CAM-');
             $table->string('payment_method')->nullable();
+            $table->string('kode_bayar_1')->nullable();
+            $table->string('kode_bayar_2')->nullable();
             $table->string('total_payment')->nullable();
             $table->string('fee_transaction')->nullable();
             $table->date('date_order')->nullable();
