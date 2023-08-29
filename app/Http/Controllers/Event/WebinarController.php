@@ -57,7 +57,7 @@ class WebinarController extends Controller
             // dd($event->time_start, $event->time_finish, $event->date_event);
         }
         // dd($data);
-        return view('pages.kegiatan-webinar', [
+        return view('pages.Kegiatan.kegiatan-webinar', [
             'data' => $data,
         ]);
     }
@@ -76,7 +76,7 @@ class WebinarController extends Controller
         $data->time_finish = Carbon::parse($data->time_finish)->format('H:i');
         $data->date_event = Carbon::parse($data->date_event)->format('d F Y');
         // dd($data);
-        return view('pages.detail-webinar',[
+        return view('pages.Kegiatan.detail-webinar',[
             'data' => $data
         ]);
     }

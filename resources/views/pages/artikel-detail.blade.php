@@ -1,6 +1,8 @@
 @extends('../layout')
 
-@section('title', 'Artikel Detail | AFEKSI')
+@section('title')
+    {{ ucwords($data->judul_artikel) }} | AFEKSI
+@endsection
 
 @section('styles')
     <link rel="stylesheet" href="/assets/css/artikel-detail.css">
@@ -15,7 +17,7 @@
       <div class="content">
         <img class="mb-2" src="{{ $data->gambar ? $data->gambar : '/assets/img/article/contentImg.png' }}" alt="{{ $data->judul_artikel }}" />
         <div class="title mb-5">
-          <h1 style="color: #233dff;">{{ $data->judul_artikel }}</h1>
+          <h1 style="color: #233dff;">{{ ucwords($data->judul_artikel) }}</h1>
           <span class="text-secondary">{{ $data->created_at->format('d M Y') }}</span>
         </div>
         <p>

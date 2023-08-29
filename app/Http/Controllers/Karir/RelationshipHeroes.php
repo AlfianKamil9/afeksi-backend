@@ -31,12 +31,12 @@ class RelationshipHeroes extends Controller
         $nohp = $user->no_whatsapp ?: $request->input('nohp');
         $jenisKelamin = $user->jenisKelamin ?: $request->input('jenisKelamin');
 
-        $buktiFollowPath = $validatedData['bukti_follow']->store('relationship/heroes/bukti_follow', 'public');
-        $cvPath = $validatedData['cv']->store('relationship/heroes/cv', 'public');
+        $buktiFollowPath = $validatedData['bukti_follow']->store('Volunteer/relationship-heroes/bukti_follow', 'public');
+        $cvPath = $validatedData['cv']->store('Volunteer/relationship-heroes/cv', 'public');
 
         $portofolioPath = null;
         if ($request->hasFile('portofolio')) {
-            $portofolioPath = $validatedData['portofolio']->store('relationship/heroes/portofolio', 'public');
+            $portofolioPath = $validatedData['portofolio']->store('Volunteer/relationship-heroes/portofolio', 'public');
         }
 
         $heroesData = [

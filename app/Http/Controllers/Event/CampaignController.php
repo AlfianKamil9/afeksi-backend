@@ -69,7 +69,7 @@ class CampaignController extends Controller
             $event->date_event = Carbon::parse($event->date_event)->format('d F Y');
         }
         
-        return view('pages.kegiatan-campaign', [
+        return view('pages.Kegiatan.kegiatan-campaign', [
             'data' => $datas
         ]);
     }
@@ -86,7 +86,7 @@ class CampaignController extends Controller
             $data->time_start = Carbon::parse($data->time_start)->format('H:i');
             $data->time_finish = Carbon::parse($data->time_finish)->format('H:i');
             $data->date_event = Carbon::parse($data->date_event)->format('d F Y');
-        return view('pages.detail-campaign',[
+        return view('pages.Kegiatan.detail-campaign',[
             'data' => $data
         ]);
     }

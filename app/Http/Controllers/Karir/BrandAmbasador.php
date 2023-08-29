@@ -31,7 +31,7 @@ class BrandAmbasador extends Controller
         ]);
 
         $buktiFollowPath = $validation['bukti_follow']->store('Volunteer/BrandAmbasador/bukti_follow', 'public');
-        $cvPath = $validation['cv']->store('internship/cv', 'public');
+        $cvPath = $validation['cv']->store('Volunteer/BrandAmbasador/cv', 'public');
         $portofolioPath = null;
         if ($request->hasFile('portofolio')) {
             $portofolioPath = $validation['portofolio']->store('Volunteer/BrandAmbasador/portofolio', 'public');
