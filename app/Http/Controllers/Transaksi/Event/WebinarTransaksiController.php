@@ -6,10 +6,7 @@ use Carbon\Carbon;
 use App\Models\bank;
 use App\Models\Voucher;
 use Illuminate\Http\Request;
-use App\Models\DetailPembayaran;
-
 use App\Models\EventTransaction;
-use App\Models\PembayaranLayanan;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use App\Services\Midtrans\PembayaranEvent\CstoreService;
@@ -35,21 +32,127 @@ class WebinarTransaksiController extends Controller
         ]);
     }
 
-    public function checkoutWebinar(Request $request, $ref_transaction_event) {
-        // dd($request->all());
+    public function checkoutWebinar(Request $request, $ref_transaction_event)
+    {
+        $id = EventTransaction::where('ref_transaction_event', $ref_transaction_event)->first();
+
+        if (isset($request->btnBatalVoucher)) {
+            session()->forget('apply');
+            return back();
+        } elseif (isset($request->btnApplyVoucher)) {
+            if (isset($request->input_code)) {
+                $now = now();
+                $voucher = Voucher::where('kode', $request->input_code)
+                    ->where('expired_date', '>=', $now)
+                    ->first();
+                if (!$voucher) {
+                    return back()->with('error', 'Kode Voucher Tidak Valid');
+                }
+                if ($voucher->stok_voucher == 0) {
+                    return back()->with('error', 'Kode Voucher Sudah Habis');
+                }
+                $voucher->update([
+                    'stok_voucher' => $voucher->stok_voucher - 1
+                ]);
+                $id->update([
+                    'voucher_id' => $voucher->id
+                ]);
+                session()->put('apply', [
+                    'kode' => $voucher->kode,
+                    'diskon' => $voucher->jumlah_diskon,
+                    'pesan' => 'Voucher Berhasil Diterapkan',
+                    'bank' => $request->bank,
+                ]);
+                return back();
+            }
+            return back()->with('error', 'Kode Voucher Kosong');
+        }
 
         $validate = Validator::make($request->all(), [
             "bank" => 'required',
-            "ref" => 'required'
+            "ref" => 'required',
         ]);
 
-        if($validate->fails()) {
-            return back()->with('message', 'Bank Harus Diisi');
+        if ($validate->fails()) {
+            return back()->with('message', 'Harap Pilih Bank');
         }
 
-        $bank = bank::where('id', $request->bank)->pluck('bank')->first();
+        $bank = Bank::where('id', $request->bank)->pluck('bank')->first();
         $this->klasifikasiPaymentMethod($bank, $ref_transaction_event);
+
+        if ($bank == 'bni' || $bank == 'bri' || $bank == 'bca' || $bank == 'cimb' || $bank == 'permata') {
+            $getData = EventTransaction::where('ref_transaction_event', $ref_transaction_event)->first();
+            $va = '<h6 style="text-transform:uppercase;">' . $bank . ' VA = ' . $getData->kode_bayar_1 . '</h6>';
+            $pesan = "Silahkan Lengkapi Pembayaran Sebelum <br><strong>" . $getData->updated_at->addDay(1)->format('l, d M Y') . "</strong> pukul </strong>" . $getData->updated_at->format('H:i') . "</strong>";
+
+            return redirect('/' . $ref_transaction_event . '/notification/success')
+                ->with([
+                    'point' => true,
+                    'kode' => $va,
+                    'pesan' => $pesan
+                ]);
+        } elseif ($bank == 'mandiri') {
+            $getData = EventTransaction::where('ref_transaction_event', $ref_transaction_event)->first();
+            $va =   '<h6 style="text-transform:uppercase;">' . $bank . ' Bill Key = ' . $getData->kode_bayar_1 . '</h6>
+                    <h6 style="text-transform:uppercase;">' . $bank . ' Bill Code = ' . $getData->kode_bayar_2 . '</h6>';
+            $pesan = "Silahkan Lengkapi Pembayaran Sebelum <br><strong>" . $getData->updated_at->addDay(1)->format('l, d M Y') . "</strong> pukul </strong>" . $getData->updated_at->format('H:i') . "</strong>";
+
+            return redirect('/' . $ref_transaction_event . '/notification/success')
+                ->with([
+                    'point' => true,
+                    'kode' => $va,
+                    'pesan' => $pesan
+                ]);
+        } elseif ($bank == 'indomaret') {
+            $getData = EventTransaction::where('ref_transaction_event', $ref_transaction_event)->first();
+            $va =   '<h6 style="text-transform:uppercase;">' . $bank . ' Kode Pembayaran = ' . $getData->kode_bayar_1 . '</h6>
+                    <h6 style="text-transform:uppercase;">Kode Merchant = ' . $getData->kode_bayar_2 . '</h6>';
+            $pesan = "Silahkan Lengkapi Pembayaran Sebelum <br><strong>" . $getData->updated_at->addDay(1)->format('l, d M Y') . "</strong> pukul </strong>" . $getData->updated_at->format('H:i') . "</strong>";
+
+            return redirect('/' . $ref_transaction_event . '/notification/success')
+                ->with([
+                    'point' => true,
+                    'kode' => $va,
+                    'pesan' => $pesan
+                ]);
+        } elseif ($bank == 'alfamart') {
+            $getData = EventTransaction::where('ref_transaction_event', $ref_transaction_event)->first();
+            $va =   '<h6 style="text-transform:uppercase;">' . $bank . ' Kode Pembayaran = ' . $getData->kode_bayar_1 . '</h6>';
+            $pesan = "Silahkan Lengkapi Pembayaran Sebelum <br><strong>" . $getData->updated_at->addDay(1)->format('l, d M Y') . "</strong> pukul </strong>" . $getData->updated_at->format('H:i') . "</strong>";
+
+            return redirect('/' . $ref_transaction_event . '/notification/success')
+                ->with([
+                    'popupAfterWebinar' => true,
+                    'kode' => $va,
+                    'pesan' => $pesan
+                ]);
+        } elseif ($bank == 'shopeepay') {
+            $getData = EventTransaction::where('ref_transaction_event', $ref_transaction_event)->first();
+            $va =   '<center><a style="text-transform:uppercase;" href="' . $getData->kode_bayar_1 . '" class="btn btn-primary">Bayar Sekarang</a></center>';
+            $pesan = "Silahkan Lengkapi Pembayaran Sebelum <br><strong>" . $getData->updated_at->format('l, d M Y') . "</strong> pukul </strong>" . $getData->updated_at->addMinutes(15)->format('H:i') . "</strong>";
+
+            return redirect('/' . $ref_transaction_event . '/notification/success')
+                ->with([
+                    'popupAfterWebinar' => true,
+                    'kode' => $va,
+                    'pesan' => $pesan
+                ]);
+        } elseif ($bank == 'gopay') {
+            $getData = EventTransaction::where('ref_transaction_event', $ref_transaction_event)->first();
+            $va =   '<center>
+                        <a style="text-transform:uppercase;" href="' . $getData->kode_bayar_1 . '"  class="btn btn-primary">Bayar Sekarang</a>
+                    </center>';
+            $pesan = "Silahkan Lengkapi Pembayaran Sebelum <br><strong>" . $getData->updated_at->format('l, d M Y') . "</strong> pukul </strong>" . $getData->updated_at->addMinutes(15)->format('H:i') . "</strong>";
+
+            return redirect('/' . $ref_transaction_event . '/notification/success')
+                ->with([
+                    'popupAfterWebinar' => true,
+                    'kode' => $va,
+                    'pesan' => $pesan
+                ]);
+        }
     }
+
 
     public function klasifikasiPaymentMethod($bank, $ref)
     {

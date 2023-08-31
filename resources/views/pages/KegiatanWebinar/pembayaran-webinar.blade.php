@@ -18,51 +18,6 @@
 <!-- Select2 Library JS -->
 <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
 
-
-<!-- Step -->
-{{-- <div class="container" style="padding-top:calc(70px + 94px);">
-    <div class="position-relative">
-        <div class="stepper-wrapper">
-            <div class="stepper-item completed">
-            <!-- add class COMPLETED to enable checklist -->
-                <div class="step-counter">
-                    <span class="step-checkmark">✓</span>
-                </div>
-                <div class="step-name text-center">
-                    Pilih <br />
-                    Pengalaman Psikologi
-                </div>
-            </div>
-            <div class="stepper-item completed">
-                <div class="step-counter">
-                    <span class="step-checkmark">✓</span>
-                </div>
-                <div class="step-name">Pilih Paket</div>
-            </div>
-            <div class="stepper-item completed">
-                <div class="step-counter">
-                    <span class="step-checkmark">✓</span>
-                </div>
-                <div class="step-name">Pilih Psikolog</div>
-            </div>
-            <div class="stepper-item completed">
-                <div class="step-counter">
-                    <span class="step-checkmark">✓</span>
-                </div>
-                <div class="step-name">Data Diri</div>
-            </div>
-            <div class="stepper-item completed">
-                <!--add class active to enable active step progess-->
-                <div class="step-counter">
-                    <span class="step-checkmark">✓</span>
-                </div>
-                <div class="step-name">Pembayaran</div>
-            </div>
-        </div>
-    </div>
-</div> --}}
-<!-- End Step -->
-
 <!-- PEMBAYARAN -->
 <div class="container" style="padding-top:calc(70px + 94px);">
     <div class="row mb-5">
@@ -86,18 +41,18 @@
                     <!-- Voucher -->
                     <h6 class="fw-bold">Voucher
                         @if (session()->has('error'))
-                            <span class="text-danger fst-italic">({{ session('error') }})</span>
+                        <span class="text-danger fst-italic">({{ session('error') }})</span>
                         @elseif(session()->has('apply'))
-                            <span class="text-success fst-italic">({{ session('apply')['pesan'] }})</span>
+                        <span class="text-success fst-italic">({{ session('apply')['pesan'] }})</span>
                         @endif
                     </h6>
                     <div class="input-group mb-3">
                         @if (session()->has('apply'))
-                            <input type="text" id="input_code"  class="form-control p-3" placeholder="Masukkan Kode" name="input_code" aria-label="Masukkan Kode" value="{{ session('apply')['kode'] }}" aria-describedby="button-addon2" readonly/>
-                            <input class="btn bg-danger btn-voucher btnBatalVoucher" type="submit" id="button-addon2" name="btnBatalVoucher" value="Batal">
+                        <input type="text" id="input_code"  class="form-control p-3" placeholder="Masukkan Kode" name="input_code" aria-label="Masukkan Kode" value="{{ session('apply')['kode'] }}" aria-describedby="button-addon2" readonly/>
+                        <input class="btn bg-danger btn-voucher btnBatalVoucher" type="submit" id="button-addon2" name="btnBatalVoucher" value="Batal">
                         @else
-                            <input type="text" id="input_code"  class="form-control p-3" placeholder="Masukkan Kode" name="input_code" aria-label="Masukkan Kode" aria-describedby="button-addon2" />
-                            <input class="btn btn-voucher btnApplyVoucher" type="submit" id="button-addon2" name="btnApplyVoucher" value="Pilih">
+                        <input type="text" id="input_code"  class="form-control p-3" placeholder="Masukkan Kode" name="input_code" aria-label="Masukkan Kode" aria-describedby="button-addon2" />
+                        <input class="btn btn-voucher btnApplyVoucher" type="submit" id="button-addon2" name="btnApplyVoucher" value="Pilih">
                         @endif
                     </div>
 

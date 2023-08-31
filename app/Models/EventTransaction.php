@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\User;
 use App\Models\Event;
+use App\Models\Voucher;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -14,6 +15,7 @@ class EventTransaction extends Model
     protected $fillable = [
         'user_id',
         'event_id',
+        'voucher_id',
         'ref_transaction_event',
         'payment_method',
         'total_payment',
@@ -32,6 +34,10 @@ class EventTransaction extends Model
         'id'
     ];
 
+    public function voucher()
+    {
+        return $this->belongsTo(Voucher::class, 'voucher_id');
+    }
 
     public function user () {
         return $this->belongsTo(User::class, 'user_id');

@@ -101,6 +101,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/kegiatan-webinar/{slug}', [WebinarController::class, 'store'])->name('daftar-webinar');
     Route::get('/{ref_transaction_event}/pembayaran', [WebinarTransaksiController::class, 'pembayaran'])->name('checkout-webinar');
     Route::post('/{ref_transaction_event}/checkout', [WebinarTransaksiController::class, 'checkoutWebinar']);
+    Route::get('/{ref_transaction_event}/notification/success', [NotifikasiKonseling::class, 'index']);
     // PENDAFTARAN CAMPAIGN
     Route::post('/kegitan-campaign/{slug}', [CampaignController::class, 'store'])->name('daftar-campaign');
 
