@@ -11,7 +11,7 @@ class CstoreService
         $serverBase64 = base64_encode($serverkey.':');
         $url = config('midtrans.midtrans.url');
         $reference = $data['reference'];
-        $total_amount = $data["harga_event"] + 4000 ;
+        $total_amount = $data["harga_event"];
         $body =[
             "payment_type"=> "cstore",
             "transaction_details"=> [
@@ -62,7 +62,7 @@ class CstoreService
         // dd($url);
         
         $reference = $data['reference'];
-        $total_amount = $data["harga_event"] + 4000 ;
+        $total_amount = $data["harga_event"];
         $dataCStore =[
             "payment_type"=> "cstore",
             "transaction_details"=> [

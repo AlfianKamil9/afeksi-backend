@@ -1,6 +1,7 @@
 <?php
 
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\DetailPembayaran;
 use Illuminate\Support\Facades\Route;
@@ -8,20 +9,20 @@ use App\Http\Controllers\API\KlaimCode;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Controllers\Karir\Internship;
 use App\Http\Controllers\Karir\PeerKonselor;
+use App\Http\Controllers\Karir\BrandAmbasador;
 use App\Http\Controllers\Karir\karirController;
 use App\Http\Controllers\Event\WebinarController;
 use App\Http\Controllers\Event\CampaignController;
+use App\Http\Controllers\Karir\RelationshipHeroes;
 use App\Http\Controllers\Artikel\artikelController;
+use App\Http\Controllers\Event\NotificationWebinar;
 use App\Http\Controllers\Karir\RelationshipKonselor;
+use App\Http\Controllers\Transaksi\NotifikasiKonseling;
 use App\Http\Controllers\Transaksi\NotifikasiMentoring;
 use App\Http\Controllers\API\NotificationPaymentEventController;
-use App\Http\Controllers\Event\NotificationWebinar;
-use App\Http\Controllers\Karir\BrandAmbasador;
-use App\Http\Controllers\Karir\RelationshipHeroes;
+use App\Http\Controllers\Transaksi\Event\WebinarTransaksiController;
 use App\Http\Controllers\Transaksi\Layanan\KonselingTransaksiController;
 use App\Http\Controllers\Transaksi\Layanan\MentoringTransaksiController;
-use App\Http\Controllers\Transaksi\NotifikasiKonseling;
-use App\Http\Controllers\Transaksi\Event\WebinarTransaksiController;
 
 
 /*
@@ -122,16 +123,20 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/slug-mentoring-yg-dipilih/{ref_transaction_layanan}/pembayaran', [MentoringTransaksiController::class, 'layananNonProfesional'])->name('checkout.layanan.mentoring');
     Route::post('/slug-mentoring-yg-dipilih/{ref_transaction_layanan}/checkout', [MentoringTransaksiController::class, 'checkoutLayananNonProfessional']);
     // NOTIFICATION AFTER PEMBAYARAN MENTORING
-    Route::get('/{ref_transaction_layanan}/notification-mentoring/success', [NotifikasiMentoring::class, 'index'])->name('notification.success');
+    Route::get('/{ref_transaction_layanan}/notification-mentoring/success', [NotifikasiMentoring::class, 'index'])->name('notification.mentoring.success');
 
     // KONSELING
     //PROFESSIONAL KONSELING
+    Route::get('/professional-konseling-layanan', function(){
+        return view('pages.pengalaman-psikolog');
+    })->name('layanan.professional.konseling');
     Route::get('/slug-konseling-yg-dipilih/{ref_transaction_layanan}/data-diri', [KonselingTransaksiController::class, 'showFormDataDiri']);
     Route::post('/slug-konseling-yg-dipilih/{ref_transaction_layanan}/submit-form-konseling', [KonselingTransaksiController::class, 'submitDataDiri']);
     //CHECKOUT
     Route::get('/slug-konseling-yg-dipilih/{ref_transaction_layanan}/pembayaran', [KonselingTransaksiController::class, 'showPembayaran']);
     Route::post('/slug-konseling-yg-dipilih/{ref_transaction_layanan}/checkout', [KonselingTransaksiController::class, 'checkoutProfessionalKonseling']);
-    Route::get('/{ref_transaction_layanan}/notification-konseling/success', [NotifikasiKonseling::class, 'index']);
+    // NOTIFICATION AFTER PEMBAYARAN PROFESIONAL KONSELING---
+    Route::get('/{ref_transaction_layanan}/notification-konseling/success', [NotifikasiKonseling::class, 'index'])->name('notification.konseling.success');
 });
 
 

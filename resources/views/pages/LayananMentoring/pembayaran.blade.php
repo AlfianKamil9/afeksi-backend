@@ -23,7 +23,7 @@
 <div class="container" style="padding-top:calc(70px + 94px);">
     <div class="position-relative">
       <div class="stepper-wrapper">
-        <div class="stepper-item completed">
+        {{-- <div class="stepper-item completed">
           <!-- add class COMPLETED to enable checklist -->
           <div class="step-counter">
             <span class="step-checkmark">✓</span>
@@ -32,7 +32,7 @@
             Pilih <br />
             Pengalaman Psikologi
           </div>
-        </div>
+        </div> --}}
         <div class="stepper-item completed">
           <div class="step-counter">
             <span class="step-checkmark">✓</span>
@@ -54,7 +54,7 @@
         <div class="stepper-item active">
           <!--add class active to enable active step progess-->
           <div class="step-counter">
-            <span class="step-checkmark">5</span>
+            <span class="step-checkmark">4</span>
           </div>
           <div class="step-name">Pembayaran</div>
         </div>
@@ -111,7 +111,7 @@
                 <tbody>
                   <tr>
                     <td class="text-muted fw-bold">Sub Total</td>
-                    <td class="text-end fw-bold">Rp {{ number_format($data->paket_non_professionals->harga + 4000, 0, ',', '.') }}</td>
+                    <td class="text-end fw-bold">Rp {{ number_format($data->paket_non_professionals->harga, 0, ',', '.') }}</td>
                   </tr>
                   {{-- <tr>
                     <td class="text-muted fw-bold">Biaya Admin</td>
@@ -138,9 +138,9 @@
                     <td class="fs-5 fw-bold text-muted">Total Pembayaran</td>
                     <td class="text-end fw-bold fs-5">Rp. 
                       @if (session()->has('apply'))
-                          {{ number_format($data->paket_non_professionals->harga + 4000 - session('apply')['diskon'], 0, ',', '.') }}
+                          {{ number_format($data->paket_non_professionals->harga - session('apply')['diskon'], 0, ',', '.') }}
                       @else
-                          {{ number_format($data->paket_non_professionals->harga + 4000, 0, ',', '.') }}
+                          {{ number_format($data->paket_non_professionals->harga , 0, ',', '.') }}
                       @endif
                     </td>
                   </tr>
@@ -157,9 +157,9 @@
                 <h5 class="text-muted">Total Pembayaran</h5>
                   <h5 class="fw-bold" style="color: #2139f9">Rp. 
                     @if(session()->has('apply'))  
-                      {{ number_format($data->paket_non_professionals->harga + 4000 - session('apply')['diskon'], 0, ',', '.') }}
+                      {{ number_format($data->paket_non_professionals->harga - session('apply')['diskon'], 0, ',', '.') }}
                     @else
-                      {{ number_format($data->paket_non_professionals->harga + 4000, 0, ',', '.') }}
+                      {{ number_format($data->paket_non_professionals->harga, 0, ',', '.') }}
                     @endif
                   </h5>
               </div>

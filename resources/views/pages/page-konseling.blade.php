@@ -84,18 +84,18 @@
         </h2>
         <p class="text-body-tertiary fw-bold text-center mt-2 mb-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the <br> industry's standard dummy text ever since the 1500s,</p>
       </div>
-      <div class="row mb-3 d-flex flex-row justify-content-center align-items-center" style="cursor:pointer;">
-      <div class="col-md-4">
-        <img src="assets/img/mentoring/mdi_mother-nurse.png" width="10%" alt="Logo" class="img-fluid mb-3">
-        <h5 class="fw-bold">Profesional Konseling</h5>
-        <p class=" fs-6">Konsultasi yang dilakukan dengan professional di bidangnya masing - masing</p>
-      </div>
+      <div class="row mb-3 d-flex flex-row justify-content-center align-items-center">
+        <div class="col-md-4 border me-3 p-3 rounded shadow-sm" id="professional-konseling" style="cursor:pointer;">
+          <img src="assets/img/mentoring/mdi_mother-nurse.png" width="10%" alt="Logo" class="img-fluid mb-3">
+          <h5 class="fw-bold">Profesional Konseling</h5>
+          <p class=" fs-6">Konsultasi yang dilakukan dengan professional di bidangnya masing - masing</p>
+        </div>
 
-     <div class="col-md-4">
-      <img src="assets/img/mentoring/love.png" width="10%" alt="Logo" class="img-fluid mb-3">
-      <h5 class="fw-bold">Peers Konseling</h5>
-      <p class=" fs-6">Konsultasi non klinis dengan peers yang sudah bersertifikasi</p>
-     </div>    
+      <div class="col-md-4 border p-3 rounded shadow-sm" id="peers-konseling" style="cursor:pointer;">
+        <img src="assets/img/mentoring/love.png" width="10%" alt="Logo" class="img-fluid mb-3">
+        <h5 class="fw-bold">Peers Konseling</h5>
+        <p class=" fs-6">Konsultasi non klinis dengan peers yang sudah bersertifikasi</p>
+      </div>    
      </div>
 
      <div class="container mt-5">
@@ -205,6 +205,14 @@
 <!-- End CONTENT -->
 @section('script')
    <script src="assets/js/slider.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <script>
+      $(document).ready(function(){
+          $('#professional-konseling').click(function () {
+              window.location.href = '{{ route("layanan.professional.konseling") }}'
+          });
+      });
+   </script>
 @endsection
 
 @include('../partials/footer') 

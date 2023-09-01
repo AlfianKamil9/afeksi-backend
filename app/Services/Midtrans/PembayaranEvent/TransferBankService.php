@@ -12,7 +12,7 @@ class TransferBankService
         $serverBase64 = base64_encode($serverkey.':');
         $url = config('midtrans.midtrans.url');
         $reference = $data['reference'];
-        $total_amount = $data["harga_event"] + 4000 ;
+        $total_amount = $data["harga_event"] ;
         $body = [
             "payment_type" => "bank_transfer",
             "transaction_details" => [
@@ -62,7 +62,7 @@ class TransferBankService
         $serverBase64 = base64_encode($serverkey.':');
         $url = config('midtrans.midtrans.url');
         $reference = $data['reference'];
-        $total_amount = $data["harga_event"] + 4000 ;
+        $total_amount = $data["harga_event"] ;
         $body = [
             "payment_type" => "echannel",
             "transaction_details" => [
@@ -112,7 +112,7 @@ class TransferBankService
         $serverBase64 = base64_encode($serverkey.':');
         $url = config('midtrans.midtrans.url');
         $reference = $data['reference'];
-        $total_amount = $data["harga_event"] + 4000 ;
+        $total_amount = $data["harga_event"] ;
         $body = [
             "payment_type" => $method,
             "transaction_details" => [

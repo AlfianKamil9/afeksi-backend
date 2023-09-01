@@ -1,20 +1,15 @@
 @extends('../layout')
 
-@section('title', 'junior psikolog')
+@section('title', 'Pilih Layanan Profesional | AFEKSI')
 
 @section('styles')
     <link rel="stylesheet" href="assets/css/junior-psikolog.css">
     <link rel="stylesheet" href="assets/css/stepper.css">
 @endsection
 
-{{-- 
-@include('../partials/navbar')  --}}
-
 @section('content')
 <!-- Step -->
-{{-- <<<<<<< HEAD
-<div class="container mt-5 pt-2">
-======= --}}
+
 <div class="container" style="padding-top:calc(70px + 94px);">
     <div class="position-relative">
       <div class="stepper-wrapper">
@@ -60,26 +55,26 @@
 
 <!-- content -->
 <div class="container py-5">
-<div class="junior-psikolog-wrapper row align-items-center px-5 mb-5">
-    <div class="col-xl-6">
-        <img class="psikolog-img" src="assets/img/junior-psikolog/junior-psikolog-img.png" alt="">
-    </div>
-    <div class="col-xl-6 content-wrapper">
-        <h3 class="fw-semibold">Psikolog Junior</h3>
-        <p class="py-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <button class="btn btn-primary btn-lg">Pilih</button>
-    </div>
-</div>
-<div class="junior-psikolog-wrapper row align-items-center px-5 mb-5">
-    <div class="col-xl-6">
-        <img class="psikolog-img" src="assets/img/junior-psikolog/junior-psikolog-img.png" alt="">
-    </div>
-    <div class="col-xl-6 content-wrapper">
-        <h3 class="fw-semibold">Psikolog Senior</h3>
-        <p class="py-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <button class="btn btn-primary btn-lg">Pilih</button>
-    </div>
-</div>
+  <div class="junior-psikolog-wrapper row align-items-center px-5 mb-5">
+      <div class="col-xl-6">
+          <img class="psikolog-img" src="assets/img/junior-psikolog/junior-psikolog-img.png" alt="">
+      </div>
+      <div class="col-xl-6 content-wrapper">
+          <h3 class="fw-semibold">Relationship Konseling</h3>
+          <p class="py-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <button class="btn btn-primary btn-lg">Pilih</button>
+      </div>
+  </div>
+  <div class="junior-psikolog-wrapper row align-items-center px-5 mb-5">
+      <div class="col-xl-6">
+          <img class="psikolog-img" src="assets/img/junior-psikolog/junior-psikolog-img.png" alt="">
+      </div>
+      <div class="col-xl-6 content-wrapper">
+          <h3 class="fw-semibold">Quality Gender</h3>
+          <p class="py-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <button class="btn btn-primary btn-lg">Pilih</button>
+      </div>
+  </div>
 </div>
 @include('../partials/footer') 
 @endsection

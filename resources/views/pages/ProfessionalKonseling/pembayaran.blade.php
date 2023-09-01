@@ -1,6 +1,6 @@
 @extends('../layout')
 
-@section('title', 'Pembayaran | AFEKSI')
+@section('title', 'Pembayaran Professional Konseling | AFEKSI')
 
 @section('styles')
     <link rel="stylesheet" href="/assets/css/pembayaran.css">
@@ -51,10 +51,10 @@
           </div>
           <div class="step-name">Data Diri</div>
         </div>
-        <div class="stepper-item completed">
+        <div class="stepper-item active">
           <!--add class active to enable active step progess-->
           <div class="step-counter">
-            <span class="step-checkmark">✓</span>
+            <span class="step-checkmark">4</span>
           </div>
           <div class="step-name">Pembayaran</div>
         </div>
@@ -81,7 +81,7 @@
           @endif
           <select id="myDropdown" class="form-select" name="bank" style="width: 100%">
             <!-- option on Pembayaran.js -->
-            <option value="" selected>Pilih Metode Pembayarans</option>
+            <option value="" selected>Pilih Metode Pembayaran</option>
           </select>
           
 
@@ -113,10 +113,10 @@
                     <td class="text-muted fw-bold">Sub Total</td>
                     <td class="text-end fw-bold">Rp {{ number_format($data->paket_profesional_conselings->harga) }}</td>
                   </tr>
-                  <tr>
+                  {{-- <tr>
                     <td class="text-muted fw-bold">Biaya Admin</td>
                     <td class="text-end fw-bold">Rp. {{ number_format(4000, 0 ,',' ,'.') }}</td>
-                  </tr>
+                  </tr> --}}
                   <tr>
                     <td class="text-muted fw-bold">Voucher Diskon</td>
                     <td class="text-end fw-bold">- Rp. 
@@ -138,9 +138,9 @@
                     <td class="fs-5 fw-bold text-muted">Total Pembayaran</td>
                     <td class="text-end fw-bold fs-5">Rp. 
                       @if (session()->has('apply'))
-                          {{ number_format($data->paket_profesional_conselings->harga + 4000 - session('apply')['diskon'], 0, ',', '.') }}
+                          {{ number_format($data->paket_profesional_conselings->harga - session('apply')['diskon'], 0, ',', '.') }}
                       @else
-                          {{ number_format($data->paket_profesional_conselings->harga + 4000, 0, ',', '.') }}
+                          {{ number_format($data->paket_profesional_conselings->harga, 0, ',', '.') }}
                       @endif
                     </td>
                   </tr>
@@ -157,9 +157,9 @@
                 <h5 class="text-muted">Total Pembayaran</h5>
                   <h5 class="fw-bold" style="color: #2139f9">Rp. 
                     @if(session()->has('apply'))  
-                      {{ number_format($data->paket_profesional_conselings->harga + 4000 - session('apply')['diskon'], 0, ',', '.') }}
+                      {{ number_format($data->paket_profesional_conselings->harga - session('apply')['diskon'], 0, ',', '.') }}
                     @else
-                      {{ number_format($data->paket_profesional_conselings->harga + 4000, 0, ',', '.') }}
+                      {{ number_format($data->paket_profesional_conselings->harga, 0, ',', '.') }}
                     @endif
                   </h5>
               </div>
@@ -219,12 +219,12 @@
                     <tr>
                       <td>Tanggal</td>
                       <td>:</td>
-                      <td>{{ \Carbon\Carbon::parse($data->detail_pembayarans[0]->tgl_konsultasi)->format('l, d-m-Y') }}</td>
+                      <td>{{ \Carbon\Carbon::parse($data->detail_pembayarans->tgl_konsultasi)->format('l, d-m-Y') }}</td>
                     </tr>
                     <tr>
                       <td>Waktu</td>
                       <td>:</td>
-                      <td>{{ $data->detail_pembayarans[0]->jam_konsultasi }}</td>
+                      <td>{{ $data->detail_pembayarans->jam_konsultasi }}</td>
                     </tr>
                     <tr>
                       <td>Durasi</td>

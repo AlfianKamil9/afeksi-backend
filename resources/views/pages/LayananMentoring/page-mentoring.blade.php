@@ -6,13 +6,8 @@
     <link rel="stylesheet" href="/assets/css/mentoring.css">
 @endsection
 
-
-{{-- @include('../partials/navbar')  --}}
-
 @section('content')
-
 <!-- HEADER -->
-
 <div class="mb-5 bg-transparent text-white overflow-hidden">
     <div class="container-fluid py-5" style="height: 31.9rem">
       <div class="row mt-5 pt-5">
@@ -86,21 +81,21 @@
         </h2>
         <p class="text-body-tertiary fw-bold text-center mt-2 mb-5">Macam-macam mentoring mencakup parenting mentoring, Pre Marriage mentoring, dan Relatinship <br> mentoring.</p>
       </div>
-      <div class="row justify-content-center mb-3 ms-2" style="cursor: pointer;">
-          <div class="col-md-4">
-            <img src="assets/img/mentoring/mdi_mother-nurse.png" width="10%" alt="Logo" class="img-fluid mb-3">
+      <div class="row justify-content-center">
+          <div class="col-md-3 border p-3 rounded shadow-sm me-4" style="cursor:pointer;" >
+            <img src="assets/img/mentoring/mdi_mother-nurse.png" width="15%" alt="Logo" class="img-fluid mb-3">
             <h5 class="fw-bold">Parenting Mentoring</h5>
             <p class=" fs-6">Kelas intensif dengan topik parenting khusus bagi ibu.</p>
           </div>
 
-          <div class="col-md-4">
-            <img src="assets/img/mentoring/love.png" width="10%" alt="Logo" class="img-fluid mb-3">
+          <div class="col-md-3 border p-3 rounded shadow-sm me-4" style="cursor:pointer;"  >
+            <img src="assets/img/mentoring/love.png" width="15%" alt="Logo" class="img-fluid mb-3">
             <h5 class="fw-bold">Pre Marriage Mentoring</h5>
             <p class=" fs-6">Kelas intensif dengan topik persiapan menuju pernikahan bagi pasangan.</p>
           </div>
 
-          <div class="col-md-4">
-            <img src="assets/img/mentoring/material-symbols_mindfulness-rounded.png" width="10%" alt="Logo" class="img-fluid mb-3">
+          <div class="col-md-3 border p-3 rounded shadow-sm" style="cursor:pointer;"  >
+            <img src="assets/img/mentoring/material-symbols_mindfulness-rounded.png" width="15%" alt="Logo" class="img-fluid mb-3">
             <h5 class="fw-bold">Relationship Mentoring</h5>
             <p class=" fs-6">Kelas intensif dengan topik kesehatan hubungan dengan berbagai sub-topik.</p>
           </div>

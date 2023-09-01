@@ -1,6 +1,6 @@
 @extends('../layout')
 
-@section('title', 'Formulir | AFEKSI')
+@section('title', 'Formulir Professional Konseling | AFEKSI')
 
 @section('styles')
     <link rel="stylesheet" href="/assets/css/data-diri.css">

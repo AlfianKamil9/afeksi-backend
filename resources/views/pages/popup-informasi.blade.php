@@ -3,8 +3,10 @@
 
 @if (Route::currentRouteName() == 'notification.success.webinar')
     @section('title', 'Notifikasi Webinar | AFEKSI')
+@elseif (Route::currentRouteName() == 'notification.mentoring.success')
+    @section('title', 'Notifikasi Pembayaran Mentoring | AFEKSI')
 @else
-    @section('title', 'Notifikasi | AFEKSI')
+    @section('title', 'Notifikasi Pembayaran Konseling | AFEKSI')
 @endif
 
 @section('styles')
@@ -70,6 +72,9 @@
       <h5 class="mt-3 fw-bold">
           @if (Route::currentRouteName() == 'notification.success.webinar')
               Terima kasih telah mendaftar Webinar <br />
+              Kami akan mengingatkan Anda H-1 dari jadwal yang sudah dipilih            
+          @elseif (Route::currentRouteName() == 'notification.mentoring.success')
+              Terima kasih telah mendaftar Mentoring <br />
               Kami akan mengingatkan Anda H-1 dari jadwal yang sudah dipilih            
           @else
               Terima kasih telah mendaftar Konsultasi <br />

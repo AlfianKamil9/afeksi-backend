@@ -22,7 +22,7 @@ class KonselingTransaksiController extends Controller
 {
     public function showFormDataDiri($ref_transaction_layanan)
     {
-        $data = PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->where('status', 'UNPAID');
+        $data = PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->where('status', 'UNPAID')->firstOrFail();
         return view('pages.ProfessionalKonseling.data-diri', compact('data'));
     }
 
@@ -66,14 +66,17 @@ class KonselingTransaksiController extends Controller
     public function showPembayaran($ref_transaction_layanan)
     {
         $data = PembayaranLayanan::with('voucher', 'psikolog', 'detail_pembayarans', 'paket_profesional_conselings')
-            ->where('ref_transaction_layanan', $ref_transaction_layanan)->first();
+            ->where('ref_transaction_layanan', $ref_transaction_layanan)->firstOrFail();
         // dd($data);
         return view('pages.ProfessionalKonseling.pembayaran', compact('data'));
     }
 
+    // checkout proses
     public function checkoutProfessionalKonseling(Request $request, $ref_transaction_layanan)
     {
-        $id = PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->first();
+        $id = PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->pluck('id')->first();
+        //dd($id);
+
         if (isset($request->btnBatalVoucher)) {
             session()->forget('apply');
             // $now = Carbon::now();
@@ -122,65 +125,66 @@ class KonselingTransaksiController extends Controller
         }
         $bank = bank::where('id', $request->bank)->pluck('bank')->first();
         $this->klasifikasiPaymentMethod($bank, $ref_transaction_layanan);
+
+
         if ($bank == 'bni' || $bank == 'bri' || $bank == 'bca' || $bank == 'cimb' || $bank == 'permata') {
-            $getData = DetailPembayaran::where('pembayaran_layanan_id', $id->id)->first();
-            // dd($getData);
+            $getData = DetailPembayaran::where('pembayaran_layanan_id', $id)->first();
             $getData2 = PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->first();
             $va = '<h6 style="text-transform:uppercase;">' . $bank . ' VA = ' . $getData->kode_bayar_1 . '</h6>';
-            $pesan = "Silahkan Lengkapi Pembayaran Sebelum <br><strong>" . $getData2->updated_at->addDay(1)->format('l, d M Y') . "</strong> pukul </strong>" . $getData->updated_at->format('H:i') . "</strong>";
+            $pesan = "Silahkan Lengkapi Pembayaran Sebelum <br><strong>".$getData2->updated_at->addDay(1)->format('l, d M Y')."</strong> pukul </strong>" . $getData->updated_at->format('H:i') . "</strong>";
 
-            Session::flash('popupAfterMentoring', [
+            Session::flash('popupAfterProfKonseling', [
                 'kode' => $va,
                 'pesan' => $pesan 
             ]);
-            return Redirect::to('/' . $ref_transaction_layanan . '/notification-konseling/success');
+            return Redirect::to('/'.$ref_transaction_layanan.'/notification-konseling/success');
 
         } else if ($bank == 'mandiri') {
-            $getData = DetailPembayaran::where('pembayaran_layanan_id', $id->id)->first();
+            $getData = DetailPembayaran::where('pembayaran_layanan_id', $id)->first();
             $getData2 = PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->first();
             $va =   '<h6 style="text-transform:uppercase;">' . $bank . ' Bill Key = ' . $getData->kode_bayar_1 . '</h6>
                     <h6 style="text-transform:uppercase;">' . $bank . ' Bill Code = ' . $getData->kode_bayar_2 . '</h6>';
             $pesan = "Silahkan Lengkapi Pembayaran Sebelum <br><strong>" . $getData2->updated_at->addDay(1)->format('l, d M Y') . "</strong> pukul </strong>" . $getData->updated_at->format('H:i') . "</strong>";
 
-            Session::flash('popupAfterMentoring', [
+            Session::flash('popupAfterProfKonseling', [
                 'kode' => $va,
                 'pesan' => $pesan 
             ]);
             return Redirect::to('/' . $ref_transaction_layanan . '/notification-konseling/success');
 
         } else if ($bank == 'indomaret') {
-            $getData = DetailPembayaran::where('pembayaran_layanan_id', $id->id)->first();
+            $getData = DetailPembayaran::where('pembayaran_layanan_id', $id)->first();
             $getData2 = PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->first();
             $va =   '<h6 style="text-transform:uppercase;">' . $bank . ' Kode Pembayaran = ' . $getData->kode_bayar_1 . '</h6>
                     <h6 style="text-transform:uppercase;">Kode Merchant = ' . $getData->kode_bayar_2 . '</h6>
                     ';
             $pesan = "Silahkan Lengkapi Pembayaran Sebelum <br><strong>" . $getData2->updated_at->addDay(1)->format('l, d M Y') . "</strong> pukul </strong>" . $getData->updated_at->format('H:i') . "</strong>";
 
-            Session::flash('popupAfterMentoring', [
+            Session::flash('popupAfterProfKonseling', [
                 'kode' => $va,
                 'pesan' => $pesan 
             ]);
             return Redirect::to('/' . $ref_transaction_layanan . '/notification-konseling/success');
 
         } else if ($bank == 'alfamart') {
-            $getData = DetailPembayaran::where('pembayaran_layanan_id', $id->id)->first();
+            $getData = DetailPembayaran::where('pembayaran_layanan_id', $id)->first();
             $getData2 = PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->first();
             $va =   '<h6 style="text-transform:uppercase;">' . $bank . ' Kode Pembayaran = ' . $getData->kode_bayar_1 . '</h6>';
             $pesan = "Silahkan Lengkapi Pembayaran Sebelum <br><strong>" . $getData2->updated_at->addDay(1)->format('l, d M Y') . "</strong> pukul </strong>" . $getData->updated_at->format('H:i') . "</strong>";
 
-            Session::flash('popupAfterMentoring', [
+            Session::flash('popupAfterProfKonseling', [
                 'kode' => $va,
                 'pesan' => $pesan 
             ]);
             return Redirect::to('/' . $ref_transaction_layanan . '/notification-konseling/success');
 
         } else if ($bank == 'shopeepay') {
-            $getData = DetailPembayaran::where('pembayaran_layanan_id', $id->id)->first();
+            $getData = DetailPembayaran::where('pembayaran_layanan_id', $id)->first();
             $getData2 = PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->first();
             $va =   '<center><a style="text-transform:uppercase;" href="' . $getData->kode_bayar_1 . '" class="btn btn-primary">Bayar Sekarang</a></center>';
             $pesan = "Silahkan Lengkapi Pembayaran Sebelum <br><strong>" . $getData2->updated_at->format('l, d M Y') . "</strong> pukul </strong>" . $getData->updated_at->addMinutes(15)->format('H:i') . "</strong>";
             
-            Session::flash('popupAfterMentoring', [
+            Session::flash('popupAfterProfKonseling', [
                 'kode' => $va,
                 'pesan' => $pesan 
             ]);
@@ -188,14 +192,14 @@ class KonselingTransaksiController extends Controller
 
         } else if ($bank == 'gopay') {
             // <img src="'.$getData->kode_bayar_2.'" width="75px" alt="Kode_Pembayaran">
-            $getData = DetailPembayaran::where('pembayaran_layanan_id', $id->id)->first();
+            $getData = DetailPembayaran::where('pembayaran_layanan_id', $id)->first();
             $getData2 = PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->first();
             $va =   '<center>
                         <a style="text-transform:uppercase;" href="' . $getData->kode_bayar_1 . '"  class="btn btn-primary">Bayar Sekarang</a>
                     </center>';
             $pesan = "Silahkan Lengkapi Pembayaran Sebelum <br><strong>" . $getData2->updated_at->format('l, d M Y') . "</strong> pukul </strong>" . $getData->updated_at->addMinutes(15)->format('H:i') . "</strong>";
             
-            Session::flash('popupAfterMentoring', [
+            Session::flash('popupAfterProfKonseling', [
                 'kode' => $va,
                 'pesan' => $pesan 
             ]);
@@ -203,6 +207,8 @@ class KonselingTransaksiController extends Controller
         }
     }
 
+
+    // klasifikasi payment method
     public function klasifikasiPaymentMethod($bank, $ref)
     {
         $tabelPembayaran = PembayaranLayanan::where('ref_transaction_layanan', $ref)->pluck('id')->first();
@@ -234,7 +240,7 @@ class KonselingTransaksiController extends Controller
 
             //CEK KODE RESPON
             if ($res["status_code"] != 201) {
-                return response()->json($res);
+                return  back()->with('error', 'Payment Method Error');
             }
             //CEK RESPON ORDER
             if ($res["order_id"] != $data["reference"]) {
@@ -426,7 +432,8 @@ class KonselingTransaksiController extends Controller
                     "harga_event" => $data->paket_profesional_conselings->harga,
                     "nama"  => $data->user->nama,
                     "email"  => $data->user->email,
-                    "no_tlpn" => $data->user->no_whatsapp
+                    "no_tlpn" => $data->user->no_whatsapp,
+                    "pesan" => "Pembayaran Layanan Professional Konseling AFEKSI"
                 ];
             } else {
                 $data = [
@@ -434,7 +441,8 @@ class KonselingTransaksiController extends Controller
                     "harga_event" => $data->paket_profesional_conselings->harga - $data->voucher->jumlah_diskon,
                     "nama"  => $data->user->nama,
                     "email"  => $data->user->email,
-                    "no_tlpn" => $data->user->no_whatsapp
+                    "no_tlpn" => $data->user->no_whatsapp,
+                    "pesan" => "Pembayaran Layanan Professional Konseling AFEKSI"
                 ];
             }
             $result = new CstoreService();
