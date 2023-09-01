@@ -45,6 +45,23 @@ class MentoringTransaksiController extends Controller
         ]);
 
         $id = PembayaranLayanan::where("ref_transaction_layanan", $ref_transaction_layanan)->pluck('id')->first();
+        date_default_timezone_set('Asia/Jakarta');
+        $tglSekarang = date_create()->format("d");
+        $blnSekarang = date_create()->format("m");
+        $thnSekarang = date_create()->format("Y");
+        $tglKonsultasi = date_create($request->tgl_konsultasi)->format("d");
+        $blnKonsultasi = date_create($request->tgl_konsultasi)->format("m");
+        $thnKonsultasi = date_create($request->tgl_konsultasi)->format("Y");
+        if ($tglSekarang > $tglKonsultasi && $blnSekarang == $blnKonsultasi && ($thnSekarang == $thnKonsultasi || $thnSekarang > $thnKonsultasi)) {
+            Alert::alert()->html('<h4 class="text-danger fw-bold">Error</h4>', '<p>Invalid data, Please Filled Correctly!</p>');
+            return back();
+        } elseif ($tglSekarang < $tglKonsultasi && $blnSekarang > $blnKonsultasi && ($thnSekarang == $thnKonsultasi || $thnSekarang > $thnKonsultasi)) {
+            Alert::alert()->html('<h4 class="text-danger fw-bold">Error</h4>', '<p>Invalid data, Please Filled Correctly!</p>');
+            return back();
+        } elseif ($tglSekarang == $tglKonsultasi && $blnSekarang > $blnKonsultasi && ($thnSekarang == $thnKonsultasi || $thnSekarang > $thnKonsultasi)) {
+            Alert::alert()->html('<h4 class="text-danger fw-bold">Error</h4>', '<p>Invalid data, Please Filled Correctly!</p>');
+            return back();
+        }
         User::where('id', auth()->user()->id)->update([
             'umur' => $request->umur,
             'jenisKelamin' => $request->jenisKelamin,

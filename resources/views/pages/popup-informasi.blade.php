@@ -23,7 +23,8 @@
     <div class="container" style="padding-top:calc(70px + 94px);">
     <div class="position-relative">
       <div class="stepper-wrapper">
-        <div class="stepper-item completed">
+        @if (Route::currentRouteName() != 'notification.mentoring.success' )
+          <div class="stepper-item completed">
           <!-- add class COMPLETED to enable checklist -->
           <div class="step-counter">
             <span class="step-checkmark">✓</span>
@@ -33,6 +34,7 @@
             Pengalaman Psikologi
           </div>
         </div>
+        @endif
         <div class="stepper-item completed">
           <div class="step-counter">
             <span class="step-checkmark">✓</span>

@@ -110,7 +110,7 @@
 
 
 
-
+@include('sweetalert::alert')
 @include('../partials/footer') 
 @endsection
 
