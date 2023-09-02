@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Psikolog;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class LayananNonProfessional extends Model
 {
@@ -22,8 +24,18 @@ class LayananNonProfessional extends Model
         return $this->hasMany(PaketLayananNonProfessional::class,'id');
     }
 
-    public function psikologs()
+    // public function psikologs()
+    // {
+    //     return $this->hasMany(Psikolog::class, 'layanan_non_professionals_id', 'id');
+    // }
+
+    /**
+     * The psikolog_non_profesional that belong to the LayananNonProfessional
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function psikolog_non_profesional(): BelongsToMany
     {
-        return $this->hasMany(Psikolog::class, 'layanan_non_professionals_id', 'id');
+        return $this->belongsToMany(Psikolog::class, 'psikolognonprofesional', 'layanan_nonProfesional_id', 'psikolog_id');
     }
 }

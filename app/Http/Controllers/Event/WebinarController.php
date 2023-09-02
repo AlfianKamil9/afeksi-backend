@@ -112,9 +112,7 @@ class WebinarController extends Controller
         $event = Event::where('slug_event', $slug)->first();
         $event_id = $event->id;
 
-        $ref_transaction_event = 'WEB-'.Carbon::now()->format('dmYHis');
-        //dd($ref_transaction_event);
-
+        $ref_transaction_event = 'WEB-'.strtoupper(Str::random(5)).Carbon::now()->format('dmYHis');
         $konselorData = [
             'user_id' => $user->id,
             'event_id' => $event_id,

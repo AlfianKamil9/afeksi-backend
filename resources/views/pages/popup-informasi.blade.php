@@ -15,8 +15,6 @@
 @endsection
 
 
-{{-- @include('../partials/navbar')  --}}
-
 @section('content')
 <!-- Step -->
 @if (Route::currentRouteName() != 'notification.success.webinar')

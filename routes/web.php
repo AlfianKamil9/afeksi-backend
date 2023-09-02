@@ -128,7 +128,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // KONSELING
     //PROFESSIONAL KONSELING
     Route::get('/professional-konseling-layanan', function(){
-        return view('pages.pengalaman-psikolog');
+        return view('pages.ProfessionalKonseling.pengalaman-psikolog');
     })->name('layanan.professional.konseling');
     Route::get('/slug-konseling-yg-dipilih/{ref_transaction_layanan}/data-diri', [KonselingTransaksiController::class, 'showFormDataDiri']);
     Route::post('/slug-konseling-yg-dipilih/{ref_transaction_layanan}/submit-form-konseling', [KonselingTransaksiController::class, 'submitDataDiri']);

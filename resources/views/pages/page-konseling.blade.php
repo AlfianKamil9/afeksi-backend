@@ -7,10 +7,8 @@
 @endsection
 
 
-{{-- @include('../partials/navbar')  --}}
 
 @section('content')
-
 <!-- HEADER -->
 <div class="mb-5 bg-transparent text-white overflow-hidden">
     <div class="container-fluid py-5" style="height: 31.9rem">
@@ -191,7 +189,7 @@
               <p class="mb-5 pb-3" style="color: #ffffff">
                 Masih bingung dengan layanan yang cocok dengan kamu, yuk konsultasikan bersama admin melalui Whatsapp di tombol ini.
               </p>
-              <a href="#" class="btn-tanya mt-5"
+              <a href="https://wa.me/6282142625552" target="blank" class="btn-tanya mt-5"
                 >Tanya Admin Yuk
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-whatsapp pb-1" viewBox="0 0 16 16">
                   <path

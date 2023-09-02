@@ -13,6 +13,6 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         'http://127.0.0.1:8000/midtrans/callback',
-        'http://1741-2001-448a-60c0-a6ad-b54b-9c25-abe8-ae67.ngrok-free.app/midtrans/callback',
+        'https://89f0-125-166-3-41.ngrok-free.app/midtrans/callback',
     ];
 }

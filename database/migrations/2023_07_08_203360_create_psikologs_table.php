@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('psikologs', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('layanan_non_professionals_id')->nullable();
-            $table->unsignedBigInteger('professional_conseling_id')->nullable();
+            // $table->unsignedBigInteger('layanan_non_professionals_id')->nullable();
+            // $table->unsignedBigInteger('professional_conseling_id')->nullable();
             $table->string('avatar')->nullable();
             $table->string('nama_psikolog');
             $table->double('rating')->nullable();
@@ -23,8 +23,8 @@ return new class extends Migration
             $table->string('keahlian')->nullable();
             $table->timestamps();
 
-            $table->foreign('layanan_non_professionals_id')->references('id')->on('layanan_non_professionals')->onDelete('cascade');
-            $table->foreign('professional_conseling_id')->references('id')->on('professional_conselings')->onDelete('cascade');
+            // $table->foreign('layanan_non_professionals_id')->references('id')->on('layanan_non_professionals')->onDelete('cascade');
+            // $table->foreign('professional_conseling_id')->references('id')->on('professional_conselings')->onDelete('cascade');
         });
     }
 

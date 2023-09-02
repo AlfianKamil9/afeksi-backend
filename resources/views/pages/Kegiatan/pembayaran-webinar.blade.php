@@ -36,7 +36,7 @@
                     @endif
                     <select id="myDropdown" class="form-select" name="bank" style="width: 100%">
                         <!-- option on Pembayaran.js -->
-                        <option value="" selected>Pilih Metode Pembayarans</option>
+                        <option value="" selected>Pilih Metode Pembayaran</option>
                     </select>
 
                     <!-- Voucher -->
@@ -65,7 +65,7 @@
                                 <tbody>
                                 <tr>
                                     <td class="text-muted fw-bold">Sub Total</td>
-                                    <td class="text-end fw-bold">Rp {{ number_format($data->event->price_event + 4000, 0, ',', '.') }}</td>
+                                    <td class="text-end fw-bold">Rp {{ number_format($data->event->price_event, 0, ',', '.') }}</td>
                                 </tr>
                                 <tr>
                                     <td class="text-muted fw-bold">Voucher Diskon</td>
@@ -88,9 +88,9 @@
                                     <td class="fs-5 fw-bold text-muted">Total Pembayaran</td>
                                     <td class="text-end fw-bold fs-5">Rp.
                                         @if (session()->has('apply'))
-                                            {{ number_format($data->event->price_event + 4000 - session('apply')['diskon'], 0, ',', '.') }}
+                                            {{ number_format($data->event->price_event - session('apply')['diskon'], 0, ',', '.') }}
                                         @else
-                                            {{ number_format($data->event->price_event + 4000, 0, ',', '.') }}
+                                            {{ number_format($data->event->price_event, 0, ',', '.') }}
                                         @endif
                                     </td>
                                 </tr>
@@ -107,9 +107,9 @@
                                 <h5 class="text-muted">Total Pembayaran</h5>
                                 <h5 class="fw-bold" style="color: #2139f9">Rp
                                     @if (session()->has('apply'))
-                                        {{ number_format($data->event->price_event + 4000 - session('apply')['diskon'], 0, ',', '.') }}
+                                        {{ number_format($data->event->price_event - session('apply')['diskon'], 0, ',', '.') }}
                                     @else
-                                        {{ number_format($data->event->price_event + 4000, 0, ',', '.') }}
+                                        {{ number_format($data->event->price_event, 0, ',', '.') }}
                                     @endif
                                 </h5>
                             </div>

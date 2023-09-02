@@ -32,7 +32,7 @@ class artikelController extends Controller
 
         $data = $query->get();
 
-        return view('pages.artikel', [
+        return view('pages.Artikel.artikel', [
             'data' => $data
         ]);
     }
@@ -44,7 +44,7 @@ class artikelController extends Controller
 
 
         // dd($data);
-        return view('pages.artikel-detail',[
+        return view('pages.Artikel.artikel-detail',[
             'data' => $data
         ]);
     }
