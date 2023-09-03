@@ -102,10 +102,10 @@
         <div class="col-lg-8">
           <h5 class="fw-bold mb-3">Cara Mengikuti Campaign</h5>
           <ol class="list-daftar-webinar">
-            <li class="mb-1">Daftar dan akses webinar di Afeksi melalui situs resmi.</li>
-            <li class="mb-1">Daftar dan akses webinar di Afeksi melalui situs resmi.</li>
-            <li class="mb-1">Daftar dan akses webinar di Afeksi melalui situs resmi.</li>
-            <li class="mb-1">Daftar dan akses webinar di Afeksi melalui situs resmi.</li>
+            <li class="mb-1">Telah memfollow instagram, twitter,dan tiktok @afeksidn.</li>
+            <li class="mb-1">Merepost postingan open recruitment di instagram story dan 2 tag 3 teman.</li>
+            <li class="mb-1">Melaksanakan publikasi selama 4 hari sesuai jadwal yang telah ditentukan.</li>
+            <li class="mb-1">Postingan merupakan akun utama dan tidak di private.</li>
           </ol>
         </div>
       </div>
