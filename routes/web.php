@@ -108,9 +108,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // PENDAFTARAN KEGIATAN
     //PENDAFTARAN WEBINAR
     Route::post('/kegiatan-webinar/{slug}', [WebinarController::class, 'store'])->name('daftar-webinar');
+
     Route::get('/{ref_transaction_event}/pembayaran-webinar', [WebinarTransaksiController::class, 'pembayaran'])->name('checkout-webinar');
     Route::post('/{ref_transaction_event}/checkout/webinar', [WebinarTransaksiController::class, 'checkoutWebinar']);
     Route::get('/{ref_transaction_event}/notification-webinar/success', [NotificationWebinar::class, 'index'])->name('notification.success.webinar');
+
     // PENDAFTARAN CAMPAIGN
     Route::post('/kegitan-campaign/{slug}', [CampaignController::class, 'store'])->name('daftar-campaign');
 
@@ -159,38 +161,7 @@ Route::fallback(function () {
 
 
 
-// hanya untuk cek tampilan timeline
-// Route::get('/horizontal-timeline', function () {
-//     return view('partials.horizontal-timeline');
-// });
-
-// hanya untuk cek tampilan junior
-Route::get('/junior-psikolog', function () {
-    return view('pages.junior-psikolog');
-});
-
-Route::get('/popup-informasi', function () {
-    return view('pages.popup-informasi');
-});
 
 
-
-// Route::get('/pembayaran', function () {
-//     return view('pages.pembayaran');
-// });
-// Route::get('/data-diri', function () {
-//     return view('pages.data-diri');
-// });
-
-
-Route::get('/pembayaran', function () {
-    return view('pages.pembayaran');
-});
-Route::get('/page-konseling', function () {
-    return view('pages.page-konseling');
-});
-Route::get('/data-diri', function () {
-    return view('pages.data-diri');
-});
 
 

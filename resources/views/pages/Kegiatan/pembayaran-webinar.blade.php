@@ -42,18 +42,18 @@
                     <!-- Voucher -->
                     <h6 class="fw-bold">Voucher
                         @if (session()->has('error'))
-                            <span class="text-danger fst-italic">({{ session('error') }})</span>
+                        <span class="text-danger fst-italic">({{ session('error') }})</span>
                         @elseif(session()->has('apply'))
-                            <span class="text-success fst-italic">({{ session('apply')['pesan'] }})</span>
+                        <span class="text-success fst-italic">({{ session('apply')['pesan'] }})</span>
                         @endif
                     </h6>
                     <div class="input-group mb-3">
                         @if (session()->has('apply'))
-                            <input type="text" id="input_code"  class="form-control p-3" placeholder="Masukkan Kode" name="input_code" aria-label="Masukkan Kode" value="{{ session('apply')['kode'] }}" aria-describedby="button-addon2" readonly/>
-                            <input class="btn bg-danger btn-voucher btnBatalVoucher" type="submit" id="button-addon2" name="btnBatalVoucher" value="Batal">
+                        <input type="text" id="input_code"  class="form-control p-3" placeholder="Masukkan Kode" name="input_code" aria-label="Masukkan Kode" value="{{ session('apply')['kode'] }}" aria-describedby="button-addon2" readonly/>
+                        <input class="btn bg-danger btn-voucher btnBatalVoucher" type="submit" id="button-addon2" name="btnBatalVoucher" value="Batal">
                         @else
-                            <input type="text" id="input_code"  class="form-control p-3" placeholder="Masukkan Kode" name="input_code" aria-label="Masukkan Kode" aria-describedby="button-addon2" />
-                            <input class="btn btn-voucher btnApplyVoucher" type="submit" id="button-addon2" name="btnApplyVoucher" value="Pilih">
+                        <input type="text" id="input_code"  class="form-control p-3" placeholder="Masukkan Kode" name="input_code" aria-label="Masukkan Kode" aria-describedby="button-addon2" />
+                        <input class="btn btn-voucher btnApplyVoucher" type="submit" id="button-addon2" name="btnApplyVoucher" value="Pilih">
                         @endif
                     </div>
 

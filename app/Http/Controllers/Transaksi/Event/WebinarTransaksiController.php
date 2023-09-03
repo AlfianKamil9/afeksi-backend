@@ -6,10 +6,7 @@ use Carbon\Carbon;
 use App\Models\bank;
 use App\Models\Voucher;
 use Illuminate\Http\Request;
-use App\Models\DetailPembayaran;
-
 use App\Models\EventTransaction;
-use App\Models\PembayaranLayanan;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
@@ -38,6 +35,7 @@ class WebinarTransaksiController extends Controller
         ]);
     }
 
+
     public function checkoutWebinar(Request $request, $ref_transaction_event) {
         if (isset($request->btnBatalVoucher)) {
             session()->forget('apply');
@@ -59,17 +57,19 @@ class WebinarTransaksiController extends Controller
             }
             return back()->with('error', 'Code Voucher is Null');
         }
+
         $validate = Validator::make($request->all(), [
             "bank" => 'required',
-            "ref" => 'required'
+            "ref" => 'required',
         ]);
 
-        if($validate->fails()) {
-            return back()->with('message', 'Bank Harus Diisi');
+        if ($validate->fails()) {
+            return back()->with('message', 'Harap Pilih Bank');
         }
+
         $voucher_id = Voucher::where('kode', $request->input_code)->pluck('id')->first();
         $bank = bank::where('id', $request->bank)->pluck('bank')->first();
-        $response = $this->klasifikasiPaymentMethod($bank, $ref_transaction_event);
+        $response = $this->klasifikasiPaymentMethod($bank, $ref_transaction_event, $voucher_id);
         // response -------------------
         if($response["status_code"] != 201 ) {
             Alert::alert()->html('<h4 class="fw-bold text-danger">FAILED PAYMENT METHOD</h4>', '<p>There was some error in the system, Please try again later or change the Payment Method.<br><br>Error: <span class="pt-2 fw-bold ">500 Server Error</span></p>');
@@ -127,14 +127,17 @@ class WebinarTransaksiController extends Controller
 
 
 // ----------------KLASIFIKASI PAYMENT METHODE--------------------------
-    public function klasifikasiPaymentMethod($bank, $ref)
+// 
+public function klasifikasiPaymentMethod($bank, $ref, $voucher_id)
     {
         $data = EventTransaction::with('event', 'user')->where('ref_transaction_event', $ref)->first();
+        $diskon = Voucher::where('id', $voucher_id)->first();
+        $voucher_id == null ? $potongan = 0 : $potongan = $diskon->jumlah_diskon; 
         // CEK PAYMENT METHOD YANG DIPILIH
         if ($bank == 'bni' || $bank == 'bri' || $bank == 'bca' ||  $bank == 'cimb'){
             $data = [
                 "reference" => $ref,
-                "harga_event" => $data->event->price_event,
+                "harga_event" => $data->event->price_event - $potongan,
                 "nama"  => $data->user->nama,
                 "email"  => $data->user->email,
                 "no_tlpn" => $data->user->no_whatsapp
@@ -169,7 +172,7 @@ class WebinarTransaksiController extends Controller
         else if ($bank == 'permata') {
             $data = [
                     "reference" => $ref,
-                    "harga_event" => $data->event->price_event,
+                    "harga_event" => $data->event->price_event - $potongan,
                     "nama"  => $data->user->nama,
                     "email"  => $data->user->email,
                     "no_tlpn" => $data->user->no_whatsapp
@@ -204,7 +207,7 @@ class WebinarTransaksiController extends Controller
         else if ($bank == 'mandiri') {
             $data = [
                     "reference" => $ref,
-                    "harga_event" => $data->event->price_event,
+                    "harga_event" => $data->event->price_event - $potongan,
                     "nama"  => $data->user->nama,
                     "email"  => $data->user->email,
                     "no_tlpn" => $data->user->no_whatsapp
@@ -242,7 +245,7 @@ class WebinarTransaksiController extends Controller
         {
             $data = [
                     "reference" => $ref,
-                    "harga_event" => $data->event->price_event,
+                    "harga_event" => $data->event->price_event - $potongan,
                     "nama"  => $data->user->nama,
                     "email"  => $data->user->email,
                     "no_tlpn" => $data->user->no_whatsapp,
@@ -280,7 +283,7 @@ class WebinarTransaksiController extends Controller
             {
                 $data = [
                         "reference" => $ref,
-                        "harga_event" => $data->event->price_event,
+                        "harga_event" => $data->event->price_event - $potongan,
                         "nama"  => $data->user->nama,
                         "email"  => $data->user->email,
                         "no_tlpn" => $data->user->no_whatsapp,
@@ -320,7 +323,7 @@ class WebinarTransaksiController extends Controller
         else if ($bank == 'qris') {
             $data = [
                     "reference" => $ref,
-                    "harga_event" => $data->event->price_event,
+                    "harga_event" => $data->event->price_event - $potongan,
                     "nama"  => $data->user->nama,
                     "email"  => $data->user->email,
                     "no_tlpn" => $data->user->no_whatsapp
@@ -359,7 +362,7 @@ class WebinarTransaksiController extends Controller
         else if ($bank == 'gopay') {
             $data = [
                     "reference" => $ref,
-                    "harga_event" => $data->event->price_event,
+                    "harga_event" => $data->event->price_event - $potongan,
                     "nama"  => $data->user->nama,
                     "email"  => $data->user->email,
                     "no_tlpn" => $data->user->no_whatsapp
@@ -399,7 +402,7 @@ class WebinarTransaksiController extends Controller
         else if ($bank == 'shopeepay') {
             $data = [
                 "reference" => $ref,
-                "harga_event" => $data->event->price_event,
+                "harga_event" => $data->event->price_event - $potongan,
                 "nama"  => $data->user->nama,
                 "email"  => $data->user->email,
                 "no_tlpn" => $data->user->no_whatsapp,
