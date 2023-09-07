@@ -23,6 +23,12 @@
 }
 .navbar li a {
   color: #94a8be;
+  margin-bottom: 10px;
+}
+
+.bi {
+  color:#233DFF !important;
+  font-size: 19px;
 }
 
 div .button-daftar {
@@ -80,18 +86,19 @@ div .button-login {
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">Layanan & Produk</a>
                 <!-- <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button> -->
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  <li><a class="dropdown-item" href="#"><img src="assets/img/konseling.svg" alt=""> Konseling</a></li>
+                  <li><a class="dropdown-item" href="#"><img src="assets/img/mentoring.svg" alt=""> Mentoring</a></li>
+                  <li><a class="dropdown-item" href="#"><img src="assets/img/Ebook.svg" alt=""> E-Book</a></li>
+                  <li><a class="dropdown-item" href="#"><img src="assets/img/Ecourse.svg" alt=""> E-Course</a></li>
                 </ul>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">Kegiatan</a>
                 <!-- <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button> -->
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  <li><a class="dropdown-item" ><i class="bi bi-camera-video-fill "></i> Webinar</a></li>
+                  <li><a class="dropdown-item" ><i class="bi bi-megaphone-fill "></i> Campaign</a></li>
+                  <li><a class="dropdown-item" href="#"><i class="bi bi-chat-left-fill "></i> Rekap History</a></li>
                 </ul>
               </li>
               <li class="nav-item">
