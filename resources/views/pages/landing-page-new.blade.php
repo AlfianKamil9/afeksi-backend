@@ -17,7 +17,7 @@
             <div class="col-10 col-sm-8 col-lg-6">
               <img
                 src="../assets/img/landingpage/hero.png"
-                class="d-block mx-lg-auto img-fluid mt-lg-3 pt-lg-5"
+                class="d-none d-lg-block mx-lg-auto img-fluid mt-lg-3 pt-lg-5"
                 alt="hero"
                 height="400"
                 loading="lazy" />
