@@ -12,7 +12,7 @@
 @section('content')
 
 <section id="Konseling">
-      <div class="hero-2 d-flex align-items-center">
+      <div class="hero-2 d-flex align-items-center" style="padding-top:94px">
           <div class="container py-5 my-5">
             <h1 class="display-5 fw-semibold">F.A.Q - Pertanyaan yang Sering Ditanyakan</h1>
             <p class="fs-4 mt-5 fw-light">Bagaimana kami bisa membantu Anda?</p>
