@@ -17,14 +17,15 @@
 //     Route::post('/logout', [LoginController::class, 'logout']);
 // });
 
-use App\Http\Controllers\API\KlaimCode;
 use App\Models\Event;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Transaksi\Event\WebinarTransaksiController;
 use App\Models\LayananNonProfessional;
+use App\Http\Controllers\API\KlaimCode;
+use App\Http\Controllers\API\HandleAfterPayment;
+use App\Http\Controllers\Transaksi\Event\WebinarTransaksiController;
 
 Route::post('/checkout', [WebinarTransaksiController::class, 'checkout']);
-
+Route::post('/midtrans/notification-hooks', HandleAfterPayment::class);
 Route::get('tetet', function() {
     $query = Event::with('webinar_session.pembicara')
         ->where('activity_category_event', 'WEBINAR')->orderBy('date_event', 'desc')->get();

@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\API\HandleAfterPayment;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\DetailPembayaran;
@@ -149,7 +149,7 @@ Route::post('/midtrans/callback', [NotificationPaymentEventController::class, 'c
 Route::get('/midtrans/finish', [NotificationPaymentEventController::class, 'finishRedirect']);
 Route::get('/midtrans/unfinish', [NotificationPaymentEventController::class, 'unfinishRedirect']);
 Route::get('/midtrans/error', [NotificationPaymentEventController::class, 'errorRedirect']);
-
+// Route::post('/midtrans/notification-hooks', HandleAfterPayment::class);
 
 
 

@@ -86,7 +86,7 @@
           <h5 class="fw-bold mb-3">Detail Kegiatan</h5>
           <p>Campaign ini akan dilaksanakan pada :</p>
           <ul class="custom-list list-unstyled m-1 text-muted">
-            <li class="mb-2 gap-3"><img src="{{ asset('assets/img/kegiatan-detail-webinar/kalender.svg') }}" width="21" height="23" alt="Tanggal Kegiatan" /> {{ $data->date_event }}</li>
+            <li class="mb-2 gap-3"><img src="{{ asset('assets/img/kegiatan-detail-webinar/kalender.svg') }}" width="21" height="23" alt="Tanggal Kegiatan" /> {{ \Carbon\Carbon::parse($data->date_event)->format('l, d M Y') }}</li>
             <li class="mb-2"><img src="{{ asset('assets/img/kegiatan-detail-webinar/location.svg') }}" width="21" height="23" alt="Lokasi Kegiatan" /> 
             @if ( $data->time_category_event != "ONLINE")
               Offline Di {{ $data->is_place }}

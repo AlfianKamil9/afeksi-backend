@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
         $data = [[
             'nama' => 'Azura Syahreza',
             'jenisKelamin' => 'Laki-laki',
-            'password' => 'password123',
+            'password' => 'Password123',
             'email' => 'azura@gmail.com',
             'umur' => 20,
             'no_whatsapp' => '081234335459'
@@ -25,7 +25,7 @@ class UserSeeder extends Seeder
         [
             'nama' => 'Alana Liora Gantari',
             'jenisKelamin' => 'Perempuan',
-            'password' => 'password456',
+            'password' => 'Password456',
             'email' => 'alana@gmail.com',
             'umur' => 19,
             'no_whatsapp' => '081234335457'

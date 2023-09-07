@@ -17,25 +17,23 @@ class EventSeeder extends Seeder
         $data = [
         [
             '2',
-            'Kampanye Kesehatan Mental 1.0',
-            'OFFLINE',
+            'Afeksi Warrior - Valentine Edition',
+            'ONLINE',
             'FREE',
+            '2023-07-01',
             '2023-07-10',
-            '2023-07-17',
-            '2023-07-20',
-            '16:00',
-            '19:00',
-            'TEST.PNG',
+            '2023-02-12',
+            '09:30',
+            '12:30',
+            'CAMPAIGN.PNG',
             0,
             '
-                <p style="text-align:justify;">Pengaderan mahasiswa baru Fakultas Psikologi UNAIR terbagi menjadi beberapa tahap. Salah satunya, tahap pembinaan kedua yang dilaksanakan 18-20 Oktober 2019. Dengan jargon “Lanjutkan langkah, siap berdinamika” pengaderan kali ini membawa sesuatu yang baru dan menarik. Meskipun telah terencana dari tahun lalu, namun ini pertama kalinya dilaksanakan kegiatan pengabdian masyarakat dengan melakukan kampanye mengenai kesehatan mental di Car Free Day Taman Bungkul Surabaya.</p>
-
-                <p style="text-align:justify;">Mahasiswa baru diajak langsung terjun ke masyarakat, dipersiapkan secara berkelompok dan diberi tutor serta didampingi oleh dosen untuk membuat konsep kampanye yang akan dilakukannya. Tutoring ini dilaksanakan agar mereka dapat menyampaikan informasi dengan baik kepada masyarakat.</p>
+                <p style="text-align:justify;">Afeksi warriors adalah program volunteer untuk menyuarakan pesan terkait psikologi relasi yang dilakukan melalui postingan media sosial.</p>
             ',
             'DRAFT',
-            'kampanye-kesehatan-mental-1.0',
+            'Afeksi-Warrior-Valentine-Edition',
             'CAMPAIGN',
-            'Surabaya'
+            'Zoom'
         ],
         [
                 '1',
@@ -121,31 +119,10 @@ class EventSeeder extends Seeder
                 'WEBINAR',
                 'Zoom'
         ],
-        [
-                '6',
-                'Kampanye Keluarga Berencana 2.0',
-                'ONLINE',
-                'FREE',
-                '2023-07-29',
-                '2023-08-04',
-                '2023-08-05',
-                '09:30',
-                '12:30',
-                'TEST.PNG',
-                0,
-                '
-                Pengertian KB (keluarga berencana) menurut UU No. 10 tahun 1992 (tentang perkembangan kependudukan dan pembangunan keluarga sejahtera), adalah upaya peningkatan kepedulian dan peran serta masyarakat melalui pendewasaan usia perkawinan (PUP), pengaturan kelahiran, pembinaan ketahanan keluarga, peningkatan kesejahteraan keluarga kecil, bahagia dan sejahtera. 
-
-                KB merupakan program pemerintah yang dirancang untuk menyeimbangkan antara kebutuhan dan jumlah penduduk. Perlu kamu ketahui, Gerakan Keluarga Berencana Nasional Indonesia telah dianggap masyarakat dunia sebagai program yang berhasil menurunkan angka kelahiran yang bermakna. ',
-                'DRAFT',
-                'Kampanye-Keluarga-Berencana-2.0',
-                'CAMPAIGN',
-                'Zoom'
-        ]
     ];
 
 
-        for ($i=0; $i < 6 ; $i++) { 
+        for ($i=0; $i < 5 ; $i++) { 
              Event::create([
             'category_event_id' => $data[$i][0],
             'title_event' => $data[$i][1],

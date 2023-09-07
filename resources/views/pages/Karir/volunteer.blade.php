@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="/assets/css/volunteer.css">
 @endsection
 
-{{-- @include('../partials/navbar')  --}}
 
 @section('content')
 
@@ -29,7 +28,7 @@
             bahagia.
           </p>
         </div>
-        <a href="#" type="button" class="btn btn-join mt-4 fw-medium">Gabung Jadi Volunteer</a>
+        <a href="#join-volunteer" type="button" class="btn btn-join mt-4 fw-medium">Gabung Jadi Volunteer</a>
       </div>
       <div class="col-lg-4 m-3">
         <img class="hero-image w-100" src="assets/img/volunteer/Banner.png" />
@@ -54,8 +53,8 @@
               <div class="justify-content-lg-start mb-4 mt-2">
                 <img src="/assets/img/pendaftaran-konselor/fleksibilitas.png" alt="Fleksibilitas Waktu" class="card-img" />
               </div>
-              <h5 class="card-title fw-semibold">Fleksibilitas Waktu</h5>
-              <p class="card-text mt-3">Gak usah khawatir soal jam kerja yang kaku. Di sini, anda bisa atur jadwal sesuai keinginanmu..</p>
+              <h5 class="card-title fw-semibold">Pengalaman yang Berharga</h5>
+              <p class="card-text mt-3">Menjadi Brand Ambassador Afeksi adalah pengalaman yang berharga yang akan memperkaya perjalanan kuliah Anda. Anda akan mendapatkan kesempatan untuk mengembangkan keterampilan komunikasi, kepemimpinan, dan pemasaran yang sangat berharga.</p>
             </div>
           </div>
         </div>
@@ -67,9 +66,9 @@
               <div class="justify-content-lg-start mb-4 mt-2">
                 <img src="/assets/img/pendaftaran-konselor/agen.png" alt="Jadi Agen Perubahan" class="card-img" />
               </div>
-              <h5 class="card-title fw-semibold">Jadi Agen Perubahan</h5>
+              <h5 class="card-title fw-semibold">Kontribusi Positif</h5>
               <p class="card-text mt-3">
-                Anda dapat menjadi agen perubahan positif dalam kehidupan mereka dan menciptakan dampak positif dalam hidup orang lain.
+                Anda akan menjadi bagian dari upaya untuk meningkatkan kualitas hidup mahasiswa dengan mempromosikan hubungan yang sehat dan kesejahteraan mental. Ini adalah kesempatan untuk berkontribusi positif pada komunitas kampus Anda.
               </p>
             </div>
           </div>
@@ -82,8 +81,8 @@
               <div class="justify-content-lg-start mb-4 mt-2">
                 <img src="/assets/img/pendaftaran-konselor/jangkauan-luas.png" alt="Jangkauan Luas" class="card-img" />
               </div>
-              <h5 class="card-title fw-semibold">Jangkuan Luas</h5>
-              <p class="card-text mt-3">Beragam individu yang memiliki latar belakang dan kebutuhan akan berinteraksi dengan Anda.</p>
+              <h5 class="card-title fw-semibold">Jaringan yang Luas</h5>
+              <p class="card-text mt-3">Sebagai Brand Ambassador Afeksi, Anda akan memiliki kesempatan untuk berinteraksi dengan berbagai individu, termasuk anggota tim Afeksi dan mahasiswa lainnya. Ini akan membantu Anda membangun jaringan yang berharga.</p>
             </div>
           </div>
         </div>
@@ -95,8 +94,8 @@
               <div class="justify-content-lg-start mb-4 mt-2">
                 <img src="/assets/img/pendaftaran-konselor/pengembangan-diri.png" alt="Pengembangan Diri & Karir" class="card-img" />
               </div>
-              <h5 class="card-title fw-semibold">Pengembangan Diri & Karir</h5>
-              <p class="card-text mt-3">Dukungan penuh, panduan, pelatihan khusus, bimbingan personal, dan sumber daya relevan.</p>
+              <h5 class="card-title fw-semibold">Keterampilan yang Berkembang</h5>
+              <p class="card-text mt-3">Anda akan mengembangkan keterampilan komunikasi, keterampilan manajemen waktu, dan kemampuan kepemimpinan. Semua ini adalah keterampilan yang akan berguna dalam karier Anda nantinya.</p>
             </div>
           </div>
         </div>
@@ -108,8 +107,8 @@
               <div class="justify-content-lg-start mb-4 mt-2">
                 <img src="/assets/img/pendaftaran-konselor/dukungan-jaringan.png" alt="Dukungan Jaringan Profesional" class="card-img" />
               </div>
-              <h5 class="card-title fw-semibold">Dukungan Jaringan Profesional</h5>
-              <p class="card-text mt-3">Jadilah bagian dari tim yang multikultural, bersemangat, dan menyenangkan untuk saling berbagi.</p>
+              <h5 class="card-title fw-semibold">Menginspirasi Perubahan</h5>
+              <p class="card-text mt-3">Menjadi sumber inspirasi bagi sesama mahasiswa untuk menjalani hubungan yang lebih sehat dan mengatasi masalah kesehatan mental. Anda akan melihat dampak positif dari upaya Anda.</p>
             </div>
           </div>
         </div>
@@ -121,8 +120,8 @@
               <div class="justify-content-lg-start mb-4 mt-2">
                 <img src="/assets/img/pendaftaran-konselor/gaji.png" alt="Gaji Kompetitif" class="card-img" />
               </div>
-              <h5 class="card-title fw-semibold">Gaji Kompetitif</h5>
-              <p class="card-text mt-3">Lebih fokus pada layanan konseling Anda. Potensi pendapatan terjamin melalui konseling yang berarti</p>
+              <h5 class="card-title fw-semibold">Akses ke Sumber Daya</h5>
+              <p class="card-text mt-3">Sebagai Brand Ambassador Afeksi, Anda akan memiliki akses ke sumber daya dan informasi eksklusif yang dapat membantu Anda dalam perjalanan akademik dan pribadi Anda.</p>
             </div>
           </div>
         </div>
@@ -162,33 +161,33 @@
       <div class="card-wrapper swiper-wrapper">
         <div class="swiper-slide">
           <img src="assets/img/volunteer/ic_sharp-person.png" alt="" style="width: 50px" />
-          <h4>Nama Client</h4>
-          <p>Mahasiswa</p>
-          <span>Sangat Rekomendasi Psikolog di Afeksi ini, karena masalah saya cepat teratasi dengan konsultasi dengan psikolog dari afeksi</span>
+          <h4>Bimo Setyo</h4>
+          <p>IT Intern</p>
+          <span class="text-justify">Banyak insight yang saya dapat selama intern sebagai Staff IT di Afeksi dengan belajar berkordinasi dengan beberapa diisi dan belajar membangun startup dari nol.</span>
         </div>
         <div class="swiper-slide">
           <img src="assets/img/volunteer/ic_sharp-person.png" alt="" style="width: 50px" />
-          <h4>Nama Client</h4>
-          <p>Mahasiswa</p>
-          <span>Sangat Rekomendasi Psikolog di Afeksi ini, karena masalah saya cepat teratasi dengan konsultasi dengan psikolog dari afeksi</span>
+          <h4>Octavia Syeira</h4>
+          <p>Innovator Program Intern</p>
+          <span class="text-justify">Magang di Afeksi telah membuka berbagai kesempatan bagi saya untuk terjun langsung dalam mengeksekusi suatu program/event.</span>
         </div>
         <div class="swiper-slide">
           <img src="assets/img/volunteer/ic_sharp-person.png" alt="" style="width: 50px" />
-          <h4>Nama Client</h4>
-          <p>Mahasiswa</p>
-          <span>Sangat Rekomendasi Psikolog di Afeksi ini, karena masalah saya cepat teratasi dengan konsultasi dengan psikolog dari afeksi</span>
+          <h4>Elisabeth Desanti</h4>
+          <p>IT Intern</p>
+          <span class="text-justify">Internship di Afeksi seruu bgt. Kita sering banget brainstroming bareng & dapat ilmu baru. Sebelumnya belum pernah pakai figma, sekarang jadi paham dan seneng bisa nambah portofolio. Thank u Afeksi</span>
+        </div>
+       <div class="swiper-slide">
+          <img src="assets/img/volunteer/ic_sharp-person.png" alt="" style="width: 50px" />
+          <h4>Bimo Setyo</h4>
+          <p>IT Intern</p>
+          <span class="text-justify">Banyak insight yang saya dapat selama intern sebagai Staff IT di Afeksi dengan belajar berkordinasi dengan beberapa diisi dan belajar membangun startup dari nol.</span>
         </div>
         <div class="swiper-slide">
           <img src="assets/img/volunteer/ic_sharp-person.png" alt="" style="width: 50px" />
-          <h4>Nama Client</h4>
-          <p>Mahasiswa</p>
-          <span>Sangat Rekomendasi Psikolog di Afeksi ini, karena masalah saya cepat teratasi dengan konsultasi dengan psikolog dari afeksi</span>
-        </div>
-        <div class="swiper-slide">
-          <img src="assets/img/volunteer/ic_sharp-person.png" alt="" style="width: 50px" />
-          <h4>Nama Client</h4>
-          <p>Mahasiswa</p>
-          <span>Sangat Rekomendasi Psikolog di Afeksi ini, karena masalah saya cepat teratasi dengan konsultasi dengan psikolog dari afeksi</span>
+          <h4>Octavia Syeira</h4>
+          <p>Innovator Program Intern</p>
+          <span class="text-justify">Magang di Afeksi telah membuka berbagai kesempatan bagi saya untuk terjun langsung dalam mengeksekusi suatu program/event.</span>
         </div>
       </div>
     </div>
@@ -203,9 +202,9 @@
 <!-- slider end -->
 
 <!-- BERGABUNG BERSAMA KAMI -->
-<div class="bergabung position-relative py-5 overflow-hidden">
+<div class="bergabung position-relative py-5 overflow-hidden" >
   <img class="background" src="assets/img/volunteer/backgroundbergabung.png" alt="" />
-  <div class="container py-4 px-4">
+  <div class="container py-4 px-4" id="join-volunteer">
     <div class="row text-center mb-sm-3">
       <div class="col-sm">
         <h2 class="fw-bold" style="color: #2139f9">Bergabunglah bersama kami</h2>
