@@ -29,7 +29,7 @@
             bahagia.
           </p>
         </div>
-        <a href="#" type="button" class="btn btn-join mt-4 fw-medium">Gabung Jadi Volunteer</a>
+        <a type="button" class="btn btn-join mt-4 fw-medium" href="#bergabung">Gabung Jadi Volunteer</a>
       </div>
       <div class="col-lg-4 m-3">
         <img class="hero-image w-100" src="assets/img/volunteer/Banner.png" />
@@ -203,7 +203,7 @@
 <!-- slider end -->
 
 <!-- BERGABUNG BERSAMA KAMI -->
-<div class="bergabung position-relative py-5 overflow-hidden">
+<div id="bergabung" class="bergabung position-relative py-5 overflow-hidden">
   <img class="background" src="assets/img/volunteer/backgroundbergabung.png" alt="" />
   <div class="container py-4 px-4">
     <div class="row text-center mb-sm-3">
