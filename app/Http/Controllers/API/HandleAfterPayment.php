@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use App\Models\EventTransaction;
+use App\Models\PembayaranLayanan;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 
@@ -35,7 +36,13 @@ class HandleAfterPayment extends Controller
 
         $transactionStatus = $payload['transaction_status'];
 
-        $order = EventTransaction::find($orderID);
+        if (substr($orderID, 0, 3) == 'WEB') {
+            $order = EventTransaction::where('ref_transaction_event', $orderID)->first();
+        } else if (substr($orderID, 0, 4) == 'PROF' || substr($orderID, 0, 3) == 'DEV') {
+            $order = PembayaranLayanan::where('ref_transaction_layanan', $orderID)->first();
+        }
+
+
         if (!$order) {
             return response()->json(["message" => "Invalid Order"], 400);        
         }

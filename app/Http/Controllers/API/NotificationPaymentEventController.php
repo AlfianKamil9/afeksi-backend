@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Http\Controllers\Controller;
-use App\Models\EventTransaction;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 use Midtrans\Config;
 use Midtrans\Notification;
+use Illuminate\Http\Request;
+use App\Models\EventTransaction;
+use App\Models\PembayaranLayanan;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 
 class NotificationPaymentEventController extends Controller
 {
@@ -45,7 +46,12 @@ class NotificationPaymentEventController extends Controller
         $order_id = $order[1];
 
         //cari transaksi berdasarkan id
-        $transaction = EventTransaction::where('ref_transaction_event', $notification->order_id)->firstOrFail();
+        if (substr($notification->order_id, 0, 3) == 'WEB') {
+            $transaction = EventTransaction::where('ref_transaction_event', $notification->order_id)->firstOrFail();
+        } else if (substr($notification->order_id, 0, 4) == 'PROF' || substr($notification->order_id, 0, 3) == 'DEV') {
+            $transaction = PembayaranLayanan::where('ref_transaction_layanan', $notification->order_id)->firstOrFail();
+        }
+        //$transaction = EventTransaction::where('ref_transaction_event', $notification->order_id)->firstOrFail();
         //handle notification status midtrans
         if($status == 'capture'){
             if ($type == 'credit_card') {
