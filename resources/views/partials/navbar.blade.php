@@ -61,6 +61,12 @@ div .button-login {
 .button-login:focus {
   outline: #233dff;
 }
+
+@media (max-width:850px) {
+  .navbar li a, div .button-login, div .button-daftar{
+    font-size: 14px;
+  }
+}
   /* End Navbar */
 </style>
 
