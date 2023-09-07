@@ -10,8 +10,7 @@
 @section('styles')
     <link rel="stylesheet" href="assets/css/landingpage.css">
 @endsection
-{{-- 
-@include('../partials/navbar')  --}}
+
 
 @section('content')
     <!-- Section Hero Content Start -->
@@ -21,7 +20,7 @@
             <div class="col-10 col-sm-8 col-lg-6">
               <img
                 src="../assets/img/landingpage/hero.png"
-                class="d-block mx-lg-auto img-fluid mt-lg-3 pt-lg-5"
+                class="d-none d-lg-block mx-lg-auto img-fluid mt-lg-3 pt-lg-5"
                 alt="hero"
                 height="400"
                 loading="lazy" />
@@ -35,16 +34,16 @@
                 kualitas hubungan yang lebih dalam dan bermakna.
               </p>
               <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                <button
+                <a
                   type="button"
-                  id="start-konsultasi"
+                  href="#konsultasi"
                   class="btn btn-konsultasi btn-lg px-4 me-md-2"
                   style="font-size: 15px; background-color: #233dff; color: #ffffff">
                   Mulai Konsultasi
-                </button>
-                <button type="button" class="btn btn-learn btn-lg px-4" style="font-size: 15px; background-color: #ffd34e">
+                </a>
+                <a href="/faq-konseling" type="button" class="btn btn-learn btn-lg px-4" style="font-size: 15px; background-color: #ffd34e">
                   Learn More
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -139,7 +138,7 @@
       <!-- Section Profil Psikolog & Konseler End -->
 
       <!-- Section Layanan Konsultasi Start -->
-      <section>
+      <section id = "konsultasi">
         <div class="mb-5" style="background-color: #d3daff">
           <div class="container py-5 px-4">
             <div class="row text-center mb-sm-3">

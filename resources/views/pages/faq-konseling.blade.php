@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="/assets/css/faq-konseling.css">
 @endsection
 
-{{-- @include('../partials/navbar')  --}}
 
 @section('content')
 
-<section id="Konseling" >
-      <div class="hero-2 d-flex align-items-center" style="padding-top:94px;">
+
+<section id="Konseling">
+      <div class="hero-2 d-flex align-items-center" style="padding-top:94px">
           <div class="container py-5 my-5">
             <h1 class="display-5 fw-semibold">F.A.Q - Pertanyaan yang Sering Ditanyakan</h1>
             <p class="fs-4 mt-5 fw-light">Bagaimana kami bisa membantu Anda?</p>
@@ -23,7 +23,6 @@
         <div class="container pe-2 py-5">
           <div class="row">
             <div class="col-sm">
-              {{-- @if (request()->query('mentoring') == "true")      --}}
                 <button onclick="konseling()" id="btn-konseling" class="tombol-aktif btn px-5 py-3 fw-bold btn-secondary" >FAQ Konseling</button>
                 <button onclick="mentoring()" id="btn-mentoring" class="btn px-5 py-3 fw-bold btn-outline-secondary">FAQ Mentoring</button>
             </div>

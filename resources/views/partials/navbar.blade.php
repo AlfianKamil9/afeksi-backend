@@ -23,6 +23,12 @@
 }
 .navbar li a {
   color: #94a8be;
+  margin-bottom: 0px;
+}
+
+.bi {
+  color:#233DFF !important;
+  font-size: 19px;
 }
 
 div .button-daftar {
@@ -56,6 +62,13 @@ div .button-login {
   outline: #233dff;
 }
 
+
+@media (max-width:850px) {
+  .navbar li a, div .button-login, div .button-daftar{
+    font-size: 14px;
+  }
+}
+
   /* End Navbar */
 </style>
 
@@ -86,12 +99,15 @@ div .button-login {
                   style="color: #233dff"
                 @endif
                   href="#">Layanan & Produk</a>
-                <!-- <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button> -->
                 <ul class="dropdown-menu">
                   <li class="mb-1"><a class="dropdown-item" href="{{ route('konseling') }}" ><img class="me-3" src="/assets/img/icon/icon-konseling.png" width="20px" style="object-fit:contain">Konseling</a></li>
                   <li class="mb-1"><a class="dropdown-item" href="{{ route('mentoring') }}"> <img class="me-3" src="/assets/img/icon/icon-mentoring.png" width="20px" style="object-fit:contain">Mentoring</a></li>
                   <li class="mb-1"><a class="dropdown-item" href="#"><img class="me-3" src="/assets/img/icon/icon-ebook.png" width="20px" style="object-fit:contain">E-Book</a></li>
                   <li class="mb-1"><a class="dropdown-item" href="#"><img class="me-3" src="/assets/img/icon/icon-ecourse.png" width="20px" style="object-fit:contain">E-Course</a></li>
+                  {{-- <li><a class="dropdown-item" href="{{ route('konseling') }}"><img src="/assets/img/konseling.svg" alt=""> Konseling</a></li>
+                  <li><a class="dropdown-item" href="{{ route('mentoring') }}"><img src="/assets/img/mentoring.svg" alt=""> Mentoring</a></li>
+                  <li><a class="dropdown-item" href="#"><img src="/assets/img/Ebook.svg" alt=""> E-Book</a></li>
+                  <li><a class="dropdown-item" href="#"><img src="/assets/img/Ecourse.svg" alt=""> E-Course</a></li> --}}
                 </ul>
               </li>
               <li class="nav-item dropdown">
@@ -102,11 +118,10 @@ div .button-login {
                   style="color: #233dff"
                 @endif
                 >Kegiatan</a>
-                <!-- <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button> -->
                 <ul class="dropdown-menu">
                   <li class="mb-1"><a class="dropdown-item" href="{{ route('webinar') }}"><img class="me-3" src="/assets/img/icon/icon-webinar.png" width="20px" style="object-fit:contain"> Webinar</a></li>
                   <li class="mb-1"><a class="dropdown-item" href="{{ route('campaign') }}"><img class="me-3" src="/assets/img/icon/icon-campaign.png" width="20px" style="object-fit:contain">Campaign</a></li>
-                  <li class="mb-1"><a class="dropdown-item" href="#"><img class="me-3" src="/assets/img/icon/icon-recap.png" width="20px" style="object-fit:contain"> Rekap History</a></li>
+                  <li class="mb-1"><a class="dropdown-item" href="#"><img class="me-3" src="/assets/img/icon/icon-recap.png" width="20px" style="object-fit:contain"> Rekap History</a></li>  
                 </ul>
               </li>
               <li class="nav-item">
@@ -137,7 +152,6 @@ div .button-login {
 
             <div class="ms-auto d-flex p-2 mx-lg-3 gap-2">
               @auth
-                  {{-- <a type="button" href="{{ route('logout') }}" class="btn button-login rounded-3">Logout</a> --}}
                   <div class="dropdown-center">
                     <button class="btn btn-primary text-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                       {{ auth()->user()->nama }}
