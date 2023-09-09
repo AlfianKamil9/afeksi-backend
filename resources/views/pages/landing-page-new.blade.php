@@ -41,7 +41,7 @@
                   style="font-size: 15px; background-color: #233dff; color: #ffffff">
                   Mulai Konsultasi
                 </a>
-                <a href="/faq-konseling" type="button" class="btn btn-learn btn-lg px-4" style="font-size: 15px; background-color: #ffd34e">
+                <a href="{{ route('FAQ') }}" type="button" class="btn btn-learn btn-lg px-4" style="font-size: 15px; background-color: #ffd34e">
                   Learn More
                 </a>
               </div>

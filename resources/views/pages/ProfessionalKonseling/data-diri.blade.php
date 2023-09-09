@@ -79,7 +79,7 @@
                     @if (Auth::user()->jenisKelamin)
                         <option value="{{ Auth::user()->jenisKelamin }}" selected>{{ Auth::user()->jenisKelamin }}</option>
                     @else
-                        <option selected>Pilih</option>
+                        <option value="0" selected>Pilih</option>
                         <option value="Laki-laki">Laki-laki</option>
                         <option value="Perempuan">Perempuan</option>
                     @endif

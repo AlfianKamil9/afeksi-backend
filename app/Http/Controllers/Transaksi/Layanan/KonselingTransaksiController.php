@@ -21,12 +21,14 @@ use App\Services\Midtrans\PembayaranEvent\TransferBankService;
 
 class KonselingTransaksiController extends Controller
 {
+    // show form data diri professional konseling
     public function showFormDataDiri($ref_transaction_layanan)
     {
         $data = PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->where('status', 'UNPAID')->firstOrFail();
         return view('pages.ProfessionalKonseling.data-diri', compact('data'));
     }
 
+    // submit form data diri professional konseling
     public function submitDataDiri(Request $request, $ref_transaction_layanan)
     {
         $request->validate([
@@ -56,6 +58,9 @@ class KonselingTransaksiController extends Controller
         } elseif ($tglSekarang == $tglKonsultasi && $blnSekarang > $blnKonsultasi && ($thnSekarang == $thnKonsultasi || $thnSekarang > $thnKonsultasi)) {
             Alert::alert()->html('<h4 class="text-danger fw-bold">Error</h4>', '<p>Invalid data, Please Filled Correctly!</p>');
             return back();
+        } elseif($request->jenisKelamin == 0){
+            Alert::alert()->html('<h4 class="text-danger fw-bold">Error</h4>', '<p>Invalid data, Mohon isi Jenis Kelamin Anda!</p>');
+            return back();
         }
         User::where('id', auth()->user()->id)->update([
             'umur' => $request->umur,
@@ -72,6 +77,8 @@ class KonselingTransaksiController extends Controller
         return redirect('/slug-konseling-yg-dipilih/' . $ref_transaction_layanan . '/pembayaran');
     }
 
+
+    // show halaman pembayaran professional konseling
     public function showPembayaran($ref_transaction_layanan)
     {
         $data = PembayaranLayanan::with('voucher', 'psikolog', 'detail_pembayarans', 'paket_profesional_conselings')
@@ -79,7 +86,8 @@ class KonselingTransaksiController extends Controller
         return view('pages.ProfessionalKonseling.pembayaran', compact('data'));
     }
 
-    // checkout proses
+
+    // checkout proses pembayaran professional konseling
     public function checkoutProfessionalKonseling(Request $request, $ref_transaction_layanan)
     {
         $id = PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->pluck('id')->first();
@@ -113,6 +121,7 @@ class KonselingTransaksiController extends Controller
         }
         $voucher_id = Voucher::where('kode', $request->input_code)->pluck('id')->first();
         $bank = bank::where('id', $request->bank)->pluck('bank')->first();
+        // panggil fungsi klasifikasi payment method untuk cek klasifikasinya
         $response = $this->klasifikasiPaymentMethod($bank, $ref_transaction_layanan, $voucher_id);
         // 
         // response -------------------

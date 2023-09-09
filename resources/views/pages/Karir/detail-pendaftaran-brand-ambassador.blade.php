@@ -16,7 +16,7 @@
             <div class="bread-crumbs d-flex gap-2 fw-semibold">
                 <p><a href="{{ route('karir') }}" class="text-dark">Karir</a></p>
                 <span>&gt;</span>
-                <p><a href="#" class="text-dark">Volunteer</a></p>
+                <p><a href="{{ route('join.volunteer') }}" class="text-dark">Volunteer</a></p>
                 <span>&gt;</span>
                 <p><a href="{{ route('volunteer.brand-ambassador') }}" class="text-dark">Brand Ambassador</a></p>
             </div>
@@ -86,7 +86,7 @@
                                     <input type="text" value="{{ auth()->user()->jenisKelamin }}" readonly class="form-control" id="jenis-kelamin" name="jenisKelamin">
                                 @else
                                     <select name="jenisKelamin" class="form-select" id="jenis_kelamin" required>
-                                      <option selected>Pilih Jenis Kelamin</option>
+                                      <option value="0" selected>Pilih Jenis Kelamin</option>
                                       <option value="Laki-laki">Laki-laki</option>
                                       <option value="Perempuan">Perempuan</option>
                                     </select>    

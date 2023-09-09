@@ -30,7 +30,10 @@ class PeerKonselor extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
+        if( $request->jenisKelamin == 0){
+            Alert::alert()->html('<h4 class="text-danger fw-bold">Error</h4>', '<p>Invalid data, Mohon isi Jenis Kelamin Anda!</p>');
+            return back();
+        }
         $validatedData = $request->validate([
             'pekerjaan' => 'required',
             'nohp' => 'required',

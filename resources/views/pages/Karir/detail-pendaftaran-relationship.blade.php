@@ -83,7 +83,7 @@
                                     <input type="text" value="{{ auth()->user()->jenisKelamin }}" readonly class="form-control" id="jenis-kelamin" name="jenisKelamin">
                                 @else
                                     <select name="jenisKelamin" class="form-select" id="jenis_kelamin" required>
-                                      <option selected>Pilih Jenis Kelamin</option>
+                                      <option value="0" selected>Pilih Jenis Kelamin</option>
                                       <option value="Laki-laki">Laki-laki</option>
                                       <option value="Perempuan">Perempuan</option>
                                     </select>    

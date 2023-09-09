@@ -24,6 +24,10 @@ class Internship extends Controller
 
     public function store( Request $request){
 
+        if( $request->jenisKelamin == 0){
+            Alert::alert()->html('<h4 class="text-danger fw-bold">Error</h4>', '<p>Invalid data, Mohon isi Jenis Kelamin Anda!</p>');
+            return back();
+        }
         $validatedData = $request->validate([
         // 'user_id' => "required", INI PENYEBAB ERROR 
         'position_id'=> "required",

@@ -61,6 +61,9 @@ class MentoringTransaksiController extends Controller
         } elseif ($tglSekarang == $tglKonsultasi && $blnSekarang > $blnKonsultasi && ($thnSekarang == $thnKonsultasi || $thnSekarang > $thnKonsultasi)) {
             Alert::alert()->html('<h4 class="text-danger fw-bold">Error</h4>', '<p>Invalid data, Please Filled Correctly!</p>');
             return back();
+        } elseif($request->jenisKelamin == 0){
+            Alert::alert()->html('<h4 class="text-danger fw-bold">Error</h4>', '<p>Invalid data, Mohon isi Jenis Kelamin Anda!</p>');
+            return back();
         }
         User::where('id', auth()->user()->id)->update([
             'umur' => $request->umur,
