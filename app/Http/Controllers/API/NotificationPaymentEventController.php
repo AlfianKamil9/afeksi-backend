@@ -12,17 +12,8 @@ use Illuminate\Support\Facades\Mail;
 
 class NotificationPaymentEventController extends Controller
 {
-    // /**
-    //  * Handle the incoming request.
-    //  */
-    // public function __invoke(Request $request)
-    // {
-    //     //
-    // }
-
     public function callback(Request $request)
-    {
-    
+    {   
         //set konfigurasi midtrans
         Config::$serverKey = 'SB-Mid-server-jCrOnrL8Qbl30LMOknfYOxtJ';
         Config::$isProduction = false;
@@ -34,15 +25,26 @@ class NotificationPaymentEventController extends Controller
 
         //buat instance midtrans notification
         $notification = new Notification();
-        //dd($notification);
-        //pecah order id
         $order = explode('-',  $notification->order_id);
+
+        // cek kesesuaian
+        $orderID = $notification->order_id;
+        $statusCode =  $notification->status_code;
+        $grossAmount =  $notification->gross_amount;
+
+        $reqSignature =  $notification->signature_key;
+
+        $signature = hash('sha512', $orderID.$statusCode.$grossAmount.config('midtrans.midtrans.server_key'));
+
+        if ($signature != $reqSignature) {
+            return response()->json([
+                "message" => "Invalid Signature"], 401);
+        }
 
         //assign ke variabel untuk memudahkan coding
         $status = $notification->transaction_status;
         $type = $notification->payment_type;
         $fraud = $notification->fraud_status;
-        // $order_id = 'AHAYSHOP-' . $notification->order_id;
         $order_id = $order[1];
 
         //cari transaksi berdasarkan id
@@ -50,6 +52,11 @@ class NotificationPaymentEventController extends Controller
             $transaction = EventTransaction::where('ref_transaction_event', $notification->order_id)->firstOrFail();
         } else if (substr($notification->order_id, 0, 4) == 'PROF' || substr($notification->order_id, 0, 3) == 'DEV') {
             $transaction = PembayaranLayanan::where('ref_transaction_layanan', $notification->order_id)->firstOrFail();
+        }
+        // 
+
+        if (!$order) {
+            return response()->json(["message" => "Invalid Order"], 400);        
         }
         //$transaction = EventTransaction::where('ref_transaction_event', $notification->order_id)->firstOrFail();
         //handle notification status midtrans
