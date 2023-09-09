@@ -116,21 +116,24 @@ class KonselingTransaksiController extends Controller
         $response = $this->klasifikasiPaymentMethod($bank, $ref_transaction_layanan, $voucher_id);
         // 
         // response -------------------
-        if($response["status_code"] != 201 ) {
+        if ($response["status_code"] != 201) {
             Alert::alert()->html('<h4 class="fw-bold text-danger">FAILED PAYMENT METHOD</h4>', '<p>There was some error in the system, Please try again later or change the Payment Method.<br><br>Error: <span class="pt-2 fw-bold ">500 Server Error</span></p>');
             return back();
         }
-        if($request->input_code != null ) {
+        if ($request->input_code != null) {
             $stok = Voucher::where('kode', $request->input_code)->pluck('stok_voucher')->first();
             Voucher::where('id', $voucher_id)->update([
                 'stok_voucher' => $stok - 1
+            ]);
+            PembayaranLayanan::where('id', $id)->update([
+                'voucher_id' => $voucher_id
             ]);
         }
         $getData = DetailPembayaran::where('pembayaran_layanan_id', $id)->first();
         $getData2 = PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->first();
         if ($bank == 'bni' || $bank == 'bri' || $bank == 'bca' || $bank == 'cimb' || $bank == 'permata') {
             $va = '<h6 style="text-transform:uppercase;">' . $bank . ' VA = ' . $getData->kode_bayar_1 . '</h6>';
-            $pesan = "Silahkan Lengkapi Pembayaran Sebelum <br><strong>".$getData2->updated_at->addDay(1)->format('l, d M Y')."</strong> pukul </strong>" . $getData->updated_at->format('H:i') . "</strong>";
+            $pesan = "Silahkan Lengkapi Pembayaran Sebelum <br><strong>" . $getData2->updated_at->addDay(1)->format('l, d M Y') . "</strong> pukul </strong>" . $getData->updated_at->format('H:i') . "</strong>";
         } else if ($bank == 'mandiri') {
             $va =   '<h6 style="text-transform:uppercase;">' . $bank . ' Bill Key = ' . $getData->kode_bayar_1 . '</h6>
                     <h6 style="text-transform:uppercase;">' . $bank . ' Bill Code = ' . $getData->kode_bayar_2 . '</h6>';
@@ -155,7 +158,7 @@ class KonselingTransaksiController extends Controller
         session()->forget('apply');
         Session::flash('popupAfterProfKonseling', [
             'kode' => $va,
-            'pesan' => $pesan 
+            'pesan' => $pesan
         ]);
         return Redirect::to('/' . $ref_transaction_layanan . '/notification-konseling/success');
     }
@@ -166,7 +169,7 @@ class KonselingTransaksiController extends Controller
     {
         $tabelPembayaran = PembayaranLayanan::where('ref_transaction_layanan', $ref)->pluck('id')->first();
         $diskon = Voucher::where('id', $voucher_id)->first();
-        $voucher_id == null ? $potongan = 0 : $potongan = $diskon->jumlah_diskon; 
+        $voucher_id == null ? $potongan = 0 : $potongan = $diskon->jumlah_diskon;
         $data = PembayaranLayanan::with('user', 'paket_profesional_conselings', 'psikolog', 'detail_pembayarans', 'voucher')->where('ref_transaction_layanan', $ref)->first();
         // -----------------BNI, BRI, BCA, CIMB----------------------- //
         if ($bank == 'bni' || $bank == 'bri' || $bank == 'bca' || $bank == 'cimb') {
@@ -205,7 +208,7 @@ class KonselingTransaksiController extends Controller
             ];
             return $responData;
         }
-// -----------------MANDIRI----------------------- //
+        // -----------------MANDIRI----------------------- //
         else if ($bank == "mandiri") {
             $data = [
                 "reference" => $ref,
@@ -242,8 +245,8 @@ class KonselingTransaksiController extends Controller
             ];
             return $responData;
         }
-// -----------------PERMATA----------------------- //
-        else if ($bank == "permata") {          
+        // -----------------PERMATA----------------------- //
+        else if ($bank == "permata") {
             $data = [
                 "reference" => $ref,
                 "harga_event" => $data->paket_profesional_conselings->harga - $potongan,
@@ -278,8 +281,8 @@ class KonselingTransaksiController extends Controller
             ];
             return $responData;
         }
-// -----------------INDOMARET----------------------- //
-        else if ($bank == "indomaret") {            
+        // -----------------INDOMARET----------------------- //
+        else if ($bank == "indomaret") {
             $data = [
                 "reference" => $ref,
                 "harga_event" => $data->paket_profesional_conselings->harga - $potongan,
@@ -315,7 +318,7 @@ class KonselingTransaksiController extends Controller
             ];
             return $responData;
         }
-// -----------------ALFAMART----------------------- //
+        // -----------------ALFAMART----------------------- //
         else if ($bank == "alfamart") {
             $data = [
                 "reference" => $ref,
@@ -351,8 +354,8 @@ class KonselingTransaksiController extends Controller
                 "message" =>  $res["status_message"],
             ];
             return $responData;
-        } 
-// --------------GOPAY------------------------------
+        }
+        // --------------GOPAY------------------------------
         else if ($bank == "gopay") {
             $data = [
                 "reference" => $ref,
@@ -389,7 +392,7 @@ class KonselingTransaksiController extends Controller
             ];
             return $responData;
         }
-// ----------------------------SHOPPE-PAY---------------------
+        // ----------------------------SHOPPE-PAY---------------------
         else if ($bank == "shopeepay") {
             $data = [
                 "reference" => $ref,
