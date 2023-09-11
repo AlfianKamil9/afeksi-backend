@@ -11,8 +11,9 @@
 
 @section('content')
 <!-- HEADER -->
-<div class="mb-5 mt-5 bg-transparent text-white" >
-      <div class="container-fluid py-5" style="height: 31.9rem">
+
+<div class="mb-5 bg-transparent text-white hero-wrapper" style="padding-top:70px;">
+      <div class="container-fluid py-5 hero" style="height: 31.9rem">
         <div class="row mt-5">
           <div class="col-md-6">
             <h6 class="mb-3">TENTANG KAMI</h6>
@@ -35,7 +36,7 @@
       <div class="row">
         <div class="col-md-6 mt-3">
           <div class="col-md-12">
-            <img src="assets/img/about-us/Frame-3.png" class="mx-auto d-block mb-5" style="width: 23.5em" alt="" />
+            <img src="assets/img/about-us/Frame-3.png" class="mx-auto d-block mb-5 img-fluid" style="width: 23.5em" alt="" />
           </div>
         </div>
         <div class="col-md-6 mt-5">
@@ -118,20 +119,59 @@
         <p style="color: #717171">Kami percaya bahwa perubahan dimulai dengan diri sendiri, lalu dari tim kamu, lalu dunia.</p>
       </div>
       <div class="container">
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="row row-cols-1 row-cols-md-3 g-4 text-center">
           <div class="col">
-            <div class="card">
-              <img src="assets/img/about-us/Pengurus.png" class="card-img-top" alt="..." />
+            <div class="card rounded-3 image-container">
+              <img src="assets/img/about-us/endin-transformed.png" alt="..." />
+              <div class="overlay">
+                <h5>A Endin Yoga Pradana</h5>
+                <p>Founder & Chief Executive Officer</p>
+              </div>
             </div>
           </div>
           <div class="col">
-            <div class="card">
-              <img src="assets/img/about-us/Pengurus-1.png" class="card-img-top" alt="..." />
+            <div class="card rounded-3 image-container">
+              <img src="assets/img/about-us/wafa-transformed.png" alt="..." />
+              <div class="overlay">
+                <h5>Sabilil Wafa W.</h5>
+                <p>Co-Founder & Chief of Business Development</p>
+              </div>
             </div>
           </div>
           <div class="col">
-            <div class="card">
-              <img src="assets/img/about-us/Pengurus-2.png" class="card-img-top" alt="..." />
+            <div class="card rounded-3 image-container">
+              <img src="assets/img/about-us/verens-transformed.png" alt="..." />
+              <div class="overlay">
+                <h5>Varens Elvira</h5>
+                <p>Chief Marketing Officer</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card rounded-3 image-container">
+              <img src="assets/img/about-us/octi-transformed.png" alt="..." />
+              <div class="overlay">
+                <h5>Octiana Syeira P</h5>
+                <p>Chief Product Officer</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card rounded-3 image-container">
+              <img src="assets/img/about-us/santi-transformed.png" alt="..." />
+              <div class="overlay">
+                <h5>Elisabeth Desanti</h5>
+                <p>Chief Technology Officer</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card rounded-3 image-container">
+              <img src="assets/img/about-us/bimo-transformed.png" alt="..." />
+              <div class="overlay">
+                <h5>Bimo Setyo</h5>
+                <p>Chief Design Officer</p>
+              </div>
             </div>
           </div>
         </div>
