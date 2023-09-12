@@ -257,7 +257,7 @@
 @include('../partials/footer') 
 
 @section('script')
-   <script src="assets/js/slider.js"></script>
+  <script src="assets/js/slider.js"></script>
 @endsection
 
 @endsection
