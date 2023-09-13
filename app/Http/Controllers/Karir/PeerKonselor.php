@@ -10,9 +10,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class PeerKonselor extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    //MENAMPILKAN HALAMAN PENDAFTARAN PEER KONSELOR
     public function index()
     {
         return view('pages.Karir.detail-pendaftaran-peer');
@@ -25,15 +23,16 @@ class PeerKonselor extends Controller
     {
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    // MENYIMPAN DATA PENDAFTARAN PEER KONSELOR
     public function store(Request $request)
     {
+        //VALIDASI JENIS KELAMIN
         if( $request->jenisKelamin == 0){
             Alert::alert()->html('<h4 class="text-danger fw-bold">Error</h4>', '<p>Invalid data, Mohon isi Jenis Kelamin Anda!</p>');
             return back();
         }
+
+        //VALIDASI DATA PENDAFTARAN
         $validatedData = $request->validate([
             'pekerjaan' => 'required',
             'nohp' => 'required',
@@ -45,10 +44,12 @@ class PeerKonselor extends Controller
             'portofolio' => 'nullable|file|max:10240',
         ]);
 
+        //GET DATA USER PENDAFTAR
         $user = auth()->user();
         $nohp = $user->no_whatsapp ?: $request->input('nohp');
         $jenisKelamin = $user->jenisKelamin ?: $request->input('jenisKelamin');
 
+        //MENYIMPAN DATA KE FOLDER PUBLIC
         $buktiFollowPath = $validatedData['bukti_follow']->store('konselor/peer/bukti_follow', 'public');
         $cvPath = $validatedData['cv']->store('konselor/peer/cv', 'public');
 
@@ -57,6 +58,7 @@ class PeerKonselor extends Controller
             $portofolioPath = $validatedData['portofolio']->store('konselor/peer/portofolio', 'public');
         }
 
+        //INSERT DATA KE TABEL KONSELOR
         $konselorData = [
             'user_id' => $user->id,
             'nohp' => $nohp,

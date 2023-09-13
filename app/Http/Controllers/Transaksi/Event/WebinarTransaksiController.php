@@ -19,13 +19,16 @@ use App\Services\Midtrans\PembayaranEvent\TransferBankService;
 
 class WebinarTransaksiController extends Controller
 {
+    //MENAMPILKAN HALAMAN PEMBAYARAN WEBINAR
     public function pembayaran($ref_transaction_event) {
+        //GET DATA TRANSAKSI WEBINAR
         $data = EventTransaction::with(
             'user',
             'event')
             ->where('ref_transaction_event', $ref_transaction_event)
             ->firstOrFail();
 
+        //MENGUBAH FORMAT TANGGAL DAN WAKTU
         $data->event->time_start = Carbon::parse($data->time_start)->format('H:i');
         $data->event->time_finish = Carbon::parse($data->event->time_finish)->format('H:i');
         $data->event->date_event = Carbon::parse($data->event->date_event)->format('d F Y');
@@ -35,7 +38,7 @@ class WebinarTransaksiController extends Controller
         ]);
     }
 
-
+    // PROSES PEMBAYARAN WEBINAR
     public function checkoutWebinar(Request $request, $ref_transaction_event) {
         if (isset($request->btnBatalVoucher)) {
             session()->forget('apply');
@@ -86,13 +89,13 @@ class WebinarTransaksiController extends Controller
         if ($bank == 'bni' || $bank == 'bri' || $bank == 'bca' || $bank == 'cimb' || $bank == 'permata') {
             $va = '<h6 style="text-transform:uppercase;">' . $bank . ' VA = ' . $getData->kode_bayar_1 . '</h6>';
             $pesan = "Silahkan Lengkapi Pembayaran Sebelum <br><strong>" . $getData->updated_at->addDay(1)->format('l, d M Y') . "</strong> pukul </strong>" . $getData->updated_at->format('H:i') . "</strong>";
-        } 
+        }
 //-------- mandiri
         else if ($bank == 'mandiri') {
             $va =   '<h6 style="text-transform:uppercase;">' . $bank . ' Bill Key = ' . $getData->kode_bayar_1 . '</h6>
                     <h6 style="text-transform:uppercase;">' . $bank . ' Bill Code = ' . $getData->kode_bayar_2 . '</h6>';
             $pesan = "Silahkan Lengkapi Pembayaran Sebelum <br><strong>" . $getData->updated_at->addDay(1)->format('l, d M Y') . "</strong> pukul </strong>" . $getData->updated_at->format('H:i') . "</strong>";
-        } 
+        }
 //------------ INDOMARET
         else if ($bank == 'indomaret') {
             $va =   '<h6 style="text-transform:uppercase;">' . $bank . ' Kode Pembayaran = ' . $getData->kode_bayar_1 . '</h6>
@@ -120,19 +123,19 @@ class WebinarTransaksiController extends Controller
         session()->forget('apply');
         Session::flash('popupAfterMentoring', [
                 'kode' => $va,
-                'pesan' => $pesan 
+                'pesan' => $pesan
             ]);
         return Redirect::to('/'.$ref_transaction_event.'/notification-webinar/success');
     }
 
 
 // ----------------KLASIFIKASI PAYMENT METHODE--------------------------
-// 
+//
 public function klasifikasiPaymentMethod($bank, $ref, $voucher_id)
     {
         $data = EventTransaction::with('event', 'user')->where('ref_transaction_event', $ref)->first();
         $diskon = Voucher::where('id', $voucher_id)->first();
-        $voucher_id == null ? $potongan = 0 : $potongan = $diskon->jumlah_diskon; 
+        $voucher_id == null ? $potongan = 0 : $potongan = $diskon->jumlah_diskon;
         // CEK PAYMENT METHOD YANG DIPILIH
         if ($bank == 'bni' || $bank == 'bri' || $bank == 'bca' ||  $bank == 'cimb'){
             $data = [
