@@ -13,9 +13,9 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         // 'https://afeksi.ahay.my.id/midtrans/callback',
-        'https://afeksi.ahay.my.id/api/midtrans/callback',
+        //'https://afeksi.ahay.my.id/api/midtrans/callback',
         // 'http://127.0.0.1:8000/midtrans/callback',
         //'https://f900-125-166-3-41.ngrok-free.app/api/midtrans/notification-hooks',
-        'https://18ef-125-166-0-137.ngrok-free.app/api/midtrans/callback',
+        //'https://18ef-125-166-0-137.ngrok-free.app/api/midtrans/callback',
     ];
 }
