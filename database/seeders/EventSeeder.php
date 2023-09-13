@@ -25,7 +25,7 @@ class EventSeeder extends Seeder
             '2023-02-12',
             '09:30',
             '12:30',
-            'CAMPAIGN.JPG',
+            'CAMPAIGN.jpg',
             0,
             '
                 <p style="text-align:justify;">Afeksi warriors adalah program volunteer untuk menyuarakan pesan terkait psikologi relasi yang dilakukan melalui postingan media sosial.</p>
@@ -109,7 +109,7 @@ class EventSeeder extends Seeder
                 '2023-08-05',
                 '09:30',
                 '12:30',
-                'WEBINAR-3.PNG',
+                'WEBINAR-3.png',
                 0,
                 'Kalian tau kan akhir - akhir ini banyak banget pemberitaan terkait kasus perselingkuhan ? Dalam suatu hubungan, selingkuh itu sangat fatal loh akibatnya. Hubungan akan hancur dan terjadi perpisahan.
                 Tapi kenapa yaa perselingkuhan bisa terjadi dan gimana yaa caranya untuk menjaga hubungan agar tidak terjadi perselingkuhan ?
