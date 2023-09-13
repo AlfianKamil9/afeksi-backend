@@ -13,15 +13,20 @@ use Illuminate\Support\Facades\Validator;
 use Laravel\Socialite\Facades\Socialite;
 
 class GoogleController extends Controller
-{
+{   
+    // HALAMAN LOGIN LANGSUNG JIKA SUDAH DAFTAR DENGAN AKUN GOOLE
      public function redirectToGoogle()
     {
         return Socialite::driver('google')->redirect();
     }
 
+    // LOGIN DAN REGISTER GOOLE
     public function handleGoogleCallback()
     {
         try {
+
+            // VALIDASI  LOGIN GOOGLE 
+
             $googleUser = Socialite::driver('google')->user();
             $validator = Validator::make([
                 'nama' => $googleUser->name,
@@ -32,23 +37,24 @@ class GoogleController extends Controller
                 'email'=> ["required", "email", 'unique:'.User::class],
             ]);
 
+            //  CHECK APAKAH ADA GOOGLE ID
             $user = User::where('google_id', $googleUser->id)->first();
 
             
+            // LOGIN GOOLE
+
             if($user){
                 Auth::login($user);
                 return redirect()->intended(RouteServiceProvider::HOME);
             }else{
 
-                //$users = User::where('email', $googleUser->email);
+                //  VALIDASI JIKA GAGAL 
                 if ($validator -> fails()){
                     return redirect()->route('register')-> withErrors($validator)->withInput();
                 }
-                // if($users){
-                //     Session::flash('error', 'Email ini sudah terdaftar, silahkan login dengan metode lain ');
-                //     return redirect("login");
-                // }
-
+                
+                 // REGISTER GOOGLE 
+                
                 $newUser= User::create([
                     'nama' => $googleUser->name,
                     'email' => $googleUser->email,

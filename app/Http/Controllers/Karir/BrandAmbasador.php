@@ -11,16 +11,24 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class BrandAmbasador extends Controller
 {
-     public function index() {
+
+    //  HALAMAN  DETAIL VOLUNTEER BRAND AMBASSADOR
+
+    public function index() {
         return view('pages.Karir.detail-pendaftaran-brand-ambassador');
     }
 
+    //  PENDAFTARAN VOLUNTEER BRAND AMBASSADOR
+
     public function store(Request $request) {
+
+        // CHECK JENIS KELAMIN 
         if( $request->jenisKelamin == 0){
             Alert::alert()->html('<h4 class="text-danger fw-bold">Error</h4>', '<p>Invalid data, Mohon isi Jenis Kelamin Anda!</p>');
             return back();
         }
         
+        //  VALIDASI DATA 
         $validation = $request->validate([
             'nohp' => 'required',
             'volunteer_category'=>'required',
@@ -33,19 +41,23 @@ class BrandAmbasador extends Controller
             'portofolio' => 'nullable|file|max:10240',
         ]);
 
+        // MEMINDAH FILE BUKTIFOLLOW , CV , PORTOFOLIO KE PUBLIC
         $buktiFollowPath = $validation['bukti_follow']->store('Volunteer/BrandAmbasador/bukti_follow', 'public');
         $cvPath = $validation['cv']->store('Volunteer/BrandAmbasador/cv', 'public');
         $portofolioPath = null;
+
+        // CHECK APAKAH ADA PORTOFOLIO
         if ($request->hasFile('portofolio')) {
             $portofolioPath = $validation['portofolio']->store('Volunteer/BrandAmbasador/portofolio', 'public');
         }
 
+        // SET UPDATE TABLE USER 
         User::where('id', Auth::user()->id)->update([
             "no_whatsapp"=>Auth::user()->no_whatsapp ?: $request->nohp,
             "jenisKelamin"=>Auth::user()->jenisKelamin ?: $request->jenisKelamin,
         ]);
 
-
+        //  INSERT DATA KE TABLE VOLUNTEER
         Volunteer::create([
             "user_id"=> Auth::user()->id,
             "volunteer_category"=>$request->volunteer_category,

@@ -17,19 +17,25 @@ class Internship extends Controller
         // 
     }
 
+    // HALAMAN DETAIL PENDAFTARAN INTERNSHIP 
     public function show($slug) {
         $data = internshipPosition::where('slug' , $slug)->firstOrFail();
         return view('pages.Karir.internship-detail', compact('data'));
     }
 
+    // PENDAFTARAN INTERNSHIP
+
     public function store( Request $request){
+
+        // CHECK JENIS KELAMIN 
 
         if( $request->jenisKelamin == 0){
             Alert::alert()->html('<h4 class="text-danger fw-bold">Error</h4>', '<p>Invalid data, Mohon isi Jenis Kelamin Anda!</p>');
             return back();
         }
+
+        //  VALIDASI DATA 
         $validatedData = $request->validate([
-        // 'user_id' => "required", INI PENYEBAB ERROR 
         'position_id'=> "required",
         "status"=>"nullable",
         'asal_daerah'=> "required",
@@ -46,14 +52,17 @@ class Internship extends Controller
         'portofolio' => 'nullable|file|mimes:pdf|max:10240'
         ]);
         
-
+        // MEMINDAH FILE BUKTIFOLLOW , CV , PORTOFOLIO KE PUBLIC
         $buktiFollowPath = $validatedData['bukti_follow']->store('internship/bukti_follow', 'public');
         $cvPath = $validatedData['cv']->store('internship/cv', 'public');
         $portofolioPath = null;
+
+        // CHECK APAKAH ADA PORTOFOLIO
         if ($request->hasFile('portofolio')) {
             $portofolioPath = $validatedData['portofolio']->store('internship/portofolio', 'public');
         }
 
+        //  INSERT DATA KE TABLE INTERNSHIP
         internship_registration::create([
             "user_id"=> Auth::user()->id,
             "status"=>$request->status,

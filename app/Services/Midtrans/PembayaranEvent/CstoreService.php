@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 
 class CstoreService
 {
+    // ALFAMART VA
     public function alfamart($method,$data) {
         $serverkey = config('midtrans.midtrans.server_key');
         $serverBase64 = base64_encode($serverkey.':');
@@ -51,6 +52,8 @@ class CstoreService
             $response =json_decode($response, true);
             return $response ?: $err;
     }
+
+    // INDOMARET VA
 
     public function indomaret($method,$data) {
         //
