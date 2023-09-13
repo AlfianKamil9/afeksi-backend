@@ -25,7 +25,7 @@ class EventSeeder extends Seeder
             '2023-02-12',
             '09:30',
             '12:30',
-            'CAMPAIGN.PNG',
+            'CAMPAIGN.JPG',
             0,
             '
                 <p style="text-align:justify;">Afeksi warriors adalah program volunteer untuk menyuarakan pesan terkait psikologi relasi yang dilakukan melalui postingan media sosial.</p>

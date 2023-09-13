@@ -16,6 +16,7 @@ class CampaignController extends Controller
     /**
      * Display a listing of the resource.
      */
+    // ALL CAMPAIGN
     public function index(Request $request)
     {
         $data = Event::with('event_categories')
@@ -77,6 +78,7 @@ class CampaignController extends Controller
     /**
      * Display the specified resource.
      */
+    // DETAIL CAMPAIGN
     public function show($slug)
     {
         $data = Event::with(['event_categories'])
@@ -91,6 +93,7 @@ class CampaignController extends Controller
         ]);
     }
 
+    // DAFTAR CAMPAIGN
     public function store(Request $request, $slug) {
         $validatedData = $request->validate([
             "nama" => "required",
