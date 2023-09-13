@@ -123,7 +123,7 @@ class EventSeeder extends Seeder
 
 
         for ($i=0; $i < 5 ; $i++) { 
-             Event::create([
+            Event::create([
             'category_event_id' => $data[$i][0],
             'title_event' => $data[$i][1],
             'slug_event'=> $data[$i][13],

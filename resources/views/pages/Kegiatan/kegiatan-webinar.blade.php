@@ -4,7 +4,7 @@
 
 <!-- path style disesuaikan dengan folder css masing-masing page -->
 @section('styles')
-    <link rel="stylesheet" href="assets/css/kegiatan.css">
+    <link rel="stylesheet" href="/assets/css/kegiatan.css">
 @endsection
 
 {{-- @include('../partials/navbar')  --}}
