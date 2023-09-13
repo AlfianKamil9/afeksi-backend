@@ -8,7 +8,7 @@
 
 <!-- path style disesuaikan dengan folder css masing-masing page -->
 @section('styles')
-    <link rel="stylesheet" href="assets/css/landingpage.css">
+    <link rel="stylesheet" href="/assets/css/landingpage.css">
 @endsection
 
 
