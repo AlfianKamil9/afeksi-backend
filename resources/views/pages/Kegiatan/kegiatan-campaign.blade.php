@@ -173,20 +173,16 @@
                 <img src="{{ asset('/assets/img/kegiatan/'.$data->cover_event) }}" class="card-img-top" alt="{{ $data->title_event }}">
               <div class="card-body">
                 <a href="{{ route('campaign.detail', $data->slug_event) }}" class="card-title fw-semibold">{{ $data->title_event }}</a>
-                <div class="mt-3 d-flex flex-wrap gap-2 justify-content-between">
-                  <span class="px-2 text-body-tertiary">{{ ucfirst(strtolower($data->activity_category_event)) }}</span>
-                  <span class="px-2 text-body-tertiary">E-Certificate</span>
-                  <span class="px-2 text-body-tertiary">Diskusi/Konsultasi</span>
+                <div class="mt-3 d-flex flex-wrap gap-1 justify-content-between">
+                  <span class="px-1 text-body-tertiary">{{ ucfirst(strtolower($data->activity_category_event)) }}</span>
+                  <span class="px-1 text-body-tertiary">E-Certificate</span>
+                  <span class="px-1 text-body-tertiary">Diskusi/Konsultasi</span>
                 </div>
                 <div class="mt-3 d-flex justify-content-between">
                   <div class="d-flex date">
                     <img src="assets/img/kegiatan/material-symbols_date-range.png" class="me-2" alt="">
                     <p class="text-muted">{{ $data->date_event }}</p>
                   </div>
-                  {{-- <div class="d-flex date">
-                    <img src="assets/img/kegiatan/watch_later.png" class="me-2" alt="">
-                    <p class="text-muted">{{ $data->time_start }} - {{ $data->time_finish }} WIB</p>
-                  </div> --}}
                 </div>
                 <p class="fw-semibold lead mt-3 mb-0" style="color: #2139f9;">
                   @if ($data->pay_category_event != "FREE")

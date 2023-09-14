@@ -187,10 +187,10 @@
                                 </div>
                                 @endforeach
                             </div>
-                                <div class="mt-3 d-flex flex-wrap gap-2 justify-content-between">
-                                    <span class="px-2 text-body-tertiary">{{ ucfirst(strtolower($data->activity_category_event)) }}</span>
-                                    <span class="px-2 text-body-tertiary">E-Certificate</span>
-                                    <span class="px-2 text-body-tertiary">Diskusi/Konsultasi</span>
+                                <div class="mt-3 d-flex flex-wrap gap-1 justify-content-between">
+                                    <span class="px-1 text-body-tertiary">{{ ucfirst(strtolower($data->activity_category_event)) }}</span>
+                                    <span class="px-1 text-body-tertiary">E-Certificate</span>
+                                    <span class="px-1 text-body-tertiary">Diskusi/Konsultasi</span>
                                 </div>
                                 <div class="mt-3 d-flex justify-content-between">
                                     <div class="d-flex date ">
