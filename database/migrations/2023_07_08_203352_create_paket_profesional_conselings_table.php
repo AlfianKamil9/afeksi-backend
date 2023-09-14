@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('nama_paket');
             $table->unsignedBigInteger('professional_conseling_id');
+            $table->text('deskripsi_paket');
+            $table->string('durasi');
+            $table->string('jumlah_sesi');
             $table->string('harga');
             $table->timestamps();
 

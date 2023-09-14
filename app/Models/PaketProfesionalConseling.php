@@ -12,6 +12,9 @@ class PaketProfesionalConseling extends Model
     protected $fillable = [
         'nama_paket',
         'professional_conseling_id',
+        'durasi',
+        'jumlah_sesi',
+        'deskripsi_paket',
         'harga',
     ];
 
