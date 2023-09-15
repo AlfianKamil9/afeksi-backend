@@ -100,14 +100,10 @@ div .button-login {
                 @endif
                   href="#">Layanan & Produk</a>
                 <ul class="dropdown-menu">
-                  <li class="mb-1"><a class="dropdown-item" href="{{ route('konseling') }}" ><img class="me-3" src="/assets/img/icon/icon-konseling.png" width="20px" style="object-fit:contain">Konseling</a></li>
-                  <li class="mb-1"><a class="dropdown-item" href="{{ route('mentoring') }}"> <img class="me-3" src="/assets/img/icon/icon-mentoring.png" width="20px" style="object-fit:contain">Mentoring</a></li>
-                  <li class="mb-1"><a class="dropdown-item" href="#"><img class="me-3" src="/assets/img/icon/icon-ebook.png" width="20px" style="object-fit:contain">E-Book</a></li>
-                  <li class="mb-1"><a class="dropdown-item" href="#"><img class="me-3" src="/assets/img/icon/icon-ecourse.png" width="20px" style="object-fit:contain">E-Course</a></li>
-                  {{-- <li><a class="dropdown-item" href="{{ route('konseling') }}"><img src="/assets/img/konseling.svg" alt=""> Konseling</a></li>
-                  <li><a class="dropdown-item" href="{{ route('mentoring') }}"><img src="/assets/img/mentoring.svg" alt=""> Mentoring</a></li>
-                  <li><a class="dropdown-item" href="#"><img src="/assets/img/Ebook.svg" alt=""> E-Book</a></li>
-                  <li><a class="dropdown-item" href="#"><img src="/assets/img/Ecourse.svg" alt=""> E-Course</a></li> --}}
+                  <li class="mb-1"><a class="dropdown-item" href="{{ route('konseling') }}" ><img class="me-2" src="/assets/img/icon/icon-konseling.png" width="20px" style="object-fit:contain">Konseling</a></li>
+                  <li class="mb-1"><a class="dropdown-item" href="{{ route('mentoring') }}"> <img class="me-2" src="/assets/img/icon/icon-mentoring.png" width="20px" style="object-fit:contain">Mentoring</a></li>
+                  <li class="mb-1"><a class="dropdown-item" href="#"><img class="me-2" src="/assets/img/icon/icon-ebook.png" width="20px" style="object-fit:contain">E-Book</a></li>
+                  <li class="mb-1"><a class="dropdown-item" href="#"><img class="me-2" src="/assets/img/icon/icon-ecourse.png" width="20px" style="object-fit:contain">E-Course</a></li>
                 </ul>
               </li>
               <li class="nav-item dropdown">
@@ -119,9 +115,9 @@ div .button-login {
                 @endif
                 >Kegiatan</a>
                 <ul class="dropdown-menu">
-                  <li class="mb-1"><a class="dropdown-item" href="{{ route('webinar') }}"><img class="me-3" src="/assets/img/icon/icon-webinar.png" width="20px" style="object-fit:contain"> Webinar</a></li>
-                  <li class="mb-1"><a class="dropdown-item" href="{{ route('campaign') }}"><img class="me-3" src="/assets/img/icon/icon-campaign.png" width="20px" style="object-fit:contain">Campaign</a></li>
-                  <li class="mb-1"><a class="dropdown-item" href="#"><img class="me-3" src="/assets/img/icon/icon-recap.png" width="20px" style="object-fit:contain"> Rekap History</a></li>  
+                  <li class="mb-1"><a class="dropdown-item" href="{{ route('webinar') }}"><img class="me-2" src="/assets/img/icon/icon-webinar.png" width="20px" style="object-fit:contain">Webinar</a></li>
+                  <li class="mb-1"><a class="dropdown-item" href="{{ route('campaign') }}"><img class="me-2" src="/assets/img/icon/icon-campaign.png" width="20px" style="object-fit:contain">Campaign</a></li>
+                  <li class="mb-1"><a class="dropdown-item" href="#"><img class="me-2" src="/assets/img/icon/icon-recap.png" width="20px" style="object-fit:contain">Rekap History</a></li>  
                 </ul>
               </li>
               <li class="nav-item">
@@ -153,13 +149,19 @@ div .button-login {
             <div class="ms-auto d-flex p-2 mx-lg-3 gap-2">
               @auth
                   <div class="dropdown-center">
-                    <button class="btn btn-primary text-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      {{ auth()->user()->nama }}
+                    <button class="btn text-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <label class="text-primary me-1" style="font-size:12px">Hi, {{ explode(' ', auth()->user()->nama)[0] }}</label>
+                      @if ( auth()->user()->avatar != null )
+                      <img src="/assets/img/ubah-foto-profile/person.png" class="rounded-circle" width="30px">
+                      @else
+                      <img src="/assets/img/ubah-foto-profile/person.png" class="rounded-circle" width="30px">    
+                      @endif
                     </button>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Riwayat Transaksi</a></li>
-                      <li><a class="dropdown-item" href="#">Pengaturan</a></li>
-                      <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
+                      <li class="mb-1"><a class="dropdown-item" href="#"><img class="me-2" src="/assets/img/icon/icon-profile.png" width="20px" style="object-fit:contain">Profile</a></li>
+                      <li class="mb-1"><a class="dropdown-item" href="#"><img class="me-2" src="/assets/img/icon/icon-ecourse.png" width="20px" style="object-fit:contain">My Course</a></li>
+                      <li class="mb-1"><a class="dropdown-item" href="#"><img class="me-2" src="/assets/img/icon/icon-ebook.png" width="20px" style="object-fit:contain">My E-Book</a></li>
+                      <li><a class="dropdown-item" href="{{ route('logout') }}"><img class="me-2" src="/assets/img/icon/icon-logout.png" width="20px" style="object-fit:contain">Logout</a></li>
                     </ul>
                   </div>
               <div class="me-3"></div>

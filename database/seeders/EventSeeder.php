@@ -55,26 +55,26 @@ class EventSeeder extends Seeder
                 'WEBINAR',
                 'Zoom'
         ],
-        [
-                '2',
-                'Love Your Self Bro',
-                'ONLINE',
-                'PAID',
-                '2023-07-06',
-                '2023-07-10',
-                '2023-07-21',
-                '16:00',
-                '19:00',
-                'TEST.PNG',
-                150000,
-                ' Kalian pasti sudah sering mendengar istilah self-love. Tahu, nggak? Ternyata self-love itu juga berperan dalam membangun hubungan yang sehat loh! Gimana, ya, caranya? Trus, seperti apa, sih, sebenernya konsep self-love itu sendiri?🤔
+        // [
+        //         '2',
+        //         'Love Your Self Bro',
+        //         'ONLINE',
+        //         'PAID',
+        //         '2023-07-06',
+        //         '2023-07-10',
+        //         '2023-07-21',
+        //         '16:00',
+        //         '19:00',
+        //         'TEST.PNG',
+        //         150000,
+        //         ' Kalian pasti sudah sering mendengar istilah self-love. Tahu, nggak? Ternyata self-love itu juga berperan dalam membangun hubungan yang sehat loh! Gimana, ya, caranya? Trus, seperti apa, sih, sebenernya konsep self-love itu sendiri?🤔
 
-                Jawabannya akan kalian dapatkan hanya di Afeksi Webinar Series 1.0 yang mengusung tema "Self-love: A Road to Relationship Goals"🥰 ',
-                'DRAFT',
-                'love-your-self-bro',
-                'WEBINAR',
-                'Zoom'
-        ],
+        //         Jawabannya akan kalian dapatkan hanya di Afeksi Webinar Series 1.0 yang mengusung tema "Self-love: A Road to Relationship Goals"🥰 ',
+        //         'DRAFT',
+        //         'love-your-self-bro',
+        //         'WEBINAR',
+        //         'Zoom'
+        // ],
         [
                 '2',
                 'Embracing Equality: A Pathway to Disolve Dating Violence',
@@ -122,7 +122,7 @@ class EventSeeder extends Seeder
     ];
 
 
-        for ($i=0; $i < 5 ; $i++) { 
+        for ($i=0; $i < 4 ; $i++) { 
             Event::create([
             'category_event_id' => $data[$i][0],
             'title_event' => $data[$i][1],

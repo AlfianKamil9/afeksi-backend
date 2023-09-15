@@ -1,12 +1,12 @@
 @extends('../layout')
 
-@section('title', 'Ubah Password')
+@section('title', 'Ubah Password | AFEKSI')
 
 @section('styles')
-    <link rel="stylesheet" href="assets/css/ubah-password.css">
+    <link rel="stylesheet" href="/assets/css/ubah-password.css">
 @endsection
 
-@include('../partials/navbar') 
+{{-- @include('../partials/navbar')  --}}
 
 @section('content')
 <section id="ubah-password">
@@ -32,5 +32,10 @@
     </div>
   </section>
 
-@endsection
-@include('../partials/footer') 
+  <section class="pt-5 mt-5">
+    <div  class="pt-5">
+      @include('../partials/footer') 
+    </div>
+  </section>
+  @endsection
+  

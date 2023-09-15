@@ -1,19 +1,19 @@
 @extends('../layout')
 
-@section('title', 'Ubah Foto Profile')
+@section('title', 'Ubah Foto Profile | AFEKSI')
 
 @section('styles')
-    <link rel="stylesheet" href="assets/css/ubah-foto-profile.css">
+    <link rel="stylesheet" href="/assets/css/ubah-foto-profile.css">
 @endsection
 
-@include('../partials/navbar') 
+{{-- @include('../partials/navbar')  --}}
 
 @section('content')
 <section id="ubah-foto">
     <div class="bg">
         <div class="wrapper p-5">
             <img class="foto-profil d-block m-auto" src="assets/img/ubah-foto-profile/person.png" alt="">
-            <h3 class="nama text-center mt-3">Bimo Setyo</h3>
+            <h3 class="nama text-center mt-3">{{ auth()->user()->nama }}</h3>
             <div class="mb-3 upload-file-wrapper">          
                 <label for="foto" class="col-form-label fw-semibold">Upload Foto</label>
                 <label class="upload-file" for="foto" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload foto</label>
@@ -25,5 +25,5 @@
         </div>
     </div>
   </section>
+  @include('../partials/footer') 
 @endsection
-@include('../partials/footer') 

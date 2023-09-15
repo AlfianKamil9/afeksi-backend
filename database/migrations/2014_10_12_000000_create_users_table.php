@@ -13,6 +13,7 @@ return new class extends Migration
             $table->id();
             $table->string('google_id')->nullable();
             $table->string('nama');
+            $table->string('avatar')->nullable();
             $table->enum('jenisKelamin', ['Laki-laki', 'Perempuan'])->nullable();
             $table->string('password');
             $table->string('email');
