@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
+    public function showDashboardProfile() {
+        return view('pages.dashboard-profile');
+    }
+
     public function showUbahPassword() {
         return view('pages.ubah-password');
     }

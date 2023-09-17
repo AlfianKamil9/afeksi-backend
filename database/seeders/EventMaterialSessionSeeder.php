@@ -16,12 +16,12 @@ class EventMaterialSessionSeeder extends Seeder
         $data = [
                 [
                     "title" => "How Equality Affect Dating Relationship",
-                    "event" => 4,
+                    "event" => 3,
                     "pembicara" => 2
                 ],
                 [
                     "title" => " Dating Violence and Its Intervention",
-                    "event" => 4,
+                    "event" => 3,
                     "pembicara" => 3
                 ],
                 [
@@ -31,7 +31,7 @@ class EventMaterialSessionSeeder extends Seeder
                 ],
                 [
                     "title" => "The Downfall of a Healthy Relationship",
-                    "event" => 5,
+                    "event" => 4,
                     "pembicara" => 4
                 ]
             ];

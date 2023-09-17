@@ -20,7 +20,7 @@
                 <input type="file" name="follow-ig" id="upload-file" class="d-block">
                 <p class="info-file mt-3">Ukuran file MAX 2MB</p>
                 <button class="btn btn-primary w-100 mt-3 mb-3 btn-simpan">Simpan</button>
-                <a href="" class="btnKembali">Kembali</a>
+                <a href="{{ route('dashboard.profile.index') }}" class="btnKembali">Kembali</a>
               </div>
         </div>
     </div>

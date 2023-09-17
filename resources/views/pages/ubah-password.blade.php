@@ -27,7 +27,7 @@
             <input type="password" placeholder="Masukan Password" class="form-control" id="konfirmasi-password">
           </div>
           <button class="btn btn-primary w-100 mt-3 mb-3 button-submit">Ubah Password</button>
-          <a href="" class="btnKembali">Kembali</a>
+          <a href="{{ route('dashboard.profile.index') }}" class="btnKembali">Kembali</a>
         </div>        
     </div>
   </section>

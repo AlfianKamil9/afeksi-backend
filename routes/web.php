@@ -64,6 +64,7 @@ Route::get('/kegiatan-webinar/{slug}', [WebinarController::class, 'show'])->name
 Route::get('/kegiatan-campaign', [CampaignController::class, 'index'])->name('campaign');
 Route::get('/kegiatan-campaign/{slug}', [CampaignController::class, 'show'])->name('campaign.detail');
 
+
 // KARIER
 Route::get('/karir', [karirController::class, 'index'])->name('karir');
 Route::get('/join-konselor', function () {
@@ -78,7 +79,7 @@ Route::get('/mentoring', function () {
     return view('pages.LayananMentoring.page-mentoring');
 })->name('mentoring');
 // KONSELING
-Route::get('/konseling', function () {
+Route::get('/page-konseling', function () {
     return view('pages.page-konseling');
 })->name('konseling');
 
@@ -143,11 +144,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/{ref_transaction_layanan}/notification-konseling/success', [NotifikasiKonseling::class, 'index'])->name('notification.konseling.success');
 
     // DASHBOARD USER
-    Route::prefix('/dashboard')->group(function() {
+    Route::name('dashboard.')->prefix('/dashboard')->group(function() {
         // PROFILE
-        Route::prefix('/profile')->group(function() {
-            Route::get('/ubah-password',[ ProfileController::class, 'showUbahPassword']);
-            Route::get('/ubah-foto-profile', [ProfileController::class, 'showUbahFoto']);
+        Route::name('profile.')->prefix('/profile')->group(function() {
+            Route::get('', [ProfileController::class, 'showDashboardProfile'])->name('index');
+            Route::get('/ubah-password',[ ProfileController::class, 'showUbahPassword'])->name('show.changePassword');
+            Route::get('/ubah-foto-profile', [ProfileController::class, 'showUbahFoto'])->name('show.changeFoto');
         });
     });
 });
@@ -168,6 +170,7 @@ require __DIR__ . '/auth.php';
 Route::fallback(function () {
     return view('errors.404'); // Menampilkan halaman 404
 });
+
 
 
 
