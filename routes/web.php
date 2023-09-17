@@ -144,3 +144,6 @@ Route::get('/data-diri', function () {
 Route::get('/dashboard-profile', function () {
     return view('pages.dashboard-profile');
 });
+Route::get('/volunteer', function () {
+    return view('pages.volunteer');
+});

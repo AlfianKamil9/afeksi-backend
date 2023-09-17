@@ -204,7 +204,7 @@
 </div>
 <!-- End CONTENT -->
 @section('script')
-   <script src="assets/js/landingpage.js"></script>
+   <script src="assets/js/slider.js"></script>
 @endsection
 
 @include('../partials/footer') 
