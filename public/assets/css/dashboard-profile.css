@@ -1,0 +1,45 @@
+:root {
+    --bg-afeksi-theme: #5a74fd;
+    --color-afeksi-custom: #374dfa;
+    --bg-final-footer: #4959db;
+}
+body {
+    overflow-x: hidden;
+    background-color: #ebebeb2c !important;
+}
+.color-custom {
+    color: var(--color-afeksi-custom);
+}
+/* FOR DESKTOP ========================================================================================== */
+@media only screen and (min-width: 991px) {
+    /* HERO */
+    .hero {
+        background-color: var(--bg-afeksi-theme);
+        color: white;
+        position: relative;
+        overflow: hidden;
+        padding-top: 10%;
+    }
+    span {
+        color: #fbdd41;
+    }
+}
+.active {
+    background: #233dff31 !important ;
+    border-left: 3px solid #233dff;
+}
+.active a {
+    color: #233dff !important;
+    font-weight: bold;
+}
+.active a svg {
+    fill: #233dff !important;
+}
+.dashboard {
+    width: 20%;
+    background: white;
+    z-index: 1;
+    position: absolute;
+    margin: -20% 60px;
+    border-radius: 10px;
+}

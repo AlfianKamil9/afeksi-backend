@@ -81,13 +81,41 @@ Route::get('/karir', function () {
 Route::get('/pendaftaran-konselor', function () {
     return view('pages.pendaftaran-konselor');
 });
-
 Route::get('/detail-pendaftaran-peer', function () {
     return view('pages.detail-pendaftaran-peer');
 });
-
 Route::get('/internship-uiux', function () {
     return view('pages.internship-uiux');
+});
+Route::get('/internshi-human-resource', function () {
+    return view('pages.internship-uiux');
+});
+Route::get('/internship-backend', function () {
+    return view('pages.internship-backend');
+});
+Route::get('/internship-busines-development', function () {
+    return view('pages.internship-busines-development');
+});
+Route::get('/internship-content-writter', function () {
+    return view('pages.internship-content-writter');
+});
+Route::get('/internship-frontend', function () {
+    return view('pages.internship-frontend');
+});
+Route::get('/internship-graphic-design', function () {
+    return view('pages.internship-graphic-design');
+});
+Route::get('/internship-marketing', function () {
+    return view('pages.internship-marketing');
+});
+Route::get('/internship-product-development', function () {
+    return view('pages.internship-product-development');
+});
+Route::get('/internship-program-innovator', function () {
+    return view('pages.internship-program-innovator');
+});
+Route::get('/internship-public-relation', function () {
+    return view('pages.internship-public-relation');
 });
 Route::get('/page-mentoring', function () {
     return view('pages.page-mentoring');
@@ -112,4 +140,7 @@ Route::get('/page-konseling', function () {
 });
 Route::get('/data-diri', function () {
     return view('pages.data-diri');
+});
+Route::get('/dashboard-profile', function () {
+    return view('pages.dashboard-profile');
 });
