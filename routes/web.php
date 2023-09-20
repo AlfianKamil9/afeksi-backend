@@ -76,10 +76,10 @@ Route::get('/join-volunteer', function () {
 
 // MENTORING
 Route::get('/mentoring', function () {
-    return view('pages.LayananMentoring.page-mentoring');
+    return view('pages.page-mentoring');
 })->name('mentoring');
 // KONSELING
-Route::get('/page-konseling', function () {
+Route::get('/konseling', function () {
     return view('pages.page-konseling');
 })->name('konseling');
 

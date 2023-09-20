@@ -173,7 +173,7 @@
                 <div class="col-md-4">
                     <a href="{{ route('webinar.detail', $data->slug_event) }}" class="card-link" style="text-decoration: none; color: black;">
                     <div class="card mb-4" >
-                            <img src="{{ asset('/assets/img/kegiatan/'.$data->cover_event) }}" class="card-img-top" alt="{{ $data->title_event }}">
+                            <img src="{{ asset('/assets/img/kegiatan/'.$data->cover_event) }}" style="object-fit:cover;" class="card-img-top" alt="{{ $data->title_event }}">
                             <div class="card-body">
                                 <p  class="card-title fw-semibold">{{ $data->title_event }}</p>
                                 <div class="row">
@@ -188,9 +188,9 @@
                                 @endforeach
                             </div>
                                 <div class="mt-3 d-flex flex-wrap gap-1 justify-content-between">
-                                    <span class="px-1 text-body-tertiary">{{ ucfirst(strtolower($data->activity_category_event)) }}</span>
-                                    <span class="px-1 text-body-tertiary">E-Certificate</span>
-                                    <span class="px-1 text-body-tertiary">Diskusi/Konsultasi</span>
+                                    <span class=" text-body-tertiary shadow-sm">{{ ucfirst(strtolower($data->activity_category_event)) }}</span>
+                                    <span class=" text-body-tertiary shadow-sm">E-Certificate</span>
+                                    <span class=" text-body-tertiary shadow-sm">Diskusi/Konsultasi</span>
                                 </div>
                                 <div class="mt-3 d-flex justify-content-between">
                                     <div class="d-flex date ">

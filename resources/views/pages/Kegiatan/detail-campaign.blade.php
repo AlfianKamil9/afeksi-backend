@@ -43,7 +43,7 @@
           @endif</h4>
           <form>
           <div class="d-grid gap-2">
-              <button type="button" id="daftar-sekarang" class="btn text-white btn-daftar" data-bs-toggle="modal" data-bs-target="#form-pendaftaran-webinar" data-bs-whatever="@getbootstrap" style="background-color: #2139f9">Daftar Sekarang</button>
+              <a type="button" id="daftar-sekarang" class="btn text-white btn-daftar" data-bs-whatever="@getbootstrap" style="background-color: #2139f9">Daftar Sekarang</a>
           </div>
           </form>
           <h6 class="fw-bold mt-3">Keuntungan yang kamu dapetin:</h6>
@@ -111,10 +111,10 @@
       </div>
     </div>
 
-
+  
     <!-- Modals -->
     @auth
-    <div class="modal fade modal-lg" id="form-pendaftaran-webinar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    {{-- <div class="modal fade modal-lg" id="form-pendaftaran-webinar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content rounded-4">
             <div class="modal-header text-center border-bottom-0">
@@ -209,9 +209,17 @@
             </form>
         </div>
         </div>
-    </div>
+    </div> --}}
+    <script>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        $(document).ready(function() {
+            $('#daftar-sekarang').click(function(event) {
+              event.preventDefault()
+              window.open('https://forms.gle/8ztSeF8ddERFm8p9A', '_blank');
+            });
+        });
+    </script>
     @else
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
             $('#daftar-sekarang').click(function() {
@@ -220,7 +228,7 @@
         });
     </script>
     @endauth
-@include('sweetalert::alert')
+{{-- @include('sweetalert::alert') --}}
 @section('script')
     <script src="/assets/js/form-file-pendaftaran.js"></script>
 @endsection

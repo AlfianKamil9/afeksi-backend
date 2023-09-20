@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="/assets/css/ubah-password.css">
 @endsection
 
-{{-- @include('../partials/navbar')  --}}
 
 @section('content')
 <section id="ubah-password">

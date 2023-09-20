@@ -116,63 +116,6 @@
         </div>
       </div>
 
-      <div class="contents mt-5">
-        <div class="slide-container swiper">
-          <h2 class="fw-bold" style="color: #2139f9">Apa Kata Mereka Tentang Afeksi</h2>
-          <p>Afeksi telah dipercaya para pengguna dari berbagai kalangan.</p>
-          <div class="slide-content">
-            <div class="card-wrapper swiper-wrapper">
-              <div class="swiper-slide">
-                <img src="/assets/img/landingpage/Ellipse.svg" alt="" style="width: 50px" />
-                <h4 class="pt-2">Nama Client</h4>
-                <p>Mahasiswa</p>
-                <span
-                  >Sangat Rekomendasi Psikolog di Afeksi ini, karena masalah saya cepat teratasi dengan konsultasi dengan psikolog dari afeksi</span
-                >
-              </div>
-              <div class="swiper-slide">
-                <img src="/assets/img/landingpage/Ellipse.svg" alt="" style="width: 50px" />
-                <h4 class="pt-2">Nama Client</h4>
-                <p>Mahasiswa</p>
-                <span
-                  >Sangat Rekomendasi Psikolog di Afeksi ini, karena masalah saya cepat teratasi dengan konsultasi dengan psikolog dari afeksi</span
-                >
-              </div>
-              <div class="swiper-slide">
-                <img src="/assets/img/landingpage/Ellipse.svg" alt="" style="width: 50px" />
-                <h4 class="pt-2">Nama Client</h4>
-                <p>Mahasiswa</p>
-                <span
-                  >Sangat Rekomendasi Psikolog di Afeksi ini, karena masalah saya cepat teratasi dengan konsultasi dengan psikolog dari afeksi</span
-                >
-              </div>
-              <div class="swiper-slide">
-                <img src="/assets/img/landingpage/Ellipse.svg" alt="" style="width: 50px" />
-                <h4 class="pt-2">Nama Client</h4>
-                <p>Mahasiswa</p>
-                <span
-                  >Sangat Rekomendasi Psikolog di Afeksi ini, karena masalah saya cepat teratasi dengan konsultasi dengan psikolog dari afeksi</span
-                >
-              </div>
-              <div class="swiper-slide">
-                <img src="../assets/img/landingpage/Ellipse.svg" alt="" style="width: 50px" />
-                <h4 class="pt-2">Nama Client</h4>
-                <p>Mahasiswa</p>
-                <span
-                  >Sangat Rekomendasi Psikolog di Afeksi ini, karena masalah saya cepat teratasi dengan konsultasi dengan psikolog dari afeksi</span
-                >
-              </div>
-            </div>
-          </div>
-
-          <div class="swiper-pagination"></div>
-          <!-- If we need navigation buttons -->
-
-          <div class="s-btn swiper-button-prev"></div>
-          <div class="s-btn swiper-button-next"></div>
-        </div>
-      </div>
-
       <div class="mt-5 mb-5">
         <div class="container-md py-5 px-4 rounded" style="background-color: #5a74fd; z-index:-3;">
           <div class="row justify-content-center align-items-center">
@@ -201,17 +144,6 @@
 </div>
 </div>
 <!-- End CONTENT -->
-@section('script')
-   <script src="assets/js/slider.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-   <script>
-      $(document).ready(function(){
-          $('#professional-konseling').click(function () {
-              window.location.href = '{{ route("layanan.professional.konseling") }}'
-          });
-      });
-   </script>
-@endsection
 
 @include('../partials/footer') 
 @endsection

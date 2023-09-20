@@ -54,9 +54,9 @@
               <li>Psychological report</li>
               <li>Counseling</li>
           </ul>
-          <button type="button" class="btn btn-primary daftar" data-bs-toggle="modal" data-bs-target="#form-pendaftaran-konselor" data-bs-whatever="@getbootstrap">Daftar Sekarang</button>
+          <button type="button" id="daftar-sekarang" class="btn btn-primary daftar" data-bs-toggle="modal" data-bs-target="#form-pendaftaran-konselor" data-bs-whatever="@getbootstrap">Daftar Sekarang</button>
           <!-- Modals -->
-          <div class="modal fade modal-lg" data-bs-backdrop="static" id="form-pendaftaran-konselor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          {{-- <div class="modal fade modal-lg" data-bs-backdrop="static" id="form-pendaftaran-konselor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header text-center">
@@ -171,12 +171,21 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> --}}
           <!-- End Modals -->
       </div>
   </section>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+        $(document).ready(function() {
+            $('#daftar-sekarang').click(function(event) {
+              event.preventDefault()
+              window.open('https://forms.gle/XPzsDPaXvGicpYSC7', '_blank');
+            });
+        });
+    </script>
 
-@include('sweetalert::alert')
+{{-- @include('sweetalert::alert') --}}
 @include('../partials/footer') 
 @section('script')
     <script src="/assets/js/form-file-pendaftaran.js"></script>

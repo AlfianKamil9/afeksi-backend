@@ -169,14 +169,13 @@
           <div class="col-md-4">
             <a href="{{ route('campaign.detail', $data->slug_event) }}" class="">
             <div class="card mb-4">
-              {{-- <img src="{{ Storage::url($data->cover_event) }}" class="card-img-top" alt="{{ $data->title_event }}"> --}}
-                <img src="{{ asset('/assets/img/kegiatan/'.$data->cover_event) }}" class="card-img-top" alt="{{ $data->title_event }}">
+                <img src="{{ asset('/assets/img/kegiatan/'.$data->cover_event) }}" style="object-fit:cover;" class="card-img-top" alt="{{ $data->title_event }}">
               <div class="card-body">
                 <a href="{{ route('campaign.detail', $data->slug_event) }}" class="card-title fw-semibold">{{ $data->title_event }}</a>
-                <div class="mt-3 d-flex flex-wrap gap-1 justify-content-between">
-                  <span class="px-1 text-body-tertiary">{{ ucfirst(strtolower($data->activity_category_event)) }}</span>
-                  <span class="px-1 text-body-tertiary">E-Certificate</span>
-                  <span class="px-1 text-body-tertiary">Diskusi/Konsultasi</span>
+                <div class="mt-3 d-flex flex-wrap gap-1 justify-content-between" >
+                  <span class="shadow-sm text-body-tertiary" style="font-size: 10.5px">{{ ucfirst(strtolower($data->activity_category_event)) }}</span>
+                  <span class="shadow-sm text-body-tertiary" style="font-size: 10.5px">E-Certificate</span>
+                  <span class="shadow-sm text-body-tertiary" style="font-size: 10.5px">Diskusi/Konsultasi</span>
                 </div>
                 <div class="mt-3 d-flex justify-content-between">
                   <div class="d-flex date">

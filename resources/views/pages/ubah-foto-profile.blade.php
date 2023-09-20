@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="/assets/css/ubah-foto-profile.css">
 @endsection
 
-{{-- @include('../partials/navbar')  --}}
 
 @section('content')
 <section id="ubah-foto">

@@ -8,9 +8,6 @@
     <link rel="stylesheet" href="/assets/css/internship.css">
 @endsection
 
-
-{{-- @include('../partials/navbar')  --}}
-
 @section('content')
 <section class="wrapper">
     <div class="banner-wrapper">
@@ -48,9 +45,9 @@
           </div>  
           {{-- ENDGET DATA KUALIFIKASI --}}
 
-          <button type="button" class="btn btn-primary daftar" data-bs-toggle="modal" data-bs-target="#form-pendaftaran-konselor" data-bs-whatever="@getbootstrap">Daftar Sekarang</button>
+          <button type="button" id="daftar-sekarang" class="btn btn-primary daftar" data-bs-toggle="modal" data-bs-target="#form-pendaftaran-konselor" data-bs-whatever="@getbootstrap">Daftar Sekarang</button>
           <!-- Modals -->
-          <div class="modal fade modal-lg"  data-bs-backdrop="static" id="form-pendaftaran-konselor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 300000000000">
+          {{-- <div class="modal fade modal-lg"  data-bs-backdrop="static" id="form-pendaftaran-konselor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 300000000000">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header text-center">
@@ -127,8 +124,6 @@
                         <div class="mb-3">    
                           <label for="position_id" class="col-form-label">Posisi yang dipilih</label>                  
                           <select class="form-select" id="position_id"  name="position_id" required>
-                              {{-- <option value="" disabled selected>Pilih posisi yang diminati</option> --}}
-                              {{-- INI JUGA YANG NYEBABIN ERROR GABOLEH DISABLED --}}
                                 <option value="{{ $data->id }}" @if($data->slug == request('slug') ) selected readonly @endif>{{ $data->nama_posisi }}</option>                
                           </select>
                         </div>
@@ -205,11 +200,20 @@
                   </div>
               </div>
             </div>
-          </div>
+          </div> --}}
           <!-- End Modals -->
       </div>
 </section>
-@include('sweetalert::alert')
+{{-- @include('sweetalert::alert') --}}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+        $(document).ready(function() {
+            $('#daftar-sekarang').click(function(event) {
+              event.preventDefault()
+              window.open('https://forms.gle/7GxDPcBztaNrfgM69', '_blank');
+            });
+        });
+    </script>
 @include('../partials/footer') 
 
 @section('script')

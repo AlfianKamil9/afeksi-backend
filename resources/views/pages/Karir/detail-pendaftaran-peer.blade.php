@@ -64,10 +64,10 @@
             </ul>
 
             {{-- Button Daftar --}}
-            <button type="button" class="btn btn-primary daftar" data-bs-toggle="modal" data-bs-target="#form-pendaftaran-konselor" data-bs-whatever="@getbootstrap">Daftar Sekarang</button>
+            <button type="button" id="daftar-sekarang" class="btn btn-primary daftar" data-bs-whatever="@getbootstrap">Daftar Sekarang</button>
 
             <!-- Modals -->
-            <div class="modal fade modal-lg" data-bs-backdrop="static" id="form-pendaftaran-konselor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 300000000000">
+            {{-- <div class="modal fade modal-lg" data-bs-backdrop="static" id="form-pendaftaran-konselor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 300000000000">
                 <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header text-center">
@@ -76,8 +76,6 @@
                     <div class="modal-body">
                         <h3 class="modal-title fw-semibold text-center px-5">Formulir Pendaftaran Peer Konselor</h3>
                         <p class="text-center px-4">Silahkan isi data anda dan pastikan data anda sudah sesuai.</p>
-
-                        {{-- Form --}}
                         <form action="{{ route('store-peer-konselor') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
@@ -184,10 +182,19 @@
                     </div>
                 </div>
                 </div>
-            </div>
+            </div> --}}
             <!-- End Modals -->
         </div>
 </section>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+        $(document).ready(function() {
+            $('#daftar-sekarang').click(function(event) {
+              event.preventDefault()
+              window.open('https://forms.gle/MTNxXLD3yz7nCGt17', '_blank');
+            });
+        });
+    </script>
 
 @include('sweetalert::alert')
 
