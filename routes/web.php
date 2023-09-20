@@ -144,6 +144,15 @@ Route::get('/data-diri', function () {
 Route::get('/dashboard-profile', function () {
     return view('pages.dashboard-profile');
 });
+
 Route::get('/volunteer', function () {
     return view('pages.volunteer');
+});
+
+Route::get('/konselor', function () {
+    return view('pages.konselor');
+});
+
+Route::get('/psikologi', function () {
+    return view('pages.psikologi');
 });
