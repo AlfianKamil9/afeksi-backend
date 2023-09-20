@@ -1,4 +1,4 @@
-@extends('../layout') @section('title', 'Campagin')
+@extends('../layout') @section('title', 'Psikologi')
 
 <!-- path style disesuaikan dengan folder css masing-masing page -->
 @section('styles')
