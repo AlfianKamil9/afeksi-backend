@@ -3,7 +3,7 @@
 <!-- path style disesuaikan dengan folder css masing-masing page -->
 @section('styles')
 <link rel="stylesheet" href="assets/css/psikolog-konselor.css" />
-@endsection @include('../partials/navbar') @section('content')
+@endsection @include('../partials/navbar-new') @section('content')
 <div style="height:90px;"></div> <!-- for space-->
 <div class="contents row">
       <h1 style="color: #233dff">Psikolog</h1>
