@@ -75,7 +75,7 @@
                         </div>
                         <div class="card-bottom-content">
                             <span>Psikolog</span>
-                            <p>{{ $item->psikolog->nama_psikolog }}</p>
+                            {{-- <p>{{ $item->psikolog->nama_psikolog }}</p> --}}
                         </div>
                         <div class="card-bottom-content">
                             <div class="btn btn-join me-2 py-2 px-3 rounded-3" style="background-color: #2139F9;">Join meeting</div>
@@ -124,7 +124,7 @@
                         </div>
                         <div class="card-bottom-content">
                             <span>Psikolog</span>
-                            <p>{{ $item->psikolog->nama_psikolog }}</p>
+                            <p>{{ $item->psikolog->nama }}</p>
                         </div>
                         <div class="card-bottom-content">
                             <div class="btn btn-join me-2 py-2 px-3 rounded-3" style="background-color: #2139F9;">Join meeting</div>

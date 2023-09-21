@@ -82,19 +82,19 @@
         <p class="text-body-tertiary fw-bold text-center mt-2 mb-5">Macam-macam mentoring mencakup parenting mentoring, Pre Marriage mentoring, dan Relatinship <br> mentoring.</p>
       </div>
       <div class="row justify-content-center">
-          <div class="col-md-3 border p-3 rounded shadow-sm me-4" style="cursor:pointer;" >
+          <div class="col-md-3 border p-3 rounded shadow-sm me-4" id="parenting" style="cursor:pointer;" >
             <img src="assets/img/mentoring/mdi_mother-nurse.png" width="15%" alt="Logo" class="img-fluid mb-3">
             <h5 class="fw-bold">Parenting Mentoring</h5>
             <p class=" fs-6">Kelas intensif dengan topik parenting khusus bagi ibu.</p>
           </div>
 
-          <div class="col-md-3 border p-3 rounded shadow-sm me-4" style="cursor:pointer;"  >
+          <div class="col-md-3 border p-3 rounded shadow-sm me-4" id="pre-marriage" style="cursor:pointer;"  >
             <img src="assets/img/mentoring/love.png" width="15%" alt="Logo" class="img-fluid mb-3">
             <h5 class="fw-bold">Pre Marriage Mentoring</h5>
             <p class=" fs-6">Kelas intensif dengan topik persiapan menuju pernikahan bagi pasangan.</p>
           </div>
 
-          <div class="col-md-3 border p-3 rounded shadow-sm" style="cursor:pointer;"  >
+          <div class="col-md-3 border p-3 rounded shadow-sm" id="relationship" style="cursor:pointer;"  >
             <img src="assets/img/mentoring/material-symbols_mindfulness-rounded.png" width="15%" alt="Logo" class="img-fluid mb-3">
             <h5 class="fw-bold">Relationship Mentoring</h5>
             <p class=" fs-6">Kelas intensif dengan topik kesehatan hubungan dengan berbagai sub-topik.</p>
@@ -102,22 +102,25 @@
       </div>
 
     <div class="mt-5 pt-5">
+        <div class="container mt-5">
         <div class="row">
-          <div class="col-sm">
-            <h2 class="fw-bold" style="color: #2139f9">4 Langkah Mudah</h2>
-            <h2 class="fw-bold">Melakukan konsultasi</h2>
-            <p style="color: #717171; font-size: 20px">
-              Temukan kemudahan dan kenyamanan dalam mendapatkan solusi <br />
-              terbaik untuk setiap aspek kehidupan Anda melalui konsultasi <br />
-              kami! Ikuti langkah-langkah sederhana.
-            </p>
+          <div class="col-md-6 order-md-2 text-center ">
+            <img src="assets/img/konseling/content.png" class="img-fluid w-50 " alt="Image">
+          </div>
+          <div class="col-md-6 order-md-1">
+            <h2 class="fw-bold">Yuk booking konsultasi kamu dengan <span>Mudah</span></h2>
+            <p>Yuk, tingkatkan kualitas hubungan Anda dengan layanan konseling dan mentoring di Afeksi! Temukan keseimbangan, kebahagiaan, dan kesetaraan dalam hubungan Anda. Mari kita bersama-sama membangun hubungan yang sehat dan memuaskan. Bergabunglah dengan kami hari ini dan mulailah perjalanan menuju hubungan yang lebih baik!</p>
+            <div class="checklist me-3">
+                <img src="/assets/img/konseling/vector.png" class="me-3"> Pilih Paket <br>
+                <img src="/assets/img/konseling/vector.png" class="me-3"> Pilih Psikolog <br>
+                <img src="/assets/img/konseling/vector.png" class="me-3"> Isi Identitas & Pilih Jadwal <br>
+                <img src="/assets/img/konseling/vector.png" class="me-3"> Pembayaran
+            </div>
+                
+              
           </div>
         </div>
-
-        <div class="row">
-          <div class="col-sm-6 mb-3"><img src="../assets/img/landingpage/Group 2406.png" alt="group" class="img-fluid" width="250" /></div>
-          <div class="col-sm-6 text-center"><img src="../assets/img/landingpage/OBJECTS.png" alt="object" class="img-fluid" width="400" /></div>
-        </div>
+      </div>
 
         <div class="mt-5 mb-5">
           <div class="container-md py-5 px-4 rounded" style="background-color: #5a74fd; z-index:-3;">
@@ -148,6 +151,45 @@
 </div>
 </div>
 <!-- End CONTENT -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+@auth
+<script>
+    $(document).ready(function() {
+        $('#parenting').click(function() {
+            window.location.href =  '{{ route("mentoring.parenting") }}'
+        });
+        // 
+        $('#pre-marriage').click(function(event) {
+            event.preventDefault();
+            window.location.href =  '{{ route("mentoring.pre-marriage") }}'
+        });
+        // 
+        $('#relationship').click(function(event) {
+            event.preventDefault();
+            window.location.href =  '{{ route("mentoring.relationship") }}'
+        });
+    });
+</script>
+@else
+<script>
+    $(document).ready(function() {
+        $('#parenting').click(function(event) {
+            event.preventDefault();
+            window.location.href =  '{{ route("login") }}'
+        });
+        // 
+        $('#pre-marriage').click(function(event) {
+            event.preventDefault();
+            window.location.href =  '{{ route("login") }}'
+        });
+        // 
+        $('#relationship').click(function(event) {
+            event.preventDefault();
+            window.location.href =  '{{ route("login") }}'
+        });
+    });
+</script>
+@endauth
 
 
 @include('../partials/footer') 

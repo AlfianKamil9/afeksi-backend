@@ -14,15 +14,15 @@ class LayananNonProfessionalSeeder extends Seeder
     public function run(): void
     {
         $layanan = [
-            [
-                'jenis_layanan' => 'KONSELING',
-                'nama_layanan' => 'Peers Counseling',
-                'slug' => 'peers-counseling'
-            ],
+            // [
+            //     'jenis_layanan' => 'KONSELING',
+            //     'nama_layanan' => 'Peers Counseling',
+            //     'slug' => 'peers-counseling'
+            // ],
             [
                 'jenis_layanan' => 'MENTORING',
-                'nama_layanan' => 'Mom & Baby Mentoring',
-                'slug' => 'mom-n-baby-mentoring'
+                'nama_layanan' => 'Parenting Mentoring',
+                'slug' => 'parenting-mentoring'
             ],
             [
                 'jenis_layanan' => 'MENTORING',
@@ -31,8 +31,8 @@ class LayananNonProfessionalSeeder extends Seeder
             ],
             [
                 'jenis_layanan' => 'MENTORING',
-                'nama_layanan' => 'Self Growth Mentoring',
-                'slug' => 'self-growth-mentoring'
+                'nama_layanan' => 'Relationship Mentoring',
+                'slug' => 'relationship-mentoring'
             ]
         ];
         foreach ($layanan as $data) {

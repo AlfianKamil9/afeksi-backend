@@ -21,9 +21,8 @@ return new class extends Migration
             $table->unsignedBigInteger('voucher_id')->nullable();
             $table->string('payment_method')->nullable();
             $table->enum('status', ['UNPAID', 'PAID', 'PENDING', 'EXPIRED']);
-            // $table->unsignedBigInteger('mentoring_id')->nullable();
-            // $table->unsignedBigInteger('profesional_conseling_id')->nullable();
             $table->unsignedBigInteger('psikolog_id')->nullable();
+            $table->unsignedBigInteger('konselor_id')->nullable();
             $table->string('sub_total')->nullable();
             $table->string('total_payment')->nullable();
             $table->string('fee_transaksi')->nullable();
@@ -34,7 +33,8 @@ return new class extends Migration
             // $table->foreign('mentoring_id')->references('id_Mentoring')->on('mentorings')->onDelete('cascade');
             $table->foreign('conseling_id')->references('id_conseling')->on('conselings')->onDelete('cascade');
             // $table->foreign('profesional_conseling_id')->references('id_profConseling')->on('profresional_conselings')->onDelete('cascade');
-            $table->foreign('psikolog_id')->references('id')->on('psikologs')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('psikolog_id')->references('id')->on('psikolog_mentorings')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('konselor_id')->references('id')->on('konselors')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('paket_layanan_non_professional_id')->references('id')->on('paket_non_professionals')->onDelete('cascade')->onUpdate('cascade');
         });

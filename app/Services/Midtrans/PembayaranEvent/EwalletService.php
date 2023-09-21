@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class EwalletService
 {
-    public function gopay($data, $method)
+    public function gopay($method, $data)
     {
         $serverkey = config('midtrans.midtrans.server_key');
         // dd($serverkey);
@@ -61,7 +61,7 @@ class EwalletService
         return $response ?: $err;
     }
 
-    public function qris($data, $method)
+    public function qris( $method, $data)
     {
         $serverkey = config('midtrans.midtrans.server_key');
         $serverBase64 = base64_encode($serverkey . ':');
@@ -114,7 +114,7 @@ class EwalletService
         return $response ?: $err;
     }
 
-    public function shopeePay($data, $method)
+    public function shopeePay($method, $data)
     {
         $serverkey = config('midtrans.midtrans.server_key');
         $serverBase64 = base64_encode($serverkey . ':');

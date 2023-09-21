@@ -15,7 +15,7 @@
       <div class="row mt-5 pt-5">
         <div class="col-md">
           <h1 class="mb-3 fw-bold mb-md-5">Apa Itu Konseling</h1>
-          <p class="w-75">Mentoring adalah sebuah kegiatan  pendampingan untuk beberapa orang baik itu dari perusahaan ataupun tempat lain seperti universitas. Dimana mereka yang akan didampingi biasanya memiliki keterbatasan wawasan atau bisa dikatakan kurang mahir dalam melakukan sesuatu.</p>
+          <p class="w-75">Konseling adalah hubungan pribadi yang dilakukan secara tatap muka antara dua orang dalam mana konselor melalui hubungan itu dengan kemampuan-kemampuan khusus yang dimilikinya, menyediakan situasi belajar.</p>
         </div>
         <div class="col-md">
           <img src="assets/img/konseling/hero.png" alt="Header" class="img-fluid" />
@@ -35,7 +35,7 @@
           <h2 class="fw-bold">
               <span>Mengapa Seseorang</span> Membutuhkan Konseling?
           </h2>
-          <p class="text-body-tertiary fw-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+          <p class="text-body-tertiary fw-bold">Seseorang membutuhkan layanan mentoring di Afeksi karena mentoring merupakan alat yang sangat efektif dalam membantu individu membangun hubungan yang sehat dan mencapai keseimbangan dalam kehidupan mereka. Berikut adalah beberapa alasan mengapa seseorang membutuhkan layanan mentoring di Afeksi secara komprehensif</p>
       </div>
       <div class="col-md-12 mt-4">
           <div class="row g-5">
@@ -80,7 +80,7 @@
         <h2 class="fw-bold text-center mt-5">
           <span>Macam - Macam Konseling</span>
         </h2>
-        <p class="text-body-tertiary fw-bold text-center mt-2 mb-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the <br> industry's standard dummy text ever since the 1500s,</p>
+        <p class="text-body-tertiary fw-bold text-center mt-2 mb-5">Macam-macam mentoring mencakup Parenting Mentoring, Pre Marriage mentoring, dan Relatinship Mentoring.</p>
       </div>
       <div class="row mb-3 d-flex flex-row justify-content-center align-items-center">
         <div class="col-md-4 border me-3 p-3 rounded shadow-sm" id="professional-konseling" style="cursor:pointer;">
@@ -103,7 +103,7 @@
           </div>
           <div class="col-md-6 order-md-1">
             <h2 class="fw-bold">Yuk booking konsultasi kamu dengan <span>Mudah</span></h2>
-            <p>Lorem ipsum dolor sit amet consectetur. Varius etiam leo mauris vel congue interdum tortor ullamcorper tincidunt. Proin vitae scelerisque lacus urna lacinia morbi est.</p>
+            <p>Yuk, tingkatkan kualitas hubungan Anda dengan layanan konseling dan mentoring di Afeksi! Temukan keseimbangan, kebahagiaan, dan kesetaraan dalam hubungan Anda. Mari kita bersama-sama membangun hubungan yang sehat dan memuaskan. Bergabunglah dengan kami hari ini dan mulailah perjalanan menuju hubungan yang lebih baik!</p>
             <div class="checklist me-3">
                 <img src="/assets/img/konseling/vector.png" class="me-3"> Pilih Paket <br>
                 <img src="/assets/img/konseling/vector.png" class="me-3"> Pilih Psikolog <br>

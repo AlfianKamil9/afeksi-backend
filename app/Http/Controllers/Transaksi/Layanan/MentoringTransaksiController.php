@@ -6,9 +6,11 @@ use Carbon\Carbon;
 use App\Models\bank;
 use App\Models\User;
 use App\Models\Voucher;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\DetailPembayaran;
 use App\Models\PembayaranLayanan;
+use App\Models\PsikologMentoring;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
@@ -77,8 +79,11 @@ class MentoringTransaksiController extends Controller
             'jam_konsultasi' => $request->jam_konsultasi,
             'detail_masalah' => $request->detail_masalah,
         ]);
-
-        return redirect('/slug-mentoring-yg-dipilih/' . $ref_transaction_layanan . '/pembayaran');
+        $randomPsikolog = PsikologMentoring::inRandomOrder()->value('id');
+        PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->update([
+            'psikolog_id' => $randomPsikolog
+        ]);
+        return redirect('/mentoring/' . $ref_transaction_layanan . '/pembayaran');
     }
 
     // Menampilkan  Halaman Checkout 

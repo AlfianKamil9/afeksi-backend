@@ -54,16 +54,6 @@ class PaketLayananNonProfessionalSeeder extends Seeder
                 'nama_paket' => 'Paket C',
                 'harga' => '400000'
             ],
-            [
-                'layanan_nonProfessionals_id' => 4,
-                'nama_paket' => 'Paket A',
-                'harga' => '100000'
-            ],
-            [
-                'layanan_nonProfessionals_id' => 4,
-                'nama_paket' => 'Paket B',
-                'harga' => '200000'
-            ]
         ];
         foreach ($paket as $data) {
             PaketLayananNonProfessional::create($data);

@@ -41,5 +41,6 @@ class DatabaseSeeder extends Seeder
         $this->call(bankSeeder::class);
         $this->call(VoucherSeeder::class);
         $this->call(PaketLayananProfessionalKonselingSeeder::class);
+        $this->call(PsikologMentoringSeeder::class);
     }
 }

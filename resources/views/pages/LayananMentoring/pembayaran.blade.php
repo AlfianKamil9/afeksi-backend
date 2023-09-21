@@ -54,7 +54,7 @@
     <div class="col-lg-7">
       <div class="card mb-4" style="border-color: #2139f9; z-index: 0">
         <div class="card-body">
-          <form action="/slug-mentoring-yg-dipilih/{{ request('ref_transaction_layanan') }}/checkout" method="post">
+          <form action="/mentoring/{{ request('ref_transaction_layanan') }}/checkout" method="post">
             @csrf
           <h5 class="fw-bolder" style="color: #2139f9">Pembayaran</h5>
 
@@ -184,7 +184,7 @@
                     <img src="/assets/img/pembayaran/plus-counseling.png" alt="Profil" class="rounded-circle mx-2" width="110" height="110" />
                   </div>
                   <div class="flex-grow-1 ms-1 m-3">
-                    <h6 class="fw-bold" id='name'>{{ $data->psikolog->nama_psikolog }}</h6>
+                    <h6 class="fw-bold" id='name'>{{ $data->psikolog->nama }}</h6>
                     <p class="text-muted">Psikolog</p>
                   </div>
                 </div>

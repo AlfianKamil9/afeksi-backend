@@ -44,7 +44,7 @@
 <div class="data-diri p-3 p-md-5 mb-5">
   <h4 class="fw-bold" style="color: #233dff">Data diri</h4>
   <p>Isi data anda dengan benar</p>
-  <form action="/slug-mentoring-yg-dipilih/{{ request('ref_transaction_layanan') }}/submit-form-mentoring" method="post">
+  <form action="/mentoring/{{ request('ref_transaction_layanan') }}/submit-form-mentoring" method="post">
     @csrf
     <div class="mb-3">
       <label for="namaLengkap" class="form-label fw-bold">Nama Lengkap</label>

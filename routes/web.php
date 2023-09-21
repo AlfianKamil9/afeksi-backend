@@ -1,32 +1,31 @@
 <?php
 
-use App\Http\Controllers\API\HandleAfterPayment;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\DetailPembayaran;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\API\KlaimCode;
-use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Controllers\Karir\Internship;
 use App\Http\Controllers\Karir\PeerKonselor;
 use App\Http\Controllers\Karir\BrandAmbasador;
 use App\Http\Controllers\Karir\karirController;
+use App\Http\Controllers\API\HandleAfterPayment;
 use App\Http\Controllers\Event\WebinarController;
 use App\Http\Controllers\Event\CampaignController;
 use App\Http\Controllers\Karir\RelationshipHeroes;
 use App\Http\Controllers\Artikel\artikelController;
+use App\Http\Controllers\Dashboard\IndexController;
 use App\Http\Controllers\Event\NotificationWebinar;
 use App\Http\Controllers\Karir\RelationshipKonselor;
+use App\Http\Controllers\Dashboard\ProfileController;
 use App\Http\Controllers\Transaksi\NotifikasiKonseling;
 use App\Http\Controllers\Transaksi\NotifikasiMentoring;
 use App\Http\Controllers\API\NotificationPaymentEventController;
-use App\Http\Controllers\Dashboard\IndexController;
-use App\Http\Controllers\Dashboard\ProfileController;
-use App\Http\Controllers\ProfileController as ControllersProfileController;
-use App\Http\Controllers\Psikolog_KonselorInLandingPage\IndexController as Psikolog_KonselorInLandingPageIndexController;
+use App\Http\Controllers\Mentoring\MentoringController;
 use App\Http\Controllers\Transaksi\Event\WebinarTransaksiController;
 use App\Http\Controllers\Transaksi\Layanan\KonselingTransaksiController;
 use App\Http\Controllers\Transaksi\Layanan\MentoringTransaksiController;
+use App\Http\Controllers\ProfileController as ControllersProfileController;
+use App\Http\Controllers\Psikolog_KonselorInLandingPage\IndexController as Psikolog_KonselorInLandingPageIndexController;
 
 
 /*
@@ -93,6 +92,28 @@ Route::get('/artikel/detail/{slug}', [artikelController::class, 'show'])->name('
 
 // MIDLLEWARE HALAMAN YANG PERLU LOGIN
 Route::middleware(['auth', 'verified'])->group(function () {
+    // LAYANAN MENTORING
+    Route::get('/pre-marriage', [MentoringController::class, 'showPreMarriage'])->name('mentoring.pre-marriage');
+    Route::get('/parenting-mentoring', [MentoringController::class, 'showParenting'])->name('mentoring.parenting');
+    Route::get('/relationship-mentoring',[MentoringController::class, 'showRelationship'])->name('mentoring.relationship');
+    // PILIH PAKET MENTORING
+    Route::get('/mentoring/{slug_item_mentoring}/pilih-paket-yang-diinginkan', [MentoringController::class, 'showPaketMentoring']);
+    Route::post('/save-pilih-paket-mentoring', [MentoringController::class, 'savePaketYangDipilih']);
+    // ISI FORM DATA DIRI KHUSUS MENTORING
+    Route::get('/mentoring/{ref_transaction_layanan}/data-diri', [MentoringTransaksiController::class, 'showFormDataDiri'])->name('form.datadiri.mentoring');
+    Route::post('/mentoring/{ref_transaction_layanan}/submit-form-mentoring', [MentoringTransaksiController::class, 'submitFormDataDiri'])->name('submit.form.datadiri.mentoring');
+    // CHECKOUT KHUSUS MENTORING
+    Route::get('/mentoring/{ref_transaction_layanan}/pembayaran', [MentoringTransaksiController::class, 'layananNonProfesional'])->name('checkout.layanan.mentoring');
+    Route::post('/mentoring/{ref_transaction_layanan}/checkout', [MentoringTransaksiController::class, 'checkoutLayananNonProfessional']);
+    // NOTIFICATION AFTER PEMBAYARAN MENTORING
+    Route::get('/{ref_transaction_layanan}/notification-mentoring/success', [NotifikasiMentoring::class, 'index'])->name('notification.mentoring.success');
+
+    //END LAYANAN MENTORING
+
+
+
+
+
     // PENDAFTARAN RELATIONSHIP KONSELOR
     Route::get('/pendaftaran-relationship-konselor', [RelationshipKonselor::class, 'index'])->name('pendaftaran-relationship-konselor');
     Route::post('/pendaftaran-relationship-konselor/create', [RelationshipKonselor::class, 'store']);
@@ -125,16 +146,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/pilihan-psikolog',[Psikolog_KonselorInLandingPageIndexController::class, 'showAllPsikolog'])->name('psikolog.all');
     Route::get('/pilihan-konselor',[Psikolog_KonselorInLandingPageIndexController::class, 'showAllKonselor'])->name('konselor.all');
 
-    // MENTORING LAYANAN
-    // ISI FORM DATA DIRI KHUSUS MENTORING
-    Route::get('/slug-mentoring-yg-dipilih/{ref_transaction_layanan}/data-diri', [MentoringTransaksiController::class, 'showFormDataDiri'])->name('form.datadiri.mentoring');
-    Route::post('/slug-mentoring-yg-dipilih/{ref_transaction_layanan}/submit-form-mentoring', [MentoringTransaksiController::class, 'submitFormDataDiri'])->name('submit.form.datadiri.mentoring');
-    // CHECKOUT KHUSUS MENTORING
-    Route::get('/slug-mentoring-yg-dipilih/{ref_transaction_layanan}/pembayaran', [MentoringTransaksiController::class, 'layananNonProfesional'])->name('checkout.layanan.mentoring');
-    Route::post('/slug-mentoring-yg-dipilih/{ref_transaction_layanan}/checkout', [MentoringTransaksiController::class, 'checkoutLayananNonProfessional']);
-    // NOTIFICATION AFTER PEMBAYARAN MENTORING
-    Route::get('/{ref_transaction_layanan}/notification-mentoring/success', [NotifikasiMentoring::class, 'index'])->name('notification.mentoring.success');
-
+   
     // KONSELING
     //PROFESSIONAL KONSELING
     Route::get('/professional-konseling-layanan', function(){
@@ -148,6 +160,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // NOTIFICATION AFTER PEMBAYARAN PROFESIONAL KONSELING---
     Route::get('/{ref_transaction_layanan}/notification-konseling/success', [NotifikasiKonseling::class, 'index'])->name('notification.konseling.success');
 
+
+
     // DASHBOARD USER
     Route::name('dashboard.')->prefix('/dashboard')->group(function() {
         //Dasboard Utama
@@ -160,6 +174,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::post('/change-password', [ProfileController::class, 'processChangePassword'])->name('changes.password');
             Route::get('/ubah-foto-profile', [ProfileController::class, 'showUbahFoto'])->name('show.changeFoto');
         });
+        // E-Book
+        Route::get('/e-book', function () {
+            return view('pages.e-book');
+        })->name('show.e-book');
     });
 });
 
@@ -183,16 +201,9 @@ Route::fallback(function () {
 
 
 
+Route::get('/volunteer', function () {
+    return view('pages.volunteer');
+});
 
 
-
-
-
-
-
-
-
-
-
-;
 

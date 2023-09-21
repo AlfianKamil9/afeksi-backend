@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\PsikologMentoring;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class PembayaranLayanan extends Model
 {
@@ -43,7 +44,7 @@ class PembayaranLayanan extends Model
 
     public function psikolog()
     {
-        return $this->belongsTo(Psikolog::class, 'psikolog_id', 'id');
+        return $this->belongsTo(PsikologMentoring::class, 'psikolog_id', 'id');
     }
 
     public function user()
