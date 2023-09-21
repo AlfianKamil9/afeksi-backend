@@ -95,7 +95,6 @@ div .button-login {
                   <li><a class="dropdown-item" href="#"><img src="assets/img/konseling.svg" alt=""> Konseling</a></li>
                   <li><a class="dropdown-item" href="#"><img src="assets/img/mentoring.svg" alt=""> Mentoring</a></li>
                   <li><a class="dropdown-item" href="#"><img src="assets/img/Ebook.svg" alt=""> E-Book</a></li>
-                  <li><a class="dropdown-item" href="#"><img src="assets/img/Ecourse.svg" alt=""> E-Course</a></li>
                 </ul>
               </li>
               <li class="nav-item dropdown">
