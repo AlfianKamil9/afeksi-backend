@@ -39,7 +39,6 @@
         <div class="mb-4 mt-5 p-2"><a href="#" class="text-secondary"><svg data-src="assets/img/dashboard-profile/dashboard.svg" class="me-3" width="20" height="20" fill="#828282"></svg>Dashboard</a></div>
         <div class="mb-4 active p-2"><a href="#" class="text-secondary"><svg data-src="assets/img/dashboard-profile/user.svg" class="me-3" width="20" height="20"></svg>Profile</a></div>
         <div class="mb-4 p-2"><a href="#" class="text-secondary"><img src="assets/img/dashboard-profile/voucher.svg" width="20" height="20" class="me-3">Voucher</a></div>
-        <div class="mb-4 p-2"><a href="#" class="text-secondary"><svg data-src="assets/img/dashboard-profile/courses.svg" width="20" height="20" fill="#828282" class="me-3"></svg>My Courses</a></div>
         <div class="mb-4 p-2"><a href="#" class="text-secondary"><svg data-src="assets/img/dashboard-profile/e-book.svg" width="20" height="20" fill="#828282" class="me-3"></svg>My E-Book</a></div>
         <div class="mb-4 p-2"><a href="#" class="text-secondary"><img src="assets/img/dashboard-profile/transaction.svg" alt="" width="20" height="20" fill="#828282" class="me-3">Rekap Transaksi</a></div>
     </div>

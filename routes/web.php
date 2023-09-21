@@ -149,6 +149,10 @@ Route::get('/dashboard', function () {
     return view('pages.dashboard');
 });
 
+Route::get('/e-book', function () {
+    return view('pages.e-book');
+});
+
 Route::get('/volunteer', function () {
     return view('pages.volunteer');
 });
