@@ -179,3 +179,24 @@ Route::fallback(function () {
 
 
 
+
+Route::get('/dashboard-profile', function () {
+    return view('pages.dashboard-profile');
+});
+
+Route::get('/dashboard', function () {
+    return view('pages.dashboard');
+});
+
+Route::get('/volunteer', function () {
+    return view('pages.volunteer');
+});
+
+Route::get('/konselor', function () {
+    return view('pages.konselor');
+});
+
+Route::get('/psikologi', function () {
+    return view('pages.psikologi');
+});
+
