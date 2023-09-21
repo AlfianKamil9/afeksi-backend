@@ -12,22 +12,11 @@ class Konselor extends Model
     protected $guarded = ['id'];
 
     protected $fillable = [
-        'user_id',
-        'namaLengkap',
-        'jenisKelamin',
-        'nohp',
-        'pekerjaan',
-        'instansi',
-        'divisi',
-        'alasan',
-        'bukti_follow',
-        'cv',
-        'portofolio',
-        'type',
+        'nama', 'pendidikan', 'avatar', 'profile', 'deskripsi'
     ];
 
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'user_id');
+    public function topic() {
+        return $this->hasMany(konselorTopic::class);
     }
+
 }

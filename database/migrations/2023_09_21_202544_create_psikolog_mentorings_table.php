@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('konselors', function (Blueprint $table) {
-            $table->id('id');
+        Schema::create('psikolog_mentorings', function (Blueprint $table) {
+            $table->id();
             $table->string('nama');
             $table->string('avatar')->nullable();
             $table->string('profile')->nullable();
-            $table->text('deskripsi')->nullable();
+            $table->string('deskripsi')->nullable();
             $table->string('pendidikan')->nullable();
             $table->timestamps();
         });
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('konselors');
+        Schema::dropIfExists('psikolog_mentorings');
     }
 };

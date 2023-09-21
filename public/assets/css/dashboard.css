@@ -2,127 +2,123 @@
     --bg-afeksi-theme: #5a74fd;
     --color-afeksi-custom: #374dfa;
     --bg-final-footer: #4959db;
-  }
-  body {
+}
+body {
     overflow-x: hidden;
     background-color: #ebebeb2c !important;
-  }
-  .color-custom {
+}
+.color-custom {
     color: var(--color-afeksi-custom);
-  }
-  .hero {
+}
+.hero {
     background-color: var(--bg-afeksi-theme);
     color: white;
     position: relative;
     overflow: hidden;
-    padding-top: 10%;
-  }
-  /* FOR DESKTOP ========================================================================================== */
-  @media only screen and (min-width: 991px) {
+    padding-top: 3%;
+}
+/* FOR DESKTOP ========================================================================================== */
+@media only screen and (min-width: 991px) {
     /* HERO */
     .hero {
-      background-color: var(--bg-afeksi-theme);
-      color: white;
-      position: relative;
-      overflow: hidden;
-      padding-top: 10%;
+        background-color: var(--bg-afeksi-theme);
+        color: white;
+        position: relative;
+        overflow: hidden;
+        padding-top: 3%;
     }
     span {
-      color: #fbdd41;
+        color: #fbdd41;
     }
-  }
-  .active {
+}
+.active {
     background: #233dff31 !important ;
     border-left: 3px solid #233dff;
-  }
-  
-  .active a {
+}
+
+.active a {
     color: #233dff !important;
     font-weight: bold;
-  }
-  .active a svg {
+}
+.active a svg {
     fill: #233dff !important;
-  }
-  .dashboard {
+}
+.dashboard {
     width: 20%;
     background: white;
     z-index: 1;
     position: absolute;
     margin: -20% 60px;
     border-radius: 10px;
-  }
-  * {
+}
+* {
     margin: 0;
     padding: 0;
     font-family: "Rubik", sans-serif !important;
     text-decoration: none !important;
-  }
-  
-  .card-top {
+}
+
+.card-top {
     border-bottom: 1px dashed black;
     width: 100%;
     margin: 0 !important;
-  }
-  
-  .card-top .card-top-content {
+}
+
+.card-top .card-top-content {
     border-right: 1px solid black !important;
     border-left: 1px solid black !important;
     padding: 10px;
-  }
-  
-  .card-top p {
+}
+
+.card-top p {
     font-size: 15px;
     font-weight: bold;
-  }
-  
-  .card-top span,
-  .card-middle span,
-  .card-bottom span {
+}
+
+.card-top span,
+.card-middle span,
+.card-bottom span {
     color: grey;
     font-size: 12px;
-  }
-  
-  .card-middle {
+}
+
+.card-middle {
     border-bottom: 1px solid black;
     width: 100%;
     margin: 0 !important;
-  }
-  
-  .card-middle img {
+}
+
+.card-middle img {
     max-width: 65px;
     border-radius: 5px;
-  }
-  
-  .card-middle p {
+}
+
+.card-middle p {
     font-size: 19px;
     font-weight: bold;
-  }
-  
-  .card-bottom p {
+}
+
+.card-bottom p {
     font-size: 15px;
     font-weight: bold;
-  }
-  
-  .card-bottom .btn {
-      color: white;
-      font-size: 14px;
-  }
+}
 
-
+.card-bottom .btn {
+    color: white;
+    font-size: 14px;
+}
 
 @media (max-width: 900px) {
     .dashboard {
-      width: 100%;
-      background: white;
-      z-index: 1;
-      position: relative;
-      margin: 0;
+        width: 100%;
+        background: white;
+        z-index: 1;
+        position: relative;
+        margin: 0;
     }
-  
+
     .card {
-      width: 100%;
-      margin: 0;
+        width: 100%;
+        margin: 0;
     }
-  
-  }
-  
+}

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('profil');
             $table->text('deskripsi')->nullable();
             $table->string('keahlian')->nullable();
+            $table->string('pendidikan')->nullable();
             $table->timestamps();
 
             // $table->foreign('layanan_non_professionals_id')->references('id')->on('layanan_non_professionals')->onDelete('cascade');

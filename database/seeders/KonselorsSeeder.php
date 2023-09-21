@@ -14,7 +14,19 @@ class KonselorsSeeder extends Seeder
     public function run(): void
     {
         Konselor::create([
-            'user_id' => 1,
+            'nama' => "Alex Cruis", 
+            'pendidikan' => "Sarjana ITB", 
+            'avatar' => "alex.png", 
+            'profile' => "test", 
+            'deskripsi' => "test"
+        ]);
+
+         Konselor::create([
+            'nama' => "Cania Cruis", 
+            'pendidikan' => "Sarjana ITS", 
+            'avatar' => "alex.png", 
+            'profile' => "test", 
+            'deskripsi' => "test"
         ]);
 
     }

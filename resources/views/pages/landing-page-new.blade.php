@@ -76,7 +76,7 @@
       <!-- Section Langkah End -->
 
       <!-- Section Profil Psikolog & Konseler Start -->
-      <section>
+      {{-- <section>
         <div class="mb-5">
           <div class="container px-4">
             <div class="row text-center mb-sm-3">
@@ -102,7 +102,7 @@
                       Mulailah konsultasi masalahmu dengan psikolog terbaik kami. Dan Temukan Psikolog untuk menyelesaikan masalahmu !!!!
                     </p>
                     <a
-                      href="#"
+                      href="{{ route('psikolog.all') }}"
                       class="btn btn-selengkapnya w-100"
                       style="background-color: #233dff; color: #ffffff; font-size: 14px; font-weight: 500"
                       >Selengkapnya</a
@@ -123,7 +123,7 @@
                       Mulailah konsultasi masalahmu dengan Konselor terbaik kami. Dan Temukan Konselor untuk menyelesaikan masalahmu !!!!
                     </p>
                     <a
-                      href="#"
+                      href="{{ route('konselor.all') }}"
                       class="btn btn-selengkapnya w-100"
                       style="background-color: #233dff; color: #ffffff; font-size: 14px; font-weight: 500"
                       >Selengkapnya</a
@@ -134,7 +134,7 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> --}}
       <!-- Section Profil Psikolog & Konseler End -->
 
       <!-- Section Layanan Konsultasi Start -->

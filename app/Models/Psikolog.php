@@ -20,7 +20,8 @@ class Psikolog extends Model
         'profil',
         'deskripsi',
         'keahlian',
-        'avatar'
+        'avatar',
+        'pendidikan'
     ];
 
     public function webinar_session()

@@ -9,27 +9,30 @@
 
 @section('content')
 <section id="ubah-password">
+  <form action="{{ route('dashboard.profile.changes.password') }}" method="POST">
+    @csrf
     <div class="bg">
         <div class="wrapper p-5 ">
            <h3 class="text-center fw-semibold">Ubah Password</h3>
            <p class="text-center">Buat Password baru untuk akun anda</p>
            <div class="mb-3">
             <label for="password-lama" class="col-form-label fw-semibold">Masukan password lama anda</label>
-            <input type="password" placeholder="Masukan Password" class="form-control" id="password-lama">
+            <input type="password" placeholder="Masukan Password" name="oldPassword" class="form-control" id="password-lama">
           </div>
            <div class="mb-3">
             <label for="password" class="col-form-label fw-semibold">Password Baru anda</label>
-            <input type="password" placeholder="Masukan Password" class="form-control" id="password">
+            <input type="password" placeholder="Masukan Password" name="newPassword" class="form-control" id="password">
           </div>
            <div class="mb-3">
             <label for="konfirmasi-password" class="col-form-label fw-semibold">Konfirmasi Password Baru</label>
-            <input type="password" placeholder="Masukan Password" class="form-control" id="konfirmasi-password">
+            <input type="password" placeholder="Masukan Password" name="confirmNewPassword" class="form-control" id="konfirmasi-password">
           </div>
-          <button class="btn btn-primary w-100 mt-3 mb-3 button-submit">Ubah Password</button>
+          <button class="btn btn-primary w-100 mt-3 mb-3 button-submit" type="submit">Ubah Password</button>
           <a href="{{ route('dashboard.profile.index') }}" class="btnKembali">Kembali</a>
         </div>        
     </div>
-  </section>
+  </form>
+</section>
 
   <section class="pt-5 mt-5">
     <div  class="pt-5">

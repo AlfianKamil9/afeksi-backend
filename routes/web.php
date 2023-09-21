@@ -20,8 +20,10 @@ use App\Http\Controllers\Karir\RelationshipKonselor;
 use App\Http\Controllers\Transaksi\NotifikasiKonseling;
 use App\Http\Controllers\Transaksi\NotifikasiMentoring;
 use App\Http\Controllers\API\NotificationPaymentEventController;
+use App\Http\Controllers\Dashboard\IndexController;
 use App\Http\Controllers\Dashboard\ProfileController;
 use App\Http\Controllers\ProfileController as ControllersProfileController;
+use App\Http\Controllers\Psikolog_KonselorInLandingPage\IndexController as Psikolog_KonselorInLandingPageIndexController;
 use App\Http\Controllers\Transaksi\Event\WebinarTransaksiController;
 use App\Http\Controllers\Transaksi\Layanan\KonselingTransaksiController;
 use App\Http\Controllers\Transaksi\Layanan\MentoringTransaksiController;
@@ -119,6 +121,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // PENDAFTARAN CAMPAIGN
     Route::post('/kegitan-campaign/{slug}', [CampaignController::class, 'store'])->name('daftar-campaign');
 
+    // PILIHAN PSIKOLOG
+    Route::get('/pilihan-psikolog',[Psikolog_KonselorInLandingPageIndexController::class, 'showAllPsikolog'])->name('psikolog.all');
+    Route::get('/pilihan-konselor',[Psikolog_KonselorInLandingPageIndexController::class, 'showAllKonselor'])->name('konselor.all');
 
     // MENTORING LAYANAN
     // ISI FORM DATA DIRI KHUSUS MENTORING
@@ -145,10 +150,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // DASHBOARD USER
     Route::name('dashboard.')->prefix('/dashboard')->group(function() {
+        //Dasboard Utama
+        Route::get('', [IndexController::class, 'showDashboardIndex'])->name('index');
         // PROFILE
         Route::name('profile.')->prefix('/profile')->group(function() {
             Route::get('', [ProfileController::class, 'showDashboardProfile'])->name('index');
+            Route::post('/changes-data', [ProfileController::class, 'processChanges'])->name('changes.data');
             Route::get('/ubah-password',[ ProfileController::class, 'showUbahPassword'])->name('show.changePassword');
+            Route::post('/change-password', [ProfileController::class, 'processChangePassword'])->name('changes.password');
             Route::get('/ubah-foto-profile', [ProfileController::class, 'showUbahFoto'])->name('show.changeFoto');
         });
     });
@@ -180,23 +189,10 @@ Route::fallback(function () {
 
 
 
-Route::get('/dashboard-profile', function () {
-    return view('pages.dashboard-profile');
-});
 
-Route::get('/dashboard', function () {
-    return view('pages.dashboard');
-});
 
-Route::get('/volunteer', function () {
-    return view('pages.volunteer');
-});
 
-Route::get('/konselor', function () {
-    return view('pages.konselor');
-});
 
-Route::get('/psikologi', function () {
-    return view('pages.psikologi');
-});
+
+;
 

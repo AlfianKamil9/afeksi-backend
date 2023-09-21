@@ -33,25 +33,26 @@
 <div class="col-9">
     <!-- FORM ===================== -->
     <div class="container mt-5">
-        <form class="mx-3">
+        <form class="mx-3" method="POST" action="{{ route('dashboard.profile.changes.data') }}">
+        @csrf
             <div class="row">
             <div class="col-12">
                 <div class="mb-3">
                      <!-- Nama Lengkap -->
                     <label for="namaLengkap" class="form-label">Nama Lengkap</label>
-                    <input type="text" class="form-control" id="namaLengkap" placeholder="Masukkan Nama Lengkap" value="{{ Auth::user()->nama }}">
+                    <input type="text" class="form-control" id="namaLengkap" name="nama" placeholder="Masukkan Nama Lengkap" value="{{ Auth::user()->nama }}">
                 </div>
                <div class="mb-3">
                      <!-- Email -->
                     <label for="email" class="form-label">Email</label>
-                     <input type="email" class="form-control" id="email" placeholder="Masukkan Email" value="{{ Auth::user()->email }}">
+                     <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan Email" value="{{ Auth::user()->email }}">
                </div>
             </div>
             <div class="col-6">
                 <div class="mb-3">
                     <label for="tanggalLahir" class="form-label">Tanggal Lahir</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" id="tanggalLahir" placeholder="Pilih Tanggal Lahir" value="{{ Auth::user()->tgl_lahir }}">
+                        <input type="text" class="form-control" id="tanggalLahir" name="tgl_lahir" placeholder="Pilih Tanggal Lahir" value="{{ Auth::user()->tgl_lahir }}">
                         <span class="input-group-text" data-toggle="datepicker" data-input="#tanggalLahir">
                             <i class="bi bi-calendar"></i>
                         </span>
@@ -59,11 +60,11 @@
                 </div>
                 <div class="mb-3">
                     <label for="noHP" class="form-label">No. HP</label>
-                    <input type="tel" class="form-control" id="noHP" placeholder="Masukkan No. HP" value="{{ Auth::user()->no_whatsapp }}">
+                    <input type="tel" class="form-control" id="noHP" placeholder="Masukkan No. HP" name="no_whatsapp" value="{{ Auth::user()->no_whatsapp }}">
                 </div>
                 <div class="mb-3">
                     <label for="pekerjaan" class="form-label">Pekerjaan</label>
-                    <input type="text" class="form-control" id="pekerjaan" placeholder="Pekerjaan Kamu" value="{{ Auth::user()->pekerjaan }}">
+                    <input type="text" class="form-control" id="pekerjaan" placeholder="Pekerjaan Kamu" name="pekerjaan" value="{{ Auth::user()->pekerjaan }}">
                 </div>
                 <div class="my-5 pb-5">
                     <a type="button" href="{{ route('dashboard.profile.show.changePassword') }}" class="btn btn-outline-primary">Ubah Password</a>
@@ -74,7 +75,7 @@
             <div class="col-6">
                 <div class="mb-3">
                     <label for="jenisKelamin" class="form-label">Jenis Kelamin</label>
-                    <select class="form-select" id="jenisKelamin">
+                    <select class="form-select" id="jenisKelamin" name="jenisKelamin">
                         <option hidden>Pilihan</option>
                         <option value="Laki-laki" @if (Auth::user()->jenisKelamin == 'Laki-Laki')
                             selected
@@ -86,18 +87,16 @@
                 </div>
                 <div class="mb-3">
                     <label for="kota" class="form-label">Kota</label>
-                    <input type="text" class="form-control" id="kota" placeholder="Masukkan Kota" value="{{ Auth::user()->domisili }}">
+                    <input type="text" class="form-control" id="kota" name="domisili" placeholder="Masukkan Kota" value="{{ Auth::user()->domisili }}">
                 </div>
                 <div class="mb-3">
                     <label for="instansi" class="form-label">Instansi</label>
-                    <input type="text" class="form-control" id="instansi" placeholder="Instansi Kamu" value="{{ Auth::user()->institusi }}">
+                    <input type="text" class="form-control" id="instansi" name="institusi" placeholder="Instansi Kamu" value="{{ Auth::user()->institusi }}">
                 </div>
                 <div class="my-5 pb-5">
                     <button type="submit" class="btn btn-primary w-100">Simpan Perubahan</button>
                 </div>
-               
             </div>            
-            
             </div>
         </form>
     </div>

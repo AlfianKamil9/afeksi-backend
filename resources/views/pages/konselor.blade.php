@@ -1,10 +1,13 @@
-@extends('../layout') @section('title', 'Konselor')
+@extends('../layout') 
+@section('title', 'Pilihan Konselor | AFEKSI')
 
 <!-- path style disesuaikan dengan folder css masing-masing page -->
 @section('styles')
-<link rel="stylesheet" href="assets/css/psikolog-konselor.css" />
-@endsection @include('../partials/navbar-new') @section('content')
-<div style="height:90px;"></div> <!-- for space-->
+<link rel="stylesheet" href="/assets/css/psikolog-konselor.css" />
+@endsection 
+
+@section('content')
+<div style="height:10px;"></div> <!-- for space-->
 <div class="contents row">
       <h1 style="color: #233dff">Konselor</h1>
       <div class="side col-lg-3 col-md-4 mb-5">
@@ -61,91 +64,30 @@
       </div>
 
       <div class="content col-lg-9 col-md-8">
-        <div class="row d-flex">
-          <div class="col-lg-6 p-2">
-            <div class="card border-0">
-              <div class="card-top d-flex align-items-center justify-content-between">
-                <img src="assets/img/psikolog-konselor/Ellipse 1216.png" alt="" class="elips">
-                <div class="stars">
-                  <img src="assets/img/psikolog-konselor/star.png" alt="" class="star">
-                  <img src="assets/img/psikolog-konselor/star.png" alt="" class="star">
-                  <img src="assets/img/psikolog-konselor/star.png" alt="" class="star">
-                  <img src="assets/img/psikolog-konselor/star.png" alt="" class="star">
-                  <img src="assets/img/psikolog-konselor/star.png" alt="" class="star">
+        <div class="row d-flex ps-3">
+          @foreach ($data as $item)
+              <div class="col-lg-6 p-2">
+                <div class="card border-0">
+                  <div class="card-top d-flex align-items-center justify-content-between">
+                    <img src="assets/img/psikolog-konselor/Ellipse 1216.png" alt="" class="elips">
+                    <div class="stars">
+                      <img src="assets/img/psikolog-konselor/star.png" alt="" class="star">
+                      <img src="assets/img/psikolog-konselor/star.png" alt="" class="star">
+                      <img src="assets/img/psikolog-konselor/star.png" alt="" class="star">
+                      <img src="assets/img/psikolog-konselor/star.png" alt="" class="star">
+                      <img src="assets/img/psikolog-konselor/star.png" alt="" class="star">
+                    </div>
+                    <span>(500)</span>
+                  </div>
+                  <div class="person">
+                    <h5 class="m-0">{{ $item->nama }}</h5>
+                    <span>{{ $item->pendidikan }}</span>
+                  </div>
+                  <img src="assets/img/psikolog-konselor/Rectangle 816.png" alt="" class="main-img">
+                  <div class="btn side-btn">Jadwalkan Sesi Sekarang</div>
                 </div>
-                <span>(500)</span>
               </div>
-              <div class="person">
-                <h5 class="m-0">Namaku Asep, S.Psi.,M.Psi</h5>
-                <span>Sarjana Psikologi ITB</span>
-              </div>
-              <img src="assets/img/psikolog-konselor/Rectangle 816.png" alt="" class="main-img">
-              <div class="btn side-btn">Terapkan Filter</div>
-            </div>
-          </div>
-          <div class="col-lg-6 p-2">
-            <div class="card border-0">
-              <div class="card-top d-flex align-items-center justify-content-between">
-                <img src="assets/img/psikolog-konselor/Ellipse 1216.png" alt="" class="elips">
-                <div class="stars">
-                  <img src="assets/img/psikolog-konselor/star.png" alt="" class="star">
-                  <img src="assets/img/psikolog-konselor/star.png" alt="" class="star">
-                  <img src="assets/img/psikolog-konselor/star.png" alt="" class="star">
-                  <img src="assets/img/psikolog-konselor/star.png" alt="" class="star">
-                  <img src="assets/img/psikolog-konselor/star.png" alt="" class="star">
-                </div>
-                <span>(500)</span>
-              </div>
-              <div class="person">
-                <h5 class="m-0">Namaku Asep, S.Psi.,M.Psi</h5>
-                <span>Sarjana Psikologi ITB</span>
-              </div>
-              <img src="assets/img/psikolog-konselor/Rectangle 816.png" alt="" class="main-img">
-              <div class="btn side-btn">Terapkan Filter</div>
-            </div>
-          </div>
-          <div class="col-lg-6 p-2">
-            <div class="card border-0">
-              <div class="card-top d-flex align-items-center justify-content-between">
-                <img src="assets/img/psikolog-konselor/Ellipse 1216.png" alt="" class="elips">
-                <div class="stars">
-                  <img src="assets/img/psikolog-konselor/star.png" alt="" class="star">
-                  <img src="assets/img/psikolog-konselor/star.png" alt="" class="star">
-                  <img src="assets/img/psikolog-konselor/star.png" alt="" class="star">
-                  <img src="assets/img/psikolog-konselor/star.png" alt="" class="star">
-                  <img src="assets/img/psikolog-konselor/star.png" alt="" class="star">
-                </div>
-                <span>(500)</span>
-              </div>
-              <div class="person">
-                <h5 class="m-0">Namaku Asep, S.Psi.,M.Psi</h5>
-                <span>Sarjana Psikologi ITB</span>
-              </div>
-              <img src="assets/img/psikolog-konselor/Rectangle 816.png" alt="" class="main-img">
-              <div class="btn side-btn">Terapkan Filter</div>
-            </div>
-          </div>
-          <div class="col-lg-6 p-2">
-            <div class="card border-0">
-              <div class="card-top d-flex align-items-center justify-content-between">
-                <img src="assets/img/psikolog-konselor/Ellipse 1216.png" alt="" class="elips">
-                <div class="stars">
-                  <img src="assets/img/psikolog-konselor/star.png" alt="" class="star">
-                  <img src="assets/img/psikolog-konselor/star.png" alt="" class="star">
-                  <img src="assets/img/psikolog-konselor/star.png" alt="" class="star">
-                  <img src="assets/img/psikolog-konselor/star.png" alt="" class="star">
-                  <img src="assets/img/psikolog-konselor/star.png" alt="" class="star">
-                </div>
-                <span>(500)</span>
-              </div>
-              <div class="person">
-                <h5 class="m-0">Namaku Asep, S.Psi.,M.Psi</h5>
-                <span>Sarjana Psikologi ITB</span>
-              </div>
-              <img src="assets/img/psikolog-konselor/Rectangle 816.png" alt="" class="main-img">
-              <div class="btn side-btn">Terapkan Filter</div>
-            </div>
-          </div>
+          @endforeach
         </div>
       </div>
     </div>
