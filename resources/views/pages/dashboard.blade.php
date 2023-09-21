@@ -3,7 +3,7 @@
 <!-- path style disesuaikan dengan folder css masing-masing page -->
 @section('styles')
 <link rel="stylesheet" href="assets/css/dashboard.css" />
-@endsection @include('../partials/navbar') @section('content')
+@endsection @include('../partials/navbar-new') @section('content')
 
 <div class="row justify-content-end">
       <div class="col-12 position-relative">

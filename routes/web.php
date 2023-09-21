@@ -164,3 +164,15 @@ Route::get('/konselor', function () {
 Route::get('/psikologi', function () {
     return view('pages.psikologi');
 });
+
+Route::get('/pre-marriage', function () {
+    return view('pages.pre-marriage');
+});
+
+Route::get('/parenting-mentoring', function () {
+    return view('pages.parenting-mentoring');
+});
+
+Route::get('/relationship-konseling', function () {
+    return view('pages.relationship-konseling');
+});
