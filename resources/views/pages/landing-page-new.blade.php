@@ -289,19 +289,16 @@
           </div>
           <div class="row justify-content-center align-items-center text-center">
             <div class="col-lg-2 col-sm-12 mb-sm-3">
-              <img src="../assets/img/landingpage/bekerjasama/image 15.png" alt="kementrian" class="" width="140" />
+              <img src="../assets/img/landingpage/bekerjasama/landingpagelogo3.png" alt="kementrian" class="" width="140" />
             </div>
             <div class="col-lg-2 col-sm-12 mb-3">
-              <img src="../assets/img/landingpage/bekerjasama/image 9.png" alt="eternal" class="img-fluid" width="140" />
+              <img src="../assets/img/landingpage/bekerjasama/landingpagelogo4.png" alt="eternal" class="img-fluid" width="140" />
             </div>
             <div class="col-lg-2 col-sm-12 mb-3">
-              <img src="../assets/img/landingpage/bekerjasama/image 9.png" alt="eternal" class="img-fluid" width="140" />
+              <img src="../assets/img/landingpage/bekerjasama/landingpagelogo1.png" alt="eternal" class="img-fluid" width="140" />
             </div>
             <div class="col-lg-2 col-sm-12 mb-3">
-              <img src="../assets/img/landingpage/bekerjasama/image 9.png" alt="eternal" class="img-fluid" width="140" />
-            </div>
-            <div class="col-lg-2 col-sm-12 mb-3">
-              <img src="../assets/img/landingpage/bekerjasama/image 11.png" alt="mentalhealth" class="img-fluid" width="140" />
+              <img src="../assets/img/landingpage/bekerjasama/landingpagelogo2.png" alt="eternal" class="img-fluid" width="140" />
             </div>
           </div>
         </div>
