@@ -144,6 +144,35 @@ Route::get('/data-diri', function () {
 Route::get('/dashboard-profile', function () {
     return view('pages.dashboard-profile');
 });
+
+Route::get('/dashboard', function () {
+    return view('pages.dashboard');
+});
+
+Route::get('/e-book', function () {
+    return view('pages.e-book');
+});
+
 Route::get('/volunteer', function () {
     return view('pages.volunteer');
+});
+
+Route::get('/konselor', function () {
+    return view('pages.konselor');
+});
+
+Route::get('/psikologi', function () {
+    return view('pages.psikologi');
+});
+
+Route::get('/pre-marriage', function () {
+    return view('pages.pre-marriage');
+});
+
+Route::get('/parenting-mentoring', function () {
+    return view('pages.parenting-mentoring');
+});
+
+Route::get('/relationship-konseling', function () {
+    return view('pages.relationship-konseling');
 });

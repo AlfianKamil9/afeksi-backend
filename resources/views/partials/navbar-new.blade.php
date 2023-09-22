@@ -102,8 +102,6 @@
                     <ul class="dropdown-menu">
                       <li  class="mb-2"><a class="dropdown-item" href="#"><svg data-src="assets/img/dashboard-profile/user.svg" class="me-3" width = "20" height = "20" fill="#233dff"></svg>Profile</a></li>
 
-                      <li class="mb-2"><a class="dropdown-item" href="#"> <svg data-src="assets/img/dashboard-profile/courses.svg" width = "20" height = "20" fill="#233dff" class="me-3"></svg> My Courses</a></li>
-
                       <li class="mb-2"><a class="dropdown-item" href="#"> <svg data-src="assets/img/dashboard-profile/e-book.svg" width = "20" height = "20" fill="#233dff" class="me-3"></svg> My E-Book</a></li>
 
                       <li class="mb-2"><a class="dropdown-item" href="#"> <img src="assets/img/dashboard-profile/logout.svg" alt="" width = "20" height = "20" class="me-3">Logout</a></li>

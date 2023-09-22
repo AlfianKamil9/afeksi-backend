@@ -97,8 +97,7 @@
                 <div class="mt-2">
                   <h3 class="fw-bold text-center" style="color: #233dff">Misi</h3>
                   <p class="card-text">
-                    Membantu individu dan pasangan mengatasi hambatan, membangun fondasi yang kuat, dan mencapai hubungan yang harmonis, intim, dan memuaskan.Membantu individu dan pasangan mengatasi hambatan, membangun fondasi yang kuat,
-                    dan mencapai hubungan yang harmonis, intim, dan memuaskan.
+                  Membantu individu dan pasangan mengatasi hambatan, membangun fondasi yang kuat, dan mencapai hubungan yang harmonis, intim, dan memuaskan.
                   </p>
                 </div>
               </div>
