@@ -7,7 +7,7 @@
 @endsection
 
 
-@include('../partials/navbar') 
+@include('../partials/navbar-new') 
 
 @section('content')
 

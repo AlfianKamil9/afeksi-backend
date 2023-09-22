@@ -7,7 +7,7 @@
 @endsection
 
 
-@include('../partials/navbar') 
+@include('../partials/navbar-new') 
 
 @section('content')
 
@@ -37,7 +37,7 @@
           <h2 class="fw-bold">
               <span>Mengapa Seseorang</span> Membutuhkan Konseling?
           </h2>
-          <p class="text-body-tertiary fw-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+          <p class="text-body-tertiary fw-bold">Seseorang membutuhkan layanan mentoring di Afeksi karena mentoring merupakan alat yang sangat efektif dalam membantu individu membangun hubungan yang sehat dan mencapai keseimbangan dalam kehidupan mereka. Berikut adalah beberapa alasan mengapa seseorang membutuhkan layanan mentoring di Afeksi secara komprehensif:</p>
       </div>
       <div class="col-md-12 mt-4">
           <div class="row g-5">
@@ -80,24 +80,37 @@
       </div>
       <div class="mt-5">
         <h2 class="fw-bold text-center mt-5">
-          <span>Macam - Macam Konseling</span>
+          <span>Macam - Macam Mentoring</span>
         </h2>
-        <p class="text-body-tertiary fw-bold text-center mt-2 mb-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the <br> industry's standard dummy text ever since the 1500s,</p>
+        <p class="text-body-tertiary fw-bold text-center mt-2 mb-5">Macam-macam mentoring mencakup Parenting Mentoring, Pre Marriage mentoring, dan Relatinship Mentoring.</p>
       </div>
-      <div class="row mb-3 d-flex flex-row justify-content-center align-items-center">
-      <div class="col-md-4">
-        <img src="assets/img/mentoring/mdi_mother-nurse.png" width="10%" alt="Logo" class="img-fluid mb-3">
-        <h5 class="fw-bold">Profesional Konseling</h5>
-        <p class=" fs-6">Konsultasi yang dilakukan dengan professional di bidangnya masing - masing</p>
-      </div>
-
-     <div class="col-md-4">
-      <img src="assets/img/mentoring/love.png" width="10%" alt="Logo" class="img-fluid mb-3">
-      <h5 class="fw-bold">Peers Konseling</h5>
-      <p class=" fs-6">Konsultasi non klinis dengan peers yang sudah bersertifikasi</p>
-     </div>    
-     </div>
-
+      <div class="container mt-5 mb-5">
+        <div class="row">
+            <div class="col-md-6 mb-5">
+                <!-- Gambar di sebelah kiri -->
+                <img src="assets/img/dashboard-profile/content.png" alt="Gambar Anda" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <!-- Konten di sebelah kanan gambar -->
+                <h4 class="fw-bold">Professional Konseling</h4>
+                <p>Konsultasi yang dilakukan dengan professional di bidangnya masing - masing  meliputi equality gender dan relationship.</p>
+                <!-- Tombol di bawah konten -->
+                <button type="submit" class="btn btn-primary rounded-pill" style="width: 200px">Pilih</button>
+            </div>
+            <div class="col-md-6">
+              <!-- Gambar di sebelah kiri -->
+              <img src="assets/img/dashboard-profile/content2.png" alt="Gambar Anda" class="img-fluid">
+          </div>
+          <div class="col-md-6">
+              <!-- Konten di sebelah kanan gambar -->
+              <h4 class="fw-bold">Peers Konseling</h4>
+              <p>Konsultasi non klinis dengan peers yang sudah bersertifikasi bisa berkonsultasi secara individu maupun secara pasangan.</p>
+              <!-- Tombol di bawah konten -->
+              <button type="submit" class="btn btn-primary rounded-pill" style="width: 200px">Pilih</button>
+          </div>
+        </div>
+    </div>
+    
      <div class="container mt-5">
         <div class="row">
           <div class="col-md-6 order-md-2 text-center ">
