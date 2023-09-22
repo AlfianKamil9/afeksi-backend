@@ -3,7 +3,7 @@
 
 <!-- path style disesuaikan dengan folder css masing-masing page -->
 @section('styles')
-<link rel="stylesheet" href="assets/css/dashboard.css" />
+<link rel="stylesheet" href="/assets/css/dashboard.css" />
 @endsection 
 
 @section('content')

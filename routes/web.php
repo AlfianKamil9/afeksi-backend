@@ -17,6 +17,8 @@ use App\Http\Controllers\Karir\RelationshipHeroes;
 use App\Http\Controllers\Artikel\artikelController;
 use App\Http\Controllers\Dashboard\IndexController;
 use App\Http\Controllers\Event\NotificationWebinar;
+use App\Http\Controllers\Dashboard\MyBookController;
+use App\Http\Controllers\Dashboard\RekapTransaction;
 use App\Http\Controllers\Karir\RelationshipKonselor;
 use App\Http\Controllers\Dashboard\ProfileController;
 use App\Http\Controllers\Mentoring\MentoringController;
@@ -177,9 +179,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::get('/ubah-foto-profile', [ProfileController::class, 'showUbahFoto'])->name('show.changeFoto');
         });
         // E-Book
-        Route::get('/e-book', function () {
-            return view('pages.e-book');
-        })->name('show.e-book');
+        Route::get('/e-book', [MyBookController::class, 'showMyBook'])->name('show.e-book');
+        // Rekap Transaksi
+        Route::get('/recap-transactions',[RekapTransaction::class, 'showRecapTransaction'])->name('show.rekap.transaksi');
     });
 });
 
@@ -201,11 +203,6 @@ Route::fallback(function () {
 });
 
 
-
-
-Route::get('/volunteer', function () {
-    return view('pages.volunteer');
-});
 
 
 

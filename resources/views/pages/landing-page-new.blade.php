@@ -84,28 +84,28 @@
         Anda.
       </p>
       <div class="iconWrapp">
-        <div class="field">
+        <div class="field shadow p-2 rounded">
           <img src="assets/img/landingpage/groups.png" alt="" />
           <span>Social</span>
         </div>
-        <div class="field">
+        <div class="field shadow p-2 rounded">
           <img src="assets/img/landingpage/union.png" alt="" />
           <span>Equality Gender</span>
         </div>
-        <div class="field">
+        <div class="field shadow p-2 rounded">
           <img src="assets/img/landingpage/vector.png" alt="" />
           <span>Relationship</span>
         </div>
-        <div class="field">
+        <div class="field shadow p-2 rounded">
           <img src="assets/img/landingpage/Group 13304.png" alt="" />
           <span>Pre-marriage</span>
         </div>
-        <div class="field">
+        <div class="field shadow p-2 rounded">
           <img src="assets/img/landingpage/family_restroom.png" alt="" />
           <span>Family</span>
         </div>
       </div>
-      <div class="contents col-lg-6 col-md-8">
+      <div class="contents col-lg-12 col-md-8">
         <div class="slide-container swiper">
           <div class="containerr">
             <div class="slide-contents">
@@ -215,7 +215,7 @@
         <div class="slide-container swiper">
           <h2 class="fw-bold" style="color: #2139f9">Apa Kata Mereka Tentang Afeksi</h2>
           <p>Afeksi telah dipercaya para pengguna dari berbagai kalangan.</p>
-          <div class="slide-content">
+          <div class="slide-contents">
             <div class="card-wrapper swiper-wrapper">
               <div class="swiper-slide" id="swipper-slide">
                 <img src="../assets/img/landingpage/Ellipse.svg" alt="" style="width: 50px" />
@@ -337,13 +337,17 @@
 <script>
       const num = '{{ count($sa) }}';
       var swiper = new Swiper(".slide-contents", {
-        slidesPerView: num,
+        slidesPerView: 3,
         spaceBetween: 25,
         loop: true,
         centerSlide: "true",
         fade: "true",
         grabCursor: "true",
-        pagination: {
+        autoplay: {
+            delay: 5000, // Delay antara pergeseran slide dalam milidetik (misalnya, 3000 = 3 detik)
+            disableOnInteraction: false, // Jangan hentikan autoplay setelah interaksi pengguna (default: true)
+        },
+          pagination: {
           el: ".swiper-pagination",
           clickable: true,
           renderBullet: function (index, className) {
@@ -365,14 +369,14 @@
             slidesPerView: 1,
           },
           700: {
-            slidesPerView: 2,
+            slidesPerView: 3,
           },
         },
       });
     </script>
 
 @section('script')
-  <script src="/assets/js/landingpage.js"></script>
+  {{-- <script src="/assets/js/landingpage.js"></script> --}}
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
       $(document).ready(function(){

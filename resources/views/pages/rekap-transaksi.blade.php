@@ -3,7 +3,7 @@
 @section('title', 'Rekap Transaksi')
 
 @section('styles')
-    <link rel="stylesheet" href="assets/css/rekap-transaksi.css">
+    <link rel="stylesheet" href="/assets/css/rekap-transaksi.css">
 @endsection
 
 
@@ -13,18 +13,19 @@
 <section id="rekap-transaksi">
     <div class="bg">
         <div class="container d-flex gap-5">
-            <div class="Rekap Transaksi               <div class="bg-light rounded-circle d-flex justify-content-center align-items-center" style="width: 125px; height: 125px;">
-                    <img src="assets/img/rekap-transaksi/user.svg" width="50px" height="50px"/>
+            <div class="Rekap Transaksi ">              
+                <div class="bg-light rounded-circle d-flex justify-content-center align-items-center" style="width: 125px; height: 125px;">
+                    <img src="/assets/img/rekap-transaksi/user.svg" width="50px" height="50px"/>
                 </div>
                 <div class="mt-3">
                     <h6 class="fw-bold">Bimo Setyo</h6>
                     <p>bimo82374@gmail.com</p>
                 </div>
-                <div class="mb-4 mt-5 p-2"><a href="#" class="text-secondary"><img src="assets/img/rekap-transaksi/dashboard.svg" width="20" height="20" class="me-3">Dashboard</a></div>
-                <div class="mb-4 active p-2"><a href="#" class="text-secondary"><img src="assets/img/rekap-transaksi/user.svg" width="20" height="20" class="me-3">Profile</a></div>
-                <div class="mb-4 p-2"><a href="#" class="text-secondary"><img src="assets/img/rekap-transaksi/voucher.svg" width="20" height="20" class="me-3">Voucher</a></div>
-                <div class="mb-4 p-2"><a href="#" class="text-secondary"><img src="assets/img/rekap-transaksi/e-book.svg" width="20" height="20" class="me-3">My E-Book</a></div>
-                <div class="mb-4 p-2"><a href="#" class="text-secondary"><img src="assets/img/rekap-transaksi/transaction.svg" alt="" width="20" height="20" fill="#828282" class="me-3">Rekap Transaksi</a></div>
+                <div class="mb-4 mt-5 p-2"><a href="#" class="text-secondary"><img src="/assets/img/rekap-transaksi/dashboard.svg" width="20" height="20" class="me-3">Dashboard</a></div>
+                <div class="mb-4 active p-2"><a href="#" class="text-secondary"><img src="/assets/img/rekap-transaksi/user.svg" width="20" height="20" class="me-3">Profile</a></div>
+                <div class="mb-4 p-2"><a href="#" class="text-secondary"><img src="/assets/img/rekap-transaksi/voucher.svg" width="20" height="20" class="me-3">Voucher</a></div>
+                <div class="mb-4 p-2"><a href="#" class="text-secondary"><img src="/assets/img/rekap-transaksi/e-book.svg" width="20" height="20" class="me-3">My E-Book</a></div>
+                <div class="mb-4 p-2"><a href="#" class="text-secondary"><img src="/assets/img/rekap-transaksi/transaction.svg" alt="" width="20" height="20" fill="#828282" class="me-3">Rekap Transaksi</a></div>
             </div>
             <div class="rekap-transaksi p-5 pe-2">
                 <h3 class="title">Rekap Transaksi</h3>
