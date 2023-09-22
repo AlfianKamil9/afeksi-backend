@@ -14,16 +14,32 @@ class PsikologMentoringSeeder extends Seeder
     public function run(): void
     {
         PsikologMentoring::create([
-            'nama' => "Najwa Shihab", 
+            'nama' => "Najwa Shihab S.Psi.", 
             'pendidikan' => "Sarjana ITB", 
             'avatar' => "alex.png", 
             'profile' => "test", 
             'deskripsi' => "test"
         ]);
 
-         PsikologMentoring::create([
-            'nama' => "Maudy Ayunda", 
+        PsikologMentoring::create([
+            'nama' => "Maudy Ayunda S.Psi.", 
             'pendidikan' => "Sarjana ITS", 
+            'avatar' => "alex.png", 
+            'profile' => "test", 
+            'deskripsi' => "test"
+        ]);
+
+        PsikologMentoring::create([
+            'nama' => "Billie Elish S.Psi.", 
+            'pendidikan' => "Sarjana UM", 
+            'avatar' => "alex.png", 
+            'profile' => "test", 
+            'deskripsi' => "test"
+        ]);
+        
+        PsikologMentoring::create([
+            'nama' => "Taylor Swift S.Psi.", 
+            'pendidikan' => "Sarjana UNS", 
             'avatar' => "alex.png", 
             'profile' => "test", 
             'deskripsi' => "test"

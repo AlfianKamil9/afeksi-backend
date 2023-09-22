@@ -75,70 +75,71 @@
       </section>
       <!-- Section Langkah End -->
 
-      <!-- Section Profil Psikolog & Konseler Start -->
-      {{-- <section>
-        <div class="mb-5">
-          <div class="container px-4">
-            <div class="row text-center mb-sm-3">
-              <div class="col-sm">
-                <h2 class="fw-bold" style="color: #2139f9">Profil Psikolog & Konselor</h2>
-                <p>
-                  Semua Psikolog dan Konselor terbaik Afeksi telah berlisensi dan diakui oleh HIMPSI. Mereka siap mendengarkan dan mengatasi setiap
-                  masalah Anda.
-                </p>
-              </div>
-            </div>
-            <div class="row justify-content-center">
-              <div class="col-lg-3 col-md-5 mb-3">
-                <div class="card shadow">
-                  <img
-                    src="../assets/img/landingpage/Frame 2608806.png"
-                    class="card-img-top img-fluid"
-                    alt="psikolog"
-                    style="background-size: cover" />
-                  <div class="card-body">
-                    <h5 class="card-title fw-bold" style="color: #2139f9">Psikolog</h5>
-                    <p class="card-text" style="color: #717171">
-                      Mulailah konsultasi masalahmu dengan psikolog terbaik kami. Dan Temukan Psikolog untuk menyelesaikan masalahmu !!!!
-                    </p>
-                    <a
-                      href="{{ route('psikolog.all') }}"
-                      class="btn btn-selengkapnya w-100"
-                      style="background-color: #233dff; color: #ffffff; font-size: 14px; font-weight: 500"
-                      >Selengkapnya</a
-                    >
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-5 mb-3">
-                <div class="card shadow">
-                  <img
-                    src="../assets/img/landingpage/Frame 2608806 (1).png"
-                    class="card-img-top img-fluid"
-                    alt="psikolog"
-                    style="background-size: cover" />
-                  <div class="card-body">
-                    <h5 class="card-title fw-bold" style="color: #2139f9">Konselor</h5>
-                    <p class="card-text" style="color: #717171">
-                      Mulailah konsultasi masalahmu dengan Konselor terbaik kami. Dan Temukan Konselor untuk menyelesaikan masalahmu !!!!
-                    </p>
-                    <a
-                      href="{{ route('konselor.all') }}"
-                      class="btn btn-selengkapnya w-100"
-                      style="background-color: #233dff; color: #ffffff; font-size: 14px; font-weight: 500"
-                      >Selengkapnya</a
-                    >
-                  </div>
-                </div>
+
+  <!-- slider psikolog-->
+      <div>
+      <h2 class="fw-bold text-center" style="color: #2139f9">Profil Psikolog & Konselor</h2>
+      <p class="text-center">
+        Semua Psikolog dan Konselor terbaik Afeksi telah berlisensi dan diakui oleh HIMPSI. Mereka siap mendengarkan dan mengatasi setiap masalah
+        Anda.
+      </p>
+      <div class="iconWrapp">
+        <div class="field">
+          <img src="assets/img/landingpage/groups.png" alt="" />
+          <span>Social</span>
+        </div>
+        <div class="field">
+          <img src="assets/img/landingpage/union.png" alt="" />
+          <span>Equality Gender</span>
+        </div>
+        <div class="field">
+          <img src="assets/img/landingpage/vector.png" alt="" />
+          <span>Relationship</span>
+        </div>
+        <div class="field">
+          <img src="assets/img/landingpage/Group 13304.png" alt="" />
+          <span>Pre-marriage</span>
+        </div>
+        <div class="field">
+          <img src="assets/img/landingpage/family_restroom.png" alt="" />
+          <span>Family</span>
+        </div>
+      </div>
+      <div class="contents col-lg-6 col-md-8">
+        <div class="slide-container swiper">
+          <div class="containerr">
+            <div class="slide-contents">
+              <div class="card-wrapper swiper-wrapper">
+                @foreach ($sa as $item)
+                    <div class="swiper-slide">
+                      <div class="card">
+                        <img
+                          src="../assets/img/landingpage/profilpsik (1).png"
+                          class="card-img-top img-fluid"
+                          alt="psikolog"
+                          style="background-size: cover" />
+                        <div class="card-body">
+                          <h5 class="card-title fw-bold" style="color: #2139f9">{{ $item->nama }}</h5>
+                          <p class="card-text" style="color: #717171">Konselor Spesialis Hubungan</p>
+                        </div>
+                      </div>
+                    </div>
+                @endforeach
               </div>
             </div>
           </div>
         </div>
-      </section> --}}
+        <div class="swiper-pagination"></div>
       <!-- Section Profil Psikolog & Konseler End -->
+        <div class="s-btn swiper-button-prev"></div>
+        <div class="s-btn swiper-button-next"></div>
+      </div>
+    </div>
+    <br><br>
+  <!-- slide psikolog end -->
 
-      <!-- Section Layanan Konsultasi Start -->
-      <section id = "konsultasi">
+  <!-- Section Layanan Konsultasi Start -->
+    <section id = "konsultasi">
         <div class="mb-5" style="background-color: #d3daff">
           <div class="container py-5 px-4">
             <div class="row text-center mb-sm-3">
@@ -169,7 +170,7 @@
                         <h6 class="card-title fw-bold mb-1">Mentoring</h6>
                         <p class="card-text mb-3" style="font-size: 12px">
                           Terdapat banyak layanan mentoring, yang meliputi Parenting Mentoring, Pre Marriage Mentoring, dan Relationship Mentoring.
-                          Segera pilih layanan mentoring yang kamu minatti !!
+                          Segera pilih layanan mentoring yang kamu minati !!
                         </p>
                         <a href="{{ route('mentoring') }}" class="btn-pilih">Pilih</a>
                       </div>
@@ -187,7 +188,7 @@
                     background-repeat: no-repeat;
                   ">
                   <div class="row g-0">
-                    <div class="col-md-6 my-auto text-center">
+                    <div class="col-md-6  text-center">
                       <img src="../assets/img/landingpage/layanankonsultasi/konsultasi2.png" class="img-fluid rounded-start" alt="konsultasi2" />
                     </div>
                     <div class="col-md-6">
@@ -207,50 +208,50 @@
           </div>
         </div>
       </section>
-      <!-- Section Layanan Konsultasi End -->
+  <!-- Section Layanan Konsultasi End -->
 
-      <!-- Section Caraousel Tentang Afeksi Start -->
-      <div class="contents">
+     <!-- Section Caraousel Tentang Afeksi Start -->
+     <div class="content">
         <div class="slide-container swiper">
           <h2 class="fw-bold" style="color: #2139f9">Apa Kata Mereka Tentang Afeksi</h2>
           <p>Afeksi telah dipercaya para pengguna dari berbagai kalangan.</p>
           <div class="slide-content">
             <div class="card-wrapper swiper-wrapper">
-              <div class="swiper-slide">
+              <div class="swiper-slide" id="swipper-slide">
                 <img src="../assets/img/landingpage/Ellipse.svg" alt="" style="width: 50px" />
-                <h4 class="pt-2">Nama Client</h4>
+                <h4>Nama Client</h4>
                 <p>Mahasiswa</p>
                 <span
                   >Sangat Rekomendasi Psikolog di Afeksi ini, karena masalah saya cepat teratasi dengan konsultasi dengan psikolog dari afeksi</span
                 >
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide" id="swipper-slide">
                 <img src="../assets/img/landingpage/Ellipse.svg" alt="" style="width: 50px" />
-                <h4 class="pt-2">Nama Client</h4>
+                <h4>Nama Client</h4>
                 <p>Mahasiswa</p>
                 <span
                   >Sangat Rekomendasi Psikolog di Afeksi ini, karena masalah saya cepat teratasi dengan konsultasi dengan psikolog dari afeksi</span
                 >
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide" id="swipper-slide">
                 <img src="../assets/img/landingpage/Ellipse.svg" alt="" style="width: 50px" />
-                <h4 class="pt-2">Nama Client</h4>
+                <h4>Nama Client</h4>
                 <p>Mahasiswa</p>
                 <span
                   >Sangat Rekomendasi Psikolog di Afeksi ini, karena masalah saya cepat teratasi dengan konsultasi dengan psikolog dari afeksi</span
                 >
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide" id="swipper-slide">
                 <img src="../assets/img/landingpage/Ellipse.svg" alt="" style="width: 50px" />
-                <h4 class="pt-2">Nama Client</h4>
+                <h4>Nama Client</h4>
                 <p>Mahasiswa</p>
                 <span
                   >Sangat Rekomendasi Psikolog di Afeksi ini, karena masalah saya cepat teratasi dengan konsultasi dengan psikolog dari afeksi</span
                 >
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide" id="swipper-slide">
                 <img src="../assets/img/landingpage/Ellipse.svg" alt="" style="width: 50px" />
-                <h4 class="pt-2">Nama Client</h4>
+                <h4>Nama Client</h4>
                 <p>Mahasiswa</p>
                 <span
                   >Sangat Rekomendasi Psikolog di Afeksi ini, karena masalah saya cepat teratasi dengan konsultasi dengan psikolog dari afeksi</span
@@ -261,9 +262,8 @@
 
           <div class="swiper-pagination"></div>
           <!-- If we need navigation buttons -->
-
-          <div class="s-btn swiper-button-prev"></div>
-          <div class="s-btn swiper-button-next"></div>
+          <div class="s-btn swiper-button-prev" id="swiper-button-prev"></div>
+          <div class="s-btn swiper-button-next" id="swiper-button-next"></div>
         </div>
       </div>
       <!-- Section Caraousel Tentang Afeksi End -->
@@ -331,11 +331,48 @@
       <!-- Section Tanya Admin End -->
     </main>
 
-@include('sweetalert::alert')
+{{-- @include('sweetalert::alert') --}}
 @include('../partials/footer') 
 
+<script>
+      const num = '{{ count($sa) }}';
+      var swiper = new Swiper(".slide-contents", {
+        slidesPerView: num,
+        spaceBetween: 25,
+        loop: true,
+        centerSlide: "true",
+        fade: "true",
+        grabCursor: "true",
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+          renderBullet: function (index, className) {
+            if (index < num) {
+              return '<span class="' + className + '"></span>';
+            }
+            return "";
+          },
+          dynamicBullets: true,
+        },
+
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+
+        breakpoints: {
+          280: {
+            slidesPerView: 1,
+          },
+          700: {
+            slidesPerView: 2,
+          },
+        },
+      });
+    </script>
+
 @section('script')
-  <script src="assets/js/landingpage.js"></script>
+  <script src="/assets/js/landingpage.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
       $(document).ready(function(){
