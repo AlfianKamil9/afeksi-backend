@@ -60,12 +60,25 @@
 /* Tanya Admin End */
 
 /* caurosel */
+
 .contents {
-    padding: 0 100px;
+    margin: auto;
+    position: relative;
 }
+
+#swipper-slide {
+    margin-top: 50px;
+    background: var(--secondary);
+    overflow: visible;
+    border-radius: 20px;
+    padding: 15px;
+    margin-bottom: 100px;
+    border: 1px solid rgb(214, 213, 213);
+  }
 
 .slide-container {
     height: fit-content;
+    width: 80%;
 }
 
 .slide-container h2 {
@@ -78,18 +91,70 @@
     color: rgb(92, 92, 92);
 }
 
-.swiper-slide {
-    margin-top: 50px;
-    background: var(--secondary);
-    overflow: visible;
-    border-radius: 20px;
-    padding: 15px;
-    margin-bottom: 100px;
-    border: 1px solid rgb(214, 213, 213);
+.s-btn {
+    padding: 17px !important;
+    border-radius: 5px !important;
 }
 
-.swiper-slide span {
-    font-size: 14px;
+:root {
+    --swiper-navigation-size: 25px !important;
+    --swiper-theme-color: blue !important;
+}
+
+.swiper-button-next {
+    position: absolute !important;
+    background-color: blue;
+    color: white !important;
+    border: 3px solid blue;
+}
+
+.swiper-button-prev {
+    position: absolute !important;
+    border: 3px solid blue;
+}
+
+.card {
+    min-height: 310px !important;
+}
+
+.iconWrapp {
+    width: fit-content;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin: auto;
+    justify-content: center;
+    padding: 15px 10px 30px 10px;
+    flex-wrap: wrap;
+}
+
+.iconWrapp img {
+    width: 30px;
+}
+
+.field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.iconWrapp span {
+    font-weight: bold;
+}
+
+#swiper-button-next {
+    position: absolute !important;
+    top: 35px !important;
+    background-color: blue;
+    color: white !important;
+    border: 3px solid blue;
+}
+
+#swiper-button-prev {
+    position: absolute !important;
+    top: 35px !important;
+    left: 91.7% !important;
+    border: 3px solid blue;
 }
 
 .slide-container .swiper-pagination-bullet {
@@ -104,32 +169,7 @@
     border-radius: 5px;
 }
 
-.s-btn {
-    padding: 17px;
-    border-radius: 5px;
-}
-
-.swiper-button-next {
-    position: absolute !important;
-    top: 35px !important;
-    background-color: blue;
-    color: white !important;
-    border: 3px solid blue;
-}
-
-.swiper-button-prev {
-    position: absolute !important;
-    top: 35px !important;
-    left: 91.7% !important;
-    border: 3px solid blue;
-}
-
-@media (max-width: 1000px) {
-    .contents {
-        padding: 0 30px;
-        text-align: center;
-    }
-
+@media (max-width: 1040px) {
     .swiper-button-next {
         display: none !important;
     }
@@ -138,3 +178,5 @@
         display: none !important;
     }
 }
+
+/* carausel */
