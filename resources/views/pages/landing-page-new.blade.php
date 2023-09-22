@@ -120,7 +120,7 @@
                           style="background-size: cover" />
                         <div class="card-body">
                           <h5 class="card-title fw-bold" style="color: #2139f9">{{ $item->nama }}</h5>
-                          <p class="card-text" style="color: #717171">Konselor Spesialis Hubungan</p>
+                          <p class="card-text" style="color: #717171">{{ $item->profile }}</p>
                         </div>
                       </div>
                     </div>
