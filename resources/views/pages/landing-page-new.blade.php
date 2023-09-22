@@ -188,7 +188,7 @@
                     background-repeat: no-repeat;
                   ">
                   <div class="row g-0">
-                    <div class="col-md-6  text-center">
+                    <div class="col-md-6 my-auto text-center">
                       <img src="../assets/img/landingpage/layanankonsultasi/konsultasi2.png" class="img-fluid rounded-start" alt="konsultasi2" />
                     </div>
                     <div class="col-md-6">
