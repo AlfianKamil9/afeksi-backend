@@ -113,7 +113,7 @@
 
   
     <!-- Modals -->
-    @auth
+  
     {{-- <div class="modal fade modal-lg" id="form-pendaftaran-webinar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content rounded-4">
@@ -210,16 +210,18 @@
         </div>
         </div>
     </div> --}}
-    <script>
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        $(document).ready(function() {
-            $('#daftar-sekarang').click(function(event) {
-              event.preventDefault()
-              window.open('https://forms.gle/8ztSeF8ddERFm8p9A', '_blank');
-            });
-        });
-    </script>
+    @auth
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script>
+          $(document).ready(function() {
+              $('#daftar-sekarang').click(function(event) {
+                event.preventDefault()
+                window.open('https://forms.gle/8ztSeF8ddERFm8p9A', '_blank');
+              });
+          });
+      </script>
     @else
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
             $('#daftar-sekarang').click(function() {

@@ -40,7 +40,7 @@
     <div class="container mb-5">
       <div class="col d-grid justify-content-center text-center">
         <h4 class="fw-bold" style="color: #233dff">Benefit Menjadi Bagian Dari Konselor Afeksi</h4>
-        <p class="text-muted mb-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+        <p class="text-muted mb-5">Benefit yang akan anda dapatkan mari bergabunglah dengan kami dan mari bersama menciptakan dunia hubungan yang lebih bermakna dan bahagia!.</p>
       </div>
 
       <div class="row g-5 mb-3">

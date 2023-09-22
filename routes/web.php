@@ -107,11 +107,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/mentoring/{ref_transaction_layanan}/checkout', [MentoringTransaksiController::class, 'checkoutLayananNonProfessional']);
     // NOTIFICATION AFTER PEMBAYARAN MENTORING
     Route::get('/{ref_transaction_layanan}/notification-mentoring/success', [NotifikasiMentoring::class, 'index'])->name('notification.mentoring.success');
-
     //END LAYANAN MENTORING
 
 
-
+//--------------------------------------------------------------------------------------
 
 
     // PENDAFTARAN RELATIONSHIP KONSELOR
@@ -130,6 +129,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/pendaftaran-relationship-heroes', [RelationshipHeroes::class, 'index'])->name('volunteer.relationship-heroes'); 
     Route::post('/pendaftaran-relationship-heroes', [RelationshipHeroes::class, 'store'])->name('volunteer.store-relationship-heroes'); 
 
+//--------------------------------------------------------------------------------------
 
     // PENDAFTARAN KEGIATAN
     //PENDAFTARAN WEBINAR
@@ -138,12 +138,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/{ref_transaction_event}/pembayaran-webinar', [WebinarTransaksiController::class, 'pembayaran'])->name('checkout-webinar');
     Route::post('/{ref_transaction_event}/checkout/webinar', [WebinarTransaksiController::class, 'checkoutWebinar']);
     Route::get('/{ref_transaction_event}/notification-webinar/success', [NotificationWebinar::class, 'index'])->name('notification.success.webinar');
-
     // PENDAFTARAN CAMPAIGN
     Route::post('/kegitan-campaign/{slug}', [CampaignController::class, 'store'])->name('daftar-campaign');
-
-    // PILIHAN PSIKOLOG
-    Route::get('/pilihan-psikolog',[Psikolog_KonselorInLandingPageIndexController::class, 'showAllPsikolog'])->name('psikolog.all');
+    // PILIHAN KONSELOR
     Route::get('/pilihan-konselor',[Psikolog_KonselorInLandingPageIndexController::class, 'showAllKonselor'])->name('konselor.all');
 
    

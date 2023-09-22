@@ -95,17 +95,16 @@
                 <?php $i = 1; ?>
             @foreach ($data->webinar_session as $psikolog)
             @if ($data->webinar_session->count() > 1)
-                <h6 class="text-secondary"> <span class="fw-bold text-dark">Materi {{ $i++ }} :</span> {{ $psikolog->title_sesi }}</h6>
+                <h6 class="text-secondary mt-2"> <span class="fw-bold text-dark">Materi {{ $i++ }} :</span> {{ $psikolog->title_sesi }}</h6>
             @endif
             <div class="d-flex">
                 <div class="flex-shrink-0">
                     <img src="{{ asset('assets/img/kegiatan-detail-webinar/people.svg') }}" alt="Foto Profil Pembaca" />
                 </div>
-                <div class="flex-grow-1 ms-3 mb-5">
+                <div class="flex-grow-1 ms-3 mb-5 mt-3">
                     <h6 class="fw-bold">{{ $psikolog->pembicara->nama_psikolog }}</h6>
                     <p class="text-muted mb-0">{{ $psikolog->pembicara->profil }}</p>
                     <p class="text-muted mb-0">{{ $psikolog->pembicara->deskripsi }}</p>
-                    <p class="text-muted mb-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab magni expedita quam voluptate suscipit commodi?</p>
 
                 </div>
             </div>
@@ -116,7 +115,7 @@
         <!-- DETAIL KEGIATAN -->
         <div class="row" id="detail-kegiatan">
             <div class="col-lg-8">
-                <h5 class="fw-bold mb-3">Detail Kegiatan</h5>
+                <h5 class="fw-bold mb-3 mt-3">Detail Kegiatan</h5>
                 <p>Webinar ini akan dilaksanakan pada :</p>
                 <ul class="custom-list list-unstyled m-1 text-muted">
                     <li class="mb-2 gap-3"><img src="{{ asset('assets/img/kegiatan-detail-webinar/kalender.svg') }}" width="21" height="23" alt="Tanggal Kegiatan" /> {{ $data->date_event }}</li>
@@ -132,7 +131,7 @@
         </div>
 
         <!-- CARA MENGIKUTI WEBINAR -->
-        <div class="row mt-5 mb-5" id="cara-mengikuti">
+        <div class="row mt-3 mb-5" id="cara-mengikuti">
             <div class="col-lg-8">
             <h5 class="fw-bold mb-3">Cara Mengikuti Webinar</h5>
             <ol class="list-daftar-webinar">

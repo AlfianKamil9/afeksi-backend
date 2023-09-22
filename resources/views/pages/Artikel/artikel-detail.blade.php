@@ -15,10 +15,12 @@
 
 <div class="contents row" style="padding-top:94px;">
       <div class="content">
-        <img class="mb-2" src="{{ $data->gambar ? $data->gambar : '/assets/img/article/contentImg.png' }}" alt="{{ $data->judul_artikel }}" />
+        <center>
+        <img class="mb-2" style="object-fit: cover; width:70%;" src="{{ $data->gambar ? '/assets/img/article/'.$data->gambar : '/assets/img/article/contentImg.png' }}" alt="{{ $data->judul_artikel }}" />
+        </center>
         <div class="title mb-5">
           <h1 style="color: #233dff;">{{ ucwords($data->judul_artikel) }}</h1>
-          <span class="text-secondary">{{ $data->created_at->format('d M Y') }}</span>
+          <span class="text-secondary">{{ $data->created_at->format('d F Y') }}</span>
         </div>
         <p>
           {!! $data->isi_artikel !!}

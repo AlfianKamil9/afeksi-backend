@@ -35,7 +35,7 @@
           <h2 class="fw-bold">
               <span>Mengapa Seseorang</span> Membutuhkan Konseling?
           </h2>
-          <p class="text-body-tertiary fw-bold">Seseorang membutuhkan layanan mentoring di Afeksi karena mentoring merupakan alat yang sangat efektif dalam membantu individu membangun hubungan yang sehat dan mencapai keseimbangan dalam kehidupan mereka. Berikut adalah beberapa alasan mengapa seseorang membutuhkan layanan mentoring di Afeksi secara komprehensif</p>
+          <p class="text-body-tertiary fw-bold">Seseorang membutuhkan layanan mentoring di Afeksi karena mentoring merupakan alat yang sangat efektif dalam membantu individu membangun hubungan yang sehat dan mencapai keseimbangan dalam kehidupan mereka. Berikut adalah beberapa alasan mengapa seseorang membutuhkan layanan mentoring di Afeksi secara komprehensif:</p>
       </div>
       <div class="col-md-12 mt-4">
           <div class="row g-5">

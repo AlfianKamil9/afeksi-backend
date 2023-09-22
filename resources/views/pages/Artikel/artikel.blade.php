@@ -44,8 +44,8 @@
                 <label class="form-check-label" for="relationshipCheckbox"> Relationship </label>
               </div>
               <div class="form-check">
-                <input name="topik" class="form-check-input" type="checkbox" value="selfLove" id="selfLoveCheckbox" />
-                <label class="form-check-label" for="selfLoveCheckbox"> Self Love </label>
+                <input name="topik" class="form-check-input" type="checkbox" value="PENDIDIKAN" id="selfLoveCheckbox" />
+                <label class="form-check-label" for="selfLoveCheckbox"> Pendidikan </label>
               </div>
               <div class="form-check">
                 <input name="topik" class="form-check-input" type="checkbox" value="KESETARAAN" id="kesetaraanCheckbox" />
@@ -74,13 +74,13 @@
         <div class="d-flex flex-column align-content-center justify-content-center">
           @forelse ($data as $data)
               <div class="article-card row px-3 py-5 rounded-4 gap-3 gap-lg-0 mb-4">
-                <img class="col-lg-5" src="{{ $data->gambar ? $data->gambar : 'assets/img/article/cardImg.png' }}" alt="{{ $data->judul_artikel }}" />
+                <img class="col-lg-5" src="{{ $data->gambar ? 'assets/img/article/'.$data->gambar : 'assets/img/article/cardImg.png' }}" alt="{{ $data->judul_artikel }}" />
                 <div class="article-content d-flex flex-column col-lg-7">
                   <h3 class="fw-bold m-0" style="color: #233dff">{{ $data->judul_artikel }}</h3>
                   <p class="m-0">
-                    {{ Str::substr($data->isi_artikel, 0, 150). "..." }}
+                    {!! Str::substr($data->isi_artikel, 0, 150). "..." !!}
                   </p>
-                  <span class="text-secondary">{{ $data->created_at->format('d M Y') }}</span>
+                  <span class="text-secondary">{{ $data->created_at->format('d F Y') }}</span>
                   <div class="px-3 align-self-end">
                   <a href="{{ route('artikel.detail', $data->slug) }}"><div class="btn card-btn">Selengkapnya</div></a>
                   </div>

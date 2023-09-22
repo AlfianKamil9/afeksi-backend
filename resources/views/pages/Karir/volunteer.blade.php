@@ -223,7 +223,7 @@
           <div class="card-body">
             <h5 class="card-title fw-bold" style="color: #2139f9">Relationship Heroes</h5>
             <p class="card-text" style="color: #717171">
-              Mewadahi Niat Baik Semua Orang yang Ingin Terlibat Langsung di Lapangan sebagai Peer Konselor. Siapapun Bisa Bergabung!
+              Tunggu apa lagi? Mari bergabung sebagai Relationship Heroes dan berkontribusi bersama kami. Klik tombol di bawah ini untuk mengisi formulir pendaftaran.
             </p>
             <a href="{{ route('volunteer.relationship-heroes') }}" class="btn btn-selengkapnya w-100" style="background-color: #233dff; color: #ffffff; font-size: 14px; font-weight: 500"
               >Selengkapnya</a
@@ -241,7 +241,7 @@
           <div class="card-body">
             <h5 class="card-title fw-bold" style="color: #2139f9">Brand Ambassador</h5>
             <p class="card-text" style="color: #717171">
-              Mewadahi Niat Baik Semua Orang yang Ingin Terlibat Langsung di Lapangan sebagai Relationship konselor. Siapapun Bisa Bergabung!
+              Tunggu apa lagi? Mari bergabung sebagai Brand Ambassador dan berkontribusi bersama kami. Klik tombol di bawah ini untuk mengisi formulir pendaftaran.
             </p>
             <a href="{{ route('volunteer.brand-ambassador') }}" class="btn btn-selengkapnya w-100" style="background-color: #233dff; color: #ffffff; font-size: 14px; font-weight: 500"
               >Selengkapnya</a
