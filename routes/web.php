@@ -176,3 +176,6 @@ Route::get('/parenting-mentoring', function () {
 Route::get('/relationship-konseling', function () {
     return view('pages.relationship-konseling');
 });
+Route::get('/rekap-transaksi', function () {
+    return view('pages.rekap-transaksi');
+});
