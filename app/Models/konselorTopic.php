@@ -11,4 +11,9 @@ class konselorTopic extends Model
     protected $fileable =[
         'konselor_id', 'jenis_topic'
     ];
+
+
+    public function konselor() {
+        return $this->belongsTo(Konselor::class, 'konselor_id', 'id');
+    }
 }

@@ -9,9 +9,8 @@ use App\Http\Controllers\Controller;
 class RekapTransaction extends Controller
 {
     public function showRecapTransaction () {
-        $dataProfesionalKonseling = PembayaranLayanan::with('detail_pembayarans', 'psikolog', 'paket_profesional_conselings', 'paket_non_professionals' )
-        ->where('user_id', auth()->user()->id)
-        ->where('status', 'PAID')
+        $dataProfesionalKonseling = PembayaranLayanan::with('detail_pembayarans','konselor','psikolog', 'paket_profesional_conselings.professional_conseling', 'paket_non_professionals.layanan_non_professionals' )
+        ->where('user_id', auth()->user()->id)->where('status', '!=', 'UNPAID')->orderBy('id', 'DESC')
         ->get();
         //return response()->json($dataProfesionalKonseling);
         return view('pages.rekap-transaksi', compact('dataProfesionalKonseling'));

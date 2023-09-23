@@ -131,8 +131,8 @@
         </div>
         <div class="swiper-pagination"></div>
       <!-- Section Profil Psikolog & Konseler End -->
-        <div class="s-btn swiper-button-prev"></div>
-        <div class="s-btn swiper-button-next"></div>
+        <div class="s-btn swiper-button-prev ms-5"></div>
+        <div class="s-btn swiper-button-next me-5"></div>
       </div>
     </div>
     <br><br>
@@ -184,8 +184,9 @@
                   style="
                     background-image: url(../assets/img/landingpage/Frame\ 2608924.svg);
                     background-size: cover;
-                    background-position: center;
+                    background-position:center;
                     background-repeat: no-repeat;
+                    object-fit:cover;
                   ">
                   <div class="row g-0">
                     <div class="col-md-6 my-auto text-center">

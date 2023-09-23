@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Psikolog;
+use App\Models\PsikologMentoring;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -34,8 +35,8 @@ class LayananNonProfessional extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function psikolog_non_profesional(): BelongsToMany
+    public function psikolog_mentoring(): BelongsToMany
     {
-        return $this->belongsToMany(Psikolog::class, 'psikolognonprofesional', 'layanan_nonProfesional_id', 'psikolog_id');
+        return $this->belongsToMany(PsikologMentoring::class, 'psikolog_mentoring_pivot', 'mentoring_id', 'psikolog_id');
     }
 }

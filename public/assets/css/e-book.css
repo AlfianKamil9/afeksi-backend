@@ -15,7 +15,7 @@ body {
     color: white;
     position: relative;
     overflow: hidden;
-    padding-top: 3%;
+    padding-top: 10%;
 }
 span {
     color: #fbdd41;
@@ -28,7 +28,7 @@ span {
         color: white;
         position: relative;
         overflow: hidden;
-        padding-top: 3%;
+        padding-top: 10%;
     }
 }
 .active {

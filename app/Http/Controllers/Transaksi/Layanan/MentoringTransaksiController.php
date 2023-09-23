@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Models\DetailPembayaran;
 use App\Models\PembayaranLayanan;
 use App\Models\PsikologMentoring;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
@@ -46,7 +47,7 @@ class MentoringTransaksiController extends Controller
             "detail_masalah" => "required",
         ]);
 
-        $id = PembayaranLayanan::where("ref_transaction_layanan", $ref_transaction_layanan)->pluck('id')->first();
+        $layanan = PembayaranLayanan::with('paket_non_professionals.layanan_non_professionals')->where("ref_transaction_layanan", $ref_transaction_layanan)->first();
         date_default_timezone_set('Asia/Jakarta');
         $tglSekarang = date_create()->format("d");
         $blnSekarang = date_create()->format("m");
@@ -74,13 +75,24 @@ class MentoringTransaksiController extends Controller
 
         ]);
         DetailPembayaran::create([
-            'pembayaran_layanan_id' => $id,
+            'pembayaran_layanan_id' => $layanan->id,
             'tgl_konsultasi' => $request->tgl_konsultasi,
             'jam_konsultasi' => $request->jam_konsultasi,
             'detail_masalah' => $request->detail_masalah,
         ]);
-        $randomPsikolog = PsikologMentoring::inRandomOrder()->value('id');
+        $idMentoring = $layanan->paket_non_professionals->layanan_non_professionals->id;
+        if($idMentoring == 1) {
+            $jenis = 'Psikolog Spesialis Parenting Mentoring';
+        } else if($idMentoring == 2) {
+            $jenis = 'Psikolog Spesialis Pre-Marriage Mentoring';
+        } else {
+            $jenis = 'Psikolog Spesialis Relationship Mentoring';
+        }
+
+        $randomPsikolog = PsikologMentoring::where('profile', $jenis)->inRandomOrder()->value('id');
+        //return response()->json($randomPsikolog);
         PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->update([
+            'status' => 'UNPAID(BUTUH BAYAR)',
             'psikolog_id' => $randomPsikolog
         ]);
         return redirect('/mentoring/' . $ref_transaction_layanan . '/pembayaran');

@@ -74,7 +74,7 @@
     padding: 15px;
     margin-bottom: 100px;
     border: 1px solid rgb(214, 213, 213);
-  }
+}
 
 .slide-container {
     height: fit-content;
@@ -114,7 +114,7 @@
 }
 
 .card {
-    min-height: 310px !important;
+    min-height: 250px !important;
 }
 
 .iconWrapp {

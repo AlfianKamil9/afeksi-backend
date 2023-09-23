@@ -20,7 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('conseling_id')->nullable();
             $table->unsignedBigInteger('voucher_id')->nullable();
             $table->string('payment_method')->nullable();
-            $table->enum('status', ['UNPAID', 'PAID', 'PENDING', 'EXPIRED']);
+            $table->enum('status', ['UNPAID', 'UNPAID(BUTUH BAYAR)', 'PAID', 'PENDING', 'EXPIRED']);
             $table->unsignedBigInteger('psikolog_id')->nullable();
             $table->unsignedBigInteger('konselor_id')->nullable();
             $table->string('sub_total')->nullable();

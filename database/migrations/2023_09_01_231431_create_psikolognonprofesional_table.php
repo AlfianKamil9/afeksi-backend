@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('psikolognonprofesional', function (Blueprint $table) {
+        Schema::create('psikolog_mentoring_pivot', function (Blueprint $table) {
             //$table->id();
-            $table->unsignedBigInteger('layanan_nonProfesional_id');
-            $table->foreign('layanan_nonProfesional_id')->references('id')->on('layanan_non_professionals')->onDelete('restrict');
+            $table->unsignedBigInteger('mentoring_id');
+            $table->foreign('mentoring_id')->references('id')->on('layanan_non_professionals')->onDelete('restrict');
             $table->unsignedBigInteger('psikolog_id');
-            $table->foreign('psikolog_id')->references('id')->on('psikologs')->onDelete('restrict');
+            $table->foreign('psikolog_id')->references('id')->on('psikolog_mentorings')->onDelete('restrict');
             //$table->timestamps();
         });
     }

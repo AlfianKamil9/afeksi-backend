@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\LayananNonProfessional;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class PsikologMentoring extends Model
 {
@@ -12,4 +14,9 @@ class PsikologMentoring extends Model
         'nama', 'pendidikan', 'avatar', 'profile', 'deskripsi'
     ];
     protected $guarded = ['id'];
+
+    public function mentoring(): BelongsToMany
+    {
+        return $this->belongsToMany(LayananNonProfessional::class, 'psikolog_mentoring_pivot', 'mentoring_id', 'psikolog_id');
+    }
 }

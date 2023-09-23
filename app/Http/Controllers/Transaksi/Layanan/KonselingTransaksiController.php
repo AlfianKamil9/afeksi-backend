@@ -74,6 +74,9 @@ class KonselingTransaksiController extends Controller
             'jam_konsultasi' => $request->jam_konsultasi,
             'detail_masalah' => $request->detail_masalah,
         ]);
+        PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->update([
+            'status' => 'UNPAID(BUTUH BAYAR)',
+        ]);
         return redirect('/slug-konseling-yg-dipilih/' . $ref_transaction_layanan . '/pembayaran');
     }
 

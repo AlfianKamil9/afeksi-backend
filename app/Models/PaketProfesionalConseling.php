@@ -19,9 +19,9 @@ class PaketProfesionalConseling extends Model
         'harga',
     ];
 
-    public function professional_conseling_id()
+    public function professional_conseling()
     {
-        return $this->belongsTo(profresional_conseling::class, 'profesional_conseling_id', 'id_profConseling');
+        return $this->belongsTo(profresional_conseling::class, 'professional_conseling_id', 'id');
     }
 
     public function pembayaran_layanans()

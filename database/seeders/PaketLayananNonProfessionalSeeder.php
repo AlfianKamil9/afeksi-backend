@@ -16,43 +16,48 @@ class PaketLayananNonProfessionalSeeder extends Seeder
         $paket = [
             [
                 'layanan_nonProfessionals_id' => 1,
-                'nama_paket' => 'Paket A',
+                'nama_paket' => 'Paket Dasar',
                 'harga' => '100000'
             ],
             [
                 'layanan_nonProfessionals_id' => 1,
-                'nama_paket' => 'Paket B',
-                'harga' => '200000'
+                'nama_paket' => 'Paket Premium',
+                'harga' => '150000'
             ],
             [
                 'layanan_nonProfessionals_id' => 1,
-                'nama_paket' => 'Paket C',
-                'harga' => '300000'
+                'nama_paket' => 'Paket Platinum',
+                'harga' => '200000'
             ],
             [
                 'layanan_nonProfessionals_id' => 2,
-                'nama_paket' => 'Paket A',
+                'nama_paket' => 'Paket Dasar',
                 'harga' => '100000'
             ],
             [
                 'layanan_nonProfessionals_id' => 2,
-                'nama_paket' => 'Paket B',
+                'nama_paket' => 'Paket Premium',
+                'harga' => '150000'
+            ],
+            [
+                'layanan_nonProfessionals_id' => 2,
+                'nama_paket' => 'Paket Platinum',
                 'harga' => '200000'
             ],
             [
                 'layanan_nonProfessionals_id' => 3,
-                'nama_paket' => 'Paket A',
-                'harga' => '300000'
+                'nama_paket' => 'Paket Dasar',
+                'harga' => '100000'
             ],
             [
                 'layanan_nonProfessionals_id' => 3,
-                'nama_paket' => 'Paket B',
+                'nama_paket' => 'Paket Premium',
+                'harga' => '150000'
+            ],
+            [
+                'layanan_nonProfessionals_id' => 3,
+                'nama_paket' => 'Paket Platinum',
                 'harga' => '200000'
-            ],
-            [
-                'layanan_nonProfessionals_id' => 3,
-                'nama_paket' => 'Paket C',
-                'harga' => '400000'
             ],
         ];
         foreach ($paket as $data) {

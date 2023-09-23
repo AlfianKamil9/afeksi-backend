@@ -24,6 +24,7 @@ use App\Http\Controllers\Dashboard\ProfileController;
 use App\Http\Controllers\Mentoring\MentoringController;
 use App\Http\Controllers\Transaksi\NotifikasiKonseling;
 use App\Http\Controllers\Transaksi\NotifikasiMentoring;
+use App\Http\Controllers\Konseling\ProfessionalController;
 use App\Http\Controllers\API\NotificationPaymentEventController;
 use App\Http\Controllers\Transaksi\Event\WebinarTransaksiController;
 use App\Http\Controllers\Transaksi\Layanan\KonselingTransaksiController;
@@ -148,7 +149,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // PENDAFTARAN CAMPAIGN
     Route::post('/kegitan-campaign/{slug}', [CampaignController::class, 'store'])->name('daftar-campaign');
     // PILIHAN KONSELOR
-    Route::get('/pilihan-konselor',[Psikolog_KonselorInLandingPageIndexController::class, 'showAllKonselor'])->name('konselor.all');
+    Route::get('/pilihan-konselor',[ProfessionalController::class, 'showAllKonselor'])->name('konselor.all');
 
    
     // KONSELING
@@ -159,7 +160,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/slug-konseling-yg-dipilih/{ref_transaction_layanan}/data-diri', [KonselingTransaksiController::class, 'showFormDataDiri']);
     Route::post('/slug-konseling-yg-dipilih/{ref_transaction_layanan}/submit-form-konseling', [KonselingTransaksiController::class, 'submitDataDiri']);
     //CHECKOUT
-    Route::get('/slug-konseling-yg-dipilih/{ref_transaction_layanan}/pembayaran', [KonselingTransaksiController::class, 'showPembayaran']);
+    Route::get('/slug-konseling-yg-dipilih/{ref_transaction_layanan}/pembayaran', [KonselingTransaksiController::class, 'showPembayaran'])->name('professional.konseling.checkout');
     Route::post('/slug-konseling-yg-dipilih/{ref_transaction_layanan}/checkout', [KonselingTransaksiController::class, 'checkoutProfessionalKonseling']);
     // NOTIFICATION AFTER PEMBAYARAN PROFESIONAL KONSELING---
     Route::get('/{ref_transaction_layanan}/notification-konseling/success', [NotifikasiKonseling::class, 'index'])->name('notification.konseling.success');
@@ -201,8 +202,6 @@ require __DIR__ . '/auth.php';
 Route::fallback(function () {
     return view('errors.404'); // Menampilkan halaman 404
 });
-
-
 
 
 

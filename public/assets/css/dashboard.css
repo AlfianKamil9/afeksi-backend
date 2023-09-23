@@ -15,7 +15,7 @@ body {
     color: white;
     position: relative;
     overflow: hidden;
-    padding-top: 3%;
+    padding-top: 10%;
 }
 /* FOR DESKTOP ========================================================================================== */
 @media only screen and (min-width: 991px) {
@@ -25,7 +25,7 @@ body {
         color: white;
         position: relative;
         overflow: hidden;
-        padding-top: 3%;
+        padding-top: 10%;
     }
     span {
         color: #fbdd41;

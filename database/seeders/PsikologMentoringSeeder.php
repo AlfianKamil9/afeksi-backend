@@ -17,7 +17,7 @@ class PsikologMentoringSeeder extends Seeder
             'nama' => "Najwa Shihab S.Psi.", 
             'pendidikan' => "Sarjana ITB", 
             'avatar' => "alex.png", 
-            'profile' => "test", 
+            'profile' => "Psikolog Spesialis Parenting Mentoring", 
             'deskripsi' => "test"
         ]);
 
@@ -25,7 +25,7 @@ class PsikologMentoringSeeder extends Seeder
             'nama' => "Maudy Ayunda S.Psi.", 
             'pendidikan' => "Sarjana ITS", 
             'avatar' => "alex.png", 
-            'profile' => "test", 
+            'profile' => "Psikolog Spesialis Pre-Marriage Mentoring", 
             'deskripsi' => "test"
         ]);
 
@@ -33,7 +33,7 @@ class PsikologMentoringSeeder extends Seeder
             'nama' => "Billie Elish S.Psi.", 
             'pendidikan' => "Sarjana UM", 
             'avatar' => "alex.png", 
-            'profile' => "test", 
+            'profile' => "Psikolog Spesialis Relationship Mentoring", 
             'deskripsi' => "test"
         ]);
         
@@ -41,7 +41,23 @@ class PsikologMentoringSeeder extends Seeder
             'nama' => "Taylor Swift S.Psi.", 
             'pendidikan' => "Sarjana UNS", 
             'avatar' => "alex.png", 
-            'profile' => "test", 
+            'profile' => "Psikolog Spesialis Pre-Marriage Mentoring", 
+            'deskripsi' => "test"
+        ]);
+
+        PsikologMentoring::create([
+            'nama' => "Bunga Citra Ayunda S.Psi.", 
+            'pendidikan' => "Sarjana UI", 
+            'avatar' => "alex.png", 
+            'profile' => "Psikolog Spesialis Relationship Mentoring", 
+            'deskripsi' => "test"
+        ]);
+
+        PsikologMentoring::create([
+            'nama' => "Gayatri S.Psi.", 
+            'pendidikan' => "Sarjana ITS", 
+            'avatar' => "alex.png", 
+            'profile' => "Psikolog Spesialis Parenting Mentoring", 
             'deskripsi' => "test"
         ]);
     }

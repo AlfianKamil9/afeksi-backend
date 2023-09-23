@@ -4,18 +4,54 @@
 <!-- path style disesuaikan dengan folder css masing-masing page -->
 @section('styles')
 <link rel="stylesheet" href="/assets/css/psikolog-konselor.css" />
+ <link rel="stylesheet" href="/assets/css/stepper.css">
 @endsection 
 
 @section('content')
-<div style="height:10px;"></div> <!-- for space-->
+
+<!-- Step -->
+    <div class="container" style="padding-top:calc(70px + 60px);">
+        <div class="position-relative">
+            <div class="stepper-wrapper">
+                <div class="stepper-item active">
+                    <div class="step-counter">
+                        <span class="step-checkmark">1</span>
+                    </div>
+                    <div class="step-name">Pilih Psikolog</div>
+                </div>
+                <div class="stepper-item">
+                    <div class="step-counter">
+                        <span class="step-checkmark">2</span>
+                    </div>
+                    <div class="step-name">Pilih Paket</div>
+                </div>
+                <div class="stepper-item">
+                    <div class="step-counter">
+                        <span class="step-checkmark">3</span>
+                    </div>
+                    <div class="step-name">Data Diri</div>
+                </div>
+                <div class="stepper-item">
+                    <!--add class active to enable active step progess-->
+                    <div class="step-counter">
+                        <span class="step-checkmark">4</span>
+                    </div>
+                    <div class="step-name">Pembayaran</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Step -->
+
 <div class="contents row">
       <h1 style="color: #233dff">Konselor</h1>
       <div class="side col-lg-3 col-md-4 mb-5">
+        <form method="get" action="{{ route('konselor.all') }}">
         <div class="form-group">
           <p class="side-heading fw-semibold">Filter</p>
           <div class="password-container">
-            <input type="text" class="form-control" placeholder="Search" />
-            <img class="password-icon" src="assets/img/kegiatan/material-symbols_search.png" alt="" />
+            <input type="text" class="form-control" name="input_search" placeholder="Search" />
+            <img class="password-icon" src="/assets/img/kegiatan/material-symbols_search.png" alt="" />
           </div>
         </div>
 
@@ -23,9 +59,9 @@
 
         <div class="form-group">
           <p class="side-heading fw-semibold">Urutkan</p>
-          <select class="form-select" aria-label="Default select example">
-            <option selected>Terbaru</option>
-            <option value="2">Terlama</option>
+          <select class="form-select" name="sort_date" aria-label="Default select example">
+            <option value="latest" selected>Terbaru</option>
+            <option value="oldest">Terlama</option>
           </select>
         </div>
 
@@ -34,38 +70,41 @@
         <div class="form-group">
           <p class="side-heading fw-semibold">Topik</p>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="relationship" id="relationshipCheckbox" />
+            <input class="form-check-input" name="topic" type="radio" @if ( request('topic') == "Relationship") checked @endif  value="Relationship" id="relationshipCheckbox" />
             <label class="form-check-label" for="relationshipCheckbox"> Relationship </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="selfLove" id="selfLoveCheckbox" />
+            <input class="form-check-input" name="topic" type="radio" @if ( request('topic') == "Pendidikan") checked @endif  value="Pendidikan" id="selfLoveCheckbox" />
             <label class="form-check-label" for="selfLoveCheckbox"> Pendidikan </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="selfLove" id="selfLoveCheckbox" />
+            <input class="form-check-input" name="topic" type="radio" @if ( request('topic') == "Kesetaraan") checked @endif  value="Kesetaraan" id="selfLoveCheckbox" />
             <label class="form-check-label" for="selfLoveCheckbox"> Kesetaraan </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="selfLove" id="selfLoveCheckbox" />
+            <input class="form-check-input" name="topic" type="radio" @if ( request('topic') == "Kesehatan") checked @endif value="Kesehatan" id="selfLoveCheckbox" />
             <label class="form-check-label" for="selfLoveCheckbox"> Kesehatan </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="selfLove" id="selfLoveCheckbox" />
+            <input class="form-check-input" name="topic" type="radio"@if ( request('topic') == "Family Issue") checked @endif  value="Family Issue" id="selfLoveCheckbox" />
             <label class="form-check-label" for="selfLoveCheckbox"> Family Issue </label>
           </div>
         </div>
+        
 
         <hr class="mt-4" />
 
         <div class="d-flex flex-column mt-4">
-          <div class="btn side-btn">Terapkan Filter</div>
-          <div class="btn side-btn btn-outline">Hapus Filter</div>
+          <button type="submit" class="btn side-btn">Terapkan Filter</button>
+          <a href="{{ route('konselor.all') }}" class="btn side-btn btn-outline">Hapus Filter</a>
         </div>
+        </form>
       </div>
+    
 
       <div class="content col-lg-9 col-md-8">
         <div class="row d-flex ps-3">
-          @foreach ($data as $item)
+          @forelse ($data as $item)
               <div class="col-lg-6 p-2">
                 <div class="card border-0">
                   <div class="card-top d-flex align-items-center justify-content-between">
@@ -84,10 +123,14 @@
                     <span>{{ $item->pendidikan }}</span>
                   </div>
                   <img src="assets/img/psikolog-konselor/Rectangle 816.png" alt="" class="main-img">
-                  <div class="btn side-btn">Jadwalkan Sesi Sekarang</div>
+                  <a class="btn side-btn">Jadwalkan Sesi Sekarang</a>
                 </div>
               </div>
-          @endforeach
+          @empty
+              <center>
+                  <h5>Tidak Ditemukan</h5>
+              </center>
+          @endforelse
         </div>
       </div>
     </div>

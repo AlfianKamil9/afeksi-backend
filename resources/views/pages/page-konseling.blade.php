@@ -83,14 +83,14 @@
       </div>
       <div class="container mt-2 mb-5">
         <!-- Professional Konseling -->
-        <div class="row p-3 mb-3" style="background-image: url('../assets/img/konseling/bg-macam-konseling.png'); width: 70%;
-            height: 300px;
+        <div class="row p-3 mb-3" style="background-image: url('../assets/img/konseling/bg-macam-konseling.png'); max-width: 70%;
+            max-height: 20%;
             border-radius: 9px; background-size: cover;
             background-repeat: no-repeat;
             margin: auto">
-            <div class="col-md-6 mb-5 justify-content-center p-3">
+            <div class="col-md-6 justify-content-center p-3">
                 <!-- Gambar di sebelah kiri -->
-                <img src="/assets/img/konseling/junior-psikolog-img.png" alt="Gambar Anda" class="img-fluid">
+                <img src="/assets/img/konseling/junior-psikolog-img.png" alt="Gambar Anda" style="max-height: 100%" class="img-fluid">
             </div>
             <div class="col-md-6 justify-content-center p-3">
                 <!-- Konten di sebelah kanan gambar -->
@@ -103,13 +103,13 @@
         <!-- End Professional Konseling -->
         <!-- Peers Konseling -->
         <div class="row p-3 mb-3" style="background-image: url('../assets/img/konseling/bg-macam-konseling.png'); width: 70%;
-            height: 300px;
+            max-height: 20%;
             border-radius: 9px; background-size: cover;
             background-repeat: no-repeat;
             margin: auto">
             <div class="col-md-6 justify-content-center p-3">
               <!-- Gambar di sebelah kiri -->
-              <img src="/assets/img/konseling/junior-psikolog-img.png" alt="Gambar Anda" class="img-fluid">
+              <img src="/assets/img/konseling/junior-psikolog-img.png" alt="Gambar Anda" style="max-height: 100%" class="img-fluid">
           </div>
           <div class="col-md-6 justify-content-center p-3">
               <!-- Konten di sebelah kanan gambar -->
