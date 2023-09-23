@@ -7,7 +7,6 @@
 @endsection
 
 
-
 @section('content')
 <!-- HEADER -->
 <div class="mb-5 bg-transparent text-white overflow-hidden">
@@ -46,7 +45,7 @@
               <div class="col-md-12 col-lg-4 justify-content-center d-flex flex-column ms-0 ms-md-5">
                 <div class="d-flex flex-row">
                     <div class="d-flex align-items-center mb-3">
-                        <img src="assets/img/mentoring/point.png" alt="" class="me-3 ">
+                        <img src="/assets/img/mentoring/point.png" alt="" class="me-3 ">
                         <div class="d-flex flex-column">
                           <h6 class=" fw-bold ">Memberikan Inspirasi</h6>
                           <p class="text-body-tertiary fw-bold">Mampu memberikan anda inspirasi dan membuat anda tetap fokus.</p>
@@ -56,7 +55,7 @@
                 
                 <div class="d-flex flex-row">
                     <div class="d-flex align-items-center mb-3">
-                        <img src="assets/img/mentoring/point.png" alt="" class="me-3 ">
+                        <img src="/assets/img/mentoring/point.png" alt="" class="me-3 ">
                         <div class="d-flex flex-column">
                           <h6 class=" fw-bold ">Jalur Karir yang Tepat</h6>
                           <p class="text-body-tertiary fw-bold">Dapat membantu anda menciptakan jalur karir yang sesuai dengan bakat dan minat individual.</p>
@@ -66,7 +65,7 @@
 
                 <div class="d-flex flex-row">
                     <div class="d-flex align-items-center">
-                        <img src="assets/img/mentoring/point.png" alt="" class="me-3 ">
+                        <img src="/assets/img/mentoring/point.png" alt="" class="me-3 ">
                         <div class="d-flex flex-column">
                           <h6 class="fw-bold ">Cara Untuk Bertumbuh</h6>
                           <p class="text-body-tertiary fw-bold">Dapat membantu anda menemukan cara untuk tumbuh secara profesional.</p>
@@ -78,28 +77,56 @@
       </div>
       <div class="mt-5">
         <h2 class="fw-bold text-center mt-5">
-          <span>Macam - Macam Konseling</span>
+          <span>Macam - Macam Mentoring</span>
         </h2>
         <p class="text-body-tertiary fw-bold text-center mt-2 mb-5">Macam-macam mentoring mencakup Parenting Mentoring, Pre Marriage mentoring, dan Relatinship Mentoring.</p>
       </div>
-      <div class="row mb-3 d-flex flex-row justify-content-center align-items-center">
-        <div class="col-md-4 border me-3 p-3 rounded shadow-sm" id="professional-konseling" style="cursor:pointer;">
-          <img src="assets/img/mentoring/mdi_mother-nurse.png" width="10%" alt="Logo" class="img-fluid mb-3">
-          <h5 class="fw-bold">Profesional Konseling</h5>
-          <p class=" fs-6">Konsultasi yang dilakukan dengan professional di bidangnya masing - masing</p>
+      <div class="container mt-2 mb-5">
+        <!-- Professional Konseling -->
+        <div class="row p-3 mb-3" style="background-image: url('../assets/img/konseling/bg-macam-konseling.png'); width: 70%;
+            height: 300px;
+            border-radius: 9px; background-size: cover;
+            background-repeat: no-repeat;
+            margin: auto">
+            <div class="col-md-6 mb-5 justify-content-center p-3">
+                <!-- Gambar di sebelah kiri -->
+                <img src="/assets/img/konseling/junior-psikolog-img.png" alt="Gambar Anda" class="img-fluid">
+            </div>
+            <div class="col-md-6 justify-content-center p-3">
+                <!-- Konten di sebelah kanan gambar -->
+                <h4 class="fw-bold mt-4">Professional Konseling</h4>
+                <p>Konsultasi yang dilakukan dengan professional di bidangnya masing - masing  meliputi equality gender dan relationship.</p>
+                <!-- Tombol di bawah konten -->
+                <button type="submit" class="btn btn-primary rounded-pill" style="width: 200px">Pilih</button>
+            </div>
         </div>
-
-      <div class="col-md-4 border p-3 rounded shadow-sm" id="peers-konseling" style="cursor:pointer;">
-        <img src="assets/img/mentoring/love.png" width="10%" alt="Logo" class="img-fluid mb-3">
-        <h5 class="fw-bold">Peers Konseling</h5>
-        <p class=" fs-6">Konsultasi non klinis dengan peers yang sudah bersertifikasi</p>
-      </div>    
-     </div>
+        <!-- End Professional Konseling -->
+        <!-- Peers Konseling -->
+        <div class="row p-3 mb-3" style="background-image: url('../assets/img/konseling/bg-macam-konseling.png'); width: 70%;
+            height: 300px;
+            border-radius: 9px; background-size: cover;
+            background-repeat: no-repeat;
+            margin: auto">
+            <div class="col-md-6 justify-content-center p-3">
+              <!-- Gambar di sebelah kiri -->
+              <img src="/assets/img/konseling/junior-psikolog-img.png" alt="Gambar Anda" class="img-fluid">
+          </div>
+          <div class="col-md-6 justify-content-center p-3">
+              <!-- Konten di sebelah kanan gambar -->
+              <h4 class="fw-bold mt-4">Peers Konseling</h4>
+              <p>Konsultasi non klinis dengan peers yang sudah bersertifikasi bisa berkonsultasi secara individu maupun secara pasangan.</p>
+              <!-- Tombol di bawah konten -->
+              <button type="submit" class="btn btn-primary rounded-pill" style="width: 200px">Pilih</button>
+          </div>
+        </div>
+        <!-- End Peers Konseling -->
+    </div>
+    
 
      <div class="container mt-5">
         <div class="row">
           <div class="col-md-6 order-md-2 text-center ">
-            <img src="assets/img/konseling/content.png" class="img-fluid w-50 " alt="Image">
+            <img src="/assets/img/konseling/content.png" class="img-fluid w-50 " alt="Image">
           </div>
           <div class="col-md-6 order-md-1">
             <h2 class="fw-bold">Yuk booking konsultasi kamu dengan <span>Mudah</span></h2>

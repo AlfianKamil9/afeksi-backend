@@ -15,6 +15,7 @@ class PaketProfesionalConseling extends Model
         'durasi',
         'jumlah_sesi',
         'deskripsi_paket',
+        'deskripsi_singkat',
         'harga',
     ];
 

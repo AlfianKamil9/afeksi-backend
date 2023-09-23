@@ -8,34 +8,100 @@
 
 
 @section('content')
-<div class="row justify-content-end">    
-<div class="col-12 position-relative">
-    <!-- HERO
-      ================================================================= -->
+    <!-- HERO  ================================================================= -->
     <section>
-        <div class="hero d-flex">
-            <div class="container py-5 my-5 ">
-                <div class="row justify-content-end">
-                    <div class="col-md-9 d-flex flex-column">
-                        <h4 class="fw-semibold mt-5"><span>Welcome</span>, {{ Auth::user()->nama }}</h4>
-                        <p class="fs-5 fw-light mt-3">Untuk memudahkan proses konsultasi kamu, harap masukkan informasi yang valid.</p>
-                    </div>
-                </div>
+      <div class="hero d-flex pt-5">
+        <div class="container-fluid py-4">
+          <div class="row justify-content-end">
+            <div class="col-lg-8">
+              <h4 class="fw-semibold mt-5">
+                <span>Welcome</span>, {{ Auth::user()->nama }}
+              </h4>
+              <p class="fw-light mt-3">
+                Untuk memudahkan proses konsultasi kamu, harap masukkan
+                informasi yang valid.
+              </p>
             </div>
+          </div>
         </div>
+      </div>
     </section>
-    <!-- Dashboard ============================== -->
-    <div class="dashboard p-3 shadow-sm">
-        @include('partials.sidebar')
+
+    <!-- sidebar -->
+    <div class="card-dashboard navbar-expand-lg col-sm-5 col-lg-3 mt-4">
+      <button class="navbar-toggler sidebar-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#sideBar" aria-controls="navbarOffcanvas">
+        <img src="/assets/img/dashboard-profile/user.svg" class="card-img-top" alt="Dashboard " />
+      </button>
+
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="sideBar" aria-labelledby="thisSideBar">
+      <div class="offcanvas-header">
+          <button type="button" class="btn-close ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div class="card border-0">
+          <img src="/assets/img/dashboard-profile/user.svg" id="profile" class="p-4 rounded-circle" alt="Dashboard " style="background-color: #cccccc; width: 35%;"/>
+          <div class="card-body">
+            <div class="card-title mb-5 ms-md-2">
+              <h5 class="fw-bold mb-1">{{ Auth::user()->nama }}</h5>
+              <p class="mb-3">{{ Auth::user()->email }}</p>
+            </div>
+            <div class="col-md-12 col-lg-12 d-md-block dashboard-menu mb-3">
+              <div class="position-sticky">
+                <ul class="nav flex-column">
+                  <li class="nav-item mb-3">
+                    <a class="nav-link @if(Route::currentRouteName() == 'dashboard.index') active @endif " href="{{ route('dashboard.index') }}">
+                      <img src="/assets/img/dashboard-profile/dashboard.svg" alt="Dashboard" />
+                      Dashboard
+                    </a>
+                  </li>
+                  <li class="nav-item mb-3">
+                    <a class="nav-link @if(Route::currentRouteName() == 'dashboard.profile.index') active @endif" href="{{ route('dashboard.profile.index') }}">
+                      <img src="/assets/img/dashboard-profile/user-blue.svg" alt="Dashboard" />
+                      Profile
+                    </a>
+                  </li>
+                  <li class="nav-item mb-3">
+                    <a class="nav-link" href="#">
+                      <img src="/assets/img/dashboard-profile/voucher.svg" alt="Dashboard" />
+                      Voucher
+                    </a>
+                  </li>
+                  <li class="nav-item mb-3">
+                    <a class="nav-link" href="#">
+                      <img src="/assets/img/dashboard-profile/courses.svg" alt="Dashboard" />
+                      My Courses
+                    </a>
+                  </li>
+                  <li class="nav-item mb-3">
+                    <a class="nav-link @if(Route::currentRouteName() == 'dashboard.show.e-book') active @endif " href="{{ route('dashboard.show.e-book') }}">
+                      <img src="/assets/img/dashboard-profile/e-book.svg" alt="Dashboard" />
+                      My E-Book
+                    </a>
+                  </li>
+                  <li class="nav-item mb-3">
+                    <a class="nav-link @if(Route::currentRouteName() == 'dashboard.show.rekap.transaksi') active @endif " href="{{ route('dashboard.show.rekap.transaksi') }}">
+                      <img src="/assets/img/dashboard-profile/transaction.svg" alt="Dashboard" />
+                      Rekap Transaksi
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
     </div>
-</div>
-<!-- End of dashboard profile  ===================================-->
-<div class="col-9">
-    <!-- FORM ===================== -->
-    <div class="container mt-5">
-        <form class="mx-3" method="POST" action="{{ route('dashboard.profile.changes.data') }}">
+
+
+    
+   
+    <!-- end Sidebar -->
+    <main>
+      <div class="row mt-5 mx-1 me-lg-5 justify-content-end">
+        <form class="col-lg-8" method="POST" action="{{ route('dashboard.profile.changes.data') }}">
         @csrf
-            <div class="row">
+          <div class="row">
             <div class="col-12">
                 <div class="mb-3">
                      <!-- Nama Lengkap -->
@@ -47,9 +113,11 @@
                     <label for="email" class="form-label">Email</label>
                      <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan Email" value="{{ Auth::user()->email }}">
                </div>
+            
             </div>
-            <div class="col-6">
-                <div class="mb-3">
+
+            <div class="col-12 col-md-6">
+              <div class="mb-3">
                     <label for="tanggalLahir" class="form-label">Tanggal Lahir</label>
                     <div class="input-group">
                         <input type="text" class="form-control" id="tanggalLahir" name="tgl_lahir" placeholder="Pilih Tanggal Lahir" value="{{ Auth::user()->tgl_lahir }}">
@@ -66,14 +134,10 @@
                     <label for="pekerjaan" class="form-label">Pekerjaan</label>
                     <input type="text" class="form-control" id="pekerjaan" placeholder="Pekerjaan Kamu" name="pekerjaan" value="{{ Auth::user()->pekerjaan }}">
                 </div>
-                <div class="my-5 pb-5">
-                    <a type="button" href="{{ route('dashboard.profile.show.changePassword') }}" class="btn btn-outline-primary">Ubah Password</a>
-                    <a type="button" href="{{ route('dashboard.profile.show.changeFoto') }}" class="btn btn-outline-primary">Ubah Foto Profile</a>
-                </div>
-                
             </div>
-            <div class="col-6">
-                <div class="mb-3">
+
+            <div class="col-12 col-md-6 ">
+              <div class="mb-3">
                     <label for="jenisKelamin" class="form-label">Jenis Kelamin</label>
                     <select class="form-select" id="jenisKelamin" name="jenisKelamin">
                         <option hidden>Pilihan</option>
@@ -93,18 +157,34 @@
                     <label for="instansi" class="form-label">Instansi</label>
                     <input type="text" class="form-control" id="instansi" name="institusi" placeholder="Instansi Kamu" value="{{ Auth::user()->institusi }}">
                 </div>
-                <div class="my-5 pb-5">
-                    <button type="submit" class="btn btn-primary w-100">Simpan Perubahan</button>
-                </div>
-            </div>            
             </div>
+            
+            <div class="col-12">
+              <div class="row">
+                <div class="col-12 col-md">
+                  <div class="d-flex my-md-5 my-4 gap-3">
+                    <a type="button" href="{{ route('dashboard.profile.show.changePassword') }}" class="btn btn-outline-primary">Ubah Password</a>
+                    <a type="button" href="{{ route('dashboard.profile.show.changeFoto') }}" class="btn btn-outline-primary">Ubah Foto Profile</a>
+                  </div>
+                </div>
+                <div class="col-12 col-md">
+                  <div class="my-md-5 pb-5">
+                    <button type="submit" class="btn btn-primary w-100">
+                      Simpan Perubahan
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </form>
-    </div>
-</div>
-</div>
+      </div>
+    </main>
 
+    <!-- end-main ======================================== -->
+      
 
-    <script>
+      <script>
         document.addEventListener("DOMContentLoaded", function () {
             flatpickr("#tanggalLahir", {
                 dateFormat: "Y-m-d", // Format tanggal yang diinginkan
@@ -115,7 +195,23 @@
                 enableTime:false
             });
         });
+        
+       
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/external-svg-loader@1.0.0/svg-loader.min.js"
+      async
+    ></script>
+    <!-- Tambahkan file JavaScript Flatpickr -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+  
     
     
     

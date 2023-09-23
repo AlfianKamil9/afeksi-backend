@@ -1,0 +1,2 @@
+<?php
+'deskripsi_singkat'

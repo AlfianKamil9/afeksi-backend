@@ -81,8 +81,9 @@ class KonselingTransaksiController extends Controller
     // show halaman pembayaran professional konseling
     public function showPembayaran($ref_transaction_layanan)
     {
-        $data = PembayaranLayanan::with('voucher', 'psikolog', 'detail_pembayarans', 'paket_profesional_conselings')
+        $data = PembayaranLayanan::with('voucher', 'konselor', 'detail_pembayarans', 'paket_profesional_conselings')
             ->where('ref_transaction_layanan', $ref_transaction_layanan)->firstOrFail();
+        //return response()->json($data);
         return view('pages.ProfessionalKonseling.pembayaran', compact('data'));
     }
 

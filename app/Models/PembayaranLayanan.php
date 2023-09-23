@@ -47,6 +47,11 @@ class PembayaranLayanan extends Model
         return $this->belongsTo(PsikologMentoring::class, 'psikolog_id', 'id');
     }
 
+    public function konselor()
+    {
+        return $this->belongsTo(Konselor::class,'konselor_id', 'id');
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');

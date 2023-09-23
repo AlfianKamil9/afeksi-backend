@@ -35,7 +35,7 @@ div .container-fluid img {
     z-index: -1;
 }
 
-@media (min-width:1600px) {
+@media (min-width: 1600px) {
     div .container-fluid {
         padding: 5rem 15rem;
         height: 31.9rem;
