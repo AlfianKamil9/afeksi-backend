@@ -27,13 +27,13 @@
           <div class="step-counter">
             <span class="step-checkmark">✓</span>
           </div>
-          <div class="step-name">Pilih Paket</div>
+          <div class="step-name">Pilih Konselor</div>
         </div>
         <div class="stepper-item completed">
           <div class="step-counter">
             <span class="step-checkmark">✓</span>
           </div>
-          <div class="step-name">Pilih Psikolog</div>
+          <div class="step-name">Pilih Paket</div>
         </div>
         <div class="stepper-item completed">
           <div class="step-counter">
@@ -60,7 +60,7 @@
     <div class="col-lg-7">
       <div class="card mb-4" style="border-color: #2139f9; z-index: 0">
         <div class="card-body">
-          <form action="/slug-konseling-yg-dipilih/{{ request('ref_transaction_layanan') }}/checkout" method="post">
+          <form action="{{ route('professional.konseling.process.checkout', request('ref_transaction_layanan')) }}" method="post">
             @csrf
           <h5 class="fw-bolder" style="color: #2139f9">Pembayaran</h5>
 

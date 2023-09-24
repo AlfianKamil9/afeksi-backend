@@ -38,8 +38,8 @@ class profresional_conseling extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function psikolog_professional(): BelongsToMany
+    public function konselor(): BelongsToMany
     {
-        return $this->belongsToMany(Psikolog::class, 'psikologprofesional', 'layanan_profesional_konseling_id', 'psikolog_id');
+        return $this->belongsToMany(Konselor::class, 'konselor_konseling_pivot', 'konseling_id', 'konselor_id');
     }
 }

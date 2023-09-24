@@ -7,12 +7,19 @@ use App\Models\Psikolog;
 use Illuminate\Http\Request;
 use App\Models\konselorTopic;
 use App\Http\Controllers\Controller;
+use App\Models\PaketProfesionalConseling;
+use App\Models\PembayaranLayanan;
 
 class ProfessionalController extends Controller
 {
   
-    public function showAllKonselor(Request $request) {
-        $kueri = Konselor::with('topic')->orderBy('id', 'desc');
+    public function showAllKonselor(Request $request, $ref_transaction_layanan) {
+        $t = PembayaranLayanan::with('konseling')->where('ref_transaction_layanan', $ref_transaction_layanan)->firstOrFail();
+        $t = $t->konseling->namaPengalaman;
+        $slug = $ref_transaction_layanan;
+        $kueri = Konselor::with('topic', 'konseling')->whereHas('konseling', function($query) use ($t) {
+            $query->where('namaPengalaman', $t);
+        })->orderBy('id', 'desc');
         
         // Filter using input type text
         if ($request->has('input_search')) {
@@ -33,10 +40,36 @@ class ProfessionalController extends Controller
                 $kategori = $request->input('topic');
                 $data = Konselor::whereHas('topic', function ($query) use ($kategori) {
                             $query->where('jenis_topic', 'like', "%$kategori%");
-                        })->get();
+                        })
+                        ->whereHas('konseling', function($query) use ($t) {
+                            $query->where('namaPengalaman', $t);
+                        })
+                        ->get();
         }
 
         //return response()->json($data);
-        return view('pages.konselor', compact('data'));
+        return view('pages.ProfessionalKonseling.konselor', compact('data', 'slug'));
+    }
+
+    public function processPilihKonselor(Request $request, $ref_transaction_layanan) {
+        PembayaranLayanan::where('ref_transaction_layanan' , $ref_transaction_layanan)->update([
+            'konselor_id' => $request->value_id
+        ]);
+        return redirect()->route('professional.konseling.pilihan.paket', $ref_transaction_layanan);
+    }
+
+    public function showPaketKonseling($ref_transaction_layanan) {
+        $data = PaketProfesionalConseling::with('professional_conseling')->where('professional_conseling_id', 1)->get();
+        $slug = $ref_transaction_layanan;
+        //return response()->json($data);
+        return view('pages.ProfessionalKonseling.paket-sementara', compact('data', 'slug'));
+    }
+
+    public function processPaketKonseling(Request $request, $ref_transaction_layanan) {
+        //dd($request->id_paket);
+        PembayaranLayanan::where('ref_transaction_layanan' , $ref_transaction_layanan)->update([
+            'paket_professional_conseling_id' => $request->id_paket
+        ]);
+        return redirect()->route('professional.konseling.show.form', $ref_transaction_layanan);
     }
 }

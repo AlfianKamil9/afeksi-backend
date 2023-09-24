@@ -19,7 +19,7 @@
                     <div class="step-counter">
                         <span class="step-checkmark">✓</span>
                     </div>
-                    <div class="step-name">Pilih Psikolog</div>
+                    <div class="step-name">Pilih Konselor</div>
                 </div>
                 <div class="stepper-item completed">
                     <div class="step-counter">
@@ -55,8 +55,8 @@
                 {{ session('error') }}
             </div>
         @endif
-        <form action="/slug-konseling-yg-dipilih/{{ request('ref_transaction_layanan') }}/submit-form-konseling"
-            method="post">
+        <form action="{{ route('professional.konseling.process.form', $slug) }}"
+            method="POST">
             @csrf
             <div class="mb-3">
                 <label for="namaLengkap" class="form-label fw-bold">Nama Lengkap</label>

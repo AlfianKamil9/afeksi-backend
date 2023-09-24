@@ -165,7 +165,7 @@
                     background-position: center;
                     background-repeat: no-repeat;
                   ">
-                  <div class="row g-0">
+                  <div class="row g-0 pt-2">
                     <div class="col-md-6 my-auto text-center">
                       <img src="../assets/img/landingpage/layanankonsultasi/konsultasi1.png" class="img-fluid rounded-start" alt="konsultasi1" />
                     </div>
@@ -192,7 +192,7 @@
                     background-repeat: no-repeat;
                     object-fit:cover;
                   ">
-                  <div class="row g-0">
+                  <div class="row g-0 pt-2">
                     <div class="col-md-6 my-auto text-center">
                       <img src="../assets/img/landingpage/layanankonsultasi/konsultasi2.png" class="img-fluid rounded-start" alt="konsultasi2" />
                     </div>

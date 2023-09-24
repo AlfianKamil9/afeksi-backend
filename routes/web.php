@@ -88,7 +88,7 @@ Route::get('/artikel/detail/{slug}', [artikelController::class, 'show'])->name('
 
 // MIDLLEWARE HALAMAN YANG PERLU LOGIN
 Route::middleware(['auth', 'verified'])->group(function () {
-    // LAYANAN MENTORING
+//--------------------------------------MENTORING---------------------------------------------------
     Route::get('/pre-marriage', [MentoringController::class, 'showPreMarriage'])->name('mentoring.pre-marriage');
     Route::get('/parenting-mentoring', [MentoringController::class, 'showParenting'])->name('mentoring.parenting');
     Route::get('/relationship-mentoring',[MentoringController::class, 'showRelationship'])->name('mentoring.relationship');
@@ -106,7 +106,31 @@ Route::middleware(['auth', 'verified'])->group(function () {
     //END LAYANAN MENTORING
 
 
-//--------------------------------------------------------------------------------------
+//--------------------------------------KONSELING---------------------------------------------------
+//PROFESSIONAL KONSELING
+  // PILIHAN KONSELOR
+    Route::get('/professional-konseling/{ref_transaction_layanan}/pilihan-konselor-professional-konseling',[ProfessionalController::class, 'showAllKonselor'])->name('professional.konseling.konselor');
+    Route::post('/professional-konseling/{ref_transaction_layanan}/pilihan-konselor-professional-konseling',[ProfessionalController::class, 'processPilihKonselor'])->name('professional.konseling.process.pilih-konselor');
+    // PAKET PROFESSIONAL KONSELING
+    Route::get('/professional-konseling/{ref_transaction_layanan}/pilihan-paket-professional-konseling', [ProfessionalController::class, 'showPaketKonseling'])->name('professional.konseling.pilihan.paket');
+    Route::post('/professional-konseling/{ref_transaction_layanan}/pilihan-paket-professional-konseling', [ProfessionalController::class, 'processPaketKonseling'])->name('professional.konseling.process.paket');
+    // FORM PROFESSIONAL KONSELING
+    Route::get('/professional-konseling/{ref_transaction_layanan}/data-diri', [KonselingTransaksiController::class, 'showFormDataDiri'])->name('professional.konseling.show.form');
+    Route::post('/professional-konseling/{ref_transaction_layanan}/submit-form-konseling', [KonselingTransaksiController::class, 'submitDataDiri'])->name('professional.konseling.process.form');
+    //CHECKOUT
+    Route::get('/professional-konseling/{ref_transaction_layanan}/pembayaran', [KonselingTransaksiController::class, 'showPembayaran'])->name('professional.konseling.checkout');
+    Route::post('/professional-konseling/{ref_transaction_layanan}/checkout', [KonselingTransaksiController::class, 'checkoutProfessionalKonseling'])->name('professional.konseling.process.checkout');
+    
+//PEERS KONSELING 
+    
+    
+    
+    
+    // NOTIFICATION AFTER PEMBAYARAN PROFESIONAL KONSELING---
+    Route::get('/{ref_transaction_layanan}/notification-konseling/success', [NotifikasiKonseling::class, 'index'])->name('notification.konseling.success');
+
+    
+// ----------------------------------------------------------------------------------------
 
 
     // PENDAFTARAN RELATIONSHIP KONSELOR
@@ -136,22 +160,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/{ref_transaction_event}/notification-webinar/success', [NotificationWebinar::class, 'index'])->name('notification.success.webinar');
     // PENDAFTARAN CAMPAIGN
     Route::post('/kegitan-campaign/{slug}', [CampaignController::class, 'store'])->name('daftar-campaign');
-    // PILIHAN KONSELOR
-    Route::get('/pilihan-konselor',[ProfessionalController::class, 'showAllKonselor'])->name('konselor.all');
+  
 
    
-    // KONSELING
-    //PROFESSIONAL KONSELING
-    Route::get('/professional-konseling-layanan', function(){
-        return view('pages.ProfessionalKonseling.pengalaman-psikolog');
-    })->name('layanan.professional.konseling');
-    Route::get('/slug-konseling-yg-dipilih/{ref_transaction_layanan}/data-diri', [KonselingTransaksiController::class, 'showFormDataDiri']);
-    Route::post('/slug-konseling-yg-dipilih/{ref_transaction_layanan}/submit-form-konseling', [KonselingTransaksiController::class, 'submitDataDiri']);
-    //CHECKOUT
-    Route::get('/slug-konseling-yg-dipilih/{ref_transaction_layanan}/pembayaran', [KonselingTransaksiController::class, 'showPembayaran'])->name('professional.konseling.checkout');
-    Route::post('/slug-konseling-yg-dipilih/{ref_transaction_layanan}/checkout', [KonselingTransaksiController::class, 'checkoutProfessionalKonseling']);
-    // NOTIFICATION AFTER PEMBAYARAN PROFESIONAL KONSELING---
-    Route::get('/{ref_transaction_layanan}/notification-konseling/success', [NotifikasiKonseling::class, 'index'])->name('notification.konseling.success');
+  
 
 
 

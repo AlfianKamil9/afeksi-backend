@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('psikologprofesional', function (Blueprint $table) {
+        Schema::create('konselor_konseling_pivot', function (Blueprint $table) {
             //$table->id();
-            $table->unsignedBigInteger('layanan_profesional_konseling_id');
-            $table->unsignedBigInteger('psikolog_id');
+            $table->unsignedBigInteger('konseling_id');
+            $table->unsignedBigInteger('konselor_id');
             
-            $table->foreign('layanan_profesional_konseling_id')->references('id')->on('professional_conselings')->onDelete('restrict');
-            $table->foreign('psikolog_id')->references('id')->on('psikologs')->onDelete('restrict');
+            $table->foreign('konseling_id')->references('id')->on('professional_conselings')->onDelete('restrict');
+            $table->foreign('konselor_id')->references('id')->on('konselors')->onDelete('restrict');
             //$table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('psikologprofesional');
+        Schema::dropIfExists('konselor_konseling_pivot');
     }
 };

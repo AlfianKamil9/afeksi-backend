@@ -25,7 +25,8 @@ class KonselingTransaksiController extends Controller
     public function showFormDataDiri($ref_transaction_layanan)
     {
         $data = PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->where('status', 'UNPAID')->firstOrFail();
-        return view('pages.ProfessionalKonseling.data-diri', compact('data'));
+        $slug = $ref_transaction_layanan;
+        return view('pages.ProfessionalKonseling.data-diri', compact('data', 'slug'));
     }
 
     // submit form data diri professional konseling
@@ -77,7 +78,7 @@ class KonselingTransaksiController extends Controller
         PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->update([
             'status' => 'UNPAID(BUTUH BAYAR)',
         ]);
-        return redirect('/slug-konseling-yg-dipilih/' . $ref_transaction_layanan . '/pembayaran');
+        return redirect()->route('professional.konseling.checkout', $ref_transaction_layanan);
     }
 
 

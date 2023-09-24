@@ -37,9 +37,9 @@ class PembayaranLayanan extends Model
     //     return $this->belongsTo(Mentoring::class, 'mentoring_id', 'id');
     // }
 
-    public function conseling()
+    public function konseling()
     {
-        return $this->belongsTo(Conseling::class, 'conseling_id', 'id');
+        return $this->belongsTo(profresional_conseling::class, 'conseling_id', 'id');
     }
 
     public function psikolog()

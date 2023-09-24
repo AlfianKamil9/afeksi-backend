@@ -22,15 +22,11 @@
     <div class="position-relative">
       <div class="stepper-wrapper">
         @if (Route::currentRouteName() != 'notification.mentoring.success' )
-          <div class="stepper-item completed">
-          <!-- add class COMPLETED to enable checklist -->
+        <div class="stepper-item completed">
           <div class="step-counter">
             <span class="step-checkmark">✓</span>
           </div>
-          <div class="step-name text-center">
-            Pilih <br />
-            Pengalaman Psikologi
-          </div>
+          <div class="step-name">Pilih Konselor</div>
         </div>
         @endif
         <div class="stepper-item completed">
@@ -38,12 +34,6 @@
             <span class="step-checkmark">✓</span>
           </div>
           <div class="step-name">Pilih Paket</div>
-        </div>
-        <div class="stepper-item completed">
-          <div class="step-counter">
-            <span class="step-checkmark">✓</span>
-          </div>
-          <div class="step-name">Pilih Psikolog</div>
         </div>
         <div class="stepper-item completed">
           <div class="step-counter">

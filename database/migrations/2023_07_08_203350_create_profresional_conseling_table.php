@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('professional_conselings', function (Blueprint $table) {
             $table->id('id');
-            $table->string('jenis_layanan')->default('KONSELING');
+            $table->enum('jenis_layanan', ['PROFESSIONAL KONSELING','PEERS KONSELING']);
             $table->enum('namaPengalaman', ['Relationship Konseling', 'Quality Gender']);
             $table->timestamps();
         });

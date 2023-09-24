@@ -13,12 +13,22 @@ class ProfesionalKonselingSeeder extends Seeder
      */
     public function run(): void
     {
-        $data = ['Relationship Konseling', 'Quality Gender'];
-        foreach ($data as $value) {
             profresional_conseling::create([
-                'jenis_layanan' => 'KONSELING',
-                'namaPengalaman' => $value
+                'jenis_layanan' => 'PROFESSIONAL KONSELING',
+                'namaPengalaman' => 'Relationship Konseling'
             ]);
-        }
+            profresional_conseling::create([
+                'jenis_layanan' => 'PROFESSIONAL KONSELING',
+                'namaPengalaman' => 'Quality Gender'
+            ]);
+            profresional_conseling::create([
+                'jenis_layanan' => 'PEERS KONSELING',
+                'namaPengalaman' => 'Relationship Konseling'
+            ]);
+            profresional_conseling::create([
+                'jenis_layanan' => 'PEERS KONSELING',
+                'namaPengalaman' => 'Quality Gender'
+            ]);
+        
     }
 }

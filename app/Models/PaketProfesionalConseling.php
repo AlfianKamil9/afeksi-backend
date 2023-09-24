@@ -28,4 +28,5 @@ class PaketProfesionalConseling extends Model
     {
         return $this->hasMany(PembayaranLayanan::class, 'paket_professional_conseling_id', 'id');
     }
+    
 }

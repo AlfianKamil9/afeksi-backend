@@ -27,9 +27,9 @@ class DatabaseSeeder extends Seeder
         $this->call(PsikologSeeder::class);
         $this->call(EventCategorySeeder::class);
         $this->call(EventSeeder::class);
-        $this->call(EventTransactionSeeder::class);
-        $this->call(MentoringSeeder::class);
-        $this->call(ConselingSeeder::class);
+        //$this->call(EventTransactionSeeder::class);
+        // $this->call(MentoringSeeder::class);
+        //$this->call(ConselingSeeder::class);
         $this->call(VolunteersSeeder::class);
         $this->call(KonselorsSeeder::class);
         $this->call(EventMaterialSessionSeeder::class);
@@ -43,5 +43,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PaketLayananProfessionalKonselingSeeder::class);
         $this->call(PsikologMentoringSeeder::class);
         $this->call(mentoringPsikologPivotSeeder::class);
+        $this->call(konselingKonselorSeeder::class);
     }
 }
