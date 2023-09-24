@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="/assets/css/kegiatan.css">
 @endsection
 
-{{-- @include('../partials/navbar')  --}}
 
 @section('content')
 
@@ -90,37 +89,37 @@
                 <div class="form-group">
                     <p class="side-heading fw-semibold">Topik</p>
                     <div class="form-check">
-                        <input name="category_event_id" class="form-check-input" type="checkbox" value="1" id="category_event_id">
+                        <input name="category_event_id" class="form-check-input" type="radio" @if(request('category_event_id') == 1) checked @endif value="1" id="category_event_id">
                         <label class="form-check-label" for="category_event_id">
                             Relationship
                         </label>
                     </div>
                     <div class="form-check">
-                        <input name="category_event_id" class="form-check-input" type="checkbox" value="2" id="category_event_id">
+                        <input name="category_event_id" class="form-check-input" type="radio" @if(request('category_event_id') == 2) checked @endif value="2" id="category_event_id">
                         <label class="form-check-label" for="category_event_id">
                         Self Love
                         </label>
                     </div>
                     <div class="form-check">
-                        <input name="category_event_id" class="form-check-input" type="checkbox" value="3" id="category_event_id">
+                        <input name="category_event_id" class="form-check-input" type="radio" @if(request('category_event_id') == 3) checked @endif value="3" id="category_event_id">
                         <label class="form-check-label" for="category_event_id">
                         Parenting
                         </label>
                     </div>
                     <div class="form-check">
-                        <input name="category_event_id" class="form-check-input" type="checkbox" value="4" id="category_event_id">
+                        <input name="category_event_id" class="form-check-input" type="radio" @if(request('category_event_id') == 4) checked @endif value="4" id="category_event_id">
                         <label class="form-check-label" for="category_event_id">
                         Pre-Marriage
                         </label>
                     </div>
                     <div class="form-check">
-                        <input name="category_event_id" class="form-check-input" type="checkbox" value="5" id="category_event_id">
+                        <input name="category_event_id" class="form-check-input" type="radio" @if(request('category_event_id') == 5) checked @endif value="5" id="category_event_id">
                         <label class="form-check-label" for="category_event_id">
                         Emotional Management
                         </label>
                     </div>
                     <div class="form-check">
-                        <input name="category_event_id" class="form-check-input" type="checkbox" value="6" id="category_event_id">
+                        <input name="category_event_id" class="form-check-input" type="radio" @if(request('category_event_id') == 6) checked @endif value="6" id="category_event_id">
                         <label class="form-check-label" for="category_event_id">
                         Family Issue
                         </label>
@@ -160,7 +159,7 @@
 
                 <div class="d-flex flex-column mt-4">
                     <button class="btn side-btn">Terapkan Filter</button>
-                    <button type="reset" class="btn side-btn btn-outline">Hapus Filter</button>
+                    <a type="button" href="{{ route('webinar') }}" class="btn side-btn btn-outline">Hapus Filter</a>
                 </div>
             </form>
         </div>

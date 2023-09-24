@@ -40,23 +40,23 @@
             <div class="form-group">
               <p class="side-heading fw-semibold">Topik</p>
               <div class="form-check">
-                <input name="topik" class="form-check-input" type="checkbox" value="RELATIONSHIP" id="relationshipCheckbox" />
+                <input name="topik" class="form-check-input" type="radio" @if(request('topik') == 'RELATIONSHIP') checked @endif value="RELATIONSHIP" id="relationshipCheckbox" />
                 <label class="form-check-label" for="relationshipCheckbox"> Relationship </label>
               </div>
               <div class="form-check">
-                <input name="topik" class="form-check-input" type="checkbox" value="PENDIDIKAN" id="selfLoveCheckbox" />
+                <input name="topik" class="form-check-input" type="radio" @if(request('topik') == 'PENDIDIKAN' ) checked @endif value="PENDIDIKAN" id="selfLoveCheckbox" />
                 <label class="form-check-label" for="selfLoveCheckbox"> Pendidikan </label>
               </div>
               <div class="form-check">
-                <input name="topik" class="form-check-input" type="checkbox" value="KESETARAAN" id="kesetaraanCheckbox" />
+                <input name="topik" class="form-check-input" type="radio" @if(request('topik') == 'KESETARAAN' ) checked @endif value="KESETARAAN" id="kesetaraanCheckbox" />
                 <label class="form-check-label" for="kesetaraanCheckbox"> Kesetaraan </label>
               </div>
               <div class="form-check">
-                <input name="topik" class="form-check-input" type="checkbox" value="KESEHATAN" id="kesehatanCheckbox" />
+                <input name="topik" class="form-check-input" type="radio" @if(request('topik') == 'KESEHATAN' ) checked @endif value="KESEHATAN" id="kesehatanCheckbox" />
                 <label class="form-check-label" for="kesehatanCheckbox"> Kesehatan </label>
               </div>
               <div class="form-check">
-                <input name="topik" class="form-check-input" type="checkbox" value="FAMILY ISSUE" id="familyCheckbox" />
+                <input name="topik" class="form-check-input" type="radio" @if(request('topik') == 'FAMILY ISSUE') checked @endif value="FAMILY ISSUE" id="familyCheckbox" />
                 <label class="form-check-label" for="familyCheckbox"> Family Issue </label>
               </div>
             </div>

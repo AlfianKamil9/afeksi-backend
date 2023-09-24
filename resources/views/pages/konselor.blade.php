@@ -17,7 +17,7 @@
                     <div class="step-counter">
                         <span class="step-checkmark">1</span>
                     </div>
-                    <div class="step-name">Pilih Psikolog</div>
+                    <div class="step-name">Pilih Konselor</div>
                 </div>
                 <div class="stepper-item">
                     <div class="step-counter">

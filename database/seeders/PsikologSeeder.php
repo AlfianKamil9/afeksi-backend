@@ -33,10 +33,15 @@ class PsikologSeeder extends Seeder
                     "nama" => "Nindy Rahmatul Asro S.Psi",
                     "profil" => "Counselor @utara.sc and Professional Public Speaker",
                     "avatar" => "nindy.png"
+                ],
+                [
+                    "nama" => "Devina Faustanisa Nursyah Wibowo",
+                    "profil" => "TED x BU 2021 & Speaker and LPDP Awardee at Harvard University",
+                    "avatar" => "devina.png"
                 ]
             ];
 
-        for ($i=0; $i < 4 ; $i++) { 
+        for ($i=0; $i < 5 ; $i++) { 
             Psikolog::create([
                 "nama_psikolog" => $data[$i]["nama"],
                 "profil" => $data[$i]["profil"],

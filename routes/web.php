@@ -1,16 +1,10 @@
 <?php
 
-use Carbon\Carbon;
-use App\Models\Konselor;
-use Illuminate\Http\Request;
-use App\Models\DetailPembayaran;
-use App\Models\PsikologMentoring;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Karir\Internship;
 use App\Http\Controllers\Karir\PeerKonselor;
 use App\Http\Controllers\Karir\BrandAmbasador;
 use App\Http\Controllers\Karir\karirController;
-use App\Http\Controllers\API\HandleAfterPayment;
 use App\Http\Controllers\Event\WebinarController;
 use App\Http\Controllers\Event\CampaignController;
 use App\Http\Controllers\Karir\RelationshipHeroes;
@@ -26,11 +20,11 @@ use App\Http\Controllers\Transaksi\NotifikasiKonseling;
 use App\Http\Controllers\Transaksi\NotifikasiMentoring;
 use App\Http\Controllers\Konseling\ProfessionalController;
 use App\Http\Controllers\API\NotificationPaymentEventController;
+use App\Http\Controllers\berandaController;
 use App\Http\Controllers\Transaksi\Event\WebinarTransaksiController;
 use App\Http\Controllers\Transaksi\Layanan\KonselingTransaksiController;
 use App\Http\Controllers\Transaksi\Layanan\MentoringTransaksiController;
-use App\Http\Controllers\ProfileController as ControllersProfileController;
-use App\Http\Controllers\Psikolog_KonselorInLandingPage\IndexController as Psikolog_KonselorInLandingPageIndexController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -44,13 +38,7 @@ use App\Http\Controllers\Psikolog_KonselorInLandingPage\IndexController as Psiko
 */
 
 // BERANDA
-Route::get('/', function () {
-    $data = PsikologMentoring::all();
-    $konselor = Konselor::with('topic')->get();
-    $sa = $data->concat($konselor);
-    //return response()->json($sa);
-    return view('pages.landing-page-new', ['sa' => $sa]);
-})->name('homepage');
+Route::get('/', [berandaController::class, 'showBeranda'])->name('homepage');
 
 // TENTANG KAMI
 Route::get('/tentang-kami', function () {

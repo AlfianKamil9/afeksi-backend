@@ -33,7 +33,8 @@ class EventSeeder extends Seeder
             'DRAFT',
             'Afeksi-Warrior-Valentine-Edition',
             'CAMPAIGN',
-            'Zoom'
+            'Zoom',
+            'https://bit.ly/AfeksiWarriorBatch1'
         ],
         [
                 '1',
@@ -53,7 +54,8 @@ class EventSeeder extends Seeder
                 'DRAFT',
                 'Self-Love:-A-Road-to-Relationship-Goals',
                 'WEBINAR',
-                'Zoom'
+                'Zoom',
+                'https://bit.ly/PendaftaranWebinarAfeksi1'
         ],
         // [
         //         '2',
@@ -97,7 +99,8 @@ class EventSeeder extends Seeder
                 'DRAFT',
                 'Embracing-Equality:-A-Pathway-to-Disolve-Dating-Violence',
                 'WEBINAR',
-                'Zoom'
+                'Zoom',
+                'bit.ly/PendaftaranWebinarAfeksi2'
         ],
         [
                 '6',
@@ -117,12 +120,36 @@ class EventSeeder extends Seeder
                 'DRAFT',
                 'Cheating:-The-Downfall-of-a-Healthy-Relationship',
                 'WEBINAR',
-                'Zoom'
+                'Zoom',
+                'https://Bit.ly/PendaftaranWebinarAfeksi3'
         ],
+        [
+            '5',
+            'Love bombing: A Trend for Tossing and Turning The Feelings',
+            'ONLINE',
+            'FREE',
+            '2023-09-20',
+            '2023-09-23',
+            '2023-09-24',
+            '09:30',
+            '12:00',
+            'WEBINAR-4.png',
+            0,
+            '📢 AFEKSI PROUDLY PRESENT: WEBINAR SERIES 4.0 📢
+                Hi, Relationship Heroes!
+                Kalian pasti udah gak asing dong dengan yang namanya Love Bombing, tapi kalian tau gak sih kalo ini salah satu bentuk toxic relationship juga loh! 😱
+                Untuk bisa dapetin insight lebih mengenai Love Bombing, kalian bisa banget ikuti Afeksi Webinar Series 4.0 yang mengusung tema
+                ✨Love bombing: A Trend for Tossing and Turning The Feelings ✨',
+            'DRAFT',
+            'Love-bombing:-A-Trend-for-Tossing-and-Turning-The-Feelings',
+            'WEBINAR',
+            'Zoom',
+            'https://Bit.ly/PendaftaranWebinarAfeksi4'
+        ]
     ];
 
 
-        for ($i=0; $i < 4 ; $i++) { 
+        for ($i=0; $i < 5 ; $i++) { 
             Event::create([
             'category_event_id' => $data[$i][0],
             'title_event' => $data[$i][1],
@@ -139,7 +166,8 @@ class EventSeeder extends Seeder
             'description_event' => $data[$i][11],
             'status_event' => $data[$i][12],
             'activity_category_event' => $data[$i][14],
-            'is_place' => $data[$i][15]
+            'is_place' => $data[$i][15],
+            'isLink' => $data[$i][16]
         ]);
         }
 

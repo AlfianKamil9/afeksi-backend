@@ -216,7 +216,7 @@
           $(document).ready(function() {
               $('#daftar-sekarang').click(function(event) {
                 event.preventDefault()
-                window.open('https://forms.gle/8ztSeF8ddERFm8p9A', '_blank');
+                window.open('{{ $data->isLink }}', '_blank');
               });
           });
       </script>

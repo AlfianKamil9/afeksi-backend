@@ -244,8 +244,8 @@
                                 <a href="#" class="btn btn-join me-2 py-2 px-3 rounded-3" style="background-color: #2139F9;">Detail Produk</a>
                             @elseif($item->status == 'PENDING' || $item->status == 'UNPAID(BUTUH BAYAR)') 
                                 @if ($item->status == 'UNPAID(BUTUH BAYAR)')
-                                <a href="{{ route('checkout.layanan.mentoring', $item->ref_transaction_layanan) }}" class="btn btn-join me-2 py-2 px-3 rounded-3" style="background-color: #2139F9;">Lanjutkan</a>
-                                    <a href="{{ route('checkout.layanan.mentoring', $item->ref_transaction_layanan) }}" class="btn btn-join me-2 py-2 px-3 rounded-3" style="background-color: #D60F27;">Batalkan</a>
+                                    <a href="{{ route('checkout.layanan.mentoring', $item->ref_transaction_layanan) }}" class="btn btn-join me-2 py-2 px-3 rounded-3" style="background-color: #2139F9;">Lanjutkan</a>
+                                    <a href="#" class="btn btn-join me-2 py-2 px-3 rounded-3" style="background-color: #D60F27;">Batalkan</a>
                                 @elseif($item->status == 'PENDING')
                                     <a href="#" class="btn btn-join me-2 py-2 px-3 rounded-3" style="background-color: #F9D770;">Pending</a>    
                                 @endif

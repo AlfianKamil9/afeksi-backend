@@ -33,11 +33,16 @@ class EventMaterialSessionSeeder extends Seeder
                     "title" => "The Downfall of a Healthy Relationship",
                     "event" => 4,
                     "pembicara" => 4
+                ],
+                [
+                    "title" => "A Trend for Tossing and Turning The Feelings",
+                    "event" => 5,
+                    "pembicara" => 5
                 ]
             ];
 
 
-        for ($i=0; $i < 4 ; $i++) {
+        for ($i=0; $i < 5 ; $i++) {
             EventMaterialSession::create([
                 "title_sesi" => $data[$i]['title'],
                 "event_id" => $data[$i]['event'],

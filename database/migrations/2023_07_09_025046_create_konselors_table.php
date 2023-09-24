@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('konselors', function (Blueprint $table) {
             $table->id('id');
             $table->string('nama');
+            $table->boolean('isProfessionalKonselor')->nullable();
             $table->string('avatar')->nullable();
             $table->string('profile')->nullable();
             $table->text('deskripsi')->nullable();

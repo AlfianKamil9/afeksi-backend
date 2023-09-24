@@ -17,6 +17,6 @@ class PsikologMentoring extends Model
 
     public function mentoring(): BelongsToMany
     {
-        return $this->belongsToMany(LayananNonProfessional::class, 'psikolog_mentoring_pivot', 'mentoring_id', 'psikolog_id');
+        return $this->belongsToMany(LayananNonProfessional::class, 'psikolog_mentoring_pivot','psikolog_id', 'mentoring_id');
     }
 }

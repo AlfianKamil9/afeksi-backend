@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\bank;
 use App\Models\User;
 use App\Models\Voucher;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\DetailPembayaran;
@@ -81,15 +82,19 @@ class MentoringTransaksiController extends Controller
             'detail_masalah' => $request->detail_masalah,
         ]);
         $idMentoring = $layanan->paket_non_professionals->layanan_non_professionals->id;
-        if($idMentoring == 1) {
-            $jenis = 'Psikolog Spesialis Parenting Mentoring';
-        } else if($idMentoring == 2) {
-            $jenis = 'Psikolog Spesialis Pre-Marriage Mentoring';
-        } else {
-            $jenis = 'Psikolog Spesialis Relationship Mentoring';
-        }
+        // if($idMentoring == 1) {
+        //     $jenis = 'Psikolog Spesialis Parenting Mentoring';
+        // } else if($idMentoring == 2) {
+        //     $jenis = 'Psikolog Spesialis Pre-Marriage Mentoring';
+        // } else {
+        //     $jenis = 'Psikolog Spesialis Relationship Mentoring';
+        // }
 
-        $randomPsikolog = PsikologMentoring::where('profile', $jenis)->inRandomOrder()->value('id');
+
+        //$randomPsikolog = PsikologMentoring::where('profile', $jenis)->inRandomOrder()->value('id');
+        $randomPsikolog = PsikologMentoring::inRandomOrder()->whereHas('mentoring', function ($query) use ($idMentoring) {
+            $query->where('mentoring_id', 'like', "%$idMentoring%");
+        })->with('mentoring')->pluck('id')->first();
         //return response()->json($randomPsikolog);
         PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->update([
             'status' => 'UNPAID(BUTUH BAYAR)',

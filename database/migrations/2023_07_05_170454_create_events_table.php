@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('price_event')->nullable();
             $table->string('is_place')->nullable();
             $table->text('description_event');
+            $table->string('isLink')->nullable();
             $table->enum('status_event', ['LIVE','DRAFT','EXPIRE']);
             $table->timestamps();
 

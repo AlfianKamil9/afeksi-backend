@@ -247,7 +247,7 @@
         $(document).ready(function() {
             $('#daftar-sekarang').click(function(event) {
                 event.preventDefault();
-                window.open('https://forms.gle/vH1UWrYpeJUr4qni7', '_blank');
+                window.open('{{ $data->isLink }}', '_blank');
             });
         });
     </script>
