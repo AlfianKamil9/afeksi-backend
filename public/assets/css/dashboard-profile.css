@@ -22,6 +22,7 @@ body {
     position: relative;
     overflow: hidden;
     padding-top: 5%;
+    z-index: -1;
 }
 span {
     color: #fbdd41;
@@ -51,7 +52,6 @@ span {
     position: absolute;
     top: 8.3rem;
     left: 3rem;
-    z-index: 0;
 }
 
 .card-dashboard .card {
@@ -113,6 +113,7 @@ span {
     width: 60px;
     position: fixed;
     bottom: 15px;
+    z-index: 1;
 }
 .sidebar-button img {
     width: 100%;
@@ -125,7 +126,6 @@ span {
         margin: 0;
         top: 0rem;
         left: 0rem;
-        z-index: 1;
     }
     .dashboard {
         padding: 0;
@@ -148,7 +148,6 @@ span {
         margin: 10px;
         top: 0rem;
         left: 0rem;
-        z-index: 1;
     }
 
     .sidebar-button {
@@ -157,40 +156,3 @@ span {
 }
 
 /* ================================ */
-
-.color-custom {
-    color: var(--color-afeksi-custom);
-}
-
-footer {
-    background-color: #5a74fd;
-    position: relative;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.contact-img {
-    max-width: 20px;
-    height: 19px;
-}
-
-.link-title {
-    font-size: 18px;
-}
-
-.bottom {
-    background-color: #4959db;
-    padding: 15px 10px;
-    text-align: center;
-    font-weight: bold;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    color: white;
-}
-
-.content-footer {
-    margin-bottom: 55px;
-}

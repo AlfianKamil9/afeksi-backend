@@ -83,7 +83,7 @@
         <h2 class="fw-bold text-center mt-5">
           <span>Macam - Macam Mentoring</span>
         </h2>
-        <p class="text-body-tertiary fw-bold text-center mt-2 mb-5">Macam-macam mentoring mencakup parenting mentoring, Pre Marriage mentoring, dan Relatinship <br> mentoring.</p>
+        <p class="text-body-tertiary fw-bold text-center mt-2 mb-5">Macam-macam mentoring mencakup parenting mentoring, Pre Marriage mentoring, dan Relationship <br> mentoring.</p>
       </div>
       <div class="row mb-3">
       <div class="col-md-4">
@@ -105,23 +105,24 @@
     </div>
   </div>
 
-    <div class="mt-5 pt-5">
-        <div class="row">
-          <div class="col-sm">
-            <h2 class="fw-bold" style="color: #2139f9">4 Langkah Mudah</h2>
-            <h2 class="fw-bold">Melakukan konsultasi</h2>
-            <p style="color: #717171; font-size: 20px">
-              Temukan kemudahan dan kenyamanan dalam mendapatkan solusi <br />
-              terbaik untuk setiap aspek kehidupan Anda melalui konsultasi <br />
-              kami! Ikuti langkah-langkah sederhana.
-            </p>
-          </div>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6 order-md-2 text-center ">
+        <img src="assets/img/konseling/content.png" class="img-fluid w-50 " alt="Image">
+      </div>
+      <div class="col-md-6 order-md-1">
+        <h2 class="fw-bold">Yuk booking konsultasi kamu dengan <span>Mudah</span></h2>
+        <p>Yuk, tingkatkan kualitas hubungan Anda dengan layanan konseling dan mentoring di Afeksi! Temukan keseimbangan, kebahagiaan, dan kesetaraan dalam hubungan Anda. Mari kita bersama-sama membangun hubungan yang sehat dan memuaskan. Bergabunglah dengan kami hari ini dan mulailah perjalanan menuju hubungan yang lebih baik!</p>
+        <div class="checklist me-3">
+            <img src="assets/img/konseling/vector.png" class="me-3"> Pilih Paket <br>
+            <img src="assets/img/konseling/vector.png" class="me-3"> Pilih Psikolog <br>
+            <img src="assets/img/konseling/vector.png" class="me-3"> Isi Identitas & Pilih Jadwal <br>
+            <img src="assets/img/konseling/vector.png" class="me-3"> Pembayaran
         </div>
+      </div>
+    </div>
+  </div>
 
-        <div class="row">
-          <div class="col-sm-6 mb-3"><img src="../assets/img/landingpage/Group 2406.png" alt="group" class="img-fluid" width="250" /></div>
-          <div class="col-sm-6 text-center"><img src="../assets/img/landingpage/OBJECTS.png" alt="object" class="img-fluid" width="400" /></div>
-        </div>
 
         <div class="mt-5 mb-5">
           <div class="container-md py-5 px-4 rounded" style="background-color: #5a74fd; z-index:-3;">
