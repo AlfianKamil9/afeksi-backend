@@ -134,7 +134,7 @@
               <div class="row gap-0 p-md-4 align-items-center">
                 <div class="col-lg-5 col-md-6">
                   <img
-                      src="assets/img/konseling/konseling-1.png"
+                      src="/assets/img/konseling/konseling-1.png"
                       alt="Gambar Anda"
                       class="img-fluid w-100"
                   />

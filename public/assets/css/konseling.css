@@ -225,7 +225,7 @@ span {
 
 .bg-card-custom::after {
     content: "";
-    background-image: url("../img/konseling/Frame_2608923.png");
+    background-image: url("../assets/img/konseling/bg-macam-konseling.png");
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
@@ -279,13 +279,13 @@ span {
 }
 
 .--bg-1 {
-    background: url("../img/konseling/popup/pop-1.jpg") no-repeat;
+    background: url("../assets/img/konseling/popup/pop-1.jpg") no-repeat;
     background-size: 100% 110vh;
     height: 110vh;
     width: 30em;
 }
 .--bg-2 {
-    background: url("../img/konseling/popup/pop-2.jpg") no-repeat;
+    background: url("../assets/img/konseling/popup/pop-2.jpg") no-repeat;
     background-size: 100% 110vh;
     height: 110vh;
     width: 30em;

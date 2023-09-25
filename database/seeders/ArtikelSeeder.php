@@ -44,7 +44,7 @@ class ArtikelSeeder extends Seeder
             ],
             [
                 'judul_artikel' => 'Cara Menerapkan Self Love untuk Jaga Kesehatan Mental',
-                'gambar' => 'Cara-Menerapkan-Self-Love-untuk-Jaga-Kesehatan-Mental.png',
+                'gambar' => 'cara-menerapkan-self-love-untuk-jaga-kesehatan-mental.png',
                 'slug' => 'Cara-Menerapkan-Self-Love-untuk-Jaga-Kesehatan-Mental',
                 'topik' => 'KESEHATAN',
                 'isi_artikel' => 
