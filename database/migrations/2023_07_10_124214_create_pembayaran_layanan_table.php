@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('ref_transaction_layanan')->nullable();
             $table->unsignedBigInteger('paket_professional_conseling_id')->nullable();
             $table->unsignedBigInteger('paket_layanan_non_professional_id')->nullable();
-            $table->unsignedBigInteger('conseling_id');
+            $table->unsignedBigInteger('conseling_id')->nullable();
             $table->unsignedBigInteger('voucher_id')->nullable();
             $table->string('payment_method')->nullable();
             $table->enum('status', ['UNPAID', 'UNPAID(BUTUH BAYAR)', 'PAID', 'PENDING', 'EXPIRED']);

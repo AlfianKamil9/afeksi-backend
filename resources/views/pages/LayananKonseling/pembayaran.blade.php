@@ -1,6 +1,6 @@
 @extends('../layout')
 
-@section('title', 'Pembayaran | AFEKSI')
+@section('title', 'Pembayaran Peers Konseling | AFEKSI')
 
 @section('styles')
     <link rel="stylesheet" href="/assets/css/pembayaran.css">
@@ -24,14 +24,10 @@
     <div class="position-relative">
       <div class="stepper-wrapper">
         <div class="stepper-item completed">
-          <!-- add class COMPLETED to enable checklist -->
           <div class="step-counter">
             <span class="step-checkmark">✓</span>
           </div>
-          <div class="step-name text-center">
-            Pilih <br />
-            Pengalaman Psikologi
-          </div>
+          <div class="step-name">Pilih Konselor</div>
         </div>
         <div class="stepper-item completed">
           <div class="step-counter">
@@ -43,18 +39,12 @@
           <div class="step-counter">
             <span class="step-checkmark">✓</span>
           </div>
-          <div class="step-name">Pilih Psikolog</div>
-        </div>
-        <div class="stepper-item completed">
-          <div class="step-counter">
-            <span class="step-checkmark">✓</span>
-          </div>
           <div class="step-name">Data Diri</div>
         </div>
-        <div class="stepper-item completed">
+        <div class="stepper-item active">
           <!--add class active to enable active step progess-->
           <div class="step-counter">
-            <span class="step-checkmark">✓</span>
+            <span class="step-checkmark">4</span>
           </div>
           <div class="step-name">Pembayaran</div>
         </div>
@@ -70,7 +60,7 @@
     <div class="col-lg-7">
       <div class="card mb-4" style="border-color: #2139f9; z-index: 0">
         <div class="card-body">
-          <form action="/slug-mentoring-yg-dipilih/{{ request('ref_transaction_layanan') }}/checkout" method="post">
+          <form action="{{ route('professional.konseling.process.checkout', request('ref_transaction_layanan')) }}" method="post">
             @csrf
           <h5 class="fw-bolder" style="color: #2139f9">Pembayaran</h5>
 
@@ -81,7 +71,7 @@
           @endif
           <select id="myDropdown" class="form-select" name="bank" style="width: 100%">
             <!-- option on Pembayaran.js -->
-            <option value="" selected>Pilih Metode Pembayarans</option>
+            <option value="" selected>Pilih Metode Pembayaran</option>
           </select>
           
 
@@ -111,8 +101,12 @@
                 <tbody>
                   <tr>
                     <td class="text-muted fw-bold">Sub Total</td>
-                    <td class="text-end fw-bold">Rp {{ number_format($data->paket_non_professionals->harga + 4000, 0, ',', '.') }}</td>
+                    <td class="text-end fw-bold">Rp {{ number_format($data->paket_profesional_conselings->harga) }}</td>
                   </tr>
+                  {{-- <tr>
+                    <td class="text-muted fw-bold">Biaya Admin</td>
+                    <td class="text-end fw-bold">Rp. {{ number_format(4000, 0 ,',' ,'.') }}</td>
+                  </tr> --}}
                   <tr>
                     <td class="text-muted fw-bold">Voucher Diskon</td>
                     <td class="text-end fw-bold">- Rp. 
@@ -134,9 +128,9 @@
                     <td class="fs-5 fw-bold text-muted">Total Pembayaran</td>
                     <td class="text-end fw-bold fs-5">Rp. 
                       @if (session()->has('apply'))
-                          {{ number_format($data->paket_non_professionals->harga + 4000 - session('apply')['diskon'], 0, ',', '.') }}
+                          {{ number_format($data->paket_profesional_conselings->harga - session('apply')['diskon'], 0, ',', '.') }}
                       @else
-                          {{ number_format($data->paket_non_professionals->harga + 4000, 0, ',', '.') }}
+                          {{ number_format($data->paket_profesional_conselings->harga, 0, ',', '.') }}
                       @endif
                     </td>
                   </tr>
@@ -153,9 +147,9 @@
                 <h5 class="text-muted">Total Pembayaran</h5>
                   <h5 class="fw-bold" style="color: #2139f9">Rp. 
                     @if(session()->has('apply'))  
-                      {{ number_format($data->paket_non_professionals->harga + 4000 - session('apply')['diskon'], 0, ',', '.') }}
+                      {{ number_format($data->paket_profesional_conselings->harga - session('apply')['diskon'], 0, ',', '.') }}
                     @else
-                      {{ number_format($data->paket_non_professionals->harga + 4000, 0, ',', '.') }}
+                      {{ number_format($data->paket_profesional_conselings->harga, 0, ',', '.') }}
                     @endif
                   </h5>
               </div>
@@ -182,8 +176,8 @@
                 <img src="/assets/img/pembayaran/plus-counseling.png" alt="Plus Counseling" class="img-fluid" />
               </div>
               <div class="text-container px-2">
-                <h6 class="mt-3 mb-0 fw-bold" style="color: #2139f9">{{ $data->paket_non_professionals->nama_paket }}</h6>
-                <p style="font-size: 10px">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                <h6 class="mt-3 mb-0 fw-bold" style="color: #2139f9">Peers Konseling</h6>
+                <p style="font-size: 10px">{{ $data->paket_profesional_conselings->professional_conseling->namaPengalaman }} <br>{{ $data->paket_profesional_conselings->nama_paket }}</p>
               </div>
             </div>
           </div>
@@ -196,8 +190,8 @@
                     <img src="/assets/img/pembayaran/plus-counseling.png" alt="Profil" class="rounded-circle mx-2" width="110" height="110" />
                   </div>
                   <div class="flex-grow-1 ms-1 m-3">
-                    <h6 class="fw-bold" id='name'>{{ $data->psikolog->nama_psikolog }}</h6>
-                    <p class="text-muted">Psikolog</p>
+                    <h6 class="fw-bold" id='name'>{{ $data->konselor->nama }}</h6>
+                    <p class="text-muted">Konselor {{ $data->paket_profesional_conselings->professional_conseling->namaPengalaman }}</p>
                   </div>
                 </div>
               </div>
@@ -210,22 +204,22 @@
                     <tr>
                       <td>Topik</td>
                       <td>:</td>
-                      <td>{{ $data->paket_non_professionals->layanan_non_professionals->nama_layanan }}</td>
+                      <td>{{ $data->paket_profesional_conselings->nama_paket }}</td>
                     </tr>
                     <tr>
                       <td>Tanggal</td>
                       <td>:</td>
-                      <td>{{ \Carbon\Carbon::parse($data->detail_pembayarans->tgl_konsultasi)->format('l, d-m-Y') }}</td>
+                      <td>{{ \Carbon\Carbon::parse($data->detail_pembayarans->tgl_konsultasi)->translatedFormat('l, d F Y') }}</td>
                     </tr>
                     <tr>
                       <td>Waktu</td>
                       <td>:</td>
-                      <td>{{ $data->detail_pembayarans->jam_konsultasi }}</td>
+                      <td>{{ $data->detail_pembayarans->jam_konsultasi }} - {{  \Carbon\Carbon::parse($data->detail_pembayarans->jam_konsultasi)->addMinutes($data->paket_profesional_conselings->durasi)->format('H:i') }} WIB</td>
                     </tr>
                     <tr>
                       <td>Durasi</td>
                       <td>:</td>
-                      <td>1 Jam</td>
+                      <td>{{ $data->paket_profesional_conselings->durasi }} Menit</td>
                     </tr>
                   </tbody>
                 </table>
@@ -239,7 +233,7 @@
                 <h5 class="fw-bold text-muted">Harga Paket</h5>
               </div>
               <div class="col-md-6 text-end">
-                <h5 class="fw-bold" style="color: #2139f9">Rp. {{ number_format($data->paket_non_professionals->harga, 0, ',', '.') }}</h5>
+                <h5 class="fw-bold" style="color: #2139f9">Rp. {{ number_format($data->paket_profesional_conselings->harga, 0, ',', '.') }}</h5>
               </div>
             </div>
           </div>

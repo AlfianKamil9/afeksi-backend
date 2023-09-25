@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Karir\Internship;
+use App\Http\Controllers\berandaController;
 use App\Http\Controllers\Karir\PeerKonselor;
 use App\Http\Controllers\Karir\BrandAmbasador;
 use App\Http\Controllers\Karir\karirController;
@@ -19,11 +20,12 @@ use App\Http\Controllers\Mentoring\MentoringController;
 use App\Http\Controllers\Transaksi\NotifikasiKonseling;
 use App\Http\Controllers\Transaksi\NotifikasiMentoring;
 use App\Http\Controllers\Konseling\ProfessionalController;
+use App\Http\Controllers\Konseling\PeersConselingController;
 use App\Http\Controllers\API\NotificationPaymentEventController;
-use App\Http\Controllers\berandaController;
 use App\Http\Controllers\Transaksi\Event\WebinarTransaksiController;
 use App\Http\Controllers\Transaksi\Layanan\KonselingTransaksiController;
 use App\Http\Controllers\Transaksi\Layanan\MentoringTransaksiController;
+use App\Http\Controllers\Transaksi\Layanan\PeersConselingTransaksiController;
 
 
 /*
@@ -108,6 +110,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 //--------------------------------------KONSELING---------------------------------------------------
 //PROFESSIONAL KONSELING
+  // PILIHAN SUB PROFESSIONAL KONSELING
+    Route::post('/professional-konseling/pilih-sub-topic', [ProfessionalController::class, 'createProfessional'])->name('professional.konseling.create.first');
   // PILIHAN KONSELOR
     Route::get('/professional-konseling/{ref_transaction_layanan}/pilihan-konselor-professional-konseling',[ProfessionalController::class, 'showAllKonselor'])->name('professional.konseling.konselor');
     Route::post('/professional-konseling/{ref_transaction_layanan}/pilihan-konselor-professional-konseling',[ProfessionalController::class, 'processPilihKonselor'])->name('professional.konseling.process.pilih-konselor');
@@ -122,8 +126,19 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/professional-konseling/{ref_transaction_layanan}/checkout', [KonselingTransaksiController::class, 'checkoutProfessionalKonseling'])->name('professional.konseling.process.checkout');
     
 //PEERS KONSELING 
-    
-    
+    Route::post('/peers-konseling/pilih-sub-topic', [PeersConselingController::class, 'processFirstPeers'])->name('peers.konseling.create.first');
+    // PILIHAN KONSELOR
+    Route::get('/peers-konseling/{ref_transaction_layanan}/peers-konseling',[peersConselingController::class, 'showKonselorPeers'])->name('peers.konseling.konselor');
+    Route::post('/peers-konseling/{ref_transaction_layanan}/peers-konseling',[peersConselingController::class, 'processPilihKonselor'])->name('peers.konseling.process.pilih-konselor');
+    // PAKET PEERS KONSELING
+    Route::get('/peers-konseling/{ref_transaction_layanan}/pilihan-paket-peers-konseling', [peersConselingController::class, 'showPaketKonseling'])->name('peers.konseling.pilihan.paket');
+    Route::post('/peers-konseling/{ref_transaction_layanan}/pilihan-paket-peers-konseling', [peersConselingController::class, 'processPaketKonseling'])->name('peers.konseling.process.paket');
+     // FORM PEERS KONSELING
+    Route::get('/peers-konseling/{ref_transaction_layanan}/data-diri', [PeersConselingTransaksiController::class, 'showFormDataDiri'])->name('peers.konseling.show.form');
+    Route::post('/peers-konseling/{ref_transaction_layanan}/submit-form-konseling', [PeersConselingTransaksiController::class, 'submitDataDiri'])->name('peers.konseling.process.form');
+     //CHECKOUT
+    Route::get('/peers-konseling/{ref_transaction_layanan}/pembayaran', [PeersConselingTransaksiController::class, 'showPembayaran'])->name('peers.konseling.checkout');
+    Route::post('/peers-konseling/{ref_transaction_layanan}/checkout', [PeersConselingTransaksiController::class, 'checkoutProfessionalKonseling'])->name('peers.konseling.process.checkout');
     
     
     // NOTIFICATION AFTER PEMBAYARAN PROFESIONAL KONSELING---
@@ -204,4 +219,9 @@ Route::fallback(function () {
 });
 
 
+
+
+Route::get('/popup-konseling', function () {
+    return view('pages.popup-konseling');
+});
 

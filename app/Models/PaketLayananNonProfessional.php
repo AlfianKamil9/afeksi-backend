@@ -14,7 +14,8 @@ class PaketLayananNonProfessional extends Model
     protected $fillable = [
         'layanan_nonProfessionals_id',
         'nama_paket',
-        'harga'
+        'harga',
+        'deskripsi_paket','deskripsi_singkat','durasi','jumlah_sesi','deskripsi_durasi'
     ];
 
     public function layanan_non_professionals()

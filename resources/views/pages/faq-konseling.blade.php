@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 @extends('../layout')
 
 @section('title', 'FAQ | AFEKSI')

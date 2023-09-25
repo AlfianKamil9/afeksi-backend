@@ -18,7 +18,8 @@ return new class extends Migration
             $table->text('deskripsi_paket');
             $table->string('durasi');
             $table->string('jumlah_sesi');
-            $table->string('deskripsi_singkat')->nullable();
+            $table->text('deskripsi_singkat')->nullable();
+            $table->text('deskripsi_durasi')->nullable();
             $table->string('harga');
             $table->timestamps();
 

@@ -1,8 +1,10 @@
+
 @extends('../layout') 
 @section('title', 'Rekap Transaksi Dashboard | AFEKSI')
 
-<!-- path style disesuaikan dengan folder css masing-masing page -->
+
 @section('styles')
+
 <link rel="stylesheet" href="/assets/css/rekap-transaksi.css" />
 @endsection 
 
@@ -24,12 +26,11 @@
                     Anda dapat melihat semua rekap transaksi anda di sini.
                   </p>
                 </div>
-              </div>
             </div>
           </div>
         </section>
         <!-- Dashboard ============================== -->
-        <div class="dashboard p-3 shadow-sm" >
+        <div class="dashboard p-3 shadow-sm mb-5" >
           <div class="bg-light rounded-circle d-flex justify-content-center align-items-center border" id="profile-foto" style="width: 125px; height: 125px;cursor:pointer;">
               <svg data-src="/assets/img/dashboard-profile/user.svg" width="50px" height="50px"></svg>
           </div>
@@ -91,49 +92,6 @@
         </div>
       <!-- End of dashboard profile  ===================================-->
       <div class="col-md-9 p-4" style="min-height: 90vh;margin-top:-80px">
-        {{-- <div class="card position-relative mt-5">
-
-            <div class="card-top d-flex row align-items-center">
-                <div class="py-3 px-4 col-4">
-                    <div class="p-0">
-                        <p class="m-0">Transaksi</p>
-                        <span>13 September 2023</span>
-                    </div>
-                </div>
-                <div class="py-3 px-4 col-4">
-                    <div class="card-top-content py-0">
-                        <p class="m-0">No invoice</p>
-                        <span>87239854927332094</span>
-                    </div>
-                </div>
-                <div class="py-3 px-4 col-4 text-center">
-                    <div class="p-0">
-                        <p class="status menunggu">Menunggu Pembayaran</p>                        
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-middle d-flex px-4 py-3 gap-3 ">
-                <img src="assets/img/rekap-transaksi/c.png" alt="">
-                <div class="texts">
-                    <p class="m-0">E-book Menelisik Hati, Memahami Pasangan: Panduan Praktis Untuk Kebahagiaan Bersama Pasangan</p>
-                    <span>1 barang</span>
-                </div>
-            </div>
-
-            <div class="card-bottom d-flex flex-column flex-lg-row align-items-center justify-content-between px-4 py-3">
-                <div class="card-bottom-content">
-                    <span>Transaksi</span>
-                    <p>13 september 2023</p>
-                </div>
-                <div class="card-bottom-content">
-                    <div class="btn btn-join me-2 py-2 px-3 rounded-3" style="background-color: #2139F9;">Lanjutkan</div>
-                    <div class="btn btn-join me-2 py-2 px-3 rounded-3" style="background-color: #D60F27;">Bayar</div>
-                    <div class="btn btn-admin bg-secondary py-2 px-3 rounded-3">Hubungi admin</div>
-                </div>
-            </div>
-            
-        </div> --}}
         @forelse ($dataProfesionalKonseling as $item)
               @if ($item->paket_profesional_conselings != null)
                 <div class="card position-relative shadow-sm mb-3">
@@ -174,7 +132,7 @@
                             <p>{{ \Carbon\Carbon::parse($item->detail_pembayarans->tgl_konsultasi)->locale('id_ID')->format('d F Y') }} / {{ $item->detail_pembayarans->jam_konsultasi }} WIB</p>
                         </div>
                         <div class="card-bottom-content">
-                            <span>Psikolog</span>
+                            <span>Konselor</span>
                             <p>{{ $item->konselor->nama }}</p>
                         </div>
                         <div class="card-bottom-content">
@@ -270,4 +228,5 @@
     </div>
 
 @include('../partials/footer')  
+
 @endsection

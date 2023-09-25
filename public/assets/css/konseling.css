@@ -204,3 +204,116 @@ span {
         display: none !important;
     }
 }
+
+@media (min-width: 1000px) {
+    .card .card-text {
+        font-size: 1.5em;
+    }
+}
+
+.bg-card-custom {
+    background: rgb(89, 111, 255);
+    background: linear-gradient(
+        135deg,
+        rgba(89, 11, 255, 1) 29%,
+        rgba(255, 255, 255, 1) 28%,
+        rgba(255, 255, 255, 1) 32%,
+        rgba(254, 225, 121, 1) 32%
+    );
+    position: relative;
+}
+
+.bg-card-custom::after {
+    content: "";
+    background-image: url("../img/konseling/Frame_2608923.png");
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: 20%;
+    position: absolute;
+    top: 0;
+    left: 80%;
+}
+
+@media (max-width: 767px) {
+    .bg-card-custom::after {
+        background-size: 50vw;
+        left: 47%;
+        top: 40%;
+        z-index: 0;
+    }
+    .bg-card-custom img {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+/* POPUP */
+
+.popup p {
+    font-size: 1.2em;
+    height: 15em;
+}
+.popup {
+    color: yellow;
+}
+.button-popup {
+    width: 25em;
+}
+
+.list-popup {
+    position: relative;
+    width: 75%;
+}
+.list-popup li {
+    list-style-type: none;
+}
+.list-popup li::before {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: #0623f8;
+    left: 20px;
+    border-radius: 30px;
+}
+
+.--bg-1 {
+    background: url("../img/konseling/popup/pop-1.jpg") no-repeat;
+    background-size: 100% 110vh;
+    height: 110vh;
+    width: 30em;
+}
+.--bg-2 {
+    background: url("../img/konseling/popup/pop-2.jpg") no-repeat;
+    background-size: 100% 110vh;
+    height: 110vh;
+    width: 30em;
+}
+
+@media (max-width: 1000px) {
+    .popup p {
+        height: 20em;
+    }
+    .--bg-1,
+    .--bg-2 {
+        width: 100%;
+        background-size: 100% 140vh;
+        height: 140vh;
+    }
+}
+
+@media (max-width: 500px) {
+    .popup p {
+        font-size: 1em;
+        height: 23em;
+    }
+
+    .button-popup {
+        width: 100%;
+    }
+
+    .list-popup {
+        width: 100%;
+    }
+}

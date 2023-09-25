@@ -16,6 +16,11 @@ return new class extends Migration
             $table->unsignedBigInteger('layanan_nonProfessionals_id');
             $table->string('nama_paket');
             $table->string('harga');
+            $table->text('deskripsi_paket');
+            $table->text('deskripsi_durasi');
+            $table->string('durasi');
+            $table->string('jumlah_sesi');
+            $table->text('deskripsi_singkat')->nullable();
             $table->timestamps();
 
             $table->foreign('layanan_nonProfessionals_id')->references('id')->on('layanan_non_professionals')->onDelete('cascade')->onUpdate('cascade');

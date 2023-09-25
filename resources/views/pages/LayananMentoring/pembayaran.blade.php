@@ -170,8 +170,8 @@
                 <img src="/assets/img/pembayaran/plus-counseling.png" alt="Plus Counseling" class="img-fluid" />
               </div>
               <div class="text-container px-2">
-                <h6 class="mt-3 mb-0 fw-bold" style="color: #2139f9">{{ $data->paket_non_professionals->nama_paket }}</h6>
-                <p style="font-size: 10px">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                <h6 class="mt-3 mb-0 fw-bold" style="color: #2139f9">Mentoring</h6>
+                <p style="font-size: 10px">{{ $data->paket_non_professionals->layanan_non_professionals->nama_layanan }}<br>{{ $data->paket_non_professionals->nama_paket }}</p>
               </div>
             </div>
           </div>
@@ -185,7 +185,7 @@
                   </div>
                   <div class="flex-grow-1 ms-1 m-3">
                     <h6 class="fw-bold" id='name'>{{ $data->psikolog->nama }}</h6>
-                    <p class="text-muted">Psikolog</p>
+                    <p class="text-muted">Psikolog {{ $data->paket_non_professionals->layanan_non_professionals->nama_layanan }}</p>
                   </div>
                 </div>
               </div>
@@ -203,7 +203,7 @@
                     <tr>
                       <td>Tanggal</td>
                       <td>:</td>
-                      <td>{{ \Carbon\Carbon::parse($data->detail_pembayarans->tgl_konsultasi)->format('l, d-m-Y') }}</td>
+                      <td>{{ \Carbon\Carbon::parse($data->detail_pembayarans->tgl_konsultasi)->format('l, d F Y') }}</td>
                     </tr>
                     <tr>
                       <td>Waktu</td>
