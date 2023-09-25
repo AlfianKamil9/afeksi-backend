@@ -193,6 +193,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::get('/ubah-password',[ ProfileController::class, 'showUbahPassword'])->name('show.changePassword');
             Route::post('/change-password', [ProfileController::class, 'processChangePassword'])->name('changes.password');
             Route::get('/ubah-foto-profile', [ProfileController::class, 'showUbahFoto'])->name('show.changeFoto');
+            Route::post('/ubah-foto-profile', [ProfileController::class, 'processChangeFoto'])->name('process.changeFoto');
         });
         // E-Book
         Route::get('/e-book', [MyBookController::class, 'showMyBook'])->name('show.e-book');

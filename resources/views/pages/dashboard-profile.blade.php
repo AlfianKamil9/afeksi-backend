@@ -244,7 +244,11 @@
     <!-- Dashboard ============================== -->
     <div class="dashboard p-3 shadow-sm">
         <div class="bg-light rounded-circle d-flex justify-content-center align-items-center border" id="profile-foto" style="width: 125px; height: 125px;cursor:pointer;">
-            <svg data-src="/assets/img/dashboard-profile/user.svg" width="50px" height="50px"></svg>
+          @if (Auth::user()->avatar)
+              <img src ="{{ asset('/storage/user/profile_pictures/'.Auth()->user()->avatar) }}" class="rounded-circle"  width="125x" height="125px">
+          @else
+              <svg data-src="/assets/img/dashboard-profile/user.svg" width="50px" height="50px"></svg>
+          @endif
         </div>
         <div class="mt-3" id="profile-foto" style="cursor:pointer;">
             <h6 class="fw-bold">{{ Auth::user()->nama }}</h6>
@@ -264,6 +268,17 @@
   <div class="col-md-9">
       <!-- FORM ===================== -->
       <div class="container mt-5">
+        @if (session()->has('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <strong>Success</strong> {{ session('success') }}.
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @else
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <strong>Gagal</strong> {{ session('error') }}.
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
         <form class="mx-3" method="POST" action="{{ route('dashboard.profile.changes.data') }}">
           @csrf
               <div class="row">
@@ -298,8 +313,12 @@
                       <input type="text" class="form-control" id="pekerjaan" placeholder="Pekerjaan Kamu" name="pekerjaan" value="{{ Auth::user()->pekerjaan }}">
                   </div>
                   <div class="my-5 pb-5">
-                      <a type="button" href="{{ route('dashboard.profile.show.changePassword') }}" class="btn btn-outline-primary">Ubah Password</a>
-                      <a type="button" href="{{ route('dashboard.profile.show.changeFoto') }}" class="btn btn-outline-primary">Ubah Foto Profile</a>
+                    @if (Auth::user()->google_id)
+                    <a type="button" href="{{ route('dashboard.profile.show.changeFoto') }}" class="btn btn-outline-primary">Ubah Foto Profile</a>
+                    @else
+                    <a type="button" href="{{ route('dashboard.profile.show.changePassword') }}" class="btn btn-outline-primary">Ubah Password</a>
+                    <a type="button" href="{{ route('dashboard.profile.show.changeFoto') }}" class="btn btn-outline-primary">Ubah Foto Profile</a>
+                    @endif
                   </div>
                   
               </div>

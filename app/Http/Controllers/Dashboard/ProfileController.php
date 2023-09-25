@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Password;
 
@@ -49,42 +50,53 @@ class ProfileController extends Controller
 
     public function processChangePassword(Request $request) {
         $validate = Validator::make($request->all(), [
-            "oldPassword" => "required",
-            "newPassword" => "required",
-            "confirmNewPassword" => ['required', 'max:32', 'password_no_number_first' ,'confirmed', Password::defaults()],
+            "current_password" => ['required', 'max:32', 'password_no_number_first' , Password::defaults()],
+            "new_password" => ['required', 'max:32', 'password_no_number_first' ,'confirmed', Password::defaults()],
         ]);
+        if (Auth::user()->google_id) {
+            return redirect()->route('dashboard.profile.index')->with('error', 'Mohon maaf, Anda terdaftar dengan akun Google ');
+        }
         if ($validate->fails()) {
-             return response()->json([
-                'message' => 'validasi gagal '
-            ]);
-            //return back()->with('error', $validate->messages());
+            return back()->with('error', $validate->messages());
         }
 
-        if (!Auth::attempt(['email' => auth()->user()->email,'password' => $request->oldPassword])) {
-             return response()->json([
-                'message' => 'password lama salah'
-            ]);
-            //return back()->with('error', $validate->messages());
-        }
+        $credentials = [
+            'email' => Auth::user()->email,
+            'password' => $request->input('current_password'),
+        ];
 
-        if ($request->newPassword != $request->confirmNewPassword) {
-            return response()->json([
-                'message' => 'password tidak sama'
-            ]);
-            //return back()->with('error', "New password and password confirmation must be same");
+        if (!Auth::attempt($credentials)) {
+            return redirect()->back()->withErrors(['current_password' => 'Password lama tidak sesuai']);
         }
-
-        User::where('id', auth()->user()->id)->update([
-            'password' => Hash::make($request->confirmNewPassword),
+        
+        User::where('id' , Auth::user()->id )->update([
+            'password' => Hash::make($request->input('new_password')),
         ]);
-        return response()->json([
-            'message' => 'berhasil'
-        ]);
-        //return redirect()->route('dashboard.profile.index')->with('success', 'Success update Password');
+        return redirect()->route('dashboard.profile.index')->with('success', 'Success update Password');
 
     }
     
     public function showUbahFoto() {
         return view('pages.ubah-foto-profile');
+    }
+
+    public function processChangeFoto(Request $request) {
+        $validate = Validator::make($request->all(),[
+            'upload_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+        if($validate->fails()){
+            return back()->with('error', $validate->message());
+        }
+        $user = Auth::user();
+        if ($user->avatar) {
+            Storage::delete('public/user/profile_pictures/'.$user->avatar);
+        }
+        $file = $request->file('upload_image');
+        $fileName = time() . '.' . $file->getClientOriginalExtension();
+        $file->storeAs('public/user/profile_pictures', $fileName); // Simpan gambar di direktori storage/app/public/profile_pictures
+        User::where('id', $user->id)->update([
+            'avatar' => $fileName,
+        ]);
+        return redirect()->route('dashboard.profile.index')->with('success', 'Berhasil Ganti Foto Profile');
     }
 }

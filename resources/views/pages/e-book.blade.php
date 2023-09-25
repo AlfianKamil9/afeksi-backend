@@ -31,7 +31,11 @@
         <!-- Dashboard ============================== -->
         <div class="dashboard p-3 shadow-sm">
           <div class="bg-light rounded-circle d-flex justify-content-center align-items-center border" id="profile-foto" style="width: 125px; height: 125px;cursor:pointer;">
-              <svg data-src="/assets/img/dashboard-profile/user.svg" width="50px" height="50px"></svg>
+             @if (Auth::user()->avatar)
+              <img src ="{{ asset('/storage/user/profile_pictures/'.Auth()->user()->avatar) }}" class="rounded-circle"  width="125x" height="125px">
+              @else
+                  <svg data-src="/assets/img/dashboard-profile/user.svg" width="50px" height="50px"></svg>
+              @endif
           </div>
           <div class="mt-3" id="profile-foto" style="cursor:pointer;">
               <h6 class="fw-bold">{{ Auth::user()->nama }}</h6>

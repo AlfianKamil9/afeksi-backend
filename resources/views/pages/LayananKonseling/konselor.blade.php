@@ -79,7 +79,7 @@
           </div>
           <div class="form-check">
             <input class="form-check-input" name="topic" type="radio" @if ( request('topic') == "Kesetaraan") checked @endif  value="Kesetaraan" id="selfLoveCheckbox" />
-            <label class="form-check-label" for="selfLoveCheckbox"> Kesetaraan </label>
+            <label class="form-check-label" for="selfLoveCheckbox"> Kesetaraan Gender</label>
           </div>
           <div class="form-check">
             <input class="form-check-input" name="topic" type="radio" @if ( request('topic') == "Kesehatan") checked @endif value="Kesehatan" id="selfLoveCheckbox" />
