@@ -122,11 +122,10 @@
       </div>
       <div class="mt-5">
         <h2 class="fw-bold text-center mt-5">
-          <span>Macam - Macam Mentoring</span>
+          <span>Macam - Macam Konseling</span>
         </h2>
         <p class="text-body-tertiary fw-bold text-center mt-2 mb-5">
-          Macam-macam mentoring mencakup Parenting Mentoring, Pre Marriage
-          mentoring, dan Relatinship Mentoring.
+          Macam-macam mentoring mencakup Professional Konseling dan Peers Konseling.
         </p>
       </div>
       <div class="container mt-5 mb-5">
@@ -145,14 +144,19 @@
                     <h2 class="card-title mb-3">Professional Konseling</h2>
                     <p class="card-text mb-md-4 mb-5 mb-lg-5" >Konsultasi yang dilakukan dengan professional di bidangnya
                       masing - masing meliputi equality gender dan relationship.</p>
-                    <button
-                      type="submit"
-                      class="btn btn-primary rounded-pill"
-                      style="width: 200px"
-                      data-bs-toggle="modal" data-bs-target="#professional-konseling" data-bs-whatever="@mdo"
-                     >
-                      Pilih
-                  </button>
+                    @auth
+                      <button
+                          type="submit"
+                          class="btn btn-primary rounded-pill"
+                          style="width: 200px"
+                          data-bs-toggle="modal" data-bs-target="#professional-konseling" data-bs-whatever="@mdo"
+                        >
+                          Pilih
+                      </button>
+                    @else
+                      <button class="btn btn-primary rounded-pill"
+                          style="width: 200px" id="btn-harus-login1" style="width: 100px;">Pilih</button>
+                    @endauth
                   </div>
                 </div>
               </div>
@@ -171,14 +175,19 @@
                   <div class="card-body">
                     <h2 class="card-title mb-3">Peers Konseling</h2>
                     <p class="card-text mb-md-4 mb-5 mb-lg-5">Konsultasi non klinis dengan peers yang sudah bersertifikasi bisa berkonsultasi secara individu maupun secara pasangan.</p>
-                    <button
-                      type="submit"
-                      class="btn btn-primary rounded-pill"
-                      style="width: 200px"
-                      data-bs-toggle="modal" data-bs-target="#peers-konseling" data-bs-whatever="@mdo"
-                     >
-                      Pilih
-                  </button>
+                    @auth
+                        <button
+                            type="submit"
+                            class="btn btn-primary rounded-pill"
+                            style="width: 200px"
+                            data-bs-toggle="modal" data-bs-target="#peers-konseling" data-bs-whatever="@mdo"
+                          >
+                            Pilih
+                        </button>
+                    @else
+                        <button class="btn btn-primary rounded-pill" type="submit"
+                          style="width: 200px" id="btn-harus-login" style="width: 100px;">Pilih</button>
+                    @endauth
                   </div>
                 </div>
               </div>
@@ -283,6 +292,7 @@
   <!-- End CONTENT -->
 
 
+  @auth
   <!-- MODAL PROFESSIONAL KONSELING -->
   <div class="modal fade static" id="professional-konseling" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
@@ -394,6 +404,23 @@
   </div>
 </div>
   <!-- END-MODAL -->
+@else
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script>
+          $(document).ready(function() {
+              $('#btn-harus-login').click(function() {
+                  window.location.href = '{{ route("login") }}';
+              });
+          });
+          $(document).ready(function() {
+              $('#btn-harus-login1').click(function() {
+                  window.location.href = '{{ route("login") }}';
+              });
+          });
+  </script>
+@endauth
+  
+
 
 @section('script')
    <script src="assets/js/slider.js"></script>

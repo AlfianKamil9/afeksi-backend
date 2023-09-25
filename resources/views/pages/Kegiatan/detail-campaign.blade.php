@@ -229,7 +229,7 @@
             });
         });
     </script>
-    @endauth
+@endauth
 {{-- @include('sweetalert::alert') --}}
 @section('script')
     <script src="/assets/js/form-file-pendaftaran.js"></script>
