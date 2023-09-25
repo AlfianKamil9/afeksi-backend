@@ -74,7 +74,7 @@
         <div class="d-flex flex-column align-content-center justify-content-center">
           @forelse ($data as $data)
               <div class="article-card row px-3 py-5 rounded-4 gap-3 gap-lg-0 mb-4">
-                <img class="col-lg-5" src="{{ $data->gambar ? 'assets/img/article/'.$data->gambar : 'assets/img/article/cardImg.png' }}" alt="{{ $data->judul_artikel }}" />
+                <img class="col-lg-5" src="/assets/img/article/{{ $data->gambar }}" alt="{{ $data->judul_artikel }}" />
                 <div class="article-content d-flex flex-column col-lg-7">
                   <h3 class="fw-bold m-0" style="color: #233dff">{{ $data->judul_artikel }}</h3>
                   <p class="m-0">
