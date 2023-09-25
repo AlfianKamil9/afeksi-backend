@@ -16,7 +16,7 @@ class ArtikelSeeder extends Seeder
         $data = [
             [
                 'judul_artikel' => 'Awas, Tanpa Sadar Orangtua Ajari Stereotype Sejak Kecil',
-                'gambar' => 'Awas-Tanpa-Sadar-Orangtua-Ajari-Stereotype-Sejak-Kecil.png',
+                'gambar' => 'artikel_1.png',
                 'slug' => 'Awas-Tanpa-Sadar-Orangtua-Ajari-Stereotype-Sejak-Kecil',
                 'topik' => 'PENDIDIKAN',
                 'isi_artikel' => 
@@ -44,7 +44,7 @@ class ArtikelSeeder extends Seeder
             ],
             [
                 'judul_artikel' => 'Cara Menerapkan Self Love untuk Jaga Kesehatan Mental',
-                'gambar' => 'cara-menerapkan-self-love-untuk-jaga-kesehatan-mental.png',
+                'gambar' => 'artikel_2.png',
                 'slug' => 'Cara-Menerapkan-Self-Love-untuk-Jaga-Kesehatan-Mental',
                 'topik' => 'KESEHATAN',
                 'isi_artikel' => 
