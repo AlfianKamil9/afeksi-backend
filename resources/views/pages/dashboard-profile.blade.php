@@ -246,7 +246,7 @@
         <div class="bg-light rounded-circle d-flex justify-content-center align-items-center border" id="profile-foto" style="width: 125px; height: 125px;cursor:pointer;">
           @if (Auth::user()->avatar)
               <img src ="{{ asset('/storage/user/profile_pictures/'.Auth()->user()->avatar) }}" class="rounded-circle"  width="125x" height="125px">
-          @else
+          @else 
               <svg data-src="/assets/img/dashboard-profile/user.svg" width="50px" height="50px"></svg>
           @endif
         </div>
@@ -273,7 +273,7 @@
               <strong>Success</strong> {{ session('success') }}.
               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-        @else
+        @elseif(session()->has('error'))
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
               <strong>Gagal</strong> {{ session('error') }}.
               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
