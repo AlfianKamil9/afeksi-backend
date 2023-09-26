@@ -18,7 +18,7 @@
                 @csrf        
                 <label for="foto" class="col-form-label fw-semibold">Upload Foto</label>
                 <label class="upload-file" for="foto" class="col-form-label"> <i class="bi bi-plus-circle-fill ps-2 me-3"></i>Upload foto</label>
-                <input type="file" name="upload_image" id="upload-file" class="d-block">
+                <input type="file" name="upload_image" id="upload-file" class="d-block" onchange="displayFileName(this)">
                 <p class="info-file mt-3">Ukuran file MAX 2MB</p>
                 <button type="submit" class="btn btn-primary w-100 mt-3 mb-3 btn-simpan">Simpan</button>
                 <a href="{{ route('dashboard.profile.index') }}" class="btnKembali">Kembali</a>
@@ -27,5 +27,6 @@
         </div>
     </div>
   </section>
+  <script src="/assets/js/form-file-pendaftaran.js"></script>
   @include('../partials/footer') 
 @endsection
