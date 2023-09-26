@@ -182,3 +182,6 @@ Route::get('/popup-konseling', function () {
 Route::get('/rekaphistory', function () {
     return view('pages.rekaphistory');
 });
+Route::get('/rekaphistory-detail', function () {
+    return view('pages.rekaphistory-detail');
+});
