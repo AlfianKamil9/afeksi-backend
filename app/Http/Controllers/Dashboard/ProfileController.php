@@ -93,7 +93,7 @@ class ProfileController extends Controller
             Storage::delete('public/user/profile_pictures/'.$user->avatar);
         }
         $file = $request->file('upload_image');
-        $fileName = time().Str::random(5) . '.' . $file->getClientOriginalExtension();
+        $fileName = time().Str::lower(Str::random(5)). '.' . $file->getClientOriginalExtension();
         $file->storeAs('public/user/profile_pictures', $fileName); // Simpan gambar di direktori storage/app/public/profile_pictures
         User::where('id', $user->id)->update([
             'avatar' => $fileName,
