@@ -1,5 +1,7 @@
 @extends('../layout')
-@section('title', 'Rekap History')
+@section('title')
+Recap of {{ $data->title_event }} | AFEKSI
+@endsection
 
 <!-- path style disesuaikan dengan folder css masing-masing page -->
 @section('styles')

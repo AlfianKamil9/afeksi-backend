@@ -1,4 +1,4 @@
-@extends('../layout') @section('title', 'Rekap History')
+@extends('../layout') @section('title', 'Rekap History | AFEKSI')
 
 <!-- path style disesuaikan dengan folder css masing-masing page -->
 @section('styles')
