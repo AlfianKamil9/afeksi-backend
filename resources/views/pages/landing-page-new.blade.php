@@ -85,23 +85,23 @@
       </p>
       <div class="iconWrapp">
         <div class="field shadow p-2 rounded">
-          <img src="assets/img/landingpage/groups.png" alt="" />
+          <img src="/assets/img/landingpage/groups.png" alt="" />
           <span>Social</span>
         </div>
         <div class="field shadow p-2 rounded">
           <img src="assets/img/landingpage/union.png" alt="" />
           <span>Equality Gender</span>
         </div>
-        <div class="field shadow p-2 rounded">
-          <img src="assets/img/landingpage/vector.png" alt="" />
+        <div class="/field shadow p-2 rounded">
+          <img src="/assets/img/landingpage/vector.png" alt="" />
           <span>Relationship</span>
         </div>
         <div class="field shadow p-2 rounded">
-          <img src="assets/img/landingpage/Group 13304.png" alt="" />
+          <img src="/assets/img/landingpage/Group 13304.png" alt="" />
           <span>Pre-marriage</span>
         </div>
         <div class="field shadow p-2 rounded">
-          <img src="assets/img/landingpage/family_restroom.png" alt="" />
+          <img src="/assets/img/landingpage/family_restroom.png" alt="" />
           <span>Family</span>
         </div>
       </div>
