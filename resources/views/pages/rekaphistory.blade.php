@@ -39,7 +39,7 @@
           <div class="password-container">
              <form action="{{ route('recap.history') }}" method="get">
             <input type="text" class="form-control" placeholder="Search" />
-            <img class="password-icon" src="assets/img/kegiatan/material-symbols_search.png" alt="" />
+            <img class="password-icon" src="/assets/img/kegiatan/material-symbols_search.png" alt="" />
              </form>
           </div>
         </div>
@@ -163,18 +163,20 @@
           @forelse ($data as $item)
           <div class="col my-2 box shadow rounded-4 d-flex flex-md-row flex-column p-5 gap-5 align-items-center">
             <div class="left d-flex flex-column gap-1">
-              <div class="img-fluid" style="max-width: 700px; max-height: 700px">
-                <img src="{{ asset('/assets/img/kegiatan/'.$item->cover_event) }}" class="img-fluid" alt=""  height="100%" width="100%"/>
+              <div style="max-width: 1000px; max-height: 150px; overflow:hidden">
+                  <img class="img-fluid" src="{{ asset('/assets/img/kegiatan/'.$item->cover_event) }}" alt="foto webinar"/>
               </div>
               <span class="date text-secondary">{{ \Carbon\Carbon::parse($item->date_event)->format('l, d F Y') }}</span>
-              <div class="bio py-2 d-flex align-content-center gap-2">
+              <div class="bio py-2 row align-content-center gap-2">
                 @foreach ($item->webinar_session as $pembicara)
-                <div class="img-fluid rounded-circle">
-                  <img src="/assets/img/pembicara_webinar/{{ $pembicara->pembicara->avatar }}" class="rounded-circle" alt="" />
-                </div>
-                <div class="nama d-flex flex-column">
-                  <p>{{ $pembicara->pembicara->nama_psikolog }}</p>
-                  <span>{{ $pembicara->pembicara->profil }}</span>
+                <div class="d-flex">
+                  <div class="img-fluid rounded-circle me-2">
+                    <img src="/assets/img/pembicara_webinar/{{ $pembicara->pembicara->avatar }}" class="rounded-circle" alt="" />
+                  </div>
+                  <div class="nama d-flex flex-column">
+                    <p>{{ $pembicara->pembicara->nama_psikolog }}</p>
+                    <span>{{ $pembicara->pembicara->profil }}</span>
+                  </div>
                 </div>
                 @endforeach
               </div>
