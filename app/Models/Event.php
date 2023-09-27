@@ -30,7 +30,10 @@ class Event extends Model
         'price_event',
         'description_event',
         'status_event',
-        'is_place'
+        'is_place',
+        'isLink',
+        'partisipan',
+        'foto_acara'
     ];
 
     public function sluggable()

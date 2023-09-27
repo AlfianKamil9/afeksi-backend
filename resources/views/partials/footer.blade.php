@@ -82,7 +82,7 @@
               <li class="mb-3"><a href="{{ route('karir') }}" class="text-white">Karir</a></li>
               <li class="mb-3"><a href="{{ route('campaign') }}" class="text-white">Campaign</a></li>
               <li class="mb-3"><a href="{{ route('webinar') }}" class="text-white">Webinar</a></li>
-              <li class="mb-3"><a href="#" class="text-white">Rekap Histori</a></li>
+              <li class="mb-3"><a href="{{ route('recap.history') }}" class="text-white">Rekap Histori</a></li>
             </ul>
           </div>
 

@@ -29,6 +29,8 @@ return new class extends Migration
             $table->string('is_place')->nullable();
             $table->text('description_event');
             $table->string('isLink')->nullable();
+            $table->string('partisipan')->nullable();
+            $table->string('foto_acara')->nullable();
             $table->enum('status_event', ['LIVE','DRAFT','EXPIRE']);
             $table->timestamps();
 

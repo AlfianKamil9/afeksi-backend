@@ -31,7 +31,7 @@
         </div>
         <div class="stepper-item completed">
           <div class="step-counter">
-            <span class="step-checkmark">2</span>
+            <span class="step-checkmark">✓</span>
           </div>
           <div class="step-name">Data Diri</div>
         </div>
@@ -203,17 +203,17 @@
                     <tr>
                       <td>Tanggal</td>
                       <td>:</td>
-                      <td>{{ \Carbon\Carbon::parse($data->detail_pembayarans->tgl_konsultasi)->format('l, d F Y') }}</td>
+                      <td>{{ \Carbon\Carbon::parse($data->detail_pembayarans->tgl_konsultasi)->translatedFormat('l, d F Y') }}</td>
                     </tr>
                     <tr>
                       <td>Waktu</td>
                       <td>:</td>
-                      <td>{{ $data->detail_pembayarans->jam_konsultasi }}</td>
+                      <td>{{ $data->detail_pembayarans->jam_konsultasi }} - {{ \Carbon\Carbon::parse($data->detail_pembayarans->jam_konsultasi)->addMinutes($data->paket_non_professionals->durasi)->format('H:i') }} WIB</td>
                     </tr>
                     <tr>
                       <td>Durasi</td>
                       <td>:</td>
-                      <td>1 Jam</td>
+                      <td>{{ $data->paket_non_professionals->durasi }} Menit</td>
                     </tr>
                   </tbody>
                 </table>

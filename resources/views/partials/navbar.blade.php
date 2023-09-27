@@ -110,14 +110,14 @@ div .button-login {
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#"
                 @if ( Route::CurrentRouteName() == "campaign" ||  Route::CurrentRouteName() == "campaign.detail" )
                   style="color: #233dff"
-                @elseif ( Route::CurrentRouteName() == "webinar" ||  Route::CurrentRouteName() == "webinar.detail" )
+                @elseif ( Route::CurrentRouteName() == "webinar" ||  Route::CurrentRouteName() == "webinar.detail" || Route::currentRouteName() == 'recap.history' || Route::currentRouteName() == 'recap.history.detail' )
                   style="color: #233dff"
                 @endif
                 >Kegiatan</a>
                 <ul class="dropdown-menu">
                   <li class="mb-1"><a class="dropdown-item" href="{{ route('webinar') }}"><img class="me-2" src="/assets/img/icon/icon-webinar.png" width="20px" style="object-fit:contain">Webinar</a></li>
                   <li class="mb-1"><a class="dropdown-item" href="{{ route('campaign') }}"><img class="me-2" src="/assets/img/icon/icon-campaign.png" width="20px" style="object-fit:contain">Campaign</a></li>
-                  <li class="mb-1"><a class="dropdown-item" href="#"><img class="me-2" src="/assets/img/icon/icon-recap.png" width="20px" style="object-fit:contain">Rekap History</a></li>  
+                  <li class="mb-1"><a class="dropdown-item" href="{{ route('recap.history') }}"><img class="me-2" src="/assets/img/icon/icon-recap.png" width="20px" style="object-fit:contain">Rekap History</a></li>  
                 </ul>
               </li>
               <li class="nav-item">

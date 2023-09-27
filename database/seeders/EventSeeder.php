@@ -34,7 +34,9 @@ class EventSeeder extends Seeder
             'Afeksi-Warrior-Valentine-Edition',
             'CAMPAIGN',
             'Zoom',
-            'https://bit.ly/AfeksiWarriorBatch1'
+            'https://bit.ly/AfeksiWarriorBatch1',
+            null,
+            null,
         ],
         [
                 '1',
@@ -55,7 +57,9 @@ class EventSeeder extends Seeder
                 'Self-Love:-A-Road-to-Relationship-Goals',
                 'WEBINAR',
                 'Zoom',
-                'https://bit.ly/PendaftaranWebinarAfeksi1'
+                'https://bit.ly/PendaftaranWebinarAfeksi1',
+                281,
+                'foto_webinar_1.png'
         ],
         // [
         //         '2',
@@ -100,7 +104,9 @@ class EventSeeder extends Seeder
                 'Embracing-Equality:-A-Pathway-to-Disolve-Dating-Violence',
                 'WEBINAR',
                 'Zoom',
-                'bit.ly/PendaftaranWebinarAfeksi2'
+                'bit.ly/PendaftaranWebinarAfeksi2',
+                143,
+                'foto_webinar_2.png'
         ],
         [
                 '6',
@@ -121,7 +127,9 @@ class EventSeeder extends Seeder
                 'Cheating:-The-Downfall-of-a-Healthy-Relationship',
                 'WEBINAR',
                 'Zoom',
-                'https://Bit.ly/PendaftaranWebinarAfeksi3'
+                'https://Bit.ly/PendaftaranWebinarAfeksi3',
+                null,
+                null,
         ],
         [
             '5',
@@ -144,7 +152,9 @@ class EventSeeder extends Seeder
             'Love-bombing:-A-Trend-for-Tossing-and-Turning-The-Feelings',
             'WEBINAR',
             'Zoom',
-            'https://Bit.ly/PendaftaranWebinarAfeksi4'
+            'https://Bit.ly/PendaftaranWebinarAfeksi4',
+            null,
+            null,
         ]
     ];
 
@@ -167,7 +177,9 @@ class EventSeeder extends Seeder
             'status_event' => $data[$i][12],
             'activity_category_event' => $data[$i][14],
             'is_place' => $data[$i][15],
-            'isLink' => $data[$i][16]
+            'isLink' => $data[$i][16],
+            'partisipan' => $data[$i][17],
+            'foto_acara' => $data[$i][18]
         ]);
         }
 

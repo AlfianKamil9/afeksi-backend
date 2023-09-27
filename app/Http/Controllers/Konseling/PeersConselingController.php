@@ -73,7 +73,7 @@ class PeersConselingController extends Controller
         $data = PaketProfesionalConseling::with('professional_conseling')->where('professional_conseling_id', 3)->get();
         $slug = $ref_transaction_layanan;
         //return response()->json($data);
-        return view('pages.LayananKonseling.paket-sementara', compact('data', 'slug'));
+        return view('pages.LayananKonseling.paket-peers-konseling', compact('data', 'slug'));
     }
 
     public function processPaketKonseling(Request $request, $ref_transaction_layanan) {

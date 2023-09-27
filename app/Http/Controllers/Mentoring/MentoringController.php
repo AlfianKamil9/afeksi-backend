@@ -28,9 +28,10 @@ class MentoringController extends Controller
     }
 
      public function showPaketMentoring($slug_item_mentoring) {
-        $id = LayananNonProfessional::where('slug', $slug_item_mentoring)->pluck('id')->firstOrFail();
-        $data = PaketLayananNonProfessional::where('layanan_nonProfessionals_id', $id)->get();
-       return view('pages.LayananMentoring.paket-sementara', compact('data'));
+        $mentoring = LayananNonProfessional::where('slug', $slug_item_mentoring)->firstOrFail();
+        $data = PaketLayananNonProfessional::where('layanan_nonProfessionals_id', $mentoring->id)->get();
+        $layanan = $mentoring->nama_layanan;
+       return view('pages.LayananMentoring.paket-mentoring', compact('data', 'layanan'));
     }
 
     public function savePaketYangDipilih (Request $request) {

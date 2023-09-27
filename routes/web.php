@@ -16,6 +16,7 @@ use App\Http\Controllers\Dashboard\MyBookController;
 use App\Http\Controllers\Dashboard\RekapTransaction;
 use App\Http\Controllers\Karir\RelationshipKonselor;
 use App\Http\Controllers\Dashboard\ProfileController;
+use App\Http\Controllers\Rekap\RekapHistoriController;
 use App\Http\Controllers\Mentoring\MentoringController;
 use App\Http\Controllers\Transaksi\NotifikasiKonseling;
 use App\Http\Controllers\Transaksi\NotifikasiMentoring;
@@ -62,6 +63,9 @@ Route::get('/kegiatan-webinar', [WebinarController::class, 'index'])->name('webi
 Route::get('/kegiatan-webinar/{slug}', [WebinarController::class, 'show'])->name('webinar.detail');
 Route::get('/kegiatan-campaign', [CampaignController::class, 'index'])->name('campaign');
 Route::get('/kegiatan-campaign/{slug}', [CampaignController::class, 'show'])->name('campaign.detail');
+Route::get('/rekap-history',[RekapHistoriController::class, 'showRekapHistory'])->name('recap.history');
+Route::get('/rekaphistory/{slug}',[RekapHistoriController::class, 'showRekapHistoryDetail'])->name('recap.history.detail');
+    
 
 
 // KARIER
@@ -220,9 +224,4 @@ Route::fallback(function () {
 });
 
 
-
-
-Route::get('/popup-konseling', function () {
-    return view('pages.popup-konseling');
-});
 
