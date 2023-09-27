@@ -20,7 +20,7 @@
         </center>
         <div class="title mb-5">
           <h1 style="color: #233dff;">{{ ucwords($data->judul_artikel) }}</h1>
-          <span class="text-secondary">{{ $data->created_at->format('d F Y') }}</span>
+          <span class="text-secondary">{{ \Carbon\Carbon::parse($data->tanggal_rilis)->format('d F Y') }}</span>
         </div>
         <p>
           {!! $data->isi_artikel !!}

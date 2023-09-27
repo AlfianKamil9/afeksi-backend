@@ -80,7 +80,7 @@
                   <p class="m-0">
                     {!! Str::substr($data->isi_artikel, 0, 150). "..." !!}
                   </p>
-                  <span class="text-secondary">{{ $data->created_at->format('d F Y') }}</span>
+                  <span class="text-secondary">{{ \Carbon\Carbon::parse($data->tanggal_rilis)->format('d F Y') }}</span>
                   <div class="px-3 align-self-end">
                   <a href="{{ route('artikel.detail', $data->slug) }}"><div class="btn card-btn">Selengkapnya</div></a>
                   </div>

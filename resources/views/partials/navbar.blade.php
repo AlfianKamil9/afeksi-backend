@@ -102,8 +102,8 @@ div .button-login {
                 <ul class="dropdown-menu">
                   <li class="mb-1"><a class="dropdown-item" href="{{ route('konseling') }}" ><img class="me-2" src="/assets/img/icon/icon-konseling.png" width="20px" style="object-fit:contain">Konseling</a></li>
                   <li class="mb-1"><a class="dropdown-item" href="{{ route('mentoring') }}"> <img class="me-2" src="/assets/img/icon/icon-mentoring.png" width="20px" style="object-fit:contain">Mentoring</a></li>
-                  <li class="mb-1"><a class="dropdown-item" href="#"><img class="me-2" src="/assets/img/icon/icon-ebook.png" width="20px" style="object-fit:contain">E-Book</a></li>
-                  {{-- <li class="mb-1"><a class="dropdown-item" href="#"><img class="me-2" src="/assets/img/icon/icon-ecourse.png" width="20px" style="object-fit:contain">E-Course</a></li> --}}
+                  {{-- <li class="mb-1"><a class="dropdown-item" href="#"><img class="me-2" src="/assets/img/icon/icon-ebook.png" width="20px" style="object-fit:contain">E-Book</a></li> 
+                  <li class="mb-1"><a class="dropdown-item" href="#"><img class="me-2" src="/assets/img/icon/icon-ecourse.png" width="20px" style="object-fit:contain">E-Course</a></li> --}}
                 </ul>
               </li>
               <li class="nav-item dropdown">
@@ -152,7 +152,7 @@ div .button-login {
                     <button class="btn text-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                       <label class="text-primary me-1" style="font-size:12px">Hi, {{ explode(' ', auth()->user()->nama)[0] }}</label>
                       @if ( auth()->user()->avatar)
-                      <img src="{{ asset('/storage/user/profile_pictures/'.auth()->user()->avatar) }}" class="rounded-circle" width="30px" height="30px">
+                      <img src="/storage/user/profile_pictures/{{auth()->user()->avatar }}" class="rounded-circle" width="30px" height="30px">
                       @else
                       <img src="/assets/img/ubah-foto-profile/person.png" class="rounded-circle" width="30px">    
                       @endif
@@ -160,7 +160,7 @@ div .button-login {
                     <ul class="dropdown-menu">
                       <li class="mb-1"><a class="dropdown-item" href="{{ route('dashboard.profile.index') }}"><img class="me-2" src="/assets/img/icon/icon-profile.png" width="20px" style="object-fit:contain">Profile</a></li>
                       {{-- <li class="mb-1"><a class="dropdown-item" href="#"><img class="me-2" src="/assets/img/icon/icon-ecourse.png" width="20px" style="object-fit:contain">My Course</a></li> --}}
-                      <li class="mb-1"><a class="dropdown-item" href="{{ route('dashboard.show.e-book') }}"><img class="me-2" src="/assets/img/icon/icon-ebook.png" width="20px" style="object-fit:contain">My E-Book</a></li>
+                      {{-- <li class="mb-1"><a class="dropdown-item" href="{{ route('dashboard.show.e-book') }}"><img class="me-2" src="/assets/img/icon/icon-ebook.png" width="20px" style="object-fit:contain">My E-Book</a></li> --}}
                       <li><a class="dropdown-item" href="{{ route('logout') }}"><img class="me-2" src="/assets/img/icon/icon-logout.png" width="20px" style="object-fit:contain">Logout</a></li>
                     </ul>
                   </div>

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->enum('topik', ['RELATIONSHIP', 'PENDIDIKAN', 'KESETARAAN', 'KESEHATAN', 'FAMILY ISSUE'])->nullable();
             $table->longText('isi_artikel');
             $table->string('gambar')->nullable();
+            $table->date('tanggal_rilis');
             $table->timestamps();
         });
     }

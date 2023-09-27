@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 class artikelController extends Controller
 {
     public function index(Request $request) {
-        $query = Artikel::orderBy('created_at', 'desc');
+        $query = Artikel::orderBy('id', 'desc');
 
         // Filter using input type text
         if ($request->has('input_search')) {

@@ -19,6 +19,7 @@ class ArtikelSeeder extends Seeder
                 'gambar' => 'artikel_1.png',
                 'slug' => 'Awas-Tanpa-Sadar-Orangtua-Ajari-Stereotype-Sejak-Kecil',
                 'topik' => 'PENDIDIKAN',
+                'tanggal_rilis' => '2023-08-08',
                 'isi_artikel' => 
                 '
                     <p> Jakarta - Dalam Kamus Besar Bahasa Indonesia (KBBI), stereotip merupakan konsepsi mengenai sifat suatu golongan berdasarkan prasangka yang subjektif dan tidak tepat. Dalam hal ini, bisa dicontohkan melalui jenis kelamin, yang disebut dengan stereotip gender. Hal ini yang kerap diajarkan orangtua pada anak sedari kecil. Tanpa sadar, anak-anak tumbuh sesuai dengan stereotip yang ditetapkan orang tua.</p>
@@ -47,6 +48,7 @@ class ArtikelSeeder extends Seeder
                 'gambar' => 'artikel_2.png',
                 'slug' => 'Cara-Menerapkan-Self-Love-untuk-Jaga-Kesehatan-Mental',
                 'topik' => 'KESEHATAN',
+                'tanggal_rilis' => '2023-08-28',
                 'isi_artikel' => 
                 '<p>Jakarta – Self Love alias mencintai diri sendiri adalah konsep yang tengah banyak dibicarakan dan dikampanyekan. Katanya, menerapkan self-love bisa membantu menjaga kesehatan mental dan menurunkan risiko gangguan pada kondisi psikologis. Secara umum, konsep ini membicarakan tentang bagaimana cara untuk bisa mencintai diri sendiri.<br><br> 
                 Mencintai diri sendiri tidak diartikan sebagai pemenuhan semua hal yang diinginkan, apalagi jika tidak terlalu berguna. Sebaliknya, konsep ini lebih mendorong seseorang untuk bisa mengenali dan menerima diri sendiri kemudian bisa memperlakukan diri dengan baik dan apa adanya. Lantas, bagaimana cara menerapkan self love untuk menjaga kesehatan mental? </p>
@@ -127,7 +129,49 @@ class ArtikelSeeder extends Seeder
                     Bentuk self love selanjutnya adalah menjaga kesehatan. Untuk itu, pastikan memberi tubuh makanan yang enak dan bergizi, cukup beristirahat, serta rutin berolahraga. Pastikan juga untuk mencukupi kebutuhan cairan setiap hari. </p>
                 </section>  
                 '
-            ]
+            ],
+            [
+                'judul_artikel' => 'Pentingnya Membangun Hubungan yang Sehat dalam Kehidupan ',
+                'gambar' => 'artikel_3.png',
+                'slug' => 'Pentingnya-Membangun-Hubungan-yang-Sehat-dalam-Kehidupan ',
+                'topik' => 'RELATIONSHIP',
+                'tanggal_rilis' => '2023-09-17',
+                'isi_artikel' => 
+                '
+                    <p>Kehidupan manusia tidak bisa lepas dari interaksi dengan orang lain. Hubungan sosial adalah bagian integral dari kehidupan kita, dan salah satu bentuk hubungan yang paling penting adalah hubungan yang sehat. Hubungan yang sehat memainkan peran utama dalam meningkatkan kualitas hidup, kesejahteraan emosional, dan kebahagiaan. Artikel ini akan membahas mengapa pentingnya menjalin hubungan yang sehat dalam kehidupan kita. </p>
+
+                    <p>Mari kita eksplorasi lebih lanjut mengenai berbagai manfaat yang bisa didapat melalui hubungan yang sehat. Simak dengan seksama.</p>
+
+                    <section>
+                            <h4>1. Kesehatan Mental</h4>
+                            <p>Salah satu manfaat utama dari hubungan yang sehat adalah kesehatan mental yang lebih baik. Dalam hubungan yang positif, kamu merasa didukung, diterima, dan dicintai. Ini membantu mengurangi tingkat stres, kecemasan, dan depresi. Ketika kamu memiliki seseorang yang dapat kamu percayai dan berbicara tentang perasaanmu, kamu cenderung merasa lebih baik secara emosional.</p>
+                    </section>
+                    <section>
+                            <h4>2. Kesehatan Fisik</h4>
+                            <p>Penelitian telah menunjukkan bahwa orang yang menjalani hubungan yang sehat cenderung hidup lebih lama dan memiliki kesehatan fisik yang lebih baik. Pasangan yang mendukung dapat saling mendorong untuk menjalani gaya hidup yang sehat, seperti berolahraga bersama, memasak makanan sehat, dan mengurangi kebiasaan merokok atau minum alkohol berlebihan.</p>
+                    </section>
+                    <section>
+                            <h4>3.	Dukungan Emosional</h4>
+                            <p>Dalam hubungan yang sehat, kamu memiliki seseorang yang dapat kamu andalkan ketika menghadapi tantangan dalam hidup. Dukungan emosional dari pasangan, teman, atau keluarga dapat membantu kamu mengatasi rasa takut, ketidakpastian, dan kegagalan. Ini dapat memungkinkan kamu merasa lebih percaya diri dalam menghadapi masalah dan mengambil keputusan yang tepat.</p>
+                    </section>
+                    <section>
+                            <h4>4.	Pengembangan Pribadi</h4>
+                            <p>Hubungan yang sehat juga dapat menjadi tempat untuk pertumbuhan pribadi. Ketika kamu berada dalam hubungan yang mendukung, kamu merasa lebih nyaman untuk menjadi diri sendiri dan mengungkapkan aspirasi, tujuan, dan impianmu. Pasangan yang baik akan mendukungmu dalam mencapai potensi penuhmu dan mendorongmu untuk tumbuh sebagai individu.</p>
+                    </section>
+                    <section>
+                            <h4>5.	Keamanan dan Kebahagiaan</h4>
+                            <p>Hubungan yang sehat menciptakan rasa aman dan kebahagiaan dalam hidup. Ketika kamu tahu bahwa ada seseorang yang selalu ada untuk kamu, kamu merasa lebih tenang dan puas. Ini dapat memberimu energi positif untuk menghadapi tantangan sehari-hari dan meraih kebahagiaan dalam kehidupanmu.</p>
+                    </section>
+                     <section>
+                            <h4>6.	Pembelajaran Konflik dan Resolusi</h4>
+                            <p>Dalam setiap hubungan, pasti akan ada konflik. Namun, hubungan yang sehat mengajarkan kita cara menghadapi konflik dengan baik dan menemukan solusi yang memuaskan kedua belah pihak. Ini adalah keterampilan penting yang dapat membantu kita dalam berinteraksi dengan orang lain di berbagai aspek kehidupan, seperti pekerjaan dan persahabatan.</p>
+                    </section>
+                    <br><br>
+                    <section>
+                        <p>Dalam kehidupan yang semakin kompleks ini, penting untuk menghargai peran hubungan yang sehat. Hubungan yang baik memberikan manfaat kesehatan mental, fisik, dan emosional yang besar. Mereka juga berfungsi sebagai sumber dukungan, pertumbuhan pribadi, dan kebahagiaan. Oleh karena itu, investasi dalam membangun dan menjaga hubungan yang sehat adalah langkah yang bijak untuk meningkatkan kualitas hidup kita secara keseluruhan. Jadi, mari kita perjuangkan hubungan yang sehat dalam kehidupan kita dan nikmati manfaatnya yang tak ternilai harganya.</p>
+                    </section>
+                '
+            ],
         ];
         // Artikel::insert($data);
         foreach ($data as $d) {
