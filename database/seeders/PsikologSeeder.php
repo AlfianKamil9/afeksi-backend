@@ -17,27 +17,27 @@ class PsikologSeeder extends Seeder
                 [
                     "nama" => "Heraldha Savira, Dip. ABRSM, S.Psi",
                     "profil" => "Clinical Physcology Grads",
-                    "avatar" => "heralda.png"
+                    "avatar" => "heralda.jpg"
                 ],
                 [
                     "nama" => "Christy MS",
                     "profil" => "Growth Mindset and Relationship Mentor",
-                    "avatar" => "christy.png"
+                    "avatar" => "christy.jpeg"
                 ],
                 [
                     "nama" => "Elni Nainggolan",
                     "profil" => "Sadar Sejak Dini Indonesia",
-                    "avatar" => "elni.png"
+                    "avatar" => "elni.jpeg"
                 ],
                 [
                     "nama" => "Nindy Rahmatul Asro S.Psi",
                     "profil" => "Counselor @utara.sc and Professional Public Speaker",
-                    "avatar" => "nindy.png"
+                    "avatar" => "nindy.jpg"
                 ],
                 [
                     "nama" => "Devina Faustanisa Nursyah Wibowo",
                     "profil" => "TED x BU 2021 & Speaker and LPDP Awardee at Harvard University",
-                    "avatar" => "devina.png"
+                    "avatar" => "devina.jpg"
                 ]
             ];
 

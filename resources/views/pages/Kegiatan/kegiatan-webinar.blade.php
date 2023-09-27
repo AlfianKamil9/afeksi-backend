@@ -178,7 +178,9 @@
                                 <div class="row">
                                 @foreach ($data->webinar_session as $psikolog)
                                 <div class="person d-flex gap-2 mt-3">
-                                    <img src="assets/img/kegiatan/Ellipse 216.png" alt="">
+                                    <div class="img-fluid rounded-circle">
+                                        <img src="/assets/img/pembicara_webinar/{{ $psikolog->pembicara->avatar }}" class="rounded-circle" alt="">
+                                    </div>
                                     <div class="name">
                                         <p>{{ $psikolog->pembicara->nama_psikolog }}</p>
                                         <p class="text-body-tertiary">{{ $psikolog->pembicara->profil }}</p>

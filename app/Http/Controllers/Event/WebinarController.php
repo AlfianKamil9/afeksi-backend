@@ -64,6 +64,7 @@ class WebinarController extends Controller
             $event->date_event = Carbon::parse($event->date_event)->format('d F Y');
         }
 
+        //return response()->json($data);
         return view('pages.Kegiatan.kegiatan-webinar', [
             'data' => $data,
         ]);

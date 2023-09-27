@@ -99,7 +99,11 @@
             @endif
             <div class="d-flex">
                 <div class="flex-shrink-0">
-                    <img src="{{ asset('assets/img/kegiatan-detail-webinar/people.svg') }}" alt="Foto Profil Pembaca" />
+                    
+                    <div class="img-fluid" style="max-width: 100px">
+                        <img src="/assets/img/pembicara_webinar/{{$psikolog->pembicara->avatar }}" class="img-fluid rounded-circle" alt="Foto Profil Pembaca" />
+                    </div>
+                    
                 </div>
                 <div class="flex-grow-1 ms-3 mb-5 mt-3">
                     <h6 class="fw-bold">{{ $psikolog->pembicara->nama_psikolog }}</h6>
