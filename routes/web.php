@@ -185,3 +185,9 @@ Route::get('/rekaphistory', function () {
 Route::get('/rekaphistory-detail', function () {
     return view('pages.rekaphistory-detail');
 });
+Route::get('/paket-relationship-konseling', function () {
+    return view('pages.paket-relationship-konseling');
+});
+Route::get('/paket-kesetaraan-gender', function () {
+    return view('pages.paket-kesetaraan-gender');
+});
