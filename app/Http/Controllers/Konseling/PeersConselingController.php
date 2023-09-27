@@ -13,19 +13,14 @@ use App\Models\PaketProfesionalConseling;
 class PeersConselingController extends Controller
 {
     public function processFirstPeers(Request $request) {
-        if($request->value_id == 3) {
-            $t = 'REL';
-        } else {
-            $t = 'EQU';
-        }
-        $ref = 'PEERS-'.$t.'-'.strtoupper(Str::random(5)).Carbon::now()->format('dmYHis');
+        $ref = 'PEERS-'.strtoupper(Str::random(5)).Carbon::now()->format('dmYHis');
         PembayaranLayanan::create([
             'ref_transaction_layanan' => $ref,
             'status' => 'UNPAID',
             'user_id' => auth()->user()->id,
             'conseling_id' => $request->value_id
         ]);
-        return redirect()->route('peers.konseling.konselor', $ref);
+        return redirect()->route('peers.konseling.pilihan.paket', $ref);
     }
 
     public function showKonselorPeers(Request $request, $ref_transaction_layanan) {
@@ -74,8 +69,8 @@ class PeersConselingController extends Controller
     }
 
     public function showPaketKonseling($ref_transaction_layanan) {
-        $id = PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->pluck('conseling_id')->first();
-        $data = PaketProfesionalConseling::with('professional_conseling')->where('professional_conseling_id', $id)->get();
+        // $id = PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->pluck('conseling_id')->first();
+        $data = PaketProfesionalConseling::with('professional_conseling')->where('professional_conseling_id', 3)->get();
         $slug = $ref_transaction_layanan;
         //return response()->json($data);
         return view('pages.LayananKonseling.paket-sementara', compact('data', 'slug'));

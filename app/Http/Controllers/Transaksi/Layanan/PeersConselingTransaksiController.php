@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\bank;
 use App\Models\User;
 use App\Models\Voucher;
+use App\Models\Konselor;
 use Illuminate\Http\Request;
 use App\Models\DetailPembayaran;
 use App\Models\PembayaranLayanan;
@@ -62,6 +63,7 @@ class PeersConselingTransaksiController extends Controller
             Alert::alert()->html('<h4 class="text-danger fw-bold">Error</h4>', '<p>Invalid data, Mohon isi Jenis Kelamin Anda!</p>');
             return back();
         }
+        $randomKonselor = Konselor::inRandomOrder()->value('id');
         User::where('id', auth()->user()->id)->update([
             'umur' => $request->umur,
             'jenisKelamin' => $request->jenisKelamin,
@@ -76,7 +78,9 @@ class PeersConselingTransaksiController extends Controller
         ]);
         PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->update([
             'status' => 'UNPAID(BUTUH BAYAR)',
+            'konselor_id' => $randomKonselor,
         ]);
+
         return redirect()->route('peers.konseling.checkout', $ref_transaction_layanan);
     }
 

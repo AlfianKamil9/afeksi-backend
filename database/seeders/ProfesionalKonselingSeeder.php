@@ -23,12 +23,12 @@ class ProfesionalKonselingSeeder extends Seeder
             ]);
             profresional_conseling::create([
                 'jenis_layanan' => 'PEERS KONSELING',
-                'namaPengalaman' => 'Relationship Konseling'
+                'namaPengalaman' => 'Peers Konseling'
             ]);
-            profresional_conseling::create([
-                'jenis_layanan' => 'PEERS KONSELING',
-                'namaPengalaman' => 'Quality Gender'
-            ]);
+            // profresional_conseling::create([
+            //     'jenis_layanan' => 'PEERS KONSELING',
+            //     'namaPengalaman' => 'Quality Gender'
+            // ]);
         
     }
 }

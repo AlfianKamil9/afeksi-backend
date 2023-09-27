@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('professional_conselings', function (Blueprint $table) {
             $table->id('id');
             $table->enum('jenis_layanan', ['PROFESSIONAL KONSELING','PEERS KONSELING']);
-            $table->enum('namaPengalaman', ['Relationship Konseling', 'Quality Gender']);
+            $table->enum('namaPengalaman', ['Relationship Konseling', 'Quality Gender', 'Peers Konseling']);
             $table->timestamps();
         });
     }

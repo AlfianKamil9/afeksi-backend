@@ -176,7 +176,10 @@
                     <h2 class="card-title mb-3">Peers Konseling</h2>
                     <p class="card-text mb-md-4 mb-5 mb-lg-5">Konsultasi non klinis dengan peers yang sudah bersertifikasi bisa berkonsultasi secara individu maupun secara pasangan.</p>
                     @auth
+                    <form method="POST" action="{{ route('peers.konseling.create.first') }}">
+                      @csrf
                         <button
+                            name="value_id"
                             type="submit"
                             class="btn btn-primary rounded-pill"
                             style="width: 200px"
@@ -184,6 +187,7 @@
                           >
                             Pilih
                         </button>
+                    </form>
                     @else
                         <button class="btn btn-primary rounded-pill" type="submit"
                           style="width: 200px" id="btn-harus-login" style="width: 100px;">Pilih</button>
@@ -349,7 +353,7 @@
 </div>
   <!-- END-MODAL -->
 
-    <!-- MODAL PEERS KONSELING -->
+    {{-- <!-- MODAL PEERS KONSELING -->
   <div class="modal fade static" id="peers-konseling" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -403,7 +407,7 @@
     </div>
   </div>
 </div>
-  <!-- END-MODAL -->
+  <!-- END-MODAL --> --}}
 @else
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script>
