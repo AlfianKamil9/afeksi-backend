@@ -152,7 +152,7 @@ div .button-login {
                     <button class="btn text-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                       <label class="text-primary me-1" style="font-size:12px">Hi, {{ explode(' ', auth()->user()->nama)[0] }}</label>
                       @if ( auth()->user()->avatar)
-                      <img src="/storage/user/profile_pictures/{{auth()->user()->avatar }}" class="rounded-circle" width="30px" height="30px">
+                      <img src="/assets/img/profile/{{auth()->user()->avatar }}" class="rounded-circle" width="30px" height="30px">
                       @else
                       <img src="/assets/img/ubah-foto-profile/person.png" class="rounded-circle" width="30px">    
                       @endif

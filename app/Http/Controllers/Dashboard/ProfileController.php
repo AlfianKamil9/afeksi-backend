@@ -90,11 +90,14 @@ class ProfileController extends Controller
         }
         $user = Auth::user();
         if ($user->avatar) {
-            Storage::delete('public/user/profile_pictures/'.$user->avatar);
+            $adaFile = public_path('/assets/img/profile/'.$user->avatar);
+            unlink($adaFile);
+            //Storage::delete('public/user/profile_pictures/'.$user->avatar);
         }
         $file = $request->file('upload_image');
-        $fileName = time().Str::lower(Str::random(5)). '.' . $file->getClientOriginalExtension();
-        $file->storeAs('public/user/profile_pictures', $fileName); // Simpan gambar di direktori storage/app/public/profile_pictures
+        $fileName = Str::lower(Str::random(5)).'_'.time(). '.' . $file->getClientOriginalExtension();
+        //$file->storeAs('public/user/profile_pictures', $fileName); // Simpan gambar di direktori storage/app/public/profile_pictures
+        $file->move(public_path('/assets/img/profile'), $fileName);
         User::where('id', $user->id)->update([
             'avatar' => $fileName,
         ]);

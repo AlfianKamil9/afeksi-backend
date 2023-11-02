@@ -33,7 +33,7 @@
         <div class="dashboard p-3 shadow-sm mb-5" >
           <div class="bg-light rounded-circle d-flex justify-content-center align-items-center border" id="profile-foto" style="width: 125px; height: 125px;cursor:pointer;">
                 @if (Auth::user()->avatar)
-                    <img src ="/storage/user/profile_pictures/{{Auth()->user()->avatar }}" class="rounded-circle"  width="125x" height="125px">
+                    <img src ="/assets/img/profile/{{Auth()->user()->avatar }}" class="rounded-circle"  width="125x" height="125px">
                 @else
                     <svg data-src="/assets/img/dashboard-profile/user.svg" width="50px" height="50px"></svg>
                 @endif
