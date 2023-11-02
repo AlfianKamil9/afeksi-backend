@@ -89,8 +89,8 @@ class ProfileController extends Controller
             return back()->with('error', $validate->message());
         }
         $user = Auth::user();
-        if ($user->avatar) {
-            $adaFile = public_path('/assets/img/profile/'.$user->avatar);
+        $adaFile = public_path('/assets/img/profile/'.$user->avatar);
+        if ($user->avatar && file_exists($adaFile)) {
             unlink($adaFile);
             //Storage::delete('public/user/profile_pictures/'.$user->avatar);
         }
