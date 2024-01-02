@@ -210,7 +210,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 
 // API CALLBACK
-// Route::post('/midtrans/callback', [NotificationPaymentEventController::class, 'callback']);
+Route::post('/midtrans/callback', [NotificationPaymentEventController::class, 'callback']);
 Route::get('/midtrans/finish', [NotificationPaymentEventController::class, 'finishRedirect']);
 Route::get('/midtrans/unfinish', [NotificationPaymentEventController::class, 'unfinishRedirect']);
 Route::get('/midtrans/error', [NotificationPaymentEventController::class, 'errorRedirect']);
