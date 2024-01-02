@@ -156,6 +156,7 @@ class MentoringTransaksiController extends Controller
         //dd($response);
         if ($response["status_code"] != 201) {
             Alert::alert()->html('<h4 class="fw-bold text-danger">FAILED PAYMENT METHOD</h4>', '<p>There was some error in the system, Please try again later or change the Payment Method.<br><br>Error: <span class="pt-2 fw-bold ">500 Server Error</span></p>');
+            \Log::info($response);
             return back();
         }
         if ($voucher_id != null) {
