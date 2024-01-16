@@ -33,14 +33,27 @@ class PeersConselingTransaksiController extends Controller
     public function submitDataDiri(Request $request, $ref_transaction_layanan)
     {
         $request->validate([
-            'namaLengkap' => 'required',
+            'namaLengkap' => 'required|string',
             'jenisKelamin' => 'required',
-            'email' => 'required',
-            'no_whatsapp' => 'required',
-            'umur' => 'required',
+            'email' => 'required|email',
+            'no_whatsapp' => 'required|numeric|min:10|max:14',
+            'umur' => 'required|numeric',
             'tgl_konsultasi' => 'required',
             'jam_konsultasi' => 'required',
             'detail_masalah' => 'required'
+        ], [
+            'namaLengkap.required' => 'Nama Lengkap harus diisi',
+            'namaLengkap.string' => 'Nama Lengkap harus berupa huruf',
+            'jenisKelamin.required' => 'Jenis Kelamin harus diisi',
+            'email.required' => 'Email harus diisi',
+            'email.email' => 'Email harus berupa email',
+            'no_whatsapp.numeric' => 'Nomor Whatsapp harus berupa nomor',
+            'no_whatsapp.min' => 'Nomor Whatsapp minimal 10 digit',
+            'no_whatsapp.max' => 'Nomor Whatsapp maksimal 14 digit',
+            'umur.numeric' => 'Umur harus berupa angka',
+            'tgl_konsultasi.required' => 'Tanggal Konsultasi harus diisi',
+            'jam_konsultasi.required' => 'Jam Konsultasi harus diisi',
+            'detail_masalah.required' => 'Detail Masalah harus diisi'
         ]);
         $id = PembayaranLayanan::where("ref_transaction_layanan", $ref_transaction_layanan)->first();
         date_default_timezone_set('Asia/Jakarta');

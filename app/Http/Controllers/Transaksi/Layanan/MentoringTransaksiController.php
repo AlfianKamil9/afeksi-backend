@@ -41,11 +41,24 @@ class MentoringTransaksiController extends Controller
         $request->validate([
             "namaLengkap" => "required",
             "jenisKelamin" => "required",
-            "no_whatsapp" => "required",
+            "no_whatsapp" => "required|numeric|min:10|max:14",
             "umur" => "required|numeric",
             "tgl_konsultasi" => "required",
             "jam_konsultasi" => "required",
             "detail_masalah" => "required",
+        ], [
+            'namaLengkap.required' => 'Nama Lengkap harus diisi',
+            'namaLengkap.string' => 'Nama Lengkap harus berupa huruf',
+            'jenisKelamin.required' => 'Jenis Kelamin harus diisi',
+            'email.required' => 'Email harus diisi',
+            'email.email' => 'Email harus berupa email',
+            'no_whatsapp.numeric' => 'Nomor Whatsapp harus berupa nomor',
+            'no_whatsapp.min' => 'Nomor Whatsapp minimal 10 digit',
+            'no_whatsapp.max' => 'Nomor Whatsapp maksimal 14 digit',
+            'umur.numeric' => 'Umur harus berupa angka',
+            'tgl_konsultasi.required' => 'Tanggal Konsultasi harus diisi',
+            'jam_konsultasi.required' => 'Jam Konsultasi harus diisi',
+            'detail_masalah.required' => 'Detail Masalah harus diisi'
         ]);
 
         $layanan = PembayaranLayanan::with('paket_non_professionals.layanan_non_professionals')->where("ref_transaction_layanan", $ref_transaction_layanan)->first();

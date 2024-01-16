@@ -55,8 +55,7 @@
                 {{ session('error') }}
             </div>
         @endif
-        <form action="{{ route('professional.konseling.process.form', $slug) }}"
-            method="POST">
+        <form action="{{ route('professional.konseling.process.form', $slug) }}" method="POST">
             @csrf
             <div class="mb-3">
                 <label for="namaLengkap" class="form-label fw-bold">Nama Lengkap</label>
@@ -84,24 +83,49 @@
                 <label for="nomor-whatsapp" class="form-label fw-bold">No whatsapp</label>
                 <input type="text" class="form-control" id="nomor-whatsapp" placeholder="Jawaban Anda" name="no_whatsapp"
                     required value="{{ Auth::user()->no_whatsapp }}" />
+                @if ($errors->has('no_whatsapp'))
+                    <div class="alert alert-danger" role="alert">
+                        {{ $errors->first('no_whatsapp') }}
+                    </div>
+                @endif
             </div>
             <div class="mb-3">
                 <label for="umur" class="form-label fw-bold">Umur (Dalam Angka)</label>
                 <input type="text" class="form-control" id="umur" name="umur" placeholder="Jawaban Anda"
                     value="{{ Auth::user()->umur }}" required />
+                @if ($errors->has('umur'))
+                    <div class="alert alert-danger" role="alert">
+                        {{ $errors->first('umur') }}
+                    </div>
+                @endif
             </div>
             <div class="mb-3">
                 <label for="tanggalKonsultasi" class="form-label fw-bold">Tanggal Konsultasi</label>
                 <input type="date" class="form-control" id="tanggalKonsultasi" name="tgl_konsultasi" required />
+                @if ($errors->has('tgl_konsultasi'))
+                    <div class="alert alert-danger" role="alert">
+                        {{ $errors->first('tgl_konsultasi') }}
+                    </div>
+                @endif
             </div>
             <div class="mb-3">
                 <label for="jamKonsultasi" class="form-label fw-bold">Jam Konsultasi</label>
                 <input type="time" class="form-control" id="jamKonsultasi" name="jam_konsultasi" required />
             </div>
+            @if ($errors->has('jam_konsultasi'))
+                <div class="alert alert-danger" role="alert">
+                    {{ $errors->first('jam_konsultasi') }}
+                </div>
+            @endif
             <div class="mb-3">
                 <label for="detailMasalah" class="form-label fw-bold">Detail Masalah</label>
                 <textarea class="form-control" id="detailMasalah" rows="4" placeholder="Jawaban anda" required
                     name="detail_masalah"></textarea>
+                @if ($errors->has('detail_masalah'))
+                    <div class="alert alert-danger" role="alert">
+                        {{ $errors->first('detail_masalah') }}
+                    </div>
+                @endif
             </div>
             <button type="submit" class="btn btn-fill">Selanjutnya</button>
         </form>
