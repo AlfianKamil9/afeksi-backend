@@ -12,7 +12,7 @@
     <div class="row justify-content-end">
         <div class="col-12 position-relative">
             <!-- HERO
-                        ================================================================= -->
+                            ================================================================= -->
             <section>
                 <div class="hero d-flex">
                     <div class="container py-5 my-5">
@@ -165,10 +165,13 @@
                             </div>
                             <div class="card-bottom-content">
                                 @if ($item->status == 'PAID')
-                                    @if (\Carbon\Carbon::now() >= \Carbon\Carbon::parse($item->detail_pembayarans->tgl_konsultasi . ' ' . $item->detail_pembayarans->jam_konsultasi))
-                                            <a href="https://us05web.zoom.us/j/4514104490?pwd=U3FyQ2x2RDVnUkxUTU5PQ3JjTmYvdz09&omn=84515819226"
-                                                class="btn btn-join me-2 py-2 px-3 rounded-3"
-                                                style="background-color: #2139F9;">Masuk Sesi</a>
+                                    @if (
+                                        \Carbon\Carbon::now() >=
+                                            \Carbon\Carbon::parse(
+                                                $item->detail_pembayarans->tgl_konsultasi . ' ' . $item->detail_pembayarans->jam_konsultasi))
+                                        <a href="https://us05web.zoom.us/j/4514104490?pwd=U3FyQ2x2RDVnUkxUTU5PQ3JjTmYvdz09&omn=84515819226"
+                                            class="btn btn-join me-2 py-2 px-3 rounded-3"
+                                            style="background-color: #2139F9;">Masuk Sesi</a>
                                     @else
                                         <a class="btn btn-join me-2 py-2 px-3 rounded-3 disabled"
                                             style="background-color: #2139F9;">Masuk Sesi</a>
@@ -254,8 +257,17 @@
                             </div>
                             <div class="card-bottom-content">
                                 @if ($item->status == 'PAID')
-                                    <a href="#" class="btn btn-join me-2 py-2 px-3 rounded-3"
-                                        style="background-color: #2139F9;">Detail Produk</a>
+                                    @if (
+                                        \Carbon\Carbon::now() >=
+                                            \Carbon\Carbon::parse(
+                                                $item->detail_pembayarans->tgl_konsultasi . ' ' . $item->detail_pembayarans->jam_konsultasi))
+                                        <a href="https://us05web.zoom.us/j/4514104490?pwd=U3FyQ2x2RDVnUkxUTU5PQ3JjTmYvdz09&omn=84515819226"
+                                            class="btn btn-join me-2 py-2 px-3 rounded-3"
+                                            style="background-color: #2139F9;">Masuk Sesi</a>
+                                    @else
+                                        <a class="btn btn-join me-2 py-2 px-3 rounded-3 disabled"
+                                            style="background-color: #2139F9;">Masuk Sesi</a>
+                                    @endif
                                 @elseif($item->status == 'PENDING' || $item->status == 'UNPAID(BUTUH BAYAR)')
                                     @if ($item->status == 'UNPAID(BUTUH BAYAR)')
                                         <a href="{{ route('checkout.layanan.mentoring', $item->ref_transaction_layanan) }}"
