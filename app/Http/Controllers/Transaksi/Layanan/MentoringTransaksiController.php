@@ -41,7 +41,7 @@ class MentoringTransaksiController extends Controller
         $request->validate([
             "namaLengkap" => "required",
             "jenisKelamin" => "required",
-            "no_whatsapp" => "required|numeric|min:10|max:14",
+            'no_whatsapp' => 'required|numeric|digits_between:10,14',
             "umur" => "required|numeric",
             "tgl_konsultasi" => "required",
             "jam_konsultasi" => "required",
@@ -53,8 +53,7 @@ class MentoringTransaksiController extends Controller
             'email.required' => 'Email harus diisi',
             'email.email' => 'Email harus berupa email',
             'no_whatsapp.numeric' => 'Nomor Whatsapp harus berupa nomor',
-            'no_whatsapp.min' => 'Nomor Whatsapp minimal 10 digit',
-            'no_whatsapp.max' => 'Nomor Whatsapp maksimal 14 digit',
+            'no_whatsapp.digits_between' => 'Nomor Whatsapp harus memiliki 10-14 digit',
             'umur.numeric' => 'Umur harus berupa angka',
             'tgl_konsultasi.required' => 'Tanggal Konsultasi harus diisi',
             'jam_konsultasi.required' => 'Jam Konsultasi harus diisi',
