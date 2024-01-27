@@ -18,11 +18,20 @@ class EwalletService
         $reference = $data['reference'];
         // dd($reference);
         $total_amount = $data["harga_event"];
+        $produk = $data["produk"];
         $body = [
             "payment_type" => $method,
             "transaction_details" => [
                 "order_id"      => $reference,
                 "gross_amount"  => $total_amount
+            ],
+            "item_details" => [
+                [
+                    "id" => $produk->id,
+                    "price" => $total_amount,
+                    "quantity" => 1,
+                    "name" => $produk->nama_paket,
+                ]
             ],
             "customer_details"  => [
                 "email"  => Auth::user()->email,
@@ -68,11 +77,20 @@ class EwalletService
         $url = config('midtrans.midtrans.url');
         $reference = $data['reference'];
         $total_amount = $data["harga_event"];
+        $produk = $data["produk"];
         $body = [
             "payment_type" => $method,
             "transaction_details" => [
                 "order_id"      => $reference,
                 "gross_amount"  => $total_amount
+            ],
+            "item_details" => [
+                [
+                    "id" => $produk->id,
+                    "price" => $total_amount,
+                    "quantity" => 1,
+                    "name" => $produk->nama_paket,
+                ]
             ],
             "customer_details"  => [
                 // "email"  => Auth::user()->email,
@@ -121,6 +139,7 @@ class EwalletService
         $url = config('midtrans.midtrans.url');
         $reference = $data['reference'];
         $total_amount = $data["harga_event"];
+        $produk = $data["produk"];
         $body = [
             "payment_type" => $method,
             "transaction_details" => [
@@ -129,10 +148,10 @@ class EwalletService
             ],
             "item_details" => [
                 [
-                    "id" => $data['event_id'],
+                    "id" => $produk->id,
                     "price" => $total_amount,
                     "quantity" => 1,
-                    "name" => $data['title_event']
+                    "name" => $produk->nama_paket,
                 ]
             ],
             "customer_details"  => [

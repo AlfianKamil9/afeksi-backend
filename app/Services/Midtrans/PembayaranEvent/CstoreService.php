@@ -13,11 +13,20 @@ class CstoreService
         $url = config('midtrans.midtrans.url');
         $reference = $data['reference'];
         $total_amount = $data["harga_event"];
+        $produk = $data["produk"];
         $body =[
             "payment_type"=> "cstore",
             "transaction_details"=> [
                 "order_id"=> $reference,
                 "gross_amount"=> $total_amount,
+            ],
+            "item_details" => [
+                [
+                    "id" => $produk->id,
+                    "price" => $total_amount,
+                    "quantity" => 1,
+                    "name" => $produk->nama_paket,
+                ]
             ],
             "cstore" => [
               "store" => $method,
@@ -66,11 +75,20 @@ class CstoreService
         
         $reference = $data['reference'];
         $total_amount = $data["harga_event"];
+        $produk = $data["produk"];
         $dataCStore =[
             "payment_type"=> "cstore",
             "transaction_details"=> [
                 "order_id"=> $reference,
                 "gross_amount"=> $total_amount,
+            ],
+            "item_details" => [
+                [
+                    "id" => $produk->id,
+                    "price" => $total_amount,
+                    "quantity" => 1,
+                    "name" => $produk->nama_paket,
+                ]
             ],
             "cstore" => [
               "store" => $method,

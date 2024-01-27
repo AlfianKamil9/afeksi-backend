@@ -13,12 +13,21 @@ class TransferBankService
         $url = config('midtrans.midtrans.url');
         $reference = $data['reference'];
         $total_amount = $data["harga_event"] ;
+        $produk = $data["produk"];
         $body = [
             "payment_type" => "bank_transfer",
             "transaction_details" => [
                 "order_id"      => $reference,
                 "gross_amount"  => $total_amount
                 ],
+            "item_details"=> [
+                [
+                    "id"=> $produk->id,
+                    "price"=> $total_amount,
+                    "quantity"=> 1,
+                    "name"=> $produk->nama_paket,
+                ]
+            ],
             "bank_transfer"     => [
                     "bank"  => $method
                 ],
@@ -63,12 +72,21 @@ class TransferBankService
         $url = config('midtrans.midtrans.url');
         $reference = $data['reference'];
         $total_amount = $data["harga_event"] ;
+        $produk = $data["produk"];
         $body = [
             "payment_type" => "echannel",
             "transaction_details" => [
                 "order_id"      => $reference,
                 "gross_amount"  => $total_amount
                 ],
+            "item_details" => [
+                [
+                    "id" => $produk->id,
+                    "price" => $total_amount,
+                    "quantity" => 1,
+                    "name" => $produk->nama_paket,
+                ]
+            ],
             "echannel" => [
                 "bill_info1" => "Payment:",
                 "bill_info2" => "Online purchase"
@@ -113,12 +131,21 @@ class TransferBankService
         $url = config('midtrans.midtrans.url');
         $reference = $data['reference'];
         $total_amount = $data["harga_event"] ;
+        $produk = $data["produk"];
         $body = [
             "payment_type" => $method,
             "transaction_details" => [
                 "order_id"      => $reference,
                 "gross_amount"  => $total_amount
                 ],
+            "item_details" => [
+                [
+                    "id" => $produk->id,
+                    "price" => $total_amount,
+                    "quantity" => 1,
+                    "name" => $produk->nama_paket,
+                ]
+            ],
             "customer_details"  => [
                     "email"  => Auth::user()->email,
                     "first_name" => Auth::user()->nama,

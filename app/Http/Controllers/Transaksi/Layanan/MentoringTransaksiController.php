@@ -225,18 +225,11 @@ class MentoringTransaksiController extends Controller
                 "harga_event" => $data->paket_non_professionals->harga - $potongan,
                 "nama"  => $data->user->nama,
                 "email"  => $data->user->email,
-                "no_tlpn" => $data->user->no_whatsapp
+                "no_tlpn" => $data->user->no_whatsapp,
+                "produk" => $data->paket_non_professionals
             ];
             $result = new TransferBankService();
             $res = $result->bank($bank, $data);
-            //CEK KODE RESPON
-            if ($res["status_code"] != 201) {
-                $responseError = [
-                    'status_code' => $res["status_code"],
-                    'message' => $res['status_message']
-                ];
-                return $responseError;
-            }
             // SET UPDATE TABLE TRANSAKSI EVENT
             PembayaranLayanan::where('ref_transaction_layanan', $res["order_id"])->update([
                 "payment_method" => $bank,
@@ -263,18 +256,11 @@ class MentoringTransaksiController extends Controller
                 "harga_event" => $data->paket_non_professionals->harga - $potongan,
                 "nama"  => $data->user->nama,
                 "email"  => $data->user->email,
-                "no_tlpn" => $data->user->no_whatsapp
+                "no_tlpn" => $data->user->no_whatsapp,
+                "produk" => $data->paket_non_professionals
             ];
             $result = new TransferBankService();
             $res = $result->mandiri($bank, $data);
-            //CEK KODE RESPON
-            if ($res["status_code"] != 201) {
-                $responseError = [
-                    'status_code' => $res["status_code"],
-                    'message' => $res['status_message']
-                ];
-                return $responseError;
-            }
             // SET UPDATE TABLE TRANSAKSI EVENT
             PembayaranLayanan::where('ref_transaction_layanan', $res["order_id"])->update([
                 "payment_method" => $bank,
@@ -301,19 +287,12 @@ class MentoringTransaksiController extends Controller
                 "harga_event" => $data->paket_non_professionals->harga - $potongan,
                 "nama"  => $data->user->nama,
                 "email"  => $data->user->email,
-                "no_tlpn" => $data->user->no_whatsapp
+                "no_tlpn" => $data->user->no_whatsapp,
+                "produk" => $data->paket_non_professionals
             ];
 
             $result = new TransferBankService();
             $res = $result->permata($bank, $data);
-            //CEK KODE RESPON
-            if ($res["status_code"] != 201) {
-                $responseError = [
-                    'status_code' => $res["status_code"],
-                    'message' => $res['status_message']
-                ];
-                return $responseError;
-            }
             // SET UPDATE TABLE TRANSAKSI EVENT
             PembayaranLayanan::where('ref_transaction_layanan', $res["order_id"])->update([
                 "payment_method" => $bank,
@@ -340,18 +319,11 @@ class MentoringTransaksiController extends Controller
                 "nama"  => $data->user->nama,
                 "email"  => $data->user->email,
                 "no_tlpn" => $data->user->no_whatsapp,
-                "pesan" => "Pembayaran Layanan Mentoring Afeksi"
+                "pesan" => "Pembayaran Layanan Mentoring Afeksi",
+                "produk" => $data->paket_non_professionals
             ];
             $result = new CstoreService();
             $res = $result->indomaret($bank, $data);
-            //CEK KODE RESPON
-            if ($res["status_code"] != 201) {
-                $responseError = [
-                    'status_code' => $res["status_code"],
-                    'message' => $res['status_message']
-                ];
-                return $res;
-            }
             // insert db
             PembayaranLayanan::where('ref_transaction_layanan', $res["order_id"])->update([
                 "payment_method" => $bank,
@@ -379,18 +351,11 @@ class MentoringTransaksiController extends Controller
                 "nama"  => $data->user->nama,
                 "email"  => $data->user->email,
                 "no_tlpn" => $data->user->no_whatsapp,
-                "pesan" => "Pembayaran Layanan Mentoring Afeksi"
+                "pesan" => "Pembayaran Layanan Mentoring Afeksi",
+                "produk" => $data->paket_non_professionals
             ];
             $result = new CstoreService();
             $res = $result->alfamart($bank, $data);
-            //CEK KODE RESPON
-            if ($res["status_code"] != 201) {
-                $responseError = [
-                    'status_code' => $res["status_code"],
-                    'message' => $res['status_message']
-                ];
-                return $responseError;
-            }
             // insert db
             PembayaranLayanan::where('ref_transaction_layanan', $res["order_id"])->update([
                 "payment_method" => $bank,
@@ -417,6 +382,7 @@ class MentoringTransaksiController extends Controller
                 "nama"  => $data->user->nama,
                 "email"  => $data->user->email,
                 "no_tlpn" => $data->user->no_whatsapp,
+                "produk" => $data->paket_non_professionals
             ];
             $result = new EwalletService();
             $res = $result->gopay($bank, $data);
@@ -455,7 +421,8 @@ class MentoringTransaksiController extends Controller
                 "email"  => $data->user->email,
                 "no_tlpn" => $data->user->no_whatsapp,
                 "event_id" => $data->id,
-                "title_event" => "Pembayaran Layanan Mentoring Afeksi"
+                "title_event" => "Pembayaran Layanan Mentoring Afeksi",
+                "produk" => $data->paket_non_professionals
             ];
             $result = new EwalletService();
             $res = $result->shopeePay($bank, $data);

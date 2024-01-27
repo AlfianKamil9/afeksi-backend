@@ -123,7 +123,7 @@ class NotificationPaymentEventController extends Controller
 
     public function finishRedirect(Request $request)
     {
-        return view('pages.detail-campaign');
+        return view('pages.rekap-transaksi');
     }
 
     public function unfinishRedirect(Request $request)

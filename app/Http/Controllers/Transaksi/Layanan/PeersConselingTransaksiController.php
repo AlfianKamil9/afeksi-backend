@@ -21,7 +21,7 @@ use App\Services\Midtrans\PembayaranEvent\TransferBankService;
 
 class PeersConselingTransaksiController extends Controller
 {
-     // show form data diri professional konseling
+    // show form data diri professional konseling
     public function showFormDataDiri($ref_transaction_layanan)
     {
         $data = PembayaranLayanan::where('ref_transaction_layanan', $ref_transaction_layanan)->where('status', 'UNPAID')->firstOrFail();
@@ -71,7 +71,7 @@ class PeersConselingTransaksiController extends Controller
         } elseif ($tglSekarang == $tglKonsultasi && $blnSekarang > $blnKonsultasi && ($thnSekarang == $thnKonsultasi || $thnSekarang > $thnKonsultasi)) {
             Alert::alert()->html('<h4 class="text-danger fw-bold">Error</h4>', '<p>Invalid data, Please Filled Correctly!</p>');
             return back();
-        } elseif($request->jenisKelamin == 0){
+        } elseif ($request->jenisKelamin == 0) {
             Alert::alert()->html('<h4 class="text-danger fw-bold">Error</h4>', '<p>Invalid data, Mohon isi Jenis Kelamin Anda!</p>');
             return back();
         }
@@ -207,18 +207,11 @@ class PeersConselingTransaksiController extends Controller
                 "harga_event" => $data->paket_profesional_conselings->harga - $potongan,
                 "nama"  => $data->user->nama,
                 "email"  => $data->user->email,
-                "no_tlpn" => $data->user->no_whatsapp
+                "no_tlpn" => $data->user->no_whatsapp,
+                "produk" => $data->paket_profesional_conselings
             ];
             $result = new TransferBankService();
             $res = $result->bank($bank, $data);
-            //CEK KODE RESPON
-            if ($res["status_code"] != 201) {
-                $responseError = [
-                    'status_code' => $res["status_code"],
-                    'message' => $res['status_message']
-                ];
-                return $responseError;
-            }
             // SET UPDATE TABLE TRANSAKSI EVENT
             PembayaranLayanan::where('ref_transaction_layanan', $res["order_id"])->update([
                 "payment_method" => $bank,
@@ -244,218 +237,176 @@ class PeersConselingTransaksiController extends Controller
                 "harga_event" => $data->paket_profesional_conselings->harga - $potongan,
                 "nama"  => $data->user->nama,
                 "email"  => $data->user->email,
-                "no_tlpn" => $data->user->no_whatsapp
+                "no_tlpn" => $data->user->no_whatsapp,
+                "produk" => $data->paket_profesional_conselings
             ];
             $result = new TransferBankService();
             $res = $result->mandiri($bank, $data);
-            //CEK KODE RESPON
-            if ($res["status_code"] != 201) {
-                $responseError = [
-                    'status_code' => $res["status_code"],
-                    'message' => $res['status_message']
+                // SET UPDATE TABLE TRANSAKSI EVENT
+                PembayaranLayanan::where('ref_transaction_layanan', $res["order_id"])->update([
+                    "payment_method" => $bank,
+                    "total_payment" => $res["gross_amount"],
+                    "fee_transaksi" => 4000,
+                    "status" => "PENDING",
+                    "updated_at" => $res["transaction_time"]
+                ]);
+                DetailPembayaran::where('pembayaran_layanan_id', $tabelPembayaran)->update([
+                    "kode_bayar_1" => $res["bill_key"],
+                    "kode_bayar_2" => $res["biller_code"]
+                ]);
+                $responData = [
+                    "status_code" => $res["status_code"],
+                    "message" =>  $res["status_message"],
                 ];
-                return $responseError;
+                return $responData;
             }
-            // SET UPDATE TABLE TRANSAKSI EVENT
-            PembayaranLayanan::where('ref_transaction_layanan', $res["order_id"])->update([
-                "payment_method" => $bank,
-                "total_payment" => $res["gross_amount"],
-                "fee_transaksi" => 4000,
-                "status" => "PENDING",
-                "updated_at" => $res["transaction_time"]
-            ]);
-            DetailPembayaran::where('pembayaran_layanan_id', $tabelPembayaran)->update([
-                "kode_bayar_1" => $res["bill_key"],
-                "kode_bayar_2" => $res["biller_code"]
-            ]);
-            $responData = [
-                "status_code" => $res["status_code"],
-                "message" =>  $res["status_message"],
-            ];
-            return $responData;
-        }
-        // -----------------PERMATA----------------------- //
-        else if ($bank == "permata") {
-            $data = [
-                "reference" => $ref,
-                "harga_event" => $data->paket_profesional_conselings->harga - $potongan,
-                "nama"  => $data->user->nama,
-                "email"  => $data->user->email,
-                "no_tlpn" => $data->user->no_whatsapp
-            ];
-            $result = new TransferBankService();
-            $res = $result->permata($bank, $data);
-            //CEK KODE RESPON
-            if ($res["status_code"] != 201) {
-                $responseError = [
-                    'status_code' => $res["status_code"],
-                    'message' => $res['status_message']
+            // -----------------PERMATA----------------------- //
+            else if ($bank == "permata") {
+                $data = [
+                    "reference" => $ref,
+                    "harga_event" => $data->paket_profesional_conselings->harga - $potongan,
+                    "nama"  => $data->user->nama,
+                    "email"  => $data->user->email,
+                    "no_tlpn" => $data->user->no_whatsapp,
+                    "produk" => $data->paket_profesional_conselings
                 ];
-                return $responseError;
-            }
-            // SET UPDATE TABLE TRANSAKSI EVENT
-            PembayaranLayanan::where('ref_transaction_layanan', $res["order_id"])->update([
-                "payment_method" => $bank,
-                "total_payment" => $res["gross_amount"],
-                "fee_transaksi" => 4000,
-                "status" => "PENDING",
-                "updated_at" => $res["transaction_time"]
-            ]);
-            DetailPembayaran::where('pembayaran_layanan_id', $tabelPembayaran)->update([
-                "kode_bayar_1" => $res["permata_va_number"],
-            ]);
-            $responData = [
-                "status_code" => $res["status_code"],
-                "message" =>  $res["status_message"],
-            ];
-            return $responData;
-        }
-        // -----------------INDOMARET----------------------- //
-        else if ($bank == "indomaret") {
-            $data = [
-                "reference" => $ref,
-                "harga_event" => $data->paket_profesional_conselings->harga - $potongan,
-                "nama"  => $data->user->nama,
-                "email"  => $data->user->email,
-                "no_tlpn" => $data->user->no_whatsapp
-            ];
-            $result = new CstoreService();
-            $res = $result->indomaret($bank, $data);
-            //CEK KODE RESPON
-            if ($res["status_code"] != 201) {
-                $responseError = [
-                    'status_code' => $res["status_code"],
-                    'message' => $res['status_message']
+                $result = new TransferBankService();
+                $res = $result->permata($bank, $data);
+                // SET UPDATE TABLE TRANSAKSI EVENT
+                PembayaranLayanan::where('ref_transaction_layanan', $res["order_id"])->update([
+                    "payment_method" => $bank,
+                    "total_payment" => $res["gross_amount"],
+                    "fee_transaksi" => 4000,
+                    "status" => "PENDING",
+                    "updated_at" => $res["transaction_time"]
+                ]);
+                DetailPembayaran::where('pembayaran_layanan_id', $tabelPembayaran)->update([
+                    "kode_bayar_1" => $res["permata_va_number"],
+                ]);
+                $responData = [
+                    "status_code" => $res["status_code"],
+                    "message" =>  $res["status_message"],
                 ];
-                return $responseError;
+                return $responData;
             }
-            // insert db
-            PembayaranLayanan::where('ref_transaction_layanan', $res["order_id"])->update([
-                "payment_method" => $bank,
-                "total_payment" => $res["gross_amount"],
-                "fee_transaksi" => 4000,
-                "status" => "PENDING",
-                "updated_at" => $res["transaction_time"]
-            ]);
-            DetailPembayaran::where('pembayaran_layanan_id', $tabelPembayaran)->update([
-                "kode_bayar_1" => $res["payment_code"],
-                "kode_bayar_2" => $res["merchant_id"],
-            ]);
-            $responData = [
-                "status_code" => $res["status_code"],
-                "message" =>  $res["status_message"],
-            ];
-            return $responData;
-        }
-        // -----------------ALFAMART----------------------- //
-        else if ($bank == "alfamart") {
-            $data = [
-                "reference" => $ref,
-                "harga_event" => $data->paket_profesional_conselings->harga,
-                "nama"  => $data->user->nama,
-                "email"  => $data->user->email,
-                "no_tlpn" => $data->user->no_whatsapp,
-                "pesan" => "Pembayaran Layanan Professional Konseling AFEKSI"
-            ];
-            $result = new CstoreService();
-            $res = $result->alfamart($bank, $data);
-            //CEK KODE RESPON
-            if ($res["status_code"] != 201) {
-                $responseError = [
-                    'status_code' => $res["status_code"],
-                    'message' => $res['status_message']
+            // -----------------INDOMARET----------------------- //
+            else if ($bank == "indomaret") {
+                $data = [
+                    "reference" => $ref,
+                    "harga_event" => $data->paket_profesional_conselings->harga - $potongan,
+                    "nama"  => $data->user->nama,
+                    "email"  => $data->user->email,
+                    "no_tlpn" => $data->user->no_whatsapp,
+                    "produk" => $data->paket_profesional_conselings
                 ];
-                return $responseError;
-            }
-            // insert db
-            PembayaranLayanan::where('ref_transaction_layanan', $res["order_id"])->update([
-                "payment_method" => $bank,
-                "total_payment" => $res["gross_amount"],
-                "fee_transaksi" => 4000,
-                "status" => "PENDING",
-                "updated_at" => $res["transaction_time"]
-            ]);
-            DetailPembayaran::where('pembayaran_layanan_id', $tabelPembayaran)->update([
-                "kode_bayar_1" => $res["payment_code"],
-            ]);
-            $responData = [
-                "status_code" => $res["status_code"],
-                "message" =>  $res["status_message"],
-            ];
-            return $responData;
-        }
-        // --------------GOPAY------------------------------
-        else if ($bank == "gopay") {
-            $data = [
-                "reference" => $ref,
-                "harga_event" => $data->paket_profesional_conselings->harga,
-                "nama"  => $data->user->nama,
-                "email"  => $data->user->email,
-                "no_tlpn" => $data->user->no_whatsapp
-            ];
-            $result = new EwalletService();
-            $res = $result->gopay($bank, $data);
-            //CEK KODE RESPON
-            if ($res["status_code"] != 201) {
-                $responseError = [
-                    'status_code' => $res["status_code"],
-                    'message' => $res['status_message']
+                $result = new CstoreService();
+                $res = $result->indomaret($bank, $data);
+                // insert db
+                PembayaranLayanan::where('ref_transaction_layanan', $res["order_id"])->update([
+                    "payment_method" => $bank,
+                    "total_payment" => $res["gross_amount"],
+                    "fee_transaksi" => 4000,
+                    "status" => "PENDING",
+                    "updated_at" => $res["transaction_time"]
+                ]);
+                DetailPembayaran::where('pembayaran_layanan_id', $tabelPembayaran)->update([
+                    "kode_bayar_1" => $res["payment_code"],
+                    "kode_bayar_2" => $res["merchant_id"],
+                ]);
+                $responData = [
+                    "status_code" => $res["status_code"],
+                    "message" =>  $res["status_message"],
                 ];
-                return $responseError;
+                return $responData;
             }
-            // insert
-            PembayaranLayanan::where('ref_transaction_layanan', $res["order_id"])->update([
-                "payment_method" => $bank,
-                "total_payment" => $res["gross_amount"],
-                "fee_transaksi" => 4000,
-                "status" => "PENDING",
-                "updated_at" => $res["transaction_time"]
-            ]);
-            DetailPembayaran::where('pembayaran_layanan_id', $tabelPembayaran)->update([
-                "kode_bayar_1" => $res["actions"][1]['url'],
-                "kode_bayar_2" => $res["actions"][0]['url'],
-            ]);
-            $responData = [
-                "status_code" => $res["status_code"],
-                "message" =>  $res["status_message"],
-            ];
-            return $responData;
-        }
-        // ----------------------------SHOPPE-PAY---------------------
-        else if ($bank == "shopeepay") {
-            $data = [
-                "reference" => $ref,
-                "harga_event" => $data->paket_profesional_conselings->harga,
-                "nama"  => $data->user->nama,
-                "email"  => $data->user->email,
-                "no_tlpn" => $data->user->no_whatsapp
-            ];
-            $result = new EwalletService();
-            $res = $result->shopeePay($bank, $data);
-            //CEK KODE RESPON
-            if ($res["status_code"] != 201) {
-                $responseError = [
-                    'status_code' => $res["status_code"],
-                    'message' => $res['status_message']
+            // -----------------ALFAMART----------------------- //
+            else if ($bank == "alfamart") {
+                $data = [
+                    "reference" => $ref,
+                    "harga_event" => $data->paket_profesional_conselings->harga,
+                    "nama"  => $data->user->nama,
+                    "email"  => $data->user->email,
+                    "no_tlpn" => $data->user->no_whatsapp,
+                    "pesan" => "Pembayaran Layanan Professional Konseling AFEKSI",
+                    "produk" => $data->paket_profesional_conselings
                 ];
-                return $responseError;
+                $result = new CstoreService();
+                $res = $result->alfamart($bank, $data);
+                // insert db
+                PembayaranLayanan::where('ref_transaction_layanan', $res["order_id"])->update([
+                    "payment_method" => $bank,
+                    "total_payment" => $res["gross_amount"],
+                    "fee_transaksi" => 4000,
+                    "status" => "PENDING",
+                    "updated_at" => $res["transaction_time"]
+                ]);
+                DetailPembayaran::where('pembayaran_layanan_id', $tabelPembayaran)->update([
+                    "kode_bayar_1" => $res["payment_code"],
+                ]);
+                $responData = [
+                    "status_code" => $res["status_code"],
+                    "message" =>  $res["status_message"],
+                ];
+                return $responData;
             }
-            // insert db
-            PembayaranLayanan::where('ref_transaction_layanan', $res["order_id"])->update([
-                "payment_method" => $bank,
-                "total_payment" => $res["gross_amount"],
-                "fee_transaksi" => 4000,
-                "status" => "PENDING",
-                "updated_at" => $res["transaction_time"]
-            ]);
-            DetailPembayaran::where('pembayaran_layanan_id', $tabelPembayaran)->update([
-                "kode_bayar_1" => $res["actions"][0]['url'],
-            ]);
-            $responData = [
-                "status_code" => $res["status_code"],
-                "message" =>  $res["status_message"],
-            ];
-            return $responData;
-        }
+            // --------------GOPAY------------------------------
+            else if ($bank == "gopay") {
+                $data = [
+                    "reference" => $ref,
+                    "harga_event" => $data->paket_profesional_conselings->harga,
+                    "nama"  => $data->user->nama,
+                    "email"  => $data->user->email,
+                    "no_tlpn" => $data->user->no_whatsapp,
+                    "produk" => $data->paket_profesional_conselings
+                ];
+                $result = new EwalletService();
+                $res = $result->gopay($bank, $data);
+                // insert
+                PembayaranLayanan::where('ref_transaction_layanan', $res["order_id"])->update([
+                    "payment_method" => $bank,
+                    "total_payment" => $res["gross_amount"],
+                    "fee_transaksi" => 4000,
+                    "status" => "PENDING",
+                    "updated_at" => $res["transaction_time"]
+                ]);
+                DetailPembayaran::where('pembayaran_layanan_id', $tabelPembayaran)->update([
+                    "kode_bayar_1" => $res["actions"][1]['url'],
+                    "kode_bayar_2" => $res["actions"][0]['url'],
+                ]);
+                $responData = [
+                    "status_code" => $res["status_code"],
+                    "message" =>  $res["status_message"],
+                ];
+                return $responData;
+            }
+            // ----------------------------SHOPPE-PAY---------------------
+            else if ($bank == "shopeepay") {
+                $data = [
+                    "reference" => $ref,
+                    "harga_event" => $data->paket_profesional_conselings->harga,
+                    "nama"  => $data->user->nama,
+                    "email"  => $data->user->email,
+                    "no_tlpn" => $data->user->no_whatsapp,
+                    "produk" => $data->paket_profesional_conselings
+                ];
+                $result = new EwalletService();
+                $res = $result->shopeePay($bank, $data);
+                // insert db
+                PembayaranLayanan::where('ref_transaction_layanan', $res["order_id"])->update([
+                    "payment_method" => $bank,
+                    "total_payment" => $res["gross_amount"],
+                    "fee_transaksi" => 4000,
+                    "status" => "PENDING",
+                    "updated_at" => $res["transaction_time"]
+                ]);
+                DetailPembayaran::where('pembayaran_layanan_id', $tabelPembayaran)->update([
+                    "kode_bayar_1" => $res["actions"][0]['url'],
+                ]);
+                $responData = [
+                    "status_code" => $res["status_code"],
+                    "message" =>  $res["status_message"],
+                ];
+                return $responData;
+            }
     }
 }
